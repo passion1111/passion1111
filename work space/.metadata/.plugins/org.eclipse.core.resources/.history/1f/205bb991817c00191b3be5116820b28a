@@ -1,0 +1,27 @@
+package personal;
+import java.util.*;
+public class Personal3_multiples_sum {
+	private static int x;
+
+	public static void main(String[] args) {
+		
+		  
+			     int arr[] = new int[x];
+			     int three = 0;
+			     int five;
+			     Scanner scan = new Scanner(System.in);
+
+			     for(int i = 1; i < 1000; i++)
+			    {
+			       for(int three1=3*i;three1<1000; )
+			    	   three=three1;
+			       arr[three] = scan.nextInt();
+			    }
+	
+}
+}
+
+
+
+ 
+

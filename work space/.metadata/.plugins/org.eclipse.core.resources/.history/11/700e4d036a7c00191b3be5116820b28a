@@ -1,0 +1,19 @@
+//*
+package ex01_basic;
+
+public class Datatype3 {
+		//모든 자료형은 자신의 범위(크기)를 안벗어난다.
+		public static void main(String[] args) { //main<- ctr+spacebar
+			short sh = 32767;   //-32,768~32,767
+			int num=50000; //-21억~21억
+			
+			System.out.println(sh+ " : " + num);
+			num= -32769;
+			/*sh= num;  < 에러뜨는이유는 sh가 2바이트를 넘어가기떄문*/
+			sh=(short)num;
+			System.out.println(sh+ " : " + num); //결과예상할것.
+		}
+}
+//*/
+
+/*  */ // 왼쪽에 */ /*에 /하나씩 더 넣으면 주석토글이 가능함.

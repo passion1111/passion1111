@@ -1,0 +1,23 @@
+package a;
+
+public class Ha {
+	
+	public static void main(String args[])
+	{
+		for(int space=1;space<5; space++) {
+			
+		      
+			for(int cnt=1; cnt<5; cnt++) {
+				for(int abb=1;abb<cnt-1; abb++)
+		     {
+		    	 System.out.print(" ");
+		     }
+		     System.out.print("*");
+		
+		}
+			System.out.println("\n");
+	}
+		}
+	}
+
+

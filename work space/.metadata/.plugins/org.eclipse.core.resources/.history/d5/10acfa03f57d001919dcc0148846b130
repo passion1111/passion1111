@@ -1,0 +1,9 @@
+package ex03_Exception;
+
+import java.util.Scanner;
+
+public class Exception_Tray01 {
+	Scanner sc=new Scanner(System.in);
+	
+
+}

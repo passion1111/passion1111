@@ -8,7 +8,7 @@ public class Ex01_Opearator5 {
 	      
 		int x=10,y=20,z=30;  //&&,|| 연산은 아에것이 거짓이면 뒤에것은 실행안함.2개붙으면 10진
 									//true,false  앞에것이 거짓이거나 참인것을 앞에쪽으로 뺴주면 성능향상가능.
-		boolean flag;
+		boolean flag;         //booealn은 계산결과가 true false로 나오게 할것.
 		flag=(x<y)&&(y<z);
 		System.out.println(flag);
 		

@@ -9,7 +9,8 @@ public class Datatype4 {
 			System.out.printf("10진수: %d \n" ,su);
 			System.out.printf("8진수: %o \n" ,su);
 			System.out.printf("16진수 %x, %X \n" , su , su); //x,X차이는 abcdef까지 소문자 대문자차이
-			System.out.printf("%d %x %o %X",10,10,10,10);
+			System.out.printf("%d %x %o %X  \n",10,10,10,10);
+			System.out.printf("%.2f  \n",32.132);
 			
 			
 			

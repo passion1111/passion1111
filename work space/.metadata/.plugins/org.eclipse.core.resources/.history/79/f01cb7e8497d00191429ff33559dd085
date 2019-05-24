@@ -1,0 +1,15 @@
+package personal;
+
+
+public class Personal_practice {
+			public static void main(String[] args) {
+
+				String a="ddddwww";
+				String b="wkwdkwdl";
+				String c=a+b;
+				System.out.println(c);
+				
+			
+			}
+}			
+

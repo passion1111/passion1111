@@ -3,17 +3,19 @@ package day03.operator;
 	
 public class Ex01_Opearator6 {
 	public static void main(String[] args) {
-		   					//논리 연산자:&  &&(and), |  || (or) , ^(xor)
+		   					//대입 연산자 x=3;   ,  콤마연산자 순차연산자 ","2가지이름으로 부름.
+	int x=3,b=1,c;
+	x+=1;  //x=x+1     =+ <--이건 window에서안됨. 대입연산자는 처리속도가 기본연산보다빠름.
+			 //x++으로 더 줄일수있음.
+			//+,-,/,%   =으로 가능.
+	x=x*b; 
+	x*=b;  //x=x*b
+	x=x<<b; //x<<=y
 	
+	
+	//단 삼 대 는 방향이 위에서 아래로 우측에서 좌측으로.컴파일된다. 대입 삼항 단항연산자
 	      
-		int x=10,y=20,z=30;  //&&,|| 연산은 아에것이 거짓이면 뒤에것은 실행안함.2개붙으면 10진
-									//true,false  앞에것이 거짓이거나 참인것을 앞에쪽으로 뺴주면 성능향상가능.
-		boolean flag;
-		flag=(x<y)&&(y<z);
-		System.out.println(flag);
-		
-		flag=(x<y)||(z<y);           //||는 앞에것이 참이면 뒤에것 실행안함 의미없으므로.
-		System.out.println(flag);
+	
 				
 		
 	
@@ -24,24 +26,3 @@ public class Ex01_Opearator6 {
 
 
 
-/*
-int a=4;
-int b=7;
-int c=3;
-
-
-  System.out.println(a&b);   //2진수비교
-  System.out.println(a|b);
-  System.out.println(b^a);
-  */
-
-
-
-/*  &&두개있으면 중간에 안맞으면 바로 빠져나감.  논리타입.
-int x=10,y=20,z=30;
-boolean flag;
-
-flag=(x>y)&&(y>z);
-System.out.println(flag);
-
-*/

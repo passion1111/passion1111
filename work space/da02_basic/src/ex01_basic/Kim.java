@@ -3,8 +3,8 @@ package ex01_basic;
 public class Kim {
 	public static void main(String[] args) {
 		
-	 String name="±è½Â¼ö";
-	 int age=27;
+	 String name="Kim";
+	 int age=77;
 	 float weight=70.2f;
 	 
 	 System.out.println("ÀÌ¸§: "+name);

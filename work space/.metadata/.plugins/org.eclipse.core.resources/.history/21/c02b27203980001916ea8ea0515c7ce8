@@ -1,0 +1,14 @@
+package ex02_for_star;
+
+public class For_star4 {
+		public static void main(String[] args) {
+			int i,jl
+			
+			for(i=0;i<3;i++) {
+				for(j=0;j<3-i)
+			}
+			
+			
+		}
+
+}

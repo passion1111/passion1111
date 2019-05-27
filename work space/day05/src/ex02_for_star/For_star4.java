@@ -24,19 +24,32 @@ public class For_star4 {
 			     i=a=d;
 			     b=d-1;
 	}
+	i=d=a=b=0;
 
-	for(d=1;d<=4;d++) {
-		for(i=0;i<d;i++) {
+	
+	for(d=1;d<5;d++) {
+		for(i=0;i<=d;i++) {
+			if(i==4)continue;
 	    	 System.out.print("*");
 	    	 
 	}
-		
+		for(a=1;a<=7-(2*d);a++) {
+	    	 
+	    	 System.out.print(" ");
+	     }
+		for(i=0;i<=d;i++) {
+			
+	    	 System.out.print("*");
+	    	 if(i==4)continue;
+		}
+		System.out.println("");
 		
 			     
 		
 			
 			
-		}
-
+		
+	
+}
 }
 }

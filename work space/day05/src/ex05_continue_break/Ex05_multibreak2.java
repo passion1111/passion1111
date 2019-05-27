@@ -14,7 +14,7 @@ public class Ex05_multibreak2 {
 							int k=100;
 							System.out.println("Before the break;");
 							if(flag)  break first;//break써놓고 빠져나가길 원하는 식별자까지 적어주면 해당하는
-//															블럭을빠져나감.
+//															블럭까지 빠져나감.
 							System.out.println("This won't execute ");
 		}//third
 			System.out.println("화이팅");

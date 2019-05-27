@@ -1,5 +1,5 @@
 package personal;
-
+//노가다62줄짜리.
 import java.util.Scanner;
 
 public class Personal_quiz {
@@ -12,7 +12,7 @@ public class Personal_quiz {
 		int y=sc.nextInt();
 		System.out.println("z를입력해주세요: ");
 		int z=sc.nextInt();
-if( 0<x&& 0<y && 0<z ){
+if( 0!=x&& 0!=y && 0!=z ){
 	if (x > y) {
 			if (x > z) {
 				if (y > z)
@@ -57,6 +57,6 @@ if( 0<x&& 0<y && 0<z ){
 	else System.out.println("다시입력해주세요");
 		
 	}
-else System.out.println("0이상의 숫자를 입력해주세요");
+else System.out.println("정수를 입력해주세요");
 }
 }

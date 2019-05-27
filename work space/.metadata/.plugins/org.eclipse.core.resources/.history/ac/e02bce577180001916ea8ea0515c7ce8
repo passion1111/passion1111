@@ -10,7 +10,7 @@ public class Personal_homework4 {
 		b+=a;
 		c=b-a;
 	
-	}a=1;
+	}
 		for(d=1;d<=3;d++) {
 			e+=d;
 			f=e-d;
@@ -18,7 +18,7 @@ public class Personal_homework4 {
 
 	
 	
-	System.out.println(a+b+c+e+f);	
+	System.out.println(g+b+c+e+f);	
 
 }
 }

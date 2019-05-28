@@ -1,0 +1,33 @@
+package ex03.input;
+
+import java.util.Scanner;
+
+public class Quiz02 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("이름을 입력하세요 : ");
+		String name = sc.nextLine();
+		System.out.print("국어 점수를 입력하세요 :");
+		int kor = sc.nextInt();
+		System.out.print("영어 점수를 입력하세요 :");
+		int eng = sc.nextInt();
+		System.out.print("전산 점수를 입력하세요 :");
+		int ele = sc.nextInt();
+		float avg = (kor+eng+ele)/3;
+
+		System.out.printf("이름 : " + name + "\n국어 점수 :" + kor + "\n영어 점수 : "
+				+ eng + "\n전산 점수 : " + ele + "\n총점: " +(kor+eng+ele) + 
+				"\n평균 : " +  "%.2f",avg  );
+
+
+
+
+
+
+
+
+
+
+	}
+}
+//*/

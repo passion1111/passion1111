@@ -1,0 +1,20 @@
+package hw_20190527;
+
+public class No_2 {
+	public static void main(String[] args) {
+//		과제2 ] (-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ?
+				
+		int a = 1;	//절대값
+		int swt = -1;
+		int sum=0;
+		
+		for (a = 1 ; a <=10 ; a++) {
+			int temp = a*swt;
+			sum += temp;
+			swt*=-1;
+		}
+		System.out.println(sum);
+
+	}
+
+}

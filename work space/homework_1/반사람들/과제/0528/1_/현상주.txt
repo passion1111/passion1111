@@ -1,0 +1,42 @@
+package Task_homework;
+
+import java.util.Scanner;
+
+public class Task_Ex1 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num=0; char ch = ' ';
+	
+		do {
+			try {
+				System.out.print("원하는값까지 입력하세요> ");
+				num = sc.nextInt();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.exit(0);
+			} //예외처리
+			
+			int sum = 0;
+			System.out.print("1 + "); // 1 화면출력
+			for (int i = 1; i < num; i++) {
+				System.out.print("(");
+				for (int j = 1; j <= i + 1; j++) {
+					System.out.print(j);
+					if (j != (i + 1))
+						System.out.print(" + ");
+					sum += j; // 값 누적
+				}
+				System.out.print(")");
+				if (i != num - 1) {
+					System.out.print(" + "); // 마지막 변수에서 + 제외
+				}
+			}
+			System.out.println(" = " + (sum + 1)); // 처음 1 더하기
+			System.out.print("continue? (Y, y)");
+			ch = sc.next().charAt(0);
+		} while (ch == 'y' || ch == 'Y');
+		sc.close();
+	}
+
+}

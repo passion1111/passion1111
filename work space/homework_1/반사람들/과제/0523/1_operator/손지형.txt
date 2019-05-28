@@ -1,0 +1,29 @@
+package ex01.operator;
+
+public class Homework523 {
+
+	public static void main(String[] args) { //시작점
+//		int pay = 56789;
+//		result> 만원 : 56장
+//		          천원 : 7장
+//		          백원 : 8개
+//		          십원 : 9개
+		
+		int pay = 567890;
+		System.out.println("result> 만원:"+ pay/10000+"장");
+		System.out.println("천원:"+(pay%10000)/1000+"장");
+		System.out.println("백원:"+(pay%10000%1000)/100+"개");
+		System.out.println("십원:"+(pay%10000%1000%100)/10+"개");
+		
+		int x = 567890;
+		System.out.println("result> 만원:"+ x/10000+"장");
+		x=x%10000;
+		System.out.println("천원:"+x/1000+"장");
+		x=x%1000;
+		System.out.println("백원:"+x/100+"개");
+		x=x%100;
+		System.out.println("십원:"+x/10+"개");
+
+	} // end main
+
+} // end class

@@ -1,0 +1,24 @@
+ package 과제;
+
+// 과제2] (-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ?
+import java.util.Scanner;
+
+public class 과제02 {
+
+	public static void main(String[] args) {
+
+		boolean flag = true;
+
+		Scanner sc = new Scanner(System.in);
+		int sum1, sum2;
+		sum1 = 0;// 누적할 변수 초기화
+		sum2 = 0;
+		int x = sc.nextInt();
+		
+		for (x = 2; x <= 10; x++) {
+			System.out.println("sum1 = " + sum1);
+			for (x = 1 ; x > -9; x++) {
+			} // end for int
+		} // end for out	
+	} // end main
+} // end class

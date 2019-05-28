@@ -1,0 +1,21 @@
+package Ex01_operator;
+
+
+public class OperatorText {
+
+	public static void main(String[] args) {		
+
+int pay = 567890, a = 10000, b = 1000, c = 100, d = 10;
+int man = pay/a;
+int cheon = pay%a;
+int hd = pay%b;
+int ten = pay%c;
+		
+		
+System.out.println("만원 : " + man + "장");
+System.out.println("천원 : " + cheon/b + "장");
+System.out.println("백원 : " + hd/c + "개");
+System.out.println("십원 : " + ten/d + "개");
+
+}
+}

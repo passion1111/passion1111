@@ -1,0 +1,17 @@
+package ex01.operator;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		int pay = 567890;
+		int nam;
+		System.out.println("만원 : " + pay / 10000 + "장");
+		nam = pay % 10000;
+		System.out.println("천원 : " + nam / 1000 + "장");
+		nam = pay % 1000;
+		System.out.println("백원 : " + nam / 100 + "개");
+		nam = pay % 100;
+		System.out.println("십원 : " + nam / 10 + "개");
+		
+	}
+}

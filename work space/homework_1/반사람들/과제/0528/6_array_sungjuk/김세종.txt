@@ -1,0 +1,61 @@
+package ex01.array;
+
+import java.util.Scanner;
+
+public class Array_Quiz7 {
+	public static void main(String[] args) {
+		int kor, eng, com, tot,size;
+		double avg;
+		String name;
+		char grade = ' ';
+		
+		//배열 
+		size = 3;
+		String[] nameList = new String[size];
+		int[] korList = new int[size];
+		int[] engList = new int[size];
+		int[] comList = new int[size];
+		int[] totList = new int[size];
+		double[] avgList = new double[size];
+		char[] gradeList = new char[size];	
+		
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0; i < size; i++) {
+			
+			System.out.print("이름 입력: ");
+			name = sc.nextLine();
+			System.out.print("국어 점수 입력: ");
+			kor = sc.nextInt();
+			System.out.print("영어 점수 입력: ");
+			eng = sc.nextInt();
+			System.out.print("전산 점수 입력: ");
+			com = sc.nextInt();
+			sc.nextLine();
+			tot = kor + eng + com;
+			avg = tot / 3.;
+			
+			if(avg>=90) grade = 'A';
+			else if(avg>=80) grade = 'B';
+			else if(avg>=70) grade = 'C';
+			else if(avg>=60) grade = 'D';
+			else grade = 'F';
+			
+			nameList[i] = name;
+			korList[i] = kor;
+			engList[i] = eng;
+			comList[i] = com;
+			totList[i] = tot;
+			avgList[i] = avg;
+			gradeList[i] = grade;			
+		}
+		sc.close();
+		
+		for(int i = 0; i < nameList.length; i++) {
+			System.out.println("*****" + nameList[i] + "님의 성적표 *****");
+			System.out.println("국어 : " + korList[i] + "점\t영어 : " + engList[i] +"점\t전산 : " + comList[i] + "점");
+			System.out.printf("총점 : %d  평균 : %.2f   학점(평점) : %c\n", totList[i], avgList[i], gradeList[i]);							
+		}
+		
+	}//main end
+}//class end

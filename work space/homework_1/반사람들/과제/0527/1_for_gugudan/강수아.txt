@@ -1,0 +1,45 @@
+//*좌우로 출력
+package ex03.For;
+
+import java.util.Scanner;
+
+public class ForEx06 {
+	public static void main(String[] args) {
+
+		System.out.print("몇 단부터? ");
+
+		int num = new Scanner(System.in).nextInt();
+
+		
+		for (int j = 1; j < 10; j++) {
+			
+			for (int i = num; i < 10; i++) {
+				
+				System.out.printf("%2d * %2d = %2d\t", i, j, (i * j));
+			}
+
+			System.out.println();
+		}
+	}
+}
+*/
+
+
+/*
+ * // 상하로 출력 package ex03.For;
+ * 
+ * import java.util.Scanner;
+ * 
+ * public class ForEx06 { public static void main(String[] args) {
+ * 
+ * System.out.print("몇 단부터? ");
+ * 
+ * int num = new Scanner(System.in).nextInt();
+ * 
+ * for(int i=num; i<10; i++) {
+ * 
+ * for(int j=1; j<10; j++) { // System.out.println(num + " * " + i + " = " + num
+ * * i); System.out.printf("%2d * %2d = %2d\n", i, j, (i*j)); }
+ * 
+ * System.out.println(); } } }
+ */

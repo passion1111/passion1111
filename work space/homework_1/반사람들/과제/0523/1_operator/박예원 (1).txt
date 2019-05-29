@@ -1,0 +1,20 @@
+package ex02.operator;
+
+public class OperatorTest3 {
+
+	public static void main(String[] args) {
+		// 산술연산자 : =, -, *, /, %,....
+
+		int pay = 567890;
+		int man = 567890;
+		int cheon = 7890;
+		int baek = 890;
+		int sip = 90;
+
+		System.out.println("만원 : " + (man / 10000) + "장");
+		System.out.println("천원 : " + (cheon / 1000) + "장");
+		System.out.println("백원 : " + (baek / 100) + "개");
+		System.out.println("십원 :  " + (sip / 10) + "개");
+	} // end main
+
+} // end class

@@ -1,0 +1,98 @@
+package array2;
+
+// 이름, 과목3개입력받고 ,총점 평균 평점 구하기.
+// 성적표 3개 뿌리기.
+import java.util.Scanner;
+
+public class Mainentry_quiz5 {
+	public static void main(String[] args) {
+		int a5=0;
+		int a6=0;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("입력해야하는 명수를 알려주세요");
+		a5=sc.nextInt();
+		
+		
+		int[][] arr=new int[a5][3];
+	String[] arr2=new String[a5]; 
+		
+		System.out.println("이름을 입력하세요: ");
+		String name = sc.nextLine();
+		// System.out.println(name);
+      for(int k=0;k<arr.length;k++) {
+    	  System.out.println(k+"번쨰 사람의 국어성적을 입력해주세요:");
+    	  arr[k][0]=sc.nextInt();
+    	  
+    	  System.out.println("영어 점수를 입력하세요: ");
+    	  arr[k][1]=sc.nextInt();
+    	  System.out.println("전산 점수를 입력하세요: ");
+    	  arr[k][2]=sc.nextInt();
+    	 
+      }
+      
+      int[][] sum =new int[a5][1];
+      double[][] ave =new double[a5][1];
+      for(int k=0;k<arr.length;k++) {
+    	  sum[k][0]=arr[k][0]+arr[k][1]+arr[k][2];
+    	  ave[k][0]=ave[k][0]+ave[k][1]+ave[k][2];
+      }
+  	
+	String[] grade=new String[a5];  
+
+	for(int k=0;k<arr.length;k++) {
+		 if(sum[k][1]>=90) grade[k]="A";
+		 else if((sum[k][1]>=80)&&(sum[k][1]<89)) grade[k]="B";
+		 else if((sum[k][1]>=70)&&(sum[k][1]<79)) grade[k]="C";
+		 else if((sum[k][1]>=60)&&(sum[k][1]<69)) grade[k]="D";
+		
+		 else if(60>sum[k][1]) grade[k]="F";
+		 
+		
+	}
+	String[] grade2=new String[a5]; 
+	for(int k=0;k<arr.length;k++) {
+		 if(sum[k][2]>=90) grade2[k]="A";
+		 else if((sum[k][2]>=80)&&(sum[k][2]<89)) grade2[k]="B";
+		 else if((sum[k][2]>=70)&&(sum[k][2]<79)) grade2[k]="C";
+		 else if((sum[k][2]>=60)&&(sum[k][2]<69)) grade2[k]="D";
+		
+		 else if(60>sum[k][2]) grade[k]="F";
+		 
+		
+	}
+	String[] grade3=new String[a5]; 
+	for(int k=0;k<arr.length;k++) {
+		 if(sum[k][0]>=90) grade[k]="A";
+		 else if((sum[k][0]>=80)&&(sum[k][0]<89)) grade3[k]="B";
+		 else if((sum[k][0]>=70)&&(sum[k][0]<79)) grade3[k]="C";
+		 else if((sum[k][0]>=60)&&(sum[k][0]<69)) grade3[k]="D";
+		
+		 else if(60>sum[k][1]) grade3[k]="F";
+		 
+		
+	}
+		System.out.println(sum[0][1]);
+		String[] grade4=new String[a5]; 
+		for(int k=0;k<arr.length;k++) {
+			 if(ave[k][0]>=90) grade4[k]="A";
+			 else if((ave[k][0]>=80)&&(ave[k][0]<89)) grade4[k]="B";
+			 else if((ave[k][0]>=70)&&(ave[k][0]<79)) grade4[k]="C";
+			 else if((ave[k][0]>=60)&&(ave[k][0]<69)) grade4[k]="D";
+			
+			 else if(60>ave[k][1]) grade[k]="F";
+			 
+			
+		}
+//	  for(int k=0;k<arr.length;k++
+//	   System.out.println("****"+name+"님의 성적표입니다.****");
+//		System.out.println("이름:" + name);
+//		System.out.println("국어 :" + a + "\t영어: " + b + "\t전산: " + c);
+//		System.out.println(name+"님의 학점은 ");
+//		System.out.println("국어 :" + a1 + "\t영어: " + b1 + "\t전산: " + c1);
+//		System.out.printf("총점: " + sum + "\t평균: %.2f ", ave ,"\t 평균학점 : "+ave1 );
+//		System.out.println("평균학점:"+ave1);
+//		
+
+	}
+}

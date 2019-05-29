@@ -1,0 +1,25 @@
+package task;
+
+import java.util.Scanner;
+
+// 문제2 특정달의 강수량 평균을 구하는 프로그램 30일 기준
+public class Quiz_Ex2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		double sum = 0; int num = 0;
+		System.out.print("비가온일수 > ");
+		num = sc.nextInt();
+		double[] arr = new double[num]; 
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.printf("강수량 입력: ");
+			arr[i] = sc.nextDouble();
+			sum += arr[i];
+			System.out.println();
+		}
+		
+		System.out.printf("4월의 비가온일수 : %d 총 강수량 : %.2f 강수량 평균 : %.2f", num, sum, sum/num);
+		sc.close();
+	}
+}

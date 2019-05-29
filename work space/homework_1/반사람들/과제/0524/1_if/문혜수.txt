@@ -1,0 +1,29 @@
+/*
+ 	윤년/평년 판정 프로그램 작성 
+ 	 if(year%4 == 0) 
+ 	 	if(year % 100 != 0) || if(year % 400 == 0) 
+ */
+
+//*
+package ex01.If;
+
+import java.util.Scanner;
+
+public class Quiz_Ex02 {
+
+	public static void main(String[] args) {
+		System.out.print("input year: ");
+		int year = new Scanner(System.in).nextInt();
+		
+		if(year % 4 == 0) {
+			if(((year % 100) != 0) || ((year % 400) == 0)) {
+				System.out.println(year + "년도는 윤년");
+			}
+		}
+		else System.out.println(year + "년도는 평년");
+	}
+
+}
+//*/
+
+

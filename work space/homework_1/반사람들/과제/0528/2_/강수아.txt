@@ -1,0 +1,14 @@
+package Homeworks;
+
+public class no2 {
+	public static void main(String[] args) {
+		
+		int  result=0;
+		
+		for(int i=1; i<=10; i++) {
+			result += (i%2 == 0) ? i : -i;
+		}
+		
+		System.out.println("answer : "+ result);
+	}
+}

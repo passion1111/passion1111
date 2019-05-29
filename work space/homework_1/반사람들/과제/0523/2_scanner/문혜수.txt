@@ -1,0 +1,19 @@
+package ex03.input;
+
+import java.util.Scanner;
+
+public class Quiz_Ex02 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String name = sc.next();
+		int kor = sc.nextInt();
+		int eng = sc.nextInt();
+		int com = sc.nextInt();
+		
+		System.out.println(name + "님의 성적표 ****** ");
+		System.out.println("국어: " + kor + ", 영어: " + eng + ", 전산: " + com );
+		System.out.printf("총점: %d, 평균: %.2f", (kor+eng+com), (double)((kor+eng+com)/3));
+		
+		
+	}
+}

@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Num {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l, m, s;
+        try {
+            System.out.print(" x =  ");  int x = sc.nextInt();
+            System.out.print(" y =  ");  int y = sc.nextInt();
+            System.out.print(" z =  ");  int z = sc.nextInt();
+
+            if (x == y || x == z || y == z) {
+                System.out.print("같은 수는 입력할 수 없습니다.");
+                System.exit(0);
+            }
+
+            l = ( x > y ) ?  (( x > z ) ? x : z ) : (( y > z ) ? y : z );
+            s = ( x < y ) ?  (( x < z ) ? x : z ) : (( y < z ) ? y : z );
+
+            m = x + y + z - ( l + s );
+
+            System.out.print("\n" + l + " > " + m + " > " + s);
+
+        } catch (Exception e) {
+            System.out.print("잘못된 값을 입력했습니다. 정수를 입력해주세요.");
+        }
+    }
+}

@@ -1,0 +1,19 @@
+package method;
+
+import java.util.Scanner;
+
+public class Next {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String name=sc.next();//버퍼에 값이 있다 엔터치면 메모리상에 저장 
+		sc.next();
+		String s2=sc.next();//
+		
+		System.out.println(name+","+s2);
+		
+		
+		
+		
+	}
+
+}

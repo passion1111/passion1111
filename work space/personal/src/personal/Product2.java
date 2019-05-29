@@ -1,3 +1,5 @@
+package personal;
+
 class Product { 
       int price;                   // 제품의 가격 
       int bonusPoint;             // 제품구매 시 제공하는 보너스점수 
@@ -11,6 +13,7 @@ class Product {
             bonusPoint = 0; 
       } 
 } 
+
 
 class Tv extends Product { 
       Tv() { 
@@ -75,7 +78,8 @@ class Buyer {                   // 고객, 물건을 사는 사람
       } 
 } 
 
-class PolyArgumentTest2 { 
+class Product2
+{ 
       public static void main(String args[]) { 
             Buyer b = new Buyer(); 
             Tv tv = new Tv(); 

@@ -1,0 +1,57 @@
+package Test1;
+
+import java.util.Scanner;
+
+public class Test1 {
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("입력할사람 수를 정하시오 : ");
+		int saramsu= scan.nextInt();
+		
+		String namearr[] = new String[saramsu];
+		int korscore[] = new int[saramsu];
+		int engscore[] = new int[saramsu];
+		int matscore[] = new int[saramsu];
+		int totalarr[] = new int[saramsu];
+		float avgarr[] = new float[saramsu];		
+		char hakjum[] =new char[saramsu];
+		
+		for (int i = 0; i < saramsu; i++) {
+			System.out.println("이름을 입력하세요 : ");
+			scan.nextLine();
+			namearr[i] = scan.nextLine();		
+			
+			System.out.println("국어 점수를 입력하세요 : ");
+			korscore[i] = scan.nextInt();
+			
+			System.out.println("영어 점수를 입력하세요 : ");
+			engscore[i] = scan.nextInt();
+			
+			System.out.println("전산 점수를 입력하세요 : ");
+			matscore[i] = scan.nextInt();				
+			
+			totalarr[i] =korscore[i]+engscore[i]+matscore[i];				
+			
+			avgarr[i] = totalarr[i]/3.0f;				
+			
+			if(avgarr[i]>90) hakjum[i]='A';
+			else if(avgarr[i]>80)hakjum[i]='B';
+			else if(avgarr[i]>70)hakjum[i]='C';
+			else if(avgarr[i]>60)hakjum[i]='D';
+			else if(avgarr[i]>50)hakjum[i]='E';
+			else hakjum[i]='F';
+			
+				
+		}
+		
+		for (int i = 0; i < saramsu; i++) {
+			System.out.println(namearr[i]+"님의 성적표");
+			System.out.printf("국어 : %d, 영어 : %d, 전산 : %d \n",korscore[i],engscore[i],matscore[i]);
+			System.out.printf("총점 : %d, 평균 : %.2f,학점 : %c\n",totalarr[i],avgarr[i],hakjum[i]);
+			System.out.println("------------------------------------");
+		}	
+		
+	}
+
+}

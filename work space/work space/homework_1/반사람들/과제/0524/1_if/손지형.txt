@@ -1,0 +1,42 @@
+package ex01_If;
+
+import java.util.Scanner;
+
+public class Homework524_2 {
+
+	public static void main(String[] args) {  //변수선언및 메세지 출력, 입력받기
+	    //윤년 평년 판정 프로 그램 생성
+		//if (year % 4 == 0)
+		//if (year % 100 !== 0) if (year % 400 == 0)
+		
+		Scanner sc = new Scanner(System.in); //입력 객체 생성	
+		
+        System.out.print("******* 윤년 평년 계산기 *****");
+        System.out.print("\n연도를 입력해 주세요 (오직 숫자만!) : ");
+		
+        int year = sc.nextInt();
+		         
+		
+        if (year % 4 == 0 ) {
+        	System.out.println("해당 연도는 윤년입니다.");
+        	
+        	if (year % 100 == 0) {
+        		System.out.println("해당 연도는 평년입니다.");
+        		
+        		if (year % 400 == 0) {
+        		   System.out.println("해당 연도는 윤년입니다.");
+        		}
+        	}
+        }// if end
+        else if (year % 4 != 0){
+        	System.out.println("해당 연도는 평년입니다.");
+        }
+ 		
+ 		
+         
+         sc.close();
+        
+
+	}
+
+}

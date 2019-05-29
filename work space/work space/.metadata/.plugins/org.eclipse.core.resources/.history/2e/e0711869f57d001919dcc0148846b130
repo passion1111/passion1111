@@ -1,0 +1,15 @@
+package ex03_Exception;
+
+import java.util.Scanner;
+
+public class Exception_Tray01 {
+	public static void main(String[] args) {
+	
+		int x=5,y=0;
+		System.out.println(100/20);
+		System.out.println(x/y);
+	}
+	
+	
+
+}

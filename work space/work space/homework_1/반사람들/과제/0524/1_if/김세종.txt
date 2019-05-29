@@ -1,0 +1,22 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class Quiz_Year {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("======= 윤년 계산기 =======");
+		System.out.print("년도 입력> ");
+		int year = sc.nextInt();
+		String leapYear = "평년";
+		
+		if(year % 4 == 0) {
+			if((year % 100 != 0) || (year % 400 == 0)) {
+				leapYear = "윤년";
+			}
+		}
+		
+		System.out.println("결과 : " + leapYear);
+		sc.close();
+	}
+}

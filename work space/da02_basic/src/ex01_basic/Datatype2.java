@@ -14,6 +14,7 @@ public class Datatype2 {
 		      	System.out.println(su);
 		      	
 		      	System.out.println((int)ch); //ASCII65
+		      	System.out.println(ch2= (char) (ch2+1));
 		      	System.out.println(ch2+ch3); //아스키숫자로변해서 더해짐
 		      	System.out.println("aa=" +aa);//문자와 변수더해져서나옴
 		      	System.out.println("실수형데이터:" +d); //12.34

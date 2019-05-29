@@ -1,0 +1,43 @@
+package ex01.array;
+
+import java.util.Scanner;
+
+//문제2] 기상청
+//특정달의 강수량 평균을 구하는 프로그램 작성(단, 30일 기준)
+public class Array_Quiz2 {
+	public static void main(String[] args) {
+		//변수 선언 및 초기화
+		int month, rain, tot;
+		double avg = 0.0;
+		month = rain = tot = 0;
+		
+		//달 입력
+		month = 4;
+		//일 입력
+		int day_of_month = 4;
+		//해당 달에 대한 배열
+		int[] rainList = new int[day_of_month];
+		
+		System.out.println("비 안옴 : 0  |  비 옴 : 1");
+		for(int i = 0; i < rainList.length; i++ ) {
+			
+			//입력값 0 또는 1만 입력받기
+			do {
+				System.out.print(month + "월 " + (i+1) + "일 강수량 : ");
+				rain = new Scanner(System.in).nextInt();	
+			}while(rain != 0 && rain != 1 ); //while end
+			rainList[i] = rain;
+			
+			//입력받자 마자 더하기
+			tot += rain;
+		} //for end
+		//강수량 평균 구하기
+		avg = (double)tot / rainList.length;
+		avg *= 100;
+		
+		//결과출력
+		System.out.printf("%d월의 평균 강수량 : %.2f%%", month, avg);
+		//콘솔종료
+		System.exit(0);
+	}//main end
+}//class end

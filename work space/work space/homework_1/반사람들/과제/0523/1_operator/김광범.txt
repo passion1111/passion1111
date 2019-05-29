@@ -1,0 +1,12 @@
+	int pay = 567896;
+		int first = pay / 100000;
+		int firstout = pay % 100000;
+		int second = firstout / 10000;
+		int secondout = firstout % 10000;
+		int third = secondout / 1000;
+		int thirdout = secondout % 1000;
+		int fourth  = thirdout / 100;
+		
+		System.out.println(" payment "+ pay);
+		System.out.println(first+"만원\n"+second+"천원\n"+third+"백원\n"+fourth+"십원\n");
+		

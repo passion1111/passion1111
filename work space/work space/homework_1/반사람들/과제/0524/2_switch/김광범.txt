@@ -1,0 +1,36 @@
+package Switch;
+
+import java.util.Scanner;
+
+public class Controller_Switch5 {
+	public static void main(String[] args) {
+		System.out.print("Enter the month you want to check");
+		Scanner sc = new Scanner(System.in);
+		int month = sc.nextInt();
+		
+		int days;
+		int check;
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+			check = 1;
+		} else if (month == 2) {
+			check = 2;
+		} else {
+			check = 3;
+		}
+
+		switch (check) {
+		case 1:
+			days = 31;
+			System.out.println("\n\n the month  : " + month + " is " + days + "days");
+			break;
+		case 2:
+			days = 28;
+			System.out.println("\n\n the month  : " + month + " is " + days + "days");
+			break;
+		case 3:
+			days = 30;
+			System.out.println("\n\n the month  : " + month + " is " + days + "days");
+			break;
+		}
+	}
+}

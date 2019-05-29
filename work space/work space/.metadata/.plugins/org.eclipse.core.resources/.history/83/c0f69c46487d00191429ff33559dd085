@@ -1,0 +1,14 @@
+package personal;
+import java.applet.*;
+import java.awt.*;
+
+public class Personal_practice extends Applet{
+			public void paint(Graphics g) {
+			
+			g.drawString("Hellow world!", 100, 100);
+			
+			}
+			
+			}
+			
+

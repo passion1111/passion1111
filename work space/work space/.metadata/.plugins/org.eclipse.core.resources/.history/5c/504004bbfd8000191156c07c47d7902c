@@ -1,0 +1,19 @@
+package array;
+
+import java.util.Scanner;
+
+public class MainEntry5 {
+
+		public static void main(String[] args) {
+			String[] arr= {"º½¿Ê","¿©¸§¿Ê","°¡À»¿Ê"};
+			String[] arr2=new String[arr.length+1];//3+1
+			
+			
+		}
+	}	
+	
+
+
+
+
+

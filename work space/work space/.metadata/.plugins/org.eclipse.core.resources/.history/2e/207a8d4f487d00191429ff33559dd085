@@ -1,0 +1,16 @@
+package personal;
+import java.applet.*;
+import java.awt.*;
+
+public class Personal_practice {
+			public static void main(String[] args) {
+
+				
+				   char a="a";
+				   System.out.println(a);
+			} {
+			
+			
+			}
+}			
+

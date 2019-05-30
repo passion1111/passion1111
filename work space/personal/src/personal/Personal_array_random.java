@@ -23,17 +23,19 @@ public class  Personal_array_random{
 					i1--;
 				}			
 			}
-		}
-				for(int i1=0;i1<name.length;i1++) {
-					                 name[i1]=name[(name2[i1])];
-					System.out.print(name2[i1]+"\t");
-					if((i1%5)==0) System.out.println("");
+		}int k=0;
+		System.out.println(name2[k]);
+		System.out.println(name[k]=name[name2[k]]);
+//				for(int i1=0;i1<name.length;i1++) {
+//					                 name[i1]=name[(name2[i1])];
+//					System.out.print(name2[i1]+"\t");
+//					if((i1%5)==0) System.out.println("");
 				}
-			
+}
 	
-			}
-		
-	}
-
-
+//			}
+//		
+//	}
+//
+//
 	

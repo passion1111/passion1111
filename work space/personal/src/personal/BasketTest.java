@@ -174,6 +174,3 @@ class Tv extends Product {
 
 }
 
-
-
-출처: https://photo199.tistory.com/86 [마따호쉐프의 블로그]

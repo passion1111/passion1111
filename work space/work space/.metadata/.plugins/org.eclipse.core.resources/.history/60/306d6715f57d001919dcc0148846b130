@@ -1,0 +1,14 @@
+package ex03_Exception;
+
+import java.util.Scanner;
+
+public class Exception_Tray01 {
+	public static void main(String[] args) {
+	
+		
+		System.out.println(100/20);
+	}
+	
+	
+
+}

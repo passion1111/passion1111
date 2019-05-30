@@ -1,0 +1,9 @@
+package ex01_basic;
+
+public class Kim {
+	public static void main(String[] args) {
+		
+	
+	}
+
+}

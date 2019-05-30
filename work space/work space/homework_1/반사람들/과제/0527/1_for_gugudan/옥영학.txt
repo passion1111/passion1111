@@ -1,0 +1,15 @@
+public class ForEx6 {
+
+	public static void main(String[] args) {
+		int result = 0;
+		for (int y = 1; y <= 9; y++) {
+			for (int i = 2; i <= 9; i++) {
+				result = i * y;
+				System.out.print(i + "*" + y + "=" + result + "\t");
+			}
+			System.out.println();
+		}
+
+	}
+
+}

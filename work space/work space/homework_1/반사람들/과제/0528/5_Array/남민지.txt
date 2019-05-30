@@ -1,0 +1,36 @@
+package ex02_array;
+
+import java.util.Scanner;
+
+/*
+ * ¹®Á¦3] 
+ * int[][] arr = new int[2][3]; 
+ */
+
+public class Quiz7 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int[][] arr = {{1,2,10,5},{9,7,3,20},{0,0,0,0}};
+		int i=0, j=0;
+		
+
+		for(j=0;j<arr[0].length;j++) {
+			arr[arr.length-1][j]=(arr[arr.length-2][j]+(arr[arr.length-3][j]));
+		}
+		
+		for(i=0; i<arr.length; i++) {
+			for(j=0; j<arr[0].length;j++) {
+				System.out.println("arr["+i+"]["+j+"] ="+arr[i][j]);
+			}
+			System.out.println();
+		}
+		
+		
+		scan.close();
+		
+	}//end main
+	
+}//end class

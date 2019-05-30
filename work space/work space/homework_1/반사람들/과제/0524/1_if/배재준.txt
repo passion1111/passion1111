@@ -1,0 +1,31 @@
+package ex01_If;
+
+import java.util.Scanner;
+//윤년/평년 판정 프로그램 작성
+//1.변수선언 2. 메세지출력 및 입력 받기 3.처리(계산) 4.출력
+public class day04_quiz2 {
+public static void main(String[] args) {
+	int year;
+	System.out.print("년도를 입력 하시오 : ");
+	year = new Scanner(System.in).nextInt();
+	String str ="";
+	
+	
+	if( year % 4 == 0) {
+		if( (year % 100 != 0 ) || (year % 400 == 0) ) 
+			str="윤년 입니다.";
+		}else{
+			str="평년 입니다.";
+		}
+		System.out.println(str);
+			
+	}
+	
+
+	
+		
+		
+	
+		
+	
+}

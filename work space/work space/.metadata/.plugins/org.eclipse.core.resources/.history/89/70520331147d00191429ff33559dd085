@@ -1,0 +1,14 @@
+package personal;
+import java.util.Scanner;
+
+public class Personal4_sum1 {
+		public static void main(String[] args) {
+			Scanner scan = new Scanner(System.in);
+			int input=scan.nextInt();
+			int input2=scan.nextInt();
+			System.out.println(input);
+			System.out.println(input2);
+			
+		}
+
+}

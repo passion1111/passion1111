@@ -1,0 +1,17 @@
+package personal;
+
+import java.util.Scanner;
+
+public class next_nextLine{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		String a1=sc.next();
+		System.out.println(a1);
+		String a2=sc.nextLine();
+		System.out.println(a2);
+	
+		
+		
+	}
+}

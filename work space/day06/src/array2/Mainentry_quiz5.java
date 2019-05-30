@@ -1,7 +1,7 @@
 package array2;
 
 // 이름, 과목3개입력받고 ,총점 평균 평점 구하기.
-// 성적표 3개 뿌리기.
+// 성적표 3개 뿌리기.   미완성 quiz7_com파일을 볼것.
 import java.util.Scanner;
 
 public class Mainentry_quiz5 {

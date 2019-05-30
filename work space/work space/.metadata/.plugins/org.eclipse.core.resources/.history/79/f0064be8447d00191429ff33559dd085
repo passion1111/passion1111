@@ -1,0 +1,17 @@
+package personal;
+import java.util.Scanner;
+public class Personal_practice {
+			public static void main(String[] args) {
+			
+			int a=3,b=7,c=4,d;
+			
+		String ff=	(a<b)? "a°¡ ´õÅ­" :"b°¡´õÅ­";
+		String str= (c%2==0)? "Â¦¼ö":"È¦¼ö";
+		
+		System.out.println(ff);
+		System.out.println(str);
+			 
+			
+			}
+			
+}

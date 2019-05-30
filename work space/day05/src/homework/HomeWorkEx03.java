@@ -36,7 +36,7 @@ class HomeWorkEx03
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+		System.out.println("에러에러");
 		}
 	}
 }

@@ -1,0 +1,30 @@
+RANDOM
+quiz 난수를 구해서  사용자가 5번의 값을 입력하는데
+업다운으로 알려줌.범위를 줄여줌.
+
+
+Math.random() // java.lagn
+
+java.util.random도있음 대신 java.utilpakage
+
+
+
+constr 생성자 함수 
+constr이 없으면 static method를 가지고있겠구나를 생각하면 된다.
+
+===========
+ex)random(long seed) seed는 시작값을 의미.
+
+자바는 리턴타입이 무조건 하나여야한다.
+ > return value;
+
+	public returnType method()
+
+ > 함수의 자료형 타입!!
+
+ > 디버깅
+ 
+ > 난수 발생 - 2가지 방법
+
+
+ > OOP(객체지향)

@@ -1,0 +1,16 @@
+package personal;
+import java.util.Scanner;
+public class Personal_practice {
+			public static void main(String[] args) {
+			
+			int a=7;
+			char b='1';
+			byte c=10;
+			c+=20;
+			System.out.println(a+b);
+			System.out.print(c);
+			}
+			
+			}
+			
+

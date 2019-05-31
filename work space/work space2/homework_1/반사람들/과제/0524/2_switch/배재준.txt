@@ -1,0 +1,44 @@
+package ex02.Switch;
+//스위치문에서 문자라면 case 후 '' 문자열이면 ""
+//문제 4 짝 홀수 판정 switch ~ case 로 만들기 
+
+import java.util.Scanner;
+
+public class Switch_quiz2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("찾으시는 달을 입력하세요 = ");
+		int month = sc.nextInt();
+		int year; 
+		String str = "";
+		
+		
+		switch(month){
+		case 1 : case 3 : case 5:  case 7: case 8: case 10 : case 12:
+			str=("마지막이 31일인 큰달입니다.");
+			break;
+			
+		case 4 : case 6 : case 9 : case 11:
+			str=("마지막이 30일인 작은달 입니다");
+			break;
+		case 2 :
+			System.out.println("년도를 입력하세요  = ");
+			year = new Scanner(System.in).nextInt();
+			if( year % 4 == 0) {
+				if( (year % 100 != 0 ) || (year % 400 == 0) ) 
+					str=("마지막이 29일인 윤년 입니다.");
+				}else{
+					str=("마지막이 28일인평년 입니다.");
+				}
+			break;
+			default : 
+				System.out.println("1~12월까지만 선택해주세요");
+				System.exit(0);
+		}//end switch
+		System.out.println("선택한 달은 = " + str );
+		
+		
+	}//end main
+
+}//end class
+

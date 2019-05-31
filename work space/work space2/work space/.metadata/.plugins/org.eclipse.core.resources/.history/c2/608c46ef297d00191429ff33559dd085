@@ -1,0 +1,17 @@
+package ex03.input;
+import java.util.*; 
+
+public class InputTest2 {
+			public static void main(String[] args) {     
+				Scanner scan= new Scanner(System.in); //java.util만드는방법은 ctr+shift +영문자o자동임포트
+			    //next() vs nextLine()
+			System.out.print("String input : ");	
+			  String s1 = scan.next();
+			  System.out.println(s1);
+
+			  
+			
+			}
+	                      
+
+}

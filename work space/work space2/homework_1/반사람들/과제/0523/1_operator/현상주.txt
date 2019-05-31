@@ -1,0 +1,20 @@
+
+public class OperatorTest {
+	
+	public static void main(String[] args) {
+		//Task
+		int a = 567890;
+		int man = a / 10000; a %= 10000;
+		int cheon = a / 1000; a  %= 1000;
+		int baek = a / 100; a %= 100;
+		int ship = a / 10;
+		System.out.println("만원 : " + man);
+		System.out.println("천원 : " + cheon);
+		System.out.println("백원 : " + baek);
+		System.out.println("십원 : " + ship);
+		
+		
+	
+		
+	} // end main
+} // end class

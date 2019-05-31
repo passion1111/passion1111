@@ -1,0 +1,15 @@
+package ex01_basic;
+
+public class Kim {
+	public static void main(String[] args) {
+		
+	 String name="±è½Â¼ö";
+	 int age=27;
+	 float weight=70.2f;
+	 
+	 System.out.println("ÀÌ¸§: "+name);
+	 System.out.println("³ªÀÌ: ¼¼ "+age);
+	 System.out.println("¸ö¹«°Ô: "+weight);
+	}
+
+}

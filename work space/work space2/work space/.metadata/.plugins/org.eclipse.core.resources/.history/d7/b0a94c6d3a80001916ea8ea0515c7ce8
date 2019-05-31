@@ -1,0 +1,22 @@
+package ex02_for_star;
+//ºó ´ÙÀÌ¾ÆÂï±â
+public class For_star4 {
+		public static void main(String[] args) {
+			int i,j,d;
+			i=1;
+			for(d=1;d<7;d++) {
+			     for(i=1;i<=4;i++) {
+			    	 System.out.print("*");
+			    	 
+			    	 }
+			     for(j=0;j<(i-1)*(2*i-1);j++) {
+		    		 System.out.print(" ");
+			    	 
+			     }
+			     System.out.println("");
+			}
+			
+			
+		}
+
+}

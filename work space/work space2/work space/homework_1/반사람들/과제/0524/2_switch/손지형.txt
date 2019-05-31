@@ -1,0 +1,51 @@
+package ex01_If;
+
+package ex02.Switch;
+
+import java.util.Scanner;
+
+public class Homework524_5 {
+
+	public static void main(String[] args) {
+		// switch ~case 문자형, 정수형 ( long형 제외), ###논리형과 실수형은 안됨
+		//
+		
+		System.out.printf("몇 월인지 입력하세요 : ");
+		
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt(); //
+		
+		switch(x) { 
+	     case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 :
+	    	 System.out.print("31일까지 입니다."); break;
+	    	 
+	     case 4: case 6 : case 9 : case 11 : 
+	    	 System.out.print("30일까지 입니다."); break;
+	     
+	     case 2: 
+	    	 System.out.println("몇 년도 인지 입력해주세요.");
+	    	 int year = sc.nextInt();
+	         if (year % 4 == 0 ) {
+	         	System.out.println("28일까지 입니다.");
+	         	
+	         	if (year % 100 == 0) {
+	         		System.out.println("29일까지 입니다.");
+	         		
+	         		if (year % 400 == 0) {
+	         		   System.out.println("28일 까지 입니다.");
+	         		}
+	         	}
+	         }// if end
+	         else if (year % 4 != 0){
+	         	System.out.println("28일까지 입니다.");
+	         }
+	    	 break;
+	    
+		}//switch end	 
+			
+		
+		
+  sc.close();
+	}
+
+}

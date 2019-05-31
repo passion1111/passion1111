@@ -1,0 +1,61 @@
+//*
+//첫행 더하기 두번째 행은 세번째 행 나오기
+//arr가 입력받을 경우
+package ex01.Array;
+
+import java.util.Scanner;
+
+public class ArrayEx7 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[][] arr = new int[3][4];
+		
+		for (int i = 0; i < arr.length-1; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print("arr[" + i + "][" + j + "] = ");
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		
+		for (int i = 0; i < arr[0].length; i++) {
+			arr[2][i] = arr[0][i] + arr[1][i]; 
+		}
+		
+		System.out.println("\nRESULT >");
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		
+	} //end main
+} //end public class
+//*/
+
+
+/*
+//arr가 초기화가 완료된 경우
+package ex01.Array;
+
+import java.util.Scanner;
+
+public class ArrayEx7 {
+	public static void main(String[] args) {
+		
+		int[][] arr = {{1, 2, 10 ,5}, {9, 7, 3 ,20}, {0, 0, 0 ,0}};
+		
+		for (int i = 0; i < arr[0].length; i++) {
+			arr[2][i] = arr[0][i] + arr[1][i]; 
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		
+	} //end main
+} //end public class
+//*/

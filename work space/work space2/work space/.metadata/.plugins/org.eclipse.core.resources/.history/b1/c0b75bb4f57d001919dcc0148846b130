@@ -1,0 +1,21 @@
+package ex03_Exception;
+
+import java.util.Scanner;
+
+public class Exception_Tray01 {
+	public static void main(String[] args) {
+	         System.out.println("x,y= ");
+		int x=new Scanner(System.in).nextInt();
+		int y=new Scanner(System.in).nextInt();;
+		System.out.println(100/20);
+		System.out.println(x/y);
+			if(y==0) {
+			       System.out.println("0으로 나눌수 없습니다.");
+			       System.exit(0);
+	//모든 수치적인 예외처리는 ArithmeticException 에러가 뜸. /0으로 나누면 에러가 뜸
+	}
+	
+	
+
+}
+}

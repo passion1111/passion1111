@@ -1,0 +1,32 @@
+package personal;
+import java.util.Scanner;
+
+public class Personal_2_scanner {
+	public static void main(String[] args) {
+		
+	  Scanner scan =new Scanner(System.in);
+	  int input=scan.nextInt();
+			  System.out.println(input);
+			  
+			  if((input%2)==1)
+			  {
+				  System.out.println("hi");
+				  
+				  for(int space=1; space<=(input/2+1);space++) {
+					  int i=0;
+					   for(i=0; i<(input/2+1); i++) {
+						   System.out.print(" ");
+					   }
+					   
+					   for(i=0; i<(input/2+1)-space; i++) {
+						   System.out.print("*");
+					   }
+			
+				  }
+			  }
+			  else
+				  {System.out.println("false");
+					  
+				  }
+	}
+}

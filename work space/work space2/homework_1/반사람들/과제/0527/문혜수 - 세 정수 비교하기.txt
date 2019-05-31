@@ -1,0 +1,63 @@
+/*
+과제 ]
+
+	3개 정수 입력 받아서 큰 순서대로 출력하는 프로그램
+	
+	INPUT>
+	x = 3
+	y = 4
+	z = 5
+	
+	RESULT>
+	5 > 4 > 3
+
+*/
+
+//*
+package exception;
+
+import java.util.Scanner;
+
+public class Compare_Int {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int x, y, z;
+		int max = 0, mid = 0, min = 0;
+		String msg, opr1, opr2;
+
+		System.out.println("세 개의 정수를 입력하세요.");
+
+		// 예외처리
+		try {
+			// 세 정수 입력받기
+			System.out.print("x = ");
+			x = sc.nextInt();
+			System.out.print("y = ");
+			y = sc.nextInt();
+			System.out.print("z = ");
+			z = sc.nextInt();
+
+			// 세 정수 값 비교
+			max = (x > y) ? x : y;
+			max = (max > z) ? max : z;
+			min = (x < y) ? x : y;
+			min = (min < z) ? min : z;
+			mid = (x + y + z) - (max + min);
+			
+			// 같은 값이 있는지 확인한 후 부호 결정하기 
+			opr1 = (max == mid) ? " = " : " > ";
+			opr2 = (mid == min) ? " = " : " > ";
+			
+			// 최종 출력하기
+			System.out.println(max + opr1 + mid + opr2 + min);
+
+		} catch (Exception e) {
+			System.out.println("정수가 아니거나 int형 범위(-2147483648 ~ 2147483647)를 벗어났습니다. "
+					+ "\nint형 범위 내에 정수를 다시 입력해주세요.");
+		} // end catch
+
+	} // end main
+
+} // end public class
+//*/

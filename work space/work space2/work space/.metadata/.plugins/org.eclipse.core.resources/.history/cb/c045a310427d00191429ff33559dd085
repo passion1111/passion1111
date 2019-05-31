@@ -1,0 +1,14 @@
+package personal;
+import java.util.Scanner;
+public class Personal_practice {
+			public static void main(String[] args) {
+			
+				//임의의 값을 받아 만장 몇개 천장몇개이렇게 계산해보기.
+				int scan=new Scanner(System.in).nextInt();
+			
+				System.out.println("만원 :"+scan/10000);
+				System.out.println("천원: " +scan%10000/1000);
+				System.out.println("백원: "+scan%10000%1000/100);
+				
+			}
+}

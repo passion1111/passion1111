@@ -1,0 +1,38 @@
+package operator;
+
+import java.util.Scanner;
+
+public class 강예진총점구하기 {
+
+	public static void main(String[] args) {
+		
+	Scanner sc=new Scanner(System.in);
+	
+	System.out.println("이름을 입력해주세요:");
+	
+	String name= sc.nextLine();
+	
+	System.out.println("국어 점수를 입력해주세요:");
+	
+	int kor = sc.nextInt();
+	
+	System.out.println("영어 점수를 입력해주세요:");
+	
+	int eng = sc.nextInt();
+	
+	System.out.println("전산 점수를 입력해주세요:");
+
+	int jun = sc.nextInt();
+	
+	int sum =kor+eng+jun;
+			
+	double avg = (kor +eng +jun) / 3.0;
+
+	System.out.printf("이름\t국어\t영어\t전산\t총점\t평균\n");
+	System.out.printf("%s\t%03d\t%03d\t%03d\t%03d\t%.2f", name,kor,eng,jun,sum,avg);
+	
+
+	
+	
+	
+	}

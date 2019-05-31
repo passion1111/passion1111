@@ -1,0 +1,13 @@
+package ex01_basic;
+
+public class Datatype4 {
+	public static void main(String[] args) {
+		int su=10;
+			System.out.println("10진수: "+su); //%d 10진수,%o 8진수,%x  16진수,%X
+			System.out.println("10진수: %d \n" ,su);
+			System.out.println("8진수: %o \n" ,su);
+			System.out.println("16진수 %x, %X" , su , su);
+			
+	}
+
+}

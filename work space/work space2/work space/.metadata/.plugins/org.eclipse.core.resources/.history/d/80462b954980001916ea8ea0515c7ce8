@@ -1,0 +1,27 @@
+package ex04.While;
+//이름 입력받고 점수 3개(0~100만 입력 k e c 총점 평균 구하는 프로그램 작성
+//
+//
+//
+import java.util.Scanner;
+
+public class While04 {
+	public static void main(String[] args) {
+		
+		int su=new Scanner(System.in).nextInt();
+		char grade=' ';
+		do {
+			System.out.println("당신의 점수 입력 요망 : ");
+		}while(su<0||su>101);                 //     
+		
+		switch (su/10) {
+		case 10: 
+		case 9:   grade='A';break;
+		case 8:  grade='B';break;
+		case 7:  grade='C';break;
+		case 6:  grade='D';break;
+		default:grade='F';
+		}
+		System.out.println("\n당신의 점수 : "+su+"==>"+grade+" 학점");
+		}
+}

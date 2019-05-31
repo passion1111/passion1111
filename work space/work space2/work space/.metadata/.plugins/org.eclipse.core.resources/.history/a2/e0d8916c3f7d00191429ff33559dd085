@@ -1,0 +1,22 @@
+package personal;
+
+public class Personal_practice {
+			public static void main(String[] args) {
+				
+				int x=0;
+				int b=0;
+				
+				b=++x;
+				System.out.printf("%d %d ", b,x);
+				System.out.println(x);
+				//최우선대입
+				int c=8;
+				int result;
+				result=c>>3;
+						System.out.println(result);
+				boolean tf= (result && c);
+					System.out.println(tf);	
+					
+				
+			}
+}

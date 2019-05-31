@@ -1,0 +1,19 @@
+package personal;
+import java.util.Scanner;
+public class Personal_practice {
+			public static void main(String[] args) {
+			
+				//임의의 점수 3개를 받아 각자 나타내고 평균,총점을 구하자.
+				Scanner scan=new Scanner(System.in);
+				System.out.println("수학 영어 과학점수를 입력해주세요");
+				int a=scan.nextInt();
+				int b=scan.nextInt();
+				int c=scan.nextInt();
+				
+				int sum=a+b+c;
+				double avg=sum/3.0;
+				System.out.println("수학 영어 과학점수"+a+b+c);
+				System.out.println("평균: "+avg+"합산"+sum);
+				
+			}
+}

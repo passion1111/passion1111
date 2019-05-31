@@ -1,0 +1,57 @@
+package Quiz_if;
+
+import java.util.Scanner;
+
+public class Quiz_month {
+		public static void main(String[] args) {
+			Scanner scan = new Scanner(System.in);
+			System.out.print("원하는 달을 입력하세요.");
+			int day = scan.nextInt();
+			
+			switch (day) {
+		
+			case 1 :
+			case 3 :
+			case 5 :
+			case 7 :
+			case 10 :
+			case 12 :
+				System.out.println("31일 입니다.");
+				break;
+			}
+			
+			switch (day) {
+			
+			case 4 :
+			case 6 :
+			case 9 :
+			case 11 :
+				System.out.println("30일 입니다.");
+				break;
+			
+			}
+			
+			switch (day) {
+			
+			case 2 : 
+				System.out.println("2월달입니다 연도를 입력하세요");
+				int year = scan.nextInt();
+				String year1 = null;
+				
+				if (year % 4 == 0) {
+					if ((year % 100 != 0) || (year % 400 == 0)) {
+						year1 = "윤년 29일입니다.";
+					} else {
+						year1 = "평년 28일입니다.";
+					}
+
+				} else
+					year1 = "평년 28일입니다.";
+				System.out.println(year1);
+				default:
+                                   System.out.println("1~12를 넣어주세요.");
+			} 
+			
+			
+		}
+}

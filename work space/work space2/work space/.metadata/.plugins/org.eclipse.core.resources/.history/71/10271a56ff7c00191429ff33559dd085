@@ -1,0 +1,18 @@
+package day03.operator;
+
+
+	//최단산쉬관논삼대콤
+public class Opearator_test {
+	public static void main(String[] args) {
+		  //최단[] {} ()
+		 //단항 연상자: 증감=> ++,--,~(비트부정,틸드),...
+		int x = 10,y ;
+		 
+		
+		    //y=x++;  //후위 연산 :대입먼저,연산 나중 x11,y10
+		 y=++x;       //전위 연산 :연산먼저,대입 나중 
+		System.out.println("x= "+x+ "\t =" +y);  //
+		
+	}
+
+}

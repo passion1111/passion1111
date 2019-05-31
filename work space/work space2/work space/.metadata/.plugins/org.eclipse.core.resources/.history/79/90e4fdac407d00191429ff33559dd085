@@ -1,0 +1,16 @@
+package personal;
+
+public class Personal_practice {
+			public static void main(String[] args) {
+				
+				int x=0;
+				int b=0;
+				b=++x;
+				
+				boolean flag = b<x&&b<x;
+				System.out.println(flag);
+					
+					
+				
+			}
+}

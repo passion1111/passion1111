@@ -1,0 +1,51 @@
+package 과제;
+
+import java.util.Scanner;
+
+public class HomeworkFirstweek {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try{
+		System.out.println("세 수를 입력받아 큰 순서대로 출력하는 프로그램.");
+		
+		System.out.println("첫번째 숫자를 입력하세요 : ");
+		int x = sc.nextInt();
+		System.out.println("두번째 숫자를 입력하세요 : ");
+		int y = sc.nextInt();
+		System.out.println("세번째 숫자를 입력하세요 : ");
+		int z = sc.nextInt();
+		
+		System.out.println("result>\n");
+
+		if ((x>y)&&(x>z)) {
+			if(y>z) {
+				System.out.println("x = " + x +  " > "+ "y = " + y + " > "+ "z = "+ z);
+			}
+			else  System.out.println("x = " + x +  " > "+ "z = " + z + " > "+ "y = "+ y);	
+		} else if ((y>z)&&(y>x)) {
+			if(x>z) {//y +">"+ x+ ">"+ z
+				System.out.println("y = " + y +  " > "+ "x = " + x + " > "+ "z = "+ z);
+			}
+			else  System.out.println("y = " + y +  " > "+ "z = " + z + " > "+ "x = "+ x);	
+		} else if ((z>x)&&(z>y)) {
+			if(x>y) {
+				System.out.println("z = " + z +  " > "+ "x = " + x + " > "+ "y = "+ y);
+			}
+			else System.out.println("z = " + z +  " > "+ "y = " + y + " > "+ "x = "+ x);
+		}
+		
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		sc.close();
+		
+
+	} // end main
+
+} // end class

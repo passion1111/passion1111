@@ -1,0 +1,31 @@
+package task;
+
+import java.util.Scanner;
+
+public class Quiz_ex7 {
+
+	public static void main(String[] args) {
+		int max = 0, middle = 0, min = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("\n3개의 정수를 차례로 입력해주세요> ");
+		int x = sc.nextInt(), y = sc.nextInt(), z = sc.nextInt();
+		if (x >= y && x >= z) {
+			max = x;
+			middle = (y >= z) ? y : z;
+			min = (y <= z) ? y : z;
+		} else if (y >= x && y >= z) {
+			max = y;
+			middle = (x >= z) ? x : z;
+			min = (x <= z) ? x : z;
+		} else {
+			max = z;
+			middle = (x >= y) ? x : y;
+			min = (x <= y) ? x : y;
+		}
+		System.out.println("\n\n-----크기순서대로 출력------");
+		System.out.printf("%d >> %d >> %d", max, middle, min);
+
+		sc.close();
+	}
+}

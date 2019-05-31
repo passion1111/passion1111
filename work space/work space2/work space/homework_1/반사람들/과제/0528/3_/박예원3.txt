@@ -1,0 +1,20 @@
+ package 과제;
+
+// 과제3] 1/2 + 2/3 + 3/4 + 4/5 + 5/6 + 6/7 + 7/8 + 8/9 + 9/10 = ?
+import java.util.Scanner;
+
+public class 과제03 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int sum = 0;
+		int i = sc.nextInt();
+		int j = i + 1;
+
+		for (i = 1; i < 10; i++)
+			for (j = 1; j < 11; j++)
+				System.out.println("sum = " + i / j + "\t");
+	} // end main
+} // end class

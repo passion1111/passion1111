@@ -1,0 +1,50 @@
+package Quiz;
+
+//문제5] 원하는 달의 마지막날을 찍어주는 프로그램
+//2월은 윤년, 평년도 필요
+
+import java.util.Scanner;
+
+public class Quiz_Ex5 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("integer type month input => ");
+		int month = sc.nextInt();
+
+		switch (month) {
+			case 1: 
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				System.out.println("마지막 날은 31일 까지 있습니다.");
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				System.out.println("마지막 날은 30일 까지 있습니다.");
+				break;
+			case 2:
+				System.out.print("integer type year input => ");
+				int year = sc.nextInt();
+				if (year % 4 == 0) {
+					if (year % 400 == 0 || year % 100 != 0) { 
+						System.out.print("윤년으로 마지막 날은 29일까지 있습니다");
+					} else {
+						System.out.print("평년으로 마지막 날은 28일까지 있습니다");
+					}
+				} else {
+					System.out.print("평년으로 마지막 날은 28일까지 있습니다");
+				}
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다. 1~12월까지 있습니다.");
+				System.exit(0);
+		}
+
+		sc.close();
+	}
+}

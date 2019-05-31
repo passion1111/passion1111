@@ -1,0 +1,15 @@
+package ex02_for_star;
+
+public class For_star5 {
+	public static void main(String[] args) {
+		 for(i=0;i<5;i++) {
+			 System.out.println(" ");
+			   for(j=1;j<i;) {
+				   System.out.println("*");
+			   }
+		 }
+			 
+	
+	}
+
+}

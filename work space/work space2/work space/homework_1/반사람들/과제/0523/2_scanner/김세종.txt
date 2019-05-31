@@ -1,0 +1,24 @@
+package ex03.input;
+
+import java.util.Scanner;
+
+public class InputTest2_Ex {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("이름을 입력: ");
+		String name = sc.next();
+		System.out.println("국어 점수 입력: ");
+		int kor = sc.nextInt();
+		System.out.println("영어 점수 입력: ");
+		int eng = sc.nextInt();
+		System.out.println("전산 점수 입력");
+		int com = sc.nextInt();
+		
+		int tot = kor + eng + com;
+		double avg = tot / 3.0;
+		
+		System.out.println(name + "님의 성적표 *****");
+		System.out.println("국어 : " + kor + ", 영어 : " + eng + ", 전산 : " + com);
+		System.out.printf("총점 : %d, 평균 : %.2f",tot ,avg );
+	}
+}

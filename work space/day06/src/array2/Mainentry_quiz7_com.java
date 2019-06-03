@@ -105,7 +105,7 @@ public class Mainentry_quiz7_com {
 			} // i end
 		  
 		  for(int j=0; j<totalnumber ; j++) {
-		       for(int k=0;k<totalnumber;k++){	
+		       for(int k=0;j<totalnumber;++){	
 		    		if( sum[j][0]<sum_compare[k][0]) {	    			
 		    			rank[j][0]+=1;		
 /*			    		기존 방식으로는 공동등수 다음을 표현하기 힘들어서 고침.	

@@ -1,5 +1,7 @@
 package day09_overroad;
-//오버로드.
+//오버로드.plus라는 하나의 메소드를 
+//인자개수 데이터형에따라서 다른정의로 내릴수있다.
+//
 public class Mainentry {
 
 			

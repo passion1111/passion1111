@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Mainentry_quiz5 {
 	
 
-	public static  int[][] input(int totalnumber,String[] name) { //이름,국어,영어,전산점수
+	public static  int[][] input(int totalnumber) { //이름,국어,영어,전산점수
 		Scanner sc=new Scanner(System.in);
 		int[][] arr=new int[totalnumber][3];	//국영수 저장하는곳
 	   
@@ -27,7 +27,7 @@ public class Mainentry_quiz5 {
 	        for(int k=0;k<totalnumber;k++) {
 	      
 	      	  do {  //100~0사이의 정수를 위해
-	      	  System.out.println((name[k])+"님의 국어성적을 입력해주세요:");
+	      	  System.out.println((k+1)+"번쨰 사람의 국어성적을 입력해주세요:");
 	      	  arr[k][0]=sc.nextInt();
 	      	  }while(arr[k][0]<0 ||arr[k][0]>100);
 	      	  
@@ -50,25 +50,13 @@ public class Mainentry_quiz5 {
 	return arr;
 	}
 
-public static int[] rank(int[]sum,int[]sum_compare,int totalnumber) {
-	int[]rank=new int[totalnumber];
-	for(int i=0;i<totalnumber;i++) {rank[i]=1;}
-	
-  for(int i=0;i<totalnumber;i++) {
-	  System.out.println(rank[i]);
-	  for(int j=0;j<totalnumber;j++) {
-		  
-		  if((sum[i])<(sum_compare[j])) {
-			 rank[i]=rank[i]+1;
+	public static int[]rank(int totalnumber, int[] ranktotalnumber,int[]rank){
+		 for(int k=0;k<totalnumber;k++) {
+		rank[k]=1;
+		 }
+		return rank;
 		
-		  }
-			  
-	  }
-  }
-	
-	return rank;
-	
-}
+	}
 	
 	public static  String[] name(int totalnumber){ //이름저장
 		String[] name=new String[totalnumber];
@@ -84,27 +72,25 @@ public static int[] rank(int[]sum,int[]sum_compare,int totalnumber) {
 
 	
 	
-	public static    int[] total(int[][]arr,int totalnumber) { //총점 구하는 함수
-		int[] sum=new int[totalnumber];  //과목저장
+	public static    int[] total(int[]sum,int[][]arr,int totalnumber) { //총점 구하는 함수
 
 	
-		 for(int k=0;k<sum.length;k++) {
-	    	  
+		 for(int k=0;k<totalnumber;k++) {
+//	    	  sum[k][0]=arr[k][0]+arr[k][1]+arr[k][2];
 			 sum[k]=arr[k][0]+arr[k][1]+arr[k][2];
-			 
-	    	  
+//	    	  sum_compare[k][0]=arr[k][0]+arr[k][1]+arr[k][2];  	    	  
 		 }
 		 
 		return sum;
 }
 	
-	public static  double[] average(int totalnumber,int[] sum) {//평균 구하는 함수
+	public static  double[] average(int totalnumber,int[] sum1) {//평균 구하는 함수
 
 		double[] ave=new double[totalnumber];
 
 		for(int k=0;k<totalnumber;k++) {
 		    	
-	    	  ave[k]=sum[k]/3.;
+	    	  ave[k]=sum1[k]/3.;
 		 }
 		return ave;
 	}
@@ -153,13 +139,13 @@ public static int[] rank(int[]sum,int[]sum_compare,int totalnumber) {
 
 	
 
-	public static  int[] dd2(int[] sum,int[] sum_compare,String[]rank) {  //순서정하는 함수
+	public static  int[] dd2(int[] sum1,int[] sum_compare) {  //순서정하는 함수
 
 		
 		int temp;
-		  for(int i =0; i< sum.length; i++) {
-				for(int j= i+1; j < sum.length; j++) {					
-					if((sum[i]) < sum[j]) {  //교환
+		  for(int i =0; i< sum1.length; i++) {
+				for(int j= i+1; j < sum1.length; j++) {					
+					if((sum1[i]) < sum1[j]) {  //교환
 						temp = sum_compare[i];
 						sum_compare[i] = sum_compare[j];
 						sum_compare[j] = temp;												
@@ -167,13 +153,40 @@ public static int[] rank(int[]sum,int[]sum_compare,int totalnumber) {
 					
 				} // j end
 			} // i end
-		 
+		  
+		  for(int j=0; j<sum1.length ; j++) {
+		       for(int k=0;k<sum1.length;k++){	
+		    		if( sum1[j]<sum_compare[k]) {	    			
+		    			
+/*			    		기존 방식으로는 공동등수 다음을 표현하기 힘들어서 고침.	
+						rank_name[j][0]=k+1; 기존방식.
+
+
+*/
+		   }    //rank end			  
+	  }	    //k end
+}//j end 
 		return sum_compare;
 		
 	
 	}
 
-	
+	public static  void output(int totalnumber,String[] name,int[] sum1,int[] rank,int[][]arr,String[][]grade_ave,double[] ave) {//결과 출력하는 함수
+		  
+		
+		for(int k=0;k<arr.length;k++) {//다수의 입력떄문에 for
+				
+			 
+			System.out.println("****"+name[k]+"님의 성적표입니다.****");
+				System.out.println("이름:" + name[k]);
+				System.out.println("국어 :" + arr[k][0] + "\t영어 : " + arr[k][1] + "\t전산 : " + arr[k][2]);
+				System.out.println("*****"+name[k]+"님의 학점및 석차는***** ");
+				System.out.println("국어 :" + grade_ave[k][0] + "\t영어 : " +grade_ave[k][1] + "\t전산 : " + grade_ave[k][2]);
+				System.out.printf("총점 :%d \t평균점수:%.2f \n평균학점 :%s ",  sum1[k],ave[k],grade_ave[k][3]);
+				System.out.println(" 석차 :"+rank[k]+"등");	  
+		  }
+		}//for end
+		
 	
 	
 public static void main(String[] args) {
@@ -191,39 +204,44 @@ public static void main(String[] args) {
 		//이름과 과목 저장
 		//input(totalnumber);
 		
-		String[]name1=name(totalnumber);////각자 입력하게되면 문제 메소드를 이렇게 나누면한번에 이름,과목으로 저장하기가 힘들다.
-																//배열 리턴을 생각하면 메소드사용하지 않는게 좋을것같다.
-		int[][] arr=input(totalnumber,name1);//리턴값 deep array복사
+		
+		int[][] arr=input(totalnumber);//리턴값 deep array복사
+	
+		int[] rank=new int[totalnumber];       // 석차저장하는곳
+		
+		System.out.println(arr[0][0]);
+		
+		//name(totalnumber);
+		
+		String[]name=name(totalnumber);////각자 입력하게되면 문제 메소드를 이렇게 나누면한번에 이름,과목으로 저장하기가 힘들다.
+		
+		//total(arr,totalnumber);  //총점
+		int[] sum=new int[totalnumber];
+		
+		int[] sum1=total(sum,arr,totalnumber);//총점을 sum에 저장.
+		int[]sum_compare=sum1.clone();
+		average(totalnumber,sum1);
+		double ave[]=average(totalnumber,sum1);
+		
+		
+		
+		grade(ave,totalnumber,arr,sum);
+		String[][]grade_ave=grade(ave,totalnumber,arr,sum).clone();
+		
+		dd2(sum1,sum_compare);
+		int[]sum_compare1=dd2(sum1,sum_compare).clone();
+		
+		System.out.println(sum_compare1[0]);
+		
+		 rank=rank(totalnumber,rank, sum_compare1);
+		
+		output(totalnumber,name,sum1,rank,arr,grade_ave,ave); //석차고치면됨.
 
-		int[] sum=total(arr,totalnumber);//총점을 sum에 저장.
-		int[]sum_compare=total(arr,totalnumber); //sum과 비교할 배열 저장
-		double ave[]=average(totalnumber,sum);//평균값저장			
-		String[][]grade_ave=grade(ave,totalnumber,arr,sum);//국영수 총점이 들어가있음	
-		int[]sum_compare1=dd2(sum,sum_compare,name1);//석차대로 정렬	
-	int[]	rank=rank(sum_compare1,sum,totalnumber);//int형 배열을 따로 만들어줌.
-		output(totalnumber,name1,sum,arr,grade_ave,ave,rank); //아웃풋
-
+//int totalnumber,String[] name,int[][] sum,int[][] rank,int[][]arr,String[][]grade_ave
+	
 }//
 
 
-
-public static  void output(int totalnumber,String[] name1,int[] sum,int[][] arr,String[][] grade_ave,double[] ave,int[] rank) {//결과 출력하는 함수
-	  
-	
-	for(int k=0;k<grade_ave.length;k++) {//다수의 입력떄문에 for
-			
-		 
-			System.out.println("****"+name1[k]+"님의 성적표입니다.****");
-			System.out.println("이름:" + name1[k]);
-			System.out.println("국어 :" + arr[k][0] + "\t영어 : " + arr[k][1] + "\t전산 : " + arr[k][2]);
-			
-			System.out.println("*****"+name1[k]+"님의 학점및 석차는***** ");
-			System.out.println("국어 :" + grade_ave[k][0] + "\t영어 : " +grade_ave[k][1] + "\t전산 : " + grade_ave[k][2]);
-			System.out.printf("총점 :%d \t평균점수:%.2f \n평균학점 :%s ",  sum[k],ave[k],grade_ave[k][3]);
-			System.out.println(" 석차 :"+rank[k]+"등");	  
-	  }
-	}//for end
-	
 	
 }
 

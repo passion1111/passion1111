@@ -155,26 +155,7 @@ class Name{
 		System.out.println("이름 :"+name);
 	}
 }
-//
-//	public void totalOutput2() {
-//		avgOutput();
-//		totalOutput();
-//		han_score();
-//		han_grade();
-//		eng_score();
-//		eng_grade();
-//		com_score();
-//		com_grade();
-//		
-	
-	
 
-
-
-
-//class name{
-//	
-//}
 
 
 public class Ha {
@@ -204,9 +185,7 @@ public class Ha {
 		e.eng_grade();
 		c.com_grade();
 		
-//		t.setCom(t.getcom());
-//정리 필요 	
-		
+
 		
 		
 	}

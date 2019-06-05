@@ -36,7 +36,7 @@ public class Draw {  //Super class
 	public double getResult() {
 		return result;
 	}
-	
+	//결과값 반환 calc라기보다는 getter
 	public double calc() {
 				
 		return result;
@@ -44,7 +44,8 @@ public class Draw {  //Super class
 
 	@Override
 	public String toString() {
-		
+		//바로 오버라이드할시 result값이 초기화값으로 나갈가능성이 있으므로 result값을 재정의해준코드가있나
+		//확인해보는것이 좋다.
 		return "Draw [w=" + w + ", h=" + h + ", result=" + result + "]";
 	} 
 	

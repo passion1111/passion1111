@@ -44,6 +44,7 @@ class Rect implements D{
 
 class Shape{
 	
+	
 }//Shape end
 
 class Multi extends Shape implements B,C,A{//상속 다음 인터페이스넣어줘야함.

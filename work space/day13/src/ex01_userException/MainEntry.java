@@ -9,6 +9,8 @@ public class MainEntry {
 		else
 		throw new UserException("최종예선",703);// 강제exception발생
 		}
+	
+	
 		public static void main(String[] args) {
 		MainEntry main= new MainEntry();
 		try{

@@ -1,0 +1,25 @@
+package ex01.method;
+
+public class MethodEx {
+	
+	//3) 매개변수 없고, 리턴타입 있는 경우 
+	public static int show() {
+		return 100;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("main statr");
+		int result = show();
+		System.out.println(result);
+		System.out.println("show method call result : " + show());
+	}
+}	
+
+
+
+
+
+
+
+
+

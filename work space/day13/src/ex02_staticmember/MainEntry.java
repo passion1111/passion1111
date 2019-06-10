@@ -14,7 +14,7 @@ class Atm{
 	}
 	
 	public  void show(int count,int total) {
-//		this.count=count;
+		this.count=count;
 //		this.total = total; //static member는 this사용할수없음 어차피 변수는 계속 공유되니까.
 	}
 	

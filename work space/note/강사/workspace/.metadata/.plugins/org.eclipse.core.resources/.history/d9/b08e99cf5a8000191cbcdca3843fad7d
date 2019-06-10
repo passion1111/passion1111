@@ -1,0 +1,14 @@
+package homework;
+
+public class ChangeEx4 {
+	public static void main(String[] args) {
+		int x =3 , y = 5;
+		
+		System.out.println(x + ", " + y);
+		
+		x = y;
+		y = x;
+		System.out.println(x + ", " + y);
+				
+	}
+}

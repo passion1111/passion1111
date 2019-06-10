@@ -54,7 +54,7 @@ public class Stringmethod {
 		System.out.println(s2);//값이 바뀌진않음
 		
 		System.out.println(s1.length());
-		char[] ch2=s1.toCharArray();
+		char[] ch2=s1.toCharArray();//문자열을배열로 저장.
 		for(int i=0;i<s1.length();i++) {
 			System.out.print(ch2[i]+"\t");
 		}

@@ -1,0 +1,67 @@
+//*
+package ex02.array;
+
+//문제4] int[][] arr = new int[2][3];
+//임의의 데이터 입력 받아서 출력하는 프로그램 작성
+import java.util.Scanner;
+
+public class ArrayEx6 {
+	public static void main(String[] args) {
+		int[][] arr = new int[2][3];
+		
+		//2차원 배열 임의의 데이터 입력 받기
+		System.out.print("array data input : ");
+		for(int i=0; i<2; i++) {
+			for(int j=0; j<3; j++) {
+				arr[i][j] = new Scanner(System.in).nextInt();
+			} // j end
+		} // i end
+		
+		//2차원 배열 출력하기 
+		for(int i=0; i<2; i++) {
+			for(int j=0; j<3; j++) {
+				System.out.print(arr[i][j] + " ");
+			} // j end
+		} // i end
+		
+	}
+}
+//*/
+
+
+
+
+
+/*
+package ex02.array;
+
+import java.util.Scanner;
+
+public class ArrayEx6 {
+	public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        int arr[][]=new int[3][4];
+        System.out.println("배열 요소 입력 (2행 3렬): ");
+        for(int i=0; i < arr.length-1; i++){
+            for(int j=0; j <arr[i].length; j++){
+                arr[i][j]=scanner.nextInt();
+                
+                if( i != 2 )
+                    arr[2][j]+=arr[i][j];
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[i].length;j++)
+                System.out.print(arr[i][j]+"\t");
+            System.out.println();
+        }
+    }
+}
+
+//*/
+
+
+
+
+
+

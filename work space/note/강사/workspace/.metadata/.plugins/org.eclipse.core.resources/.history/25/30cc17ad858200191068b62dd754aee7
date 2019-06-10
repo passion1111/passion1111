@@ -1,0 +1,25 @@
+package ex01.method;
+
+public class MethodEx3 {
+	
+	public static void sub(int x, int y) {
+		if( x > y )
+			System.out.println(x + " - " + y +" = " + (x - y));
+		else 
+			System.out.println(y + " - " + x +" = " + (y - x));
+	} //sub() end
+	
+	public static void view(String str, int n) {
+		for(int i=1; i <= n; i++) {
+			System.out.print(str + " ");
+		}
+		System.out.println();
+	}// view() end
+	
+	public static void main(String[] args) {
+		sub(10, 20);
+		System.out.println("=============");
+		view("*", 10);
+		view("A", 15);
+	} // main end
+}

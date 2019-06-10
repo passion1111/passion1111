@@ -9,7 +9,7 @@ public class MainEntry {
 		
 		Integer Ia=new Integer(10);
 		Integer Ib=new Integer("10");
-		//기본자료형을 레퍼자료형으로 바꾸려면 무조건 메소드의 도움을 받았어야했다.
+		//기본자료형을 Wraper자료형으로 바꾸려면 무조건 메소드의 도움을 받았어야했다.
 		//지금은 굳이 그러지않고 
 		String su="30";
 		Point pt=new Point();
@@ -31,7 +31,7 @@ public class MainEntry {
 		int d=Ib;//jdk 5.x이후부터 autoboxing,unboxing된다.
 		int num=Integer.parseInt(su);
 		
-		System.out.println(c+num);
+		System.out.println(c+num);`
 		System.out.println(c+d);
 		System.out.println(Ia.MAX_VALUE);//21억~
 		System.out.println(Ia.MIN_VALUE);//-21억~

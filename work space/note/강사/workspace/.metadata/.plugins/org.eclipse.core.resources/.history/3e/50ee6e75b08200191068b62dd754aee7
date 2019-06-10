@@ -1,0 +1,13 @@
+package ex02.method;
+
+public class MainEntry {
+	public static void loopLine() {
+		for(int i =1; i < 7 ; i++) {
+			System.out.println("--------------");
+		}
+	}
+	
+	public static void main(String[] args) {
+		loopLine();
+	}
+}

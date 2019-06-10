@@ -1,7 +1,13 @@
 package ex07_string;
 
+import java.util.Random;
+
 public class MainEntry {
+	
+	
+	
 	public static void main(String[] args) {
+		
 		int x=999;
 		String str="abc";
 		System.out.println("str:"+str);

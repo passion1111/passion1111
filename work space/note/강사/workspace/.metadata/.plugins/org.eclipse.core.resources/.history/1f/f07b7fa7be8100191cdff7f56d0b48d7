@@ -1,0 +1,7 @@
+package ex03.array;
+
+public class ForeachTest {
+	public static void main(String[] args) {
+		
+	}
+}

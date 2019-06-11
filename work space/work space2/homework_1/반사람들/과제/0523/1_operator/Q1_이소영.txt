@@ -1,0 +1,30 @@
+package ex01.operator;
+
+public class Q1 {
+
+	public static void main(String[] args) {
+
+		/*
+문제 1 ] 
+	int pay = 567890;
+	출력결과> 만원 : 56장, 천원 : 7장, 백원 : 8개, 십원 : 9개
+		 */
+
+		int pay = 567890;
+		int man = pay / 10000;
+		pay = pay % 10000;
+		int cheon = pay / 1000;
+		pay = pay % 1000;
+		int baek = pay / 100;
+		pay = pay % 100;
+		int ship = pay / 10;
+				
+		System.out.println("만원 : " + man + "장");
+		System.out.println("천원 : " + cheon + "장");
+		System.out.println("백원 : " + baek + "개");
+		System.out.println("십원 : " + ship + "개");
+
+
+
+	}
+}

@@ -1,0 +1,25 @@
+package ex01_operator;
+
+public class Problem01 {
+	
+	public static void main(String[] args) {
+		
+		int pay = 567890 , y;
+		
+		System.out.println("만원 : " + (pay/10000) + "장");
+		
+		y = pay%10000;
+		
+		System.out.println("천원 : " + (y/1000) + "장");
+		
+		y = y%1000;
+		
+		System.out.println("백원 : " + (y/100) + "개");
+		
+		y = y%100;
+		
+		System.out.println("십원 : " + (y/10) + "개");
+		
+	}
+
+}

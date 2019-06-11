@@ -1,0 +1,31 @@
+package Exam;
+
+import java.util.Scanner;
+
+public class ArrayExam02 {
+
+	public static void main(String[] args) {
+		int []a = new int[30];
+		
+		Scanner scan= new Scanner(System.in);
+		System.out.println("비오는날의 일수를 입력하시오");
+		int day= scan.nextInt();
+		
+		for (int i = 0; i < day; i++) {
+			System.out.println("비오는 "+(1+i)+"번째 날의 강수량 평균을 입력하시오(정수로만)");
+			a[i]=scan.nextInt();
+		}
+		
+		double sum=0;
+		for (int i = 0; i < a.length; i++) {
+			sum+=a[i];
+		}
+		System.out.println(sum);
+		
+		double avg=sum/a.length;
+		
+		System.out.println("이번달의 강수량 평균은 "+avg+"입니다.");		
+
+	}
+
+}

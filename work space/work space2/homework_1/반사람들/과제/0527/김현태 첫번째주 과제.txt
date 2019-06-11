@@ -1,0 +1,80 @@
+1번과제
+
+package ex03_exception;
+
+import java.util.Scanner;
+
+public class Test01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자를 2개 입력해주세요 : ");
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int msg = 0;
+		try {
+			System.out.print("연산자를 입력해주세요 : ");
+			String s = sc.next();
+			switch (s) {
+			case "+":
+				msg = x + y;
+				break;
+			case "-":
+				msg = x - y;
+				break;
+			case "*":
+				msg = x * y;
+				break;
+			case "/":
+				msg = x / y;
+				break;
+			default:
+				System.out.println("연산자만 입력하세요.");
+				System.exit(0);
+			}
+			System.out.printf("%d %s %d = %d", x, s, y, msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		sc.close();
+	}
+}
+
+------------------------------------------------------------------
+2번 과제
+ㅉ
+package ex03_exception;
+
+import java.util.Scanner;
+
+public class Test02 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		try {
+		System.out.print("x = ");
+		int x = sc.nextInt();
+		System.out.print("y = ");
+		int y = sc.nextInt();
+		System.out.print("z = ");
+		int z = sc.nextInt();
+		if( x >= y ) {
+			if (y >= z) {
+				System.out.printf("x:%d > y:%d > z:%d",x,y,z);
+			} else if (x >= z) {
+				System.out.printf("x:%d > z:%d > y:%d",x,z,y);
+			} else {
+				System.out.printf("z:%d > x:%d > y:%d",z,x,y);
+			}
+		} else if (x >= z) {
+			System.out.printf("y:%d > x:%d > z:%d",y,x,z);
+		} else if (y >= z) {
+			System.out.printf("y:%d > z:%d > x:%d",y,z,x);
+		} else
+			System.out.printf("z:%d > y:%d > x:%d",z,y,x);
+		} catch(Exception e) {
+			System.out.println("숫자만 입력하세요.");
+		}
+	}
+}

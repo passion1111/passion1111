@@ -1,0 +1,26 @@
+package ex02.array;
+
+public class ArrayEx8 {
+	public static void main(String[] args) {
+		
+		int[][] sum = {{1,2,10,5}, {9,7,3,20}, {0,0,0,0}};
+		
+		for(int j=0; j<sum[0].length; j++) {	// 아무때나 사용가능
+			for(int i=0; i<sum.length-1; i++) {
+				sum[sum.length-1][j] += sum[i][j];
+			}
+		}		// for end
+		
+//		for(int i=0; i<sum[2].length; i++) {		// 2일때만
+//			sum[2][i] = sum[0][i] + sum[1][i];
+//		}		// for end
+		
+		for(int i= 0; i< sum.length ; i++) {			// 행의 크기
+			for(int j=0; j< sum[i].length ; j++) {		// 열의 크기
+				System.out.print(sum[i][j]+"\t");
+			}	// j end
+			System.out.println();
+		}		// i end
+		
+	}													// main end
+}														// class end

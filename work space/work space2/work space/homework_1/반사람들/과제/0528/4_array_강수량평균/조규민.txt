@@ -1,0 +1,27 @@
+package homework;
+
+import java.util.Scanner;
+
+public class Quiz02 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int days = 3;
+		double sum = 0.0;
+		
+		double[] month = new double[days];
+		
+		for(int i = 0; i < month.length; i++) {
+			System.out.print((i + 1) + "일 강수량: ");
+			month[i] = sc.nextDouble();
+			sum += month[i];
+		}
+		
+		double avg = sum / days;
+		
+		System.out.printf("평균 강수량 = %.2fmm",avg);
+		
+		sc.close();
+	}
+}

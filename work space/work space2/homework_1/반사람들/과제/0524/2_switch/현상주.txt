@@ -1,0 +1,29 @@
+package task;
+
+import java.util.Scanner;
+
+public class Quiz_ex5 {
+	public static void main(String[] args) {
+		System.out.print("월을 입려하세요> ");
+		int mo = new Scanner(System.in).nextInt();
+		switch (mo) {
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+			System.out.println(mo +"월은 31일까지 있습니다. "); break;
+		case 2:
+			System.out.print("년도를 입력하세요> ");
+			int year = new Scanner(System.in).nextInt();
+			if (year % 4 == 0) {
+				if (year % 100 != 0 || year % 400 == 0)
+					System.out.println(mo +"월 " +year + " 년은 윤년, 29일까지입니다.");
+			} else
+				System.out.println(mo +"월 " + year + " 년은 평년, 28일까지입니다.");
+			break;
+		case 4: case 6: case 9: case 11:
+			System.out.println(mo +"월은 30일까지 있습니다. "); break;
+		default:
+			System.out.println("1~12월까지 입력하세요"); break;
+		}
+		
+		
+	}
+}

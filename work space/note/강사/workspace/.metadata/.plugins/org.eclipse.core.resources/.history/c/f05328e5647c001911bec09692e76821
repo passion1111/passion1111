@@ -1,0 +1,10 @@
+package ex01.basic;
+
+public class DataType {
+	
+	public static void main(String[] args) {
+		int su = 29;
+		System.out.print(su);
+		
+	} // main end
+} // class end

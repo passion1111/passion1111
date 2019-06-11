@@ -1,0 +1,12 @@
+package ex01.operater;
+
+public class test2 {
+		public static void main(String[] args) {
+			int pay = 567890;
+			System.out.println("급여 " + pay + " 원");
+			System.out.println("만 원 " + pay / 10000 + " 장");
+			System.out.println("천 원 " + (pay % 10000) / 1000 + " 장");
+			System.out.println("백 원 " + (pay % 1000) / 100 + " 개");
+			System.out.println("십 원 " + (pay % 100) / 10 + " 개");
+		}  //end main
+}  //end class

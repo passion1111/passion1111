@@ -1,0 +1,27 @@
+package ex01_operator;
+
+public class OperatorTest_Ex {
+	public static void main(String[] args) {
+		int pay = 567890;
+		int pay10000;
+		int pay1000;
+		int pay100;
+		int pay10;
+		
+		pay10000 = 567890 / 10000; //56
+		pay = pay % 10000; //7890
+		
+		pay1000 = pay / 1000; //7
+		pay = pay % 1000; //890
+		
+		pay100 = pay / 100; //8
+		pay = pay % 100; //90
+		
+		pay10 = pay / 10; //9
+		
+		System.out.println("만원 : " + pay10000 + "장");
+		System.out.println("천원 : " + pay1000 + "장");
+		System.out.println("백원 : " + pay100 + "개");
+		System.out.println("십원 : " + pay10 + "개");
+	}
+}

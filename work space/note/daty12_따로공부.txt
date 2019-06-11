@@ -1,0 +1,21 @@
+string은 따로 출력해줘야함. 호출만하면 그냥리턴값만 가져오게됨.
+
+this() super()등은 첫줄에 와줘야함.
+
+
+//추상클래스 미완성클래스 
+//자체적으로 미완성메소드가 하나라도 존재하면 미완성 클래스
+//자체적으로 객체 생성할수없다
+//하지만 나를 상속받은 자손클래스로는 객체 생성할수없다
+//추상메소드를 가지고있다.
+//public void dsip(){}  <  {} 중괄호 가지고있다. 일반 메소드
+//public abstract void disp()  <--추상메소드.
+//abstract를 써야함.
+//형식 abstract pulbic class Point{
+//    void disp(){ }
+//    abstract void show();
+//}
+
+class sub extends Super{ //자손클래스
+
+}

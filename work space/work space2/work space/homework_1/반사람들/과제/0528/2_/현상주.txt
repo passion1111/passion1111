@@ -1,0 +1,44 @@
+package Task_homework;
+
+import java.util.Scanner;
+
+public class Task_Ex2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num =0; char ch = ' ';
+
+		do {
+			try {
+				System.out.print("원하는 정수를 입력하시오> ");
+				num = sc.nextInt();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.exit(0);
+			} // 예외처리
+			
+			int sum = 0, mark = 1; // mark 기호변수
+			
+			for (int i = 1; i <= num; i++) {
+				mark *= -1; // 기호바꾸기
+				sum += (i * mark); // 값 누적
+				if (mark < 0)
+					System.out.printf("(-%d)", i);
+				else {
+					System.out.printf("%d", i);
+				}
+				if (i != num) {
+					System.out.print(" + "); // 마지막변수 + 제외
+				}
+			}
+			System.out.println(" = " + sum); // 결과출력
+
+			System.out.print("continue? (Y, y)");
+			ch = sc.next().charAt(0);
+		} while (ch == 'y' || ch == 'Y');
+		
+		sc.close();
+
+	}
+
+}

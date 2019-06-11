@@ -1,0 +1,64 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class Quiz_ScoreEx1 {
+	public static String strName = " ";
+	public static int nKor = 0;
+	public static int nEng = 0;
+	public static int nCom = 0;
+
+	public static void main(String[] args) {
+		Info_Input();
+		Proc();
+
+	}
+
+	public static void Info_Input() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("이름을 입력 하세요:");
+		strName = sc.next();
+		System.out.println("0~100까지의 점수를 입력 하세요");
+		System.out.print("국어점수 입력:");
+		nKor = sc.nextInt();
+		System.out.print("영어점수 입력:");
+		nEng = sc.nextInt();
+		System.out.print("전산점수 입력:");
+		nCom = sc.nextInt();
+	}
+
+	public static int Sum(int nkor, int neng, int ncom) {
+		return (nkor + neng + ncom);
+	}
+
+	public static double Avg(int nSum, int nCnt) {
+		return (double) (nSum / nCnt);
+	}
+
+	public static void Proc() {
+		int nSum = Sum(nKor, nEng, nCom);
+		double fAvg = Avg(nSum, 3);
+		char szGrade = Grade(fAvg);
+
+		System.out.println("학생이름 : " + strName);
+		System.out.println("[ 총점 : " + nSum + " ]" + "[ 평균 : " + fAvg + " ]");
+		System.out.println("[ 학점 : " + szGrade + " ]");
+	}
+
+	public static char Grade(double fAvg) {
+		switch ((int) fAvg / 10) {
+		case 10:
+		case 9:
+			return 'A';
+		case 8:
+			return 'B';
+		case 7:
+			return 'C';
+		case 6:
+			return 'D';
+		default:
+			return 'F';
+		}
+	}
+}

@@ -1,0 +1,43 @@
+package Quiz;
+
+import java.util.Scanner;
+
+public class Quiz_Switchmonth {
+
+	public static void main(String[] args) {
+
+		System.out.print("input month : ");
+
+		int month = (new Scanner(System.in).nextInt());
+
+		switch (month) {
+		case 1:  case 3:  case 5:  case 7:  case 8:  case 10:  case 12:
+			System.out.println(month + "월의 마지막 날은 31일 입니다.");
+			break;
+
+		case 4:  case 6:  case 9:  case 11:
+			System.out.println(month + "월의 마지막 날은 30일 입니다.");
+			break;
+
+		case 2:
+			System.out.print("몇 년? : ");
+			int year = new Scanner(System.in).nextInt();
+
+			if (year % 4 == 0) {
+				if ((year % 100 != 0) || (year % 400 == 0))
+					System.out.println(year + "년은 윤년입니다. " + month + "월의 마지막 날은 29일 입니다.");
+				else
+					System.out.println(year + "년은 윤년입니다. " + month + "월의 마지막 날은 28일 입니다.");
+			} else
+				System.out.println(year + "년은 윤년입니다. " + month + "월의 마지막 날은 28일 입니다.");
+
+			break;
+
+		default:
+			System.out.println("1~12 사이를 입력하세요.");
+
+		}
+
+	}
+
+}

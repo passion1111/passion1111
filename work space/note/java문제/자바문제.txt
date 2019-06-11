@@ -1,0 +1,247 @@
+1. C/C++ 프로그램에서는 대소문자가 구별된다. 자바 프로그램은 어떠한가? 
+	- 대소문자 구별된다.
+2. 클래스 이름은 명사형으로 붙이고 대문자로 시작하며 메소드 이름은 동사형의 소문자로 시작하는 관례가 있다. 반드시 지켜야 하는가? 
+	- NO.
+3. 자바에서 제공하는 기본 자료형을 모두 나열하라. 
+	- int,
+
+4. 2진수 "100 0100 0111 1111"을 16진수,8진수, 10진수로 표현하라. 
+
+  
+5. 자바 언어에서 char형은 부호 없는 정수로 취급 될 수 있다. 이때 최대값은 얼마가 되는가? 
+
+
+6. double 형의 값을 float 형의 변수에 대입하려는 경우 에러가 발생한다. 발생하는 이유 와  수행시키는 방법은 무엇인가? 
+		보기) double d = 10.55555
+		         float f = d 
+
+7. 상수의 선언을 위해 필요한 자바 명렁어는 무엇인가? 
+
+
+8. 다음 문장을 수행한 후 i와 n이 가지는 값은 얼마인가? 
+     int i = 10; 
+     int n = i++%5;         
+
+
+9. 아래와 같은 명령행으로 프로그램을 실행하였을 때 결과는 무엇인가? 
+     C:\>java TestJava 123
+     public class TestJava {
+           public static void main(String args[]) {
+                  System.out.println(args[1]);
+          }
+    }
+
+
+  
+10. 다음 프로그램의 컴파일 결과를 예상하라. 
+     class Test {
+              static int a = 1;
+              public static void main(String[] args) {
+                        int a;
+                        System.out.println(a);
+              }
+     }
+
+
+
+
+11. 다음 프로그램에서 메소드 add()의 기능은 무엇인가? 출력 결과는 무엇인가? 
+    class Test {
+         public static void main(String args[]) {
+          int [] x={0, '0', 'A', 'a'};
+            System.out.println(add(x));
+         }
+         public static int add(int arr[]) {
+            int x = -1;
+            for ( int i = 0; i < arr.length; i ++)
+                  x= x < arr[i] ? arr[i] : x;
+            return x;
+        }  
+    }
+
+
+12. 다음의 출력 결과를 생성하는 자바 프로그램을 반복문, 배열을 사용하여 각각작성하라.
+     *
+     * *
+     * * *
+     * * * *
+     * * * * *
+
+13. 다음 프로그램의 두가지 문제점을 지적하라. 
+   final class First {
+          private int a = 1;
+          int b = 2;
+   }
+   class Second extends First {
+         public void method() {
+               System.out.println(a + b) ;
+         }
+   }
+ 
+
+
+
+14. 다음 프로그램은 컴파일되지 않는다. 이유는 무엇인가? 
+   public class Fred {
+       public int x = 0;
+       public fred (int x) {
+           this.x = x;
+       }
+   }
+
+
+15. 다음 프로그램의 출력 결과가 무엇인지 설명하라. 
+   class Test {
+       String s;
+       public static void main(String[] args) {
+           Test t = new Test();
+           t.go();
+       }
+       void Test() {
+            s = "constructor";
+       }
+       void go() {
+            System.out.println(s);
+       }
+  }   
+
+
+16. 다음 프로그램의 문제점은 무엇인가?
+   protected class Fred {
+          private int x = 0;
+          private Fred (int xval) {
+               x=xval;
+          }
+   }
+
+
+17. 다음 프로그램은 컴파일되지 않는다. 이유는 무엇인가?
+   public class Test {
+       int x; 
+       public static void main (String args[]) {
+            x = 8;
+       }
+   }
+
+
+18. 다음 프로그램의 실행 결과는 무엇인가? 
+   class Test {
+         int x;
+         public Test(int x) {
+		this.x = x; 
+	}
+   }
+   public class Example {
+         public static void main(String args[]) {
+                Test x1 = new Test(10);
+		Test x2 = new Test(10);
+                method(x1, x2);
+                System.out.println(x1.x + ", " + x2.x);
+         }
+         public static void method(Test v1, Test v2) {
+                v2.x = 20;
+                v1=v2;
+         }
+   }
+
+
+
+19. 어떤 클래스에서 다음과 같은 메소드가 존재할 때, 하위 클래스에서 오버라이딩을 못하게 하는것을 고르고 설명하라. 
+a) final void methoda() { }    b) void final methoda() { }     c) static void methoda() { }  
+d) static final void methoda() { }  e) final abstract void methoda() { }
+
+
+
+20. 생성자에서 조상클래스 의 기본 생성자를 호출하는 문장을 써라.
+
+
+
+21. 아래 프로그램에서 modify 메소드는 static 데이터 a의 값을, 인자로 전달되는 값만큼 증가시킨다. modify()메서드를 완성하고 출력 결과를 설명하라. 
+    public class Test {
+         private static int a=2;
+         public static void main(String args[]) {
+                modify(a);
+                System.out.println(a);
+         }
+         public static void modify(int a) {
+		//작성하시오..
+
+         }
+    }
+
+
+
+22. 다음 프로그램의 실행 결과를 예상하라.
+    class Super {
+         int index = 5;
+         public void printVal() {
+              System.out.println("Super");
+         }
+    }
+    class Sub extends Super {
+         int index = 2;
+         public void printval() {
+               System.out.println("Sub");
+         }
+    }
+    public class Runner {
+         public static void main(String[] args) {
+                 Super sup=new Sub();
+                 System.out.println(sup.index + " ");
+                 sup.printVal();
+         }
+   }
+
+
+23. 다음에 주어진 인터페이스를 구현하는 클래스 B의 가장 간단한 정의를 작성하라. 
+     interface A {
+          int method1(int i);
+          int method2(int j);
+     }
+
+class B implements A{
+	 int method1(int i){return i;}
+          int method2(int j){return j;}
+}
+
+24. 멤버변수와 생성자, 메소드를 가지는 Car 클래스를 작성하시오
+	*클래스 이름  : Car
+	*멤버변수 : protected int speed	//자동차 속도
+			  protected String name	//자동차 이름
+
+	*생성자  작성
+		-모든 멤버변수를 0 또는 null 로 초기화 하는 생성자
+		-자동자의 이름을 매개변수로 받아 초기화 하는 생성자
+	*메소드 작성
+		메소드명		리턴타입	 매개변수 접근제어	용도
+		speedUp		   void	   없음	  public	자동차 속도 1증가
+		speedDown	   void	   없음	  public	자동차 속도 1감소
+		stop		   void	   없음	  public	자동차 속도 0으로설정
+		display		   void	   없음	  public	자동자의 이름과 속도 출력
+
+25. 위 24번에서 작성한 Car 클래스를 상속받는 Taxi 클래스 작성 
+	*클래스 이름 : Taxi
+	*멤버변수 : private int charge	//택시요금
+			  private boolean fare	//할증여부
+			  private String company	//택시회사이름
+	
+	*생성자
+		- 택시회사 이름을 매개변수로 받아 초기화하는 생성자
+
+	*메소드 작성
+		메소드명		리턴타입		매개변수		접근제어		용도
+		accounts	  void		 없음	          public	요금계산(속도 *10 , 할증시 속도*12)
+		setFare	          void	         boolean	  public	할증여부 설정
+		display		  void		 없음		  public	택시회사이름, 요금, 할증여부 출력
+
+
+26. 위 25번의 Taxi 클래스 객체를 생성하여, 할증을 설정하고, 속도를 2까지 올린 상태에서 요금을계산하시오
+	*객체생성시 택시회사 이름은 "서울택시" 라고 설정한다.
+
+
+
+==========================================================================================
+* 수고하셨습니다.. 작성한 파일은 
+	happydoyeon88@gmail.com  보내세요...
+
+http://blog.naver.com/jsw6377/140125768794

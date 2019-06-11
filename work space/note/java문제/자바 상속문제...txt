@@ -1,0 +1,133 @@
+1번 문제
+
+ 
+
+class Father{
+ int v;
+ String s1="아버지 객체";
+ Father(){
+  v=0;
+ }
+ Father(int i){
+  v=i;
+ }
+ void output(){
+  System.out.println("Super "+v);
+ }
+}
+class Son extends Father{
+ int v;
+ String s2="아들 객체";
+ Son(int i){
+  v=i;
+ }
+ void output(){
+  System.out.println("Sub "+v);
+ }
+}
+
+public class TestInherit{
+ static void display(Father obj){
+  obj.output();
+ }
+ public static void main(String[] args){
+  Father obj1=new Father(1);
+  display(obj1);
+  System.out.println(" "+obj1.s1);
+  System.out.println(obj1.s2);  
+
+//Father클래스에 s2라는 변수가 없습니다.
+  Father obj2=new Son(2);
+  display(obj2);
+  System.out.println(obj2.s2);
+
+//다형성으로 생성시 메소드만 오버라이딩 됩니다. Father에 s2없습니다.
+  System.out.println(" "+obj2.s1);
+ }
+}
+
+
+ 
+
+2번 문제... 
+
+ 
+
+class SuperClass{
+        int a=1;
+}
+
+class SubClass extends SuperClass{
+        int b=2;
+}
+
+class SubSubClass extends SubClass{
+        int c=2;
+}
+ 
+public class Inheritance_Example10{
+       public static void main(String[] args){
+         SubSubClass obj1 = new SuperClass();
+
+//SuperClass는 SubSubClass를 상속받지 않았습니다. 반대로 됐죠.
+
+//자신이 상속해준 클래스만 다형성으로 쓸 수 있으며 역시 메소드만 오버라이딩 됩니다.
+           System.out.println("obj1.a = " + obj1.c);
+            System.out.println("obj1.b = " + obj1.b); 
+            System.out.println("obj1.c = " + obj1.c);
+        }
+}
+
+
+ 
+
+3번 문제..
+
+ 
+
+class Base{
+     public Base(int i){}
+        }
+public class MyOver extends Base{
+     public static void main(String arg[]){
+         MyOver m = new MyOver(10);
+        }
+        MyOver(int i){
+        super(i);
+        }
+    
+ MyOver(String s, int i){
+         this(i);
+            MyOver m = new MyOver(); //기본생성자 없음 
+             super();                  //생성자에서 super()메소드와 ~
+              this("Hello",10);      //this()메소드는 맨 처음 한번만 둘 중 하나만 쓸수 있습니다. 
+              Base b = new Base(10);
+        }
+}
+
+
+4번 문제 
+
+ 
+
+abstract class A{
+ abstract void m1();
+ abstract void m2();
+ void m3() { /* ... */ }
+}
+abstract class B extends A{
+ void m1() { /* ... */ }
+}
+class C extends B{
+ void m2() { /* ... */ }
+}
+class AbstractTest2{
+ public static void main(String args[]){
+  A a;
+  B b;
+  C c;
+  a=new A();  //추상 클래스는 객체를 생성할 수 없습니다.
+  c=new C();
+ }
+}
+

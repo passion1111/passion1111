@@ -1,0 +1,14 @@
+package ex01.method;
+
+public class MainEntry {
+	
+	//1) 매개변수 없고, 리턴타입 없는 경우
+	public static void display() {
+		System.out.println("안녕하세요");
+		System.out.println("이도연");
+	}
+	
+	public static void main(String[] args) {  //시작점(진입점)
+		
+	}
+}

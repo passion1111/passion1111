@@ -1,0 +1,28 @@
+package ex03.array;
+
+public class ArrayEx8 {
+	public static void main(String[] args) {
+		int[][][] arr = new int[2][2][3];
+		int x =0;
+		
+		System.out.println("면 = " + arr.length);
+		System.out.println("행 = " + arr[0].length);
+		System.out.println("열 = " + arr[0][1].length);
+		System.out.println("열 = " + arr[0][0].length);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

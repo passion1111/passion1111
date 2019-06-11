@@ -1,0 +1,76 @@
+13일
+
+인터페이스는 다중구현을 지원한다. 13일차 첫번쨰시간에 배우는것은 다중상속구현에 대해서 배울것이다.
+
+
+final <-- class에다가 붙이면 상속금지. ex final class A <- 상속금지.
+			ex)String,buffer
+
+	  method<-- override금지. 부모에게 ex)public final void 등으로했으면 같은 메소드명을가진것들
+		오버라이드했으면. 불가능.
+
+	field <-- 값 변경금지.(상수) ex) final char ch='a';했으면 자식들이 super.ch='b';불가능.
+
+
+
+
+사용자 예외 자바는 의무적으로 예외를 처리해야하는것들이 있다. io 네트워크 쓰레드관련된것이 그럼
+	api를보면 thows가 적혀져있다. error는 자바 jvm의 도움을 받아야하고 exception은 제어가 가능하다.
+	api를보면 final이 안붙어있기떄문에 상속가능함을 알수가 있다. 
+	예외적용하고싶은애 extends Exception
+
+스태틱 멤버<-- 공유
+	호출방법 <-- 객체명.스태틱멤버또는 스태틱멤버함수
+		클래스명.스태틱멤버또는 스태틱멤버함수()
+
+추가로 api 봤더니 constr이 없으면 스태틱임으로 예상
+
+enum 열거형- 새로운 클래스 타입을 정의하는것 특정한 값만을 가질수있는 데이터 타입을 정의할떄 필요하다.
+
+형식>	[접근지정자<-생략가능] enum 열거형이름.(변수명만드는규칙과도같음){필요한 상수들 나열...}
+
+
+
+
+API
+	java.lang package
+
+		object
+		String	
+		StringBuffer    <--쓰레드 지원  api참조하면되지만 default값으로 16글자로 돼있다.
+		StringBuilder	<--쓰레디 지원x
+		...
+	String의 객체를 보완해서 나온게 StringBuffer와 Builder이다.
+
+	Str=Str2로 하면 Str,Str2 2개 각각 4바이트로 스택영역에 주소값을 담을 공간을 저장하고
+	힙영역에 자세한 값들을 저장한다 그런데 Str=Str2로한다면 Str이 str2값을 저장한다
+	str2이 중간에 값을 바꾼다면 str1은 놔두고 str2의 새로운 주소값을 할당한다
+	그런데 str3이 str1과 같은값이라면 기존에있던 번지에 저장한다. 그 이유는 앞에있는 내용을
+	보호하는차원이기도하다. 불변객체
+
+
+
+
+	Wrapper class <--하는역할은 기본자료형에 대응되는 클래스형 자료형
+		기본 자료형            클래스형(레퍼런스 또는 참조형)자료형
+		int			Integer
+		float			Float
+		char			Charactor
+		double			Double
+		..			...
+	오토 박싱 언박싱에대해서 말할려면 참조형 클래스가 필요함.
+	int x=3,y=5이렇게되면 스택영역에 데이터값들을 저장하게됨.
+	힙영역에 데이터저장하면 안정성이있음.그래서 스택영역에 저장돼있는애들을 힙영역에 저장하고싶어함.
+	힙영역에 저장돼있는애들은 박싱돼있다고 표현하고 스택영역에있다고하면 언박싱돼있다고 표현함.
+	스택영역은 블럭안에서만 살아있는데 힙영역은 gc가 메모리 해제시키니까.
+
+	java.util package
+		Random class
+		Scanner class
+		날짜관련..
+		형식지정..
+		StringTokenizer
+		...
+
+	java.text SimpleDateFormat
+	

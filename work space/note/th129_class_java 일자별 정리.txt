@@ -1,0 +1,662 @@
+>> day09 - 19/05/31
+
+ > return value; //오직 1개 값만 리턴한다
+
+   
+  public returnType methodName() {
+	
+  }
+
+
+  public int methodName() {
+
+	return intValue;  // 오직 1개만 
+  }
+
+
+ > 함수의 자료형 타입!!
+
+ > 디버깅(Debuging)
+ 
+ > 난수 발생 - 2가지 방법
+
+  1) Math.random()  - java.lang
+     
+     Math.random() * n <=== 0 ~ n-1 값 추출됨
+
+  2) Random class - java.util package
+	nextXXX();
+	    자료형
+	nextInt();
+	nextDouble(), 
+	nextFloat(),....
+
+       rand.nextInt(n);  // 0 ~ n-1 값 추출함
+
+문제1] 업/다운 게임 프로그램 작성 (난수 이용)
+1~100 숫자 중에서 임의의 난수 추출해 놓고, 사용자는 5번의 기회를줘서 입력 받는다.  그 입력 받은 숫자와 추출한 난수가 같은지를 판정하는 프로그램 작성
+
+
+ > overload(중복함수)
+
+ > 가변길이 배열
+
+ > OOP(객체지향)
+
+
+** 용어 조사
+ class
+ 정보은닉(캡슐화) / 상속 / 다형성 / 추상화
+ 접근제한자
+ 생성자함수
+ 멤버변수 / 멤버 함수
+ overload(중복함수)
+ override
+ object / instance
+ interface
+ abstract 
+ this / static 
+
+ > this
+
+=====================================
+>> day08 - 19/05/30
+
+  공지!!!!- 냉장고 정리 내일(금) 6시까지
+  	소방안전교육  2:30 ~  10분 정도 소요
+
+ > 함수(Method)
+  메인함수 부담 줄이고, 반복적인 코드를 함수로 만들어서 사용
+  - instance method : 객체 생성하고 사용해야함 (메모리상에 할당이 되어야....)
+  - static method : 객체 생성 없이 바로 사용 가능함
+       object.methodName();
+       ClassName.methodName();  //
+
+   int x = 90;
+   MainEntry me ;  //선언
+   me = new MainEntry();   // 객체생성, 메모리에 할당
+
+   매개변수의 유무 / 리턴타입 유무
+  1) 매개변수 없고, 리턴타입 없는 경우
+     public returnType methodName(){   }
+  
+  2) 매개변수 있고, 리턴타입 없는 경우
+     public returnType methodName(parameter var1, parameter var2,...){   }
+
+  3) 매개변수 없고, 리턴타입 있는 경우 
+     public returnType methodName(){ return value;  }
+     ex) public int show() { return intValue; }
+  4) 매개변수 있고, 리턴타입 있는 경우
+    public returnType methodName(parameter var1,..){ 
+	return value;  
+    }
+    예) public String name(String irum, int x){ 
+		
+	 String msg = irum + x;
+	 //return irun;
+	  return msg;
+        }
+
+문제1] info() {  이름, 연락처, 주소 출력 함수 }
+문제2] abs(int x) { 절댁값 출력하는 함수 만들기 }
+문제3] max() {   두개 정수 입력 받아서 큰수 리턴 하는 함수 }
+
+문제4] 성적처리 프로그램 함수로 분할(분리)할것
+   입력 함수 input()  - 이름 , 국어, 영어,전산 점수 
+   총점 함수 total(~~~) - 총점 구하는 함수
+   평균 함수 average( ~~ ) - 평균 구하는 함수
+   평점(학점) grade( ~~ ) - 학점 구하는 함수 
+   출력 함수 output( ) - 결과 출력하는 함수 
+
+문제5] loopLine() { ------------------- 6번 출력하는 함수  }
+   
+ > bitCamp 3기수  카페
+  https://cafe.naver.com/bitcamp5class
+
+ > main Arguement 이용 값 넘기는 방법
+
+ > OOP(객체지향)
+
+ > 팀 구성
+  1팀 : 김세종 - 강수아, 이태성, 배재준
+  2팀 : 조규민 - 문혜수, 손지형, 김현태, 박진산, 박종휘
+  3팀 : 옥영학 - 정준모, 김광범, 이소영, 남민지, 김승수
+  4팀 : 황인호 - 안희수, 현상주, 강예진, 박예원
+
+-----------------------------------
+1) 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+ <1번째 과제 : 자료구조 - 정렬 >
+   1팀 :   김세종 - 선택정렬   
+   2팀 :   조규민 - 버블정렬   
+   3팀 :   옥영학 - 삽입정렬    
+   4팀 :   황인호 - 병합(머지)정렬  
+   		
+	- 퀵정렬
+
+
+2) 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+  <2번째 과제 : UML >
+   1팀 :   김세종 - Class Diagram / Object Diagram 
+   2팀 :   조규민 - Use Case Diagram / Deployment Diagram  
+   3팀 :   옥영학 - Sequence Diagram / Interaction Diagram   
+   4팀 :   황인호 - Collaboration Diagram / StateChart Diagram
+   		
+      -  Collaboration Diagram / StateChart Diagram
+
+===================================
+>> day07 - 19/05/29
+
+ > Array(배열)
+ - 일괄처리 
+ - 동일한 데이터 모임
+ - 메모리상에 연속적 나열
+ - index 는 0부터 시작함
+ - for문이랑 친함
+
+ > 형식 
+   자료형[] 배열명 = new 자료형[크기];
+   int[] a = new int[30];
+   자료형[][] 배열명 = new 자료형[행크기][열크기];
+   int[][] a = new int[2][3];
+   자료형[][][] 배열명 = new 자료형[면크기][행크기][열크기];
+   int[][[][] a = new int[2][2][3];
+
+
+   1차원 배열 char[] ch = {'a', 'k', 'P', 'D', 'y' }
+
+   String[] str = {"a", "kbs", "Park", "D", "you" }
+
+   자료형[][][] 배열명 = new 자료형[면크기][행크기][열크기];
+   
+  문제1] 3차원 배열 
+   int[][][] arr = new int[2][2][3];
+   임의의 데이터 입력 받아서 출력하기 
+ 
+ 
+ > 개선된 루프문(확장 for문) 
+   for(초기값; 조건 ; 증감식) {   반복실행문;  }
+
+   for(자료형 변수명 : 배열명 또는 컬렉션명) { 반복실행문; }
+
+과제1] 대문자 <--> 소문자 변경 프로그램 작성 ( if ) 
+과제2] 두수 입력 받아서 나눗셈 하는 프로그램 작성 (예외처리)
+
+   - 숫자가 아닌 문자 입력 됐을때.
+   - 정수가 아닌 실수 데이터 입력 됐을때.
+   - 어떤 수를 0으로 나눌 수 없다.
+
+
+
+ > next() vs nextLine() 메모리?
+
+ > sort (정렬)
+  선택, 버블 소트 
+
+ > 함수(Method)
+
+
+
+** 개인 과제!!! (용어 조사)
+ class
+ 정보은닉(캡슐화) / 상속 / 다형성 / 추상화
+ 접근제한자
+ 생성자함수
+ 멤버변수 / 멤버 함수
+ overload(중복함수)
+ override
+ object / instance
+ interface
+ abstract 
+ this / static 
+
+====================================
+>> day06 - 19/05/28
+
+ > 배열(Array)
+ - 일괄처리 
+ - 동일한 데이터 모임
+ - 메모리상에 연속적 나열
+ - index 는 0부터 시작함
+ - for문이랑 친함
+
+ > 형식 
+   자료형[] 배열명 = new 자료형[열크기];
+   int[] a = new int[30];
+
+   자료형[][] 배열명 = new 자료형[행크기][열크기];
+   int[][] a = new int[2][3];
+
+   자료형[][][] 배열명 = new 자료형[면크기][행크기][열크기];
+   int[][[][] a = new int[2][2][3];
+
+
+ 문제1] int[] a = {7, 5, 3, 8, 2 }; 배열의 합 구하는 프로그램작성
+ 문제2] 기상청
+        4월의 강수량 평균을 구하는 프로그램 작성(단, 30일 기준)
+
+ 문제3]  int[] a = { 7, 5, 7, 8, 2,7,3,7,7,90 };
+ 
+ 문제4] int[][] arr = new int[2][3];
+   임의의 데이터 입력 받아서 출력하는 프로그램 작성
+
+  - https://colorscripter.com/
+
+문제5] 7명의 데이터를 받아서 총점/평균/학점 구하는 프로그램 작성    ( 배열이용할것 )
+ 제시>
+ 입력 받기 : 이름, 3과목
+ 출력은  총점, 평균, 학점(평점)까지 구하기
+결과>
+  이도연 님의 성적표
+  국어 : 100, 영어 : 100, 전산 : 100
+  총점 : 300, 평균 : 100.00  학점 : A
+
+ 이도연2 님의 성적표
+  국어 : 100, 영어 : 100, 전산 : 100
+  총점 : 300, 평균 : 100.00  학점 : A
+
+ 이도연3 님의 성적표
+  국어 : 100, 영어 : 100, 전산 : 100
+  총점 : 300, 평균 : 100.00  학점 : A
+
+
+ > 개선된 루프문(확장 for문) 
+
+ > 팀 구성
+  1팀 : 김세종 - 강수아, 이태성, 배재준
+  2팀 : 조규민 - 문혜수, 손지형, 김현태, 박진산, 박종휘
+  3팀 : 옥영학 - 정준모, 김광범, 이소영, 남민지, 김승수
+  4팀 : 황인호 - 안희수, 현상주, 강예진, 박예원
+
+
+
+ > next() vs nextLine() 메모리?
+
+
+
+ > 함수(Method)
+
+
+=============================================
+>> day05 - 19/05/27
+
+ > 제어문
+
+    3)반복문
+
+
+  for(초기식;조건식;증감식){
+	수행문1;
+	수행문2;
+  }
+
+  예) 
+     int a = 1;
+
+  for(a = 1;a <= 2 ; a++){
+
+	S.o.pt( a + "\t" );
+  }
+
+   - 초기값/증감식은 2개 이상 기재 가능
+	( 단, 조건은 오직 1개여야함)
+   - 초기값/증감식은 생략 가능
+	(단, 조건 생략하면 무한루프임)
+    
+
+예) 
+     int a = 1, b;
+
+  for(a = 1, b=2; a <= 10 ; a++, b+=2){
+
+	S.o.pt( b + "\t" );
+  }
+-----------------------------------
+  int a = 1;
+
+  for(  ; a <= 2 ; ){
+
+	S.o.pt( a + "\t" );
+	a++;
+  }
+
+ - 무한루프 
+  int a = 1;
+
+  for(  ;  ; ) {
+
+	S.o.pt( a + "\t" );
+	if(조건) break;   //탈출구문
+	
+  }
+
+ 문제1] 1~ 10까지 출력하는 프로그램 작성 (for문 )
+ 문제2] 1~ 100까지 합을 출력하는 프로그램 작성
+ 문제3] 1~ 100까지 중에서 짝수 출력하고 한행에 10개씩 출력
+ 문제4] 1~ 100까지 중에서 3의 배수의 합과 개수는 ? 
+ 문제5] 원하는 단을 입력 받아서 구구단 출력하는 프로그램 작성
+
+ - 다중 for
+
+ for(초기식1 ; 조건식1 ; 증감식1) {
+
+	for(초기식2 ; 조건식2 ; 증감식2){
+
+		명령어2;
+
+	} //end for in
+
+ } //end for out
+
+ 문제6]이름 입력받고,
+       점수 3개(k, e, c)- 0~100점수만 입력받기, 
+       총점 평균 구하는 프로그램작성
+
+
+
+    4)기타
+ 	- break
+	- continue 
+
+
+과제1] 1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4) + (1 + 2 + 3 + 4 + 5) = ?
+과제2] (-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ?
+과제3] 1/2 + 2/3 + 3/4 + 4/5 + 5/6 + 6/7 + 7/8 + 9/10 = ?
+
+
+1. 	2.	3.	4.
+*	*****	    *	*****
+**	****	   **	 ****
+***	***	  ***	  ***
+****	**	 ****	   **
+*****	*	*****	    *
+
+5.		6.
+    *		*********
+   ***		 *******
+  *****		  *****
+ *******	   ***
+*********	    *
+
+	7.		
+	    *		
+	   ***		
+	  *****		
+	 *******	
+	*********	
+	 *******	
+	  *****		
+	   ***		
+	    *		
+
+
+
+ > import / export 
+
+ > 배열(Array)
+
+ > 함수(Method)
+
+=====================================
+>> day04 - 19/05/24
+
+  > import / export 방법
+
+
+  > 제어문
+    1)비교문
+	if ~ else
+
+ 문제1] 이름, 점수 3개(국어,영어,전산) 
+   총점, 평균 , 학점(평점) 구하는 프로그램 작성
+
+ 문제2] 윤년/평년 판정 프로그램 작성
+   if( year % 4 == 0 ) 
+	if( year % 100 != 0) || if( year % 400 == 0)
+		"윤년" 
+ 문제3] 전산,영어,국어 점수 입력 받아서 평균 60점이상이고,
+     각 과목 과락 40점이하면 과목 불합격 처리하는 프로그램 작성
+
+
+
+    2)선택문
+	switch ~ case 
+
+ 문제4] 짝,홀수 판정 swtich ~ case 로 만들기
+ 문제5] 원하는 달을 입력 받아서 마지막 일수 출력하는 프로그램 
+
+
+    3)반복문
+    4)기타
+
+ > exception (예외처리)
+   Java는 의무적(반드시)으로 예외처리를 해야하는 상황들이 있음.
+    -- 네트워크, 데이터베이스(JDBC), Thread, IO(입출력), File,..
+   
+   1) try ~ catch : 직접처리 - 권장
+   2) throws : 위임
+   3) throw : 예외 던지기 
+  
+ 문제6] 사칙연산 프로그램 작성(예외처리하기)
+  숫자 2개 입력 받고, 연산자(+, -, *, /) 1개 입력 받아서
+  ( if, switch 이용 ) 
+
+   
+  result> 
+    3
+    5
+    +
+
+   3 + 5 = 8
+
+
+
+과제1] 3개 정수 입력 받아서 큰 순서대로 출력하는 프로그램 작성
+ x = 3
+ y = 4
+ z = 5
+
+
+  result>
+    5 > 4 > 3 
+   
+  happydoyeon88@gmail.com
+
+과제2] 연산자(+, -, *, /)와 정수 2개 입력 받아 사칙연산 프로그램 작성
+
+
+
+
+
+====================================
+>> day03 - 19/05/23
+
+ > 자료형
+   진법 설명  
+
+ > 연산자 : 우선순위 있다.
+   - 최단산쉬관논삼대콤
+
+  0을 제외한 모든것은 '참'이다.
+  -10, 'a', "kbs", 100, 12.34,...
+   !(-10) --> false
+   !(0) --> true
+
+문제1] int pay = 567890;
+
+ result> 만원 : 56장
+	 천원 :  7장
+	 백원 :  8개
+	 십원 :  9개 
+
+문제2] int su = 123456;
+
+  시 : 분 : 초 
+   
+
+ > 입력받기 - Scanner class  jdk 5.0
+   java.io <--- Input  / Output
+
+   nextXXX()
+       자료형
+   nextInt()
+   nextFloat()
+   nextDouble()
+   next() vs nextLine()  <--- String input method
+
+문제2] 다음을 입력 받아서 출력하는 프로그램 작성
+  이름, 국어, 영어, 전산 점수 입력 받아서
+  총점, 평균 까지 출력하는
+
+
+ result>
+  이도연님의 성적표 *****
+  국어 : 100, 영어: 100, 전산 : 100
+  총점 : 300, 평균: 100.00 
+  
+
+ > 자바는 자동으로 임포트 해주는 패키지 있다. - java.lang 
+
+
+ > 제어문
+
+
+ - 학습반장님 (현상주씨)
+   010-7728-1696
+
+=====================================================
+>> day02 - 19/05/22
+
+ > API 보는 방법
+  https://www.oracle.com/index.html
+
+  package > class > method > field
+
+  window 폴더 : C:\java_web_app_developer\1_Java\workspace
+  java package : C:.java_web_app_developer.1_Java.workspace
+ 
+  import  package ;
+  class {
+
+	method( ) {
+		int x = 90;
+
+	}
+  }
+
+ > 출력함수
+ printf() - 서식에 맞춰서 출력
+            %문자 - %c, %s, %d or %i, %f,%o, %0x....
+
+ > eclipse download
+  https://www.eclipse.org
+
+
+ > 자료형
+
+  문제] 자료형에 맞춰서 선언하고 값 출력하는 프로그램 작성
+   이름 String 
+   나이 int
+   키 또는 몸무게 실수형
+
+ > 연산자 
+
+ 
+ > id / pwd
+  developer / java
+
+===================================
+>> day01 - 19/05/21
+
+ 1) JDK 설치 및 실행
+ 2) 간단 프로그램 작성
+   - 메모장
+
+class ClassName {
+
+	pubulic static void main(String[] args) {
+		
+		System.out.print("contents");
+	}
+}
+
+ > 출력 함수 
+ print()  - 개행없이 출력 
+ printf() - 서식에 맞춰서 출력
+ println() - 출력 및 개행 
+
+문제] Info.java 파일에 자신의 정보 출력하기 - 이름, 연락처, 주소 
+
+----------------------------------------------------
+접근지정자  클래스   클래스명
+public     class     Hello    {  //시작블럭
+
+	public static void main(String[] args) {  //시작점(진입점)
+
+		System.out.print("Hello Java!!!"); // 문자열데이터
+		System.out.print(100);  //정수데이터
+		System.out.print(12.345);  //실수데이터
+
+	} // end main
+
+}  // 끝블럭,  end class
+------------------------------------------------------
+
+ > 컴파일 - javac 파일명.확장자(java)
+ C:\java_web_app_developer\workspace>javac Hello.java
+ 
+ > 실행 - java 파일명 (.class 생략한다) 
+ C:\java_web_app_developer\workspace>java Hello
+	
+   - 이클립스 
+  
+  JDK : java 개발 + 실행
+  JRE : java로 만들어진 프로그램을 실행 
+ 
+ 3) 환경변수 설정
+   가) JAVA_HOME
+       C:\Program Files\Java\jdk1.8.0_212
+
+       CLASSPATH
+       .;
+
+   나) Path 수정(편집) 
+      ~~~~;%JAVA_HOME%\bin;
+
+  컴파일 - 고급어를 기계어로 변환해준다.
+
+*** 유용한 사이트 ****
+
+ > 전산용어
+ http://www.terms.co.kr/
+ https://ko.wikipedia.org
+
+ http://www.etnews.com/
+
+ > 동영상 강좌 & 문제 은행
+ https://cafe.naver.com/thisisjava
+ https://cafe.naver.com/javachobostudy
+ https://www.orentec.co.kr/
+ 신입SW인력을 위한 실전 자바(Java)
+ https://www.opentutorials.org/course/1223
+
+
+ > 자격증
+   ocjp
+   정보처리 기사(산업기사)
+
+ > 알고리즘
+ https://www.acmicpc.net
+
+
+
+
+>> 강사컴 접속
+ 1) \\10.10.10.194
+ 2) http://10.10.10.194/
+ 3) \\class4teacher
+
+---------------------------------------------------
+>> 이도연(영희)
+ happydoyeon88@gmail.com
+ 010-9872-0202
+

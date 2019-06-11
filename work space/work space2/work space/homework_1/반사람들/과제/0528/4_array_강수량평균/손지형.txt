@@ -1,0 +1,28 @@
+package ex01_array;
+
+import java.util.Scanner;
+
+public class Quiz2 {
+
+	public static void main(String[] args) {
+		//특정달의 강수량 평균을 구하는 프로그램 작성(단,30기준)
+		
+		int NUM = 0; int sum = 0;
+		System.out.println("특정달 1~(입력일)까지의 강수량 평균");
+		NUM = new Scanner(System.in).nextInt();
+		int[]a= new int[NUM]; //size는 int 데이터만
+		
+		for(int i= 0; i<NUM; i++ ) {
+		System.out.println((i+1)+"일 강수량 = ");
+		a[i]= new Scanner(System.in).nextInt();
+		sum = sum + a[i];			
+		}// end for
+		
+		System.out.print("입력한 일자 까지의 강수량 평균 : ");
+		System.out.printf("%f",(double)sum/NUM);
+		
+		
+
+	}
+
+}

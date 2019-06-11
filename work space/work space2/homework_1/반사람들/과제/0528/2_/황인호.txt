@@ -1,0 +1,20 @@
+package Homework;
+
+// °úÁ¦2] (-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ?
+public class HomeworkEx2 {
+	public static void main(String[] args) {
+		int result = 0, minus = 0, plus = 0;
+		for (int i = 1; i <= 10; i++) {
+			if (i % 2 == 1) { // È¦¼ö
+				minus = minus + (i * -1);		
+			} else { // Â¦¼ö
+				plus = plus + i;
+			}
+			result = minus +  plus;
+		}
+		System.out.print("(-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ");
+		System.out.println(result);
+		
+	}
+}
+

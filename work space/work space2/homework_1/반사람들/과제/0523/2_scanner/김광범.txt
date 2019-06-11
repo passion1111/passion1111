@@ -1,0 +1,15 @@
+System.out.println("이름을 입력하세요 ");
+		String name = sc.nextLine();
+		System.out.println("국어 점수를 입력하세요");
+		int ko = sc.nextInt();
+		System.out.println("영어 점수를 입력하세요");
+		int en = sc.nextInt();
+		System.out.println("전산 점수를 입력하세요");
+		int com = sc.nextInt();
+		int sum = ko+en+com;
+		double average = sum / 3; 
+		System.out.println("===================");
+		System.out.println(name+"님의 성적표 *****");
+		System.out.println("국어 : "+ko +"\t영어 : " + en+ "\t전산 : " + com );
+		System.out.println("총점 : "+sum+"\t평균 : "+String.format("%.2f", average));
+	

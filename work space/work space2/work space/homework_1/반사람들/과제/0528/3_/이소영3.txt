@@ -1,0 +1,20 @@
+package hw_20190527;
+
+public class No_3 {
+	
+	public static void main(String[] args) {
+		/*
+		 * 과제3 ] 1/2 + 2/3 + 3/4 + 4/5 + 5/6 + 6/7 + 7/8 + 8/9 + 9/10 = ? 소수점 둘째 자리까지 표현하기
+		 */
+		double temp=0.0; //각 항의 값
+		double sum=0.0;
+		double a=0.0;
+		
+		for (a = 1.0; a<=9.0; a++) {	
+			temp = a / (a+1.0); 
+			sum+=temp;			
+		}System.out.printf("%.2f",sum);
+		
+		System.out.println();
+	}
+}

@@ -1,0 +1,29 @@
+package task;
+import java.util.InputMismatchException;
+
+import java.util.Scanner;
+
+public class Quiz_Ex8 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int num1=0, num2 = 0; double result = 0;
+
+		try {
+			System.out.print("두수를 입력하세요> ");
+			num1 = sc.nextInt(); num2 = sc.nextInt();
+			result = num1/num2;
+			
+		} catch (InputMismatchException e) {
+			System.out.println("문자/실수 를 입력하셨습니다.");
+			System.exit(0);
+		} catch (ArithmeticException e) {
+			System.out.println("0으로 나눌수없습니다. ");
+			System.exit(0);
+		}
+		result = (double)num1/num2;
+		System.out.printf("두수를 나눈결과> %.2f", result);
+
+		sc.close();
+		
+	}
+}

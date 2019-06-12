@@ -1,0 +1,28 @@
+
+package ex01.operator;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int pay = 567890;
+		int tmp,tmp2;
+		tmp = pay/10000;
+		System.out.println("만원 : "+tmp+"장");
+		tmp= pay%10000;
+		
+		tmp2 = tmp/1000; 
+		System.out.println("천원 : "+tmp2+"장");
+		tmp = tmp%1000;
+		
+		tmp2 = tmp/100; 
+		System.out.println("백원 : "+tmp2+"개");
+		tmp = tmp%100;
+		
+		tmp2 = tmp/10; 
+		System.out.println("십원 : "+tmp2+"개");
+		
+	}
+
+}

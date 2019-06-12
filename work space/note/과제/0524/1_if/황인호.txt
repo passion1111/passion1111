@@ -1,0 +1,30 @@
+package Quiz;
+
+import java.util.Scanner;
+
+public class Quiz_Ex2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("연도(year) 입력 : ");
+		int year = sc.nextInt();
+		
+		String str = "";
+		if ( year % 4 == 0 ) {
+			if ( year % 400 == 0) {
+				str = "윤년";
+			} else if (year % 100 == 0) {
+				str = "평년";
+			} else {
+				str = "윤년";
+			}
+		} else  {
+			str = "평년";
+		}
+		
+		System.out.println(str);
+	     		
+		sc.close();
+		
+	
+	}
+}

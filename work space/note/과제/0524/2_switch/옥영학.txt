@@ -1,0 +1,39 @@
+
+package Test;
+
+import java.util.Scanner;
+
+public class Dalcalc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("이번달이 몇 일인지 궁금하십니까? ");
+		int dal = new Scanner(System.in).nextInt();
+		
+		int day=0;
+		switch(dal) {
+		case 1:case 3:case 5:case 7:case 8:case 10:case 12:
+			day=31;
+			break;
+		case 4:case 6:case 9:case 11:
+			day=30;
+			break;
+		case 2:
+			System.out.println("년도를 입력하시오");
+			int year = new Scanner(System.in).nextInt();
+			if((year%4==0)&&(year %100 !=0)||(year%400==0)) {
+				day=29;
+			}			
+			else 
+				day=28;			
+			break;
+			default:
+				System.out.println("뭔가잘못...");
+				System.exit(0);
+		}
+		System.out.println("선택하신 달은 "+day+"입니다");
+		
+
+	}
+
+}

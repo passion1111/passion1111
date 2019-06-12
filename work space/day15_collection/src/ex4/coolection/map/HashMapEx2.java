@@ -15,7 +15,7 @@ class HashMapEx2 {
 		Iterator it = set.iterator();
 
 		while(it.hasNext()) {
-			Map.Entry e = (Map.Entry)it.next();
+			Map.Entry e = (Map.Entry)it.next();//셋에있는것들을 저장하면서 키값들도 저장하는 메소드.
 			System.out.println("이름 : "+ e.getKey() + ", 점수 : " + e.getValue());
 		}
 

@@ -1,0 +1,19 @@
+package ex05_break_continue;
+//과제] 1+(1+2) + (1+2+3) +(1+2+3+4+)+ (1+2+3+4+5)=?
+public class day05_homework1 {
+	public static void main(String[] args) {
+		int temp = 0; 
+	for(int i = 1; i<=6; i++) {
+		for(int j = 1; j<i; j++) {
+			temp += j;
+
+		}
+	}
+	System.out.println("총합은 : " + temp);
+
+		
+	}
+	
+}
+
+

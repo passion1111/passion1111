@@ -1,0 +1,21 @@
+package operator;
+import java.util.Scanner;
+public class test2 {
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("¹ÚÁ¾ÈÖ´ÔÀÇ ¼ºÀûÇ¥");
+		System.out.print( "±¹¾î : ");
+				int s1 = s.nextInt();
+		System.out.print("¿µ¾î : ");
+				int s2 = s.nextInt();
+		System.out.print("Àü»ê : ");
+				int s3 = s.nextInt();
+		
+		int s4 = s1 + s2+ s3; //ÃÑÁ¡
+		float s5 = s4 / 3;
+		System.out.println("ÃÑÁ¡ : " + s4);
+		System.out.println("Æò±Õ : " + s5);
+		
+	} // end main
+} // end class

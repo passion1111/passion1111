@@ -1,0 +1,21 @@
+package ex01.operator;
+
+public class result1 {
+ public static void main(String[]args) {
+	 int pay = 567890;
+	 int  a , b , c , d;
+	 int A , B , C , D ;
+	 		A = pay/10000;
+	 		B = A/1000;
+	 		C = B/100;
+	 		D = C/10;
+	 		a = pay%10000;
+	 		b = a%1000;
+	 		c= b%100;
+	 		d= c%10;
+	System.out.println("만원 =" + A + '장' + 
+							"\n천원=" + a/1000 + '장' + 
+							"\n백원=" + b/100 + '개' +
+							"\n십원=" + c/10 + '개');
+}
+}

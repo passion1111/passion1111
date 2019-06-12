@@ -1,0 +1,62 @@
+package ex02.array;
+
+import java.util.Scanner;
+
+public class Array_Quiz07 {
+public static void main(String[] args) {
+	
+	Scanner sc = new Scanner(System.in);
+	String[] arr = {null,null,null};
+	int[] arrkor = {0,0,0};
+	int[] arreng = {0,0,0};
+	int[] arrcom = {0,0,0};
+	int[] arrsum = {0,0,0};
+	double[] arravg = {0,0,0};
+	char[] arrgrd = new char[3];
+	
+	for ( int i = 0; i < arr.length; i++) {
+		System.out.println("name = ");
+		 arr[i] = sc.next();
+	    
+		System.out.println("input jumsu(k,e,c) =  ");
+		int kor  = sc.nextInt();
+		arrkor[i] = kor;
+		int eng  = sc.nextInt();
+		arreng[i] = eng;
+		int com  = sc.nextInt();
+		arrcom[i] = com;
+		//int total = ( sc.nextInt() + sc.nextInt() + sc.nextInt() );
+		arrsum[i] = kor+eng+com;
+		double avg = arrsum[i] / 3.0;
+		arravg[i] = avg;
+
+		char grd;
+		
+		switch ((int)arravg[i]/10) {
+		case 10 : 
+		case 9 : grd = 'A'; break;
+		case 8 : grd = 'B'; break;
+		case 7 : grd = 'C'; break;
+		case 6: grd = 'D'; break;
+		default : grd = 'F';  
+		
+	
+	
+		
+		}
+		arrgrd[i] = grd;
+	}
+	
+		
+		for(int j = 0; j < arr.length; j++)
+		System.out.println("\n\n name = " + arr[j] + 
+				" 국어 :"+arrkor[j] +" 영어 :" +arreng[j]+" 전산 :"+ arrcom[j]+
+				"총점 : "+arrsum[j] + "평균 : " +arravg[j] + "학점 : " + arrgrd[j] );
+	
+		
+		
+	}
+	
+	
+	
+}

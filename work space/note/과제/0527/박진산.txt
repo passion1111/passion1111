@@ -1,0 +1,31 @@
+package ex03_exception;
+
+import java.util.Scanner;
+
+public class Quiz02 {
+	public static void main(String[] args) {
+		try {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("x = ");
+		int x = sc.nextInt();
+		System.out.print("y = ");
+		int y = sc.nextInt();
+		System.out.print("z = ");
+		int z = sc.nextInt();
+		
+		System.out.println("\nresult>");
+		
+		if(x > y && x > z && y > z) System.out.printf(" %d > %d > %d", x, y, z);
+		else if(x > y && x > z && z > y) System.out.printf(" %d > %d > %d", x, z, y);
+		else if(y > x && y > z && z > x) System.out.printf(" %d > %d > %d", y, z, x);
+		else if(y > x && y > z && x > z) System.out.printf(" %d > %d > %d", y, x, z);
+		else if(z > x && z > y && x > y) System.out.printf(" %d > %d > %d", z, x, y);
+		else System.out.printf(" %d > %d > %d", z, y, x);
+		
+		sc.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	} // main end
+} // class end

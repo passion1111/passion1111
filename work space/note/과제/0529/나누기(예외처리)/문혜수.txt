@@ -1,0 +1,31 @@
+//*
+
+//두수 입력 받아서 나눗셈 하는 프로그램 작성 (예외처리)
+package HW01;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class HW_2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int x = 0, y = 0;
+		double result = 0.0;
+		try {
+			System.out.print("첫 번째 수를 입력하세요: ");
+			x = sc.nextInt();
+			System.out.print("두 번째 수를 입력하세요: ");
+			y = sc.nextInt();
+			result = x / y; 
+		} catch (ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다. "
+					+ "두 번째 숫자는 0을 제외하고 입력해주세요.");
+			System.exit(0);
+		} catch (InputMismatchException e) {
+			System.out.println("정수를 입력하세요.");
+			System.exit(0);
+		} 
+		System.out.printf("%2d /%2d = %.2f", x, y, (double)x/y);
+	} // end main
+} // end public class
+//*/

@@ -1,0 +1,34 @@
+package quiz;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Quiz2 {
+
+	public static void main(String[] args) {
+		//두 수 입력받아서 나누기 하기
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("나누기 프로그램. 두 수를 입력하세요.");
+		System.out.println("x를 입력하세요.");
+		int x = sc.nextInt();
+		System.out.println("y를 입력하세요.");
+		int y = sc.nextInt();
+		try {
+			System.out.printf("\n%d",x/y);
+			//
+		}catch(ArithmeticException e) {
+		System.out.println("숫자를 입력해주세요.");
+		e.printStackTrace();
+		}
+		catch(InputMismatchException e) {
+			System.out.println("숫자를 입력해주세요.");
+			e.printStackTrace();
+			}
+	
+			sc.close();
+
+	}
+
+}
+

@@ -1,0 +1,48 @@
+
+package ex01.Array;
+
+import java.util.Scanner;
+
+public class Quiz_Ex6 {
+
+	public static void main(String[] args) {
+		int num = 3; 
+		int[] sum = new int[num]; 
+		double[] avg = new double[num];
+		char[] grade = new char[num];
+		Scanner sc = new Scanner(System.in);
+		String[] name = new String[num];
+		int[][] score = new int[num][3];
+		
+		for (int i = 0; i < 3; i++) {
+			System.out.print("name = ");
+			name[i] = sc.next();
+			System.out.print("kor, eng, com score = ");
+			for (int j = 0; j < 3; j++) {
+				score[i][j] = sc.nextInt();
+			}
+		}
+		
+		
+		System.out.println();
+		for (int i = 0; i < 3; i++) {
+			System.out.println("**********" + name[i] + "님의 성적표"+"**********");
+			for (int j = 0; j < 3; j++) {
+				sum[i] += score[i][j];
+			}
+				
+			avg[i] = (double)(sum[i]/num);
+			if (avg[i] >= 90) grade[i] = 'A';
+			else if (avg[i] >= 80) grade[i] = 'B';
+			else if (avg[i] >= 70) grade[i] = 'C';
+			else if (avg[i] >= 60) grade[i] = 'D';
+			else grade[i] = 'F';
+		
+			System.out.println("국어 : " + score[i][0] + "   영어 : " + score[i][1] + "   국어 : " + score[i][2]);
+			System.out.printf("총점 : %d  평균 : %.2f  학점 : %c", sum[i], avg[i], grade[i]);
+			System.out.println("\n");
+		}
+		
+	}	
+
+}

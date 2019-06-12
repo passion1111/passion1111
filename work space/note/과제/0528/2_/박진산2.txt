@@ -1,0 +1,18 @@
+package test;
+
+public class Quiz02 {
+	public static void main(String[] args) {
+		//°úÁ¦2] (-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = ?
+		
+		int a = 0, b = 0;
+		
+		for(int i=1; i<=10; i++) {
+			
+			if(i%2 != 0) a += i*-1;
+			
+			else b += i;
+		}
+		System.out.printf("(-1) + 2 + (-3) + 4 + (-5) + ... + (-9) + 10 = %d", a+b);
+		
+	}
+}

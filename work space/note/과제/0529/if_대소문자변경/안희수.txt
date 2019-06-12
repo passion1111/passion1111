@@ -1,0 +1,26 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class Quiz_if {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+		
+			while(true) {
+				System.out.print("알파벳을 입력하세요");
+				char i = sc.next().charAt(0);
+				
+				if('A' <= i && i <= 'Z') {
+					i += 32;
+				}else if('a' <= i && i <= 'z') {
+					i -= 32;
+				}else {
+					System.out.println("다시 입력하세요.");
+					continue;
+				}
+				System.out.println(i);
+				break;
+			}
+			sc.close();
+		}
+}

@@ -1,0 +1,20 @@
+package task;
+
+import java.util.Scanner;
+
+public class InputTask {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("이름을 입력하세요 : ");
+		String name = sc.next();
+		System.out.print("국어, 영어, 전산점수를 차례로입력하세요 : ");
+		int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt(); // a 국어 b 영어 c 전산
+		System.out.println(name + "님의 성적표 -----");
+		System.out.println("국어 : " + a + ", 영어 : " + b +", 전산 : " + c);
+		System.out.println("총점 : " + (a+b+c) + ", 평균 : " + (double)(a + b + c)/3);
+		
+	
+	}
+
+}

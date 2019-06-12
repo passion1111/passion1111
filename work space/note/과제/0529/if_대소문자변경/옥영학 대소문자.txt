@@ -1,0 +1,26 @@
+package Exam;
+
+import java.util.Scanner;
+
+public class CaseChange_1 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("대소문자 알파벳을 하나를 입력하세요  : ");
+		char text = scan.next().charAt(0);
+		char tmp2 = 'b';
+
+		if ((text >= 65) && (text <= 90)) {
+			int tmp1 = text + 32;
+			tmp2 = (char) tmp1;
+		} else if ((text >= 92) && (text <= 122)) {
+			int tmp1 = text - 32;
+			tmp2 = (char) tmp1;
+		}
+
+		System.out.println(tmp2);
+
+	}
+
+}

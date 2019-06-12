@@ -1,0 +1,32 @@
+package quiz;
+import java.util.InputMismatchException;
+//숫자가 아닌 문자 입력 됐을때. 에러 해결
+//정수가 아닌 실수 데이터 입력 됐을때
+//어떤 수를 0으로 나눌 수 없다.
+import java.util.Scanner;
+
+public class Quiz_soo {
+		public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			
+			int num1 = 0, num2 = 0;
+			
+			try {
+			System.out.print("첫번째 수를 입력하세요.");
+			num1 = sc.nextInt();
+			
+			System.out.println("두번째 수를 입력하세요.");
+			num2 = sc.nextInt();
+			
+			double result = num1 / num2;
+			System.out.printf("%d / %d = %.2f" , num1,num2,(double)result);
+			
+			}catch (ArithmeticException e) {
+				System.out.println("0으로 나눌수 없습니다.");		
+			
+			}catch (InputMismatchException e) {
+				System.out.println("숫자만 입력하세요.");
+			}
+		
+		}
+}

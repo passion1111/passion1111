@@ -1,0 +1,31 @@
+package quiz;
+
+import java.text.DecimalFormat;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Quiz_devide {
+	public static void main(String[] args) {
+		
+		try {
+			Scanner sc = new Scanner(System.in);
+			DecimalFormat dot2 = new DecimalFormat("0.##");
+			
+			System.out.print("int num1 = "); float input1 = sc.nextFloat();
+			String t1 = dot2.format(input1) + "";
+			int num1 = Integer.parseInt(t1);
+			System.out.print("int num2 = "); float input2 = sc.nextFloat();
+			String t2 = dot2.format(input2) + "";
+			int num2 = Integer.parseInt(t2);
+			System.out.printf("num1 / num2 = %.2f", (float)num1/num2);
+			
+		} catch(InputMismatchException e) {			// 작동확인
+			System.out.println("문자를 입력할 수 없습니다.");
+		} catch(ArithmeticException e) {			// 작동확인
+			System.out.println("0으로 나눌 수 없습니다.");
+		} catch(NumberFormatException e) {			// 작동확인
+			System.out.println("실수를 입력할 수 없습니다.");
+		}
+		
+	}
+}

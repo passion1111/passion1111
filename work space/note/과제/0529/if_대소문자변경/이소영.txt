@@ -1,0 +1,37 @@
+package hw_20190529;
+
+import java.util.Scanner;
+
+public class SwitchCap {
+	public static void main(String[] args) {
+//	과제1] 대문자 <--> 소문자 변경 프로그램 작성 (if)
+
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("\n전환할 문자를 입력하세요 : ");
+			String myString = sc.nextLine();
+			char myChar = myString.charAt(0);
+
+			// 대문자 : 65~90 //소문자 : 97~112
+			if (myChar >= 65 && myChar <= 90) {
+				System.out.println("입력된 문자 : " + myChar);
+				myChar += 32;
+//		System.out.println(myChar);
+			} else if (myChar >= 97 && myChar <= 122) {
+				System.out.println("입력된 문자 : " + myChar);
+				myChar -= 32;
+//		System.out.println(myChar);
+			} else {
+				System.out.println("\n영문 대/소문자만 입력 가능합니다. 다시 시도해주세요.");
+				System.out.println("--------------------------------------------");
+				continue;
+			}
+			System.out.println("전환된 문자 ==>  : " + myChar);
+			System.out.println("--------------------------------------------");
+		} // end while
+
+	
+
+	}
+}

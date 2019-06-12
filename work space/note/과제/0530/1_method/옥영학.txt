@@ -1,0 +1,88 @@
+package Exam;
+
+import java.util.Scanner;
+
+public class SungJukMethod {
+
+	public static void main(String[] args) {
+
+		String name = null;
+		int kor = 0;
+		int eng = 0;
+		int mat = 0;
+		int total = 0;
+		int avg = 0;
+		char hakjum = ' ';
+
+		name = inputname();
+		kor = inputkor();
+		eng = inputeng();
+		mat = inputmat();
+		total = total(kor, eng, mat);
+		avg = avg(total);
+		hakjum = hakjum(avg);
+
+		output(name, kor, eng, mat, total, avg, hakjum);
+	}
+
+	public static void output(String name, int kor, int eng, int mat, int total, int avg, char hakjum) {
+		System.out.printf("이름 : %s\n", name);
+		System.out.printf("국어 : %d\t\t영어 : %d\t\t수학 : %d\n", kor, eng, mat);
+		System.out.printf("총합 : %d\t평균 : %d\t\t학점 : %c\n", total, avg, hakjum);
+
+	}
+
+	public static int total(int kor, int eng, int mat) {
+		return kor + eng + mat;
+	}
+
+	public static int avg(int total) {
+
+		return total = total / 3;
+	}
+
+	public static char hakjum(int avg) {
+		char ch = ' ';
+		if (avg > 90)
+			ch = 'A';
+		else if (avg > 80)
+			ch = 'B';
+		else if (avg > 70)
+			ch = 'C';
+		else if (avg > 60)
+			ch = 'D';
+		else
+			ch = 'F';
+
+		return ch;
+	}
+
+	public static int inputkor() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("국어 점수 : ");
+		int kor = scan.nextInt();
+		return kor;
+	}
+
+	public static int inputeng() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("영어 점수 : ");
+		int kor = scan.nextInt();
+		return kor;
+	}
+
+	public static int inputmat() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("전산 점수 : ");
+		int kor = scan.nextInt();
+		return kor;
+	}
+
+	public static String inputname() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("이름 : ");
+		String kor = scan.nextLine();
+		return kor;
+	}
+	
+}

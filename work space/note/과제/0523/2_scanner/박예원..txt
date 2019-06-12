@@ -1,0 +1,27 @@
+package ex03.input;
+
+import java.util.Scanner;
+
+public class InputTest02 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("박예원님의 성적표");
+		String str = scan.nextLine();
+
+		System.out.printf("국어 점수를 입력하세요 : ");
+		int kor = scan.nextInt();
+
+		System.out.printf("영어 점수를 입력하세요 : ");
+		int eng = scan.nextInt();
+
+		System.out.printf("전산 점수를 입력하세요 : ");
+		int js = scan.nextInt();
+
+		System.out.println("================================");
+		System.out.println("총점 : " + (kor + eng + js));
+		System.out.printf("평균 : " + ((kor + eng + js) / 3.0));
+
+	}
+}

@@ -1,0 +1,32 @@
+/*
+문제1] int pay = 567890;
+result> 만원 : 56장
+		천원 :  7장
+		백원 :  8개
+		십원 :  9개
+*/
+
+package ex01.operator;
+
+public class OperatorTest {
+	public static void main(String[] args) {
+		int pay = 567890, cnt, don;
+		
+		cnt = pay/10000;
+		don = pay%10000;
+		System.out.printf("만원 : %2d장\n", cnt);
+		
+		cnt = don/1000;
+		don = don%1000;
+		System.out.printf("천원 : %2d장\n", cnt);
+		
+		cnt = don/100;
+		don = don%100;
+		System.out.printf("백원 : %2d개\n", cnt);
+		
+		cnt = don/10;
+		don = don%10;
+		System.out.printf("십원 : %2d개\n", cnt);
+	
+	} //end main
+} //end public class

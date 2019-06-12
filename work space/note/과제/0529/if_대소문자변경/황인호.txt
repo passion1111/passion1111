@@ -1,0 +1,57 @@
+package Homework;
+
+import java.util.Scanner;
+
+// 과제1] 대문자 <--> 소문자 변경 프로그램 작성 ( if ) 
+// char은 문자하나, String은 배열 써야할듯
+public class HomeworkEx9 {
+	public static void main(String[] args) {
+//		문자하나 대소문자 변경
+
+		Scanner sc = new Scanner(System.in);
+		char ch = ' ';
+		
+		do {
+			System.out.print("Upper or Lower case char type input : ");
+			ch = sc.next().charAt(0);
+			if(65 <= ch && ch <=90) {
+				ch += 32;
+				break;
+			} else if(97 <= ch && ch <=122) {
+				ch -= 32;
+				break;
+			}
+		} while (true);
+		
+		System.out.println("change ==> "+ ch);
+		sc.close();
+
+	
+	
+//	  문자열 대소문자 변경
+
+//		Scanner sc = new Scanner(System.in);
+//	
+//		do {
+//			System.out.print("\nUpper or Lower case String type input('!' 하나만 입력시 종료) : ");
+//			String str = sc.next();
+//	
+//			char[] arr = new char[str.length()];
+//			for (int i = 0; i < arr.length; i++) {
+//				arr[i] = str.charAt(i);
+//				if (65 <= arr[i] && arr[i] <= 90) {
+//					arr[i] += 32;
+//				} else if (97 <= arr[i] && arr[i] <= 122) {
+//					arr[i] -= 32;
+//				} 
+//			}
+//			if(str.equals("!")) break;
+//			
+//			System.out.print("change ==> ");
+//			for (int i = 0; i < arr.length; i++) {
+//				System.out.print(arr[i]);
+//			}
+//		} while(true);
+	}
+}
+

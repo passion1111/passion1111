@@ -1,0 +1,28 @@
+package homework;
+
+import java.util.Scanner;
+
+public class HW01 {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int istr = 0;
+		
+		do {
+			System.out.print("대문자 혹은 소문자를 입력해주세요: ");
+			char str = sc.next().charAt(0);
+			istr = str;
+			if(str >= 65 && istr <= 90 || istr >= 97 && istr <= 122) break;
+		} while(true);
+		
+		if(istr >= 65 && istr <= 90) {
+			System.out.printf("%c",istr + 32);
+		} else if(istr >= 97 && istr <= 122) {
+			System.out.printf("%c",istr - 32);
+		}
+		
+		sc.close();
+	}
+}

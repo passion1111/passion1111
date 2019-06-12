@@ -1,0 +1,44 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class Quiz_Rain {
+	public static void main(String[] args) {
+		int date = 0, sum = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("month = ");
+		int month = sc.nextInt();
+		
+		switch (month) {
+			case 1:  case 3:  case 5:  case 7:  case 8:  case 10:  case 12:	date = 31; break;
+	
+			case 4:  case 6:  case 9:  case 11:								date = 30; break;
+	
+			case 2:
+				System.out.print("몇 년? : ");
+				int year = new Scanner(System.in).nextInt();
+	
+				if (year % 4 == 0) {
+					if ((year % 100 != 0) || (year % 400 == 0)) date = 29;
+					else date = 28;
+				} else date = 28;
+				break;
+	
+			default:	System.out.println("1~12 사이를 입력하세요.");
+		}
+		
+		int[] a= new int[date];	// [size]에는 int형 data만 와야함
+	
+		for(int i=0; i<a.length; i++) {
+			System.out.print(i+1 + "일의 강수량 : ");
+			a[i] = sc.nextInt();
+			sum += a[i];
+		}
+		System.out.printf("\n강수량의 평균은 %.2fmm입니다.", (float)sum/a.length);
+		
+		
+	}
+
+}
+

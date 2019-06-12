@@ -1,0 +1,69 @@
+package ex01.Method;
+
+// 성적처리 프로그램 함수로 분할(분리)
+// 입력함수 input() - 이름 , 국어 , 영어, 전산 점수
+// 총점함수 total() - 총점 구하는 함수
+// 평균함수 average() - 평균 구하는 함수
+// 평점(학점) grade() - 학점 구하는 함수
+// 출력함수 output() - 결과 다 출력
+import java.util.Scanner;
+
+public class Quiz_Ex2 {
+
+	public static void input() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("name : ");
+		String name = sc.next();
+		System.out.print("kor : ");
+		int kor = sc.nextInt();
+		System.out.print("eng : ");
+		int eng = sc.nextInt();
+		System.out.print("com : ");
+		int com = sc.nextInt();
+		
+		int sum = total(kor, eng, com);
+		double avg = average(sum);
+		char grade = grade(avg);
+		output(name,kor,eng,com,sum,avg,grade);
+	}
+	
+	public static int total(int kor, int eng, int com) {
+		return kor + eng + com;
+	}
+
+	public static double average(int sum) {
+		return (double) sum / 3;
+	}
+
+	public static char grade(double avg) {
+		char grade;
+		switch ((int)avg/10) {
+			case 10:
+			case 9:
+				grade = 'A';
+				break;
+			case 8:
+				grade = 'B';
+				break;
+			case 7:
+				grade = 'C';
+				break;
+			case 6:
+				grade = 'D';
+				break;
+			default:
+				grade = 'F';
+		}
+		return grade;
+	}
+	
+	public static void output(String name, int kor, int eng , int com ,int total, double avg, char grade) {
+		System.out.println("\n\n***** " + name + "님의 성적표 *****");
+		System.out.print("국어 = " + kor + " 영어 = " + eng + " 전산 = " + com + "\n");
+		System.out.printf("총점 = %d  평균 = %.2f  학점(평점) = %c \n", total, avg, grade);
+	}
+
+	public static void main(String[] args) {
+		input();
+	}
+}

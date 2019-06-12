@@ -1,0 +1,33 @@
+package Exam;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class DividedCalc {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		int calc = 0;
+		try {
+			System.out.println("첫번째 정수 입력  : ");
+			int su1 = scan.nextInt();
+			System.out.println("두번째 정수 입력  : ");
+			int su2 = scan.nextInt();
+
+			calc = su1 / su2;
+			System.out.println(calc);
+
+		}catch (NumberFormatException e) { //문자를 넣어야하는데 정수를 넣는경우
+			System.out.println("숫자를 넣으세요.\n" + e.getMessage());
+		} catch (InputMismatchException e) {
+			System.out.println("정수값을 입력하세요.\n" + e.getMessage());
+		} catch (ArithmeticException e) {
+			System.out.println("0으로 나눌수 없습니다.\n" + e.getMessage());
+//			new java.io.InputStreamReader()
+		
+		}
+		
+
+	}
+}

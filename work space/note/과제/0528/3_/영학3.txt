@@ -1,0 +1,22 @@
+
+package Exam0528;
+
+public class Exam03 {
+
+	public static void main(String[] args) {
+		double sum=0.0;
+		for(int i=1;i<=9;i++) {
+			float one= (float)i;
+			float two= (float)(i+1);
+			
+			sum+=one/two;
+			System.out.print(one+"/"+two+"="+one/two+"\n");
+			System.out.println("sum is.."+sum);
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println("final sum is.."+sum);
+
+	}
+
+}

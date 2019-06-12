@@ -1,0 +1,44 @@
+package hw_20190529;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Division {
+	public static void main(String[] args) {
+//	과제2] 두수 입력 받아서 나눗셈 하는 프로그램 작성(예외처리)
+//		- 숫자가 아닌 문자 입력 됐을 때
+//		- 정수가 아닌 실수 데이터 입력 됐을 때
+//		- 어떤 수를 0으로 나눌 수 없다
+
+		try {
+			Scanner sc = new Scanner(System.in);
+			double result=0;
+			while (true) {
+
+				System.out.print("첫번째 정수 입력 : ");
+				int num1 = sc.nextInt();
+				System.out.print("두번째 정수 입력 : ");
+				int num2 = sc.nextInt();
+				
+				result = num1/num2;
+				result = (double)num1/num2;
+
+//				int q = num1 / num2;
+//				int r = num1 % num2;
+//				
+
+				System.out.println("\n-------나눗셈 결과--------");
+//				System.out.println("몫 : " + q + "\t나머지 : " + r + "\n\n");
+				System.out.println(result + "\n");
+
+			} // end while
+		} // end try
+		catch(ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다. 다시 시도하세요.");			
+		}		
+		catch(InputMismatchException e) {
+			System.out.println("정수만 입력할 수 있습니다. 다시 시도하세요. ");			
+		}
+	}
+}
+

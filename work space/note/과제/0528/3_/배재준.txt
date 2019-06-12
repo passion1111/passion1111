@@ -1,0 +1,18 @@
+package ex05_break_continue;
+//과제] 1/2 + 2/3/ + /3/4 + /4/5+ .... 9/10 =?//소수점 두자리까지 
+public class day05_homework3 {
+	public static void main(String[] args) {
+		double result = 0.0;
+		for(double i = 1; i<=9;) {
+			for(double j = i+1; j<11; ) {
+			result += i/j;
+			i++;
+			j++;
+		}
+			System.out.printf("%.2f",result);
+		
+		}
+			
+		}
+}
+		

@@ -1,12 +1,13 @@
 >> day09 - 19/05/31
 
- > return value;
+ > 함수(Method)
+  메인함수 부담 줄이고, 반복적인 코드를 함수로 만들어서 사용
+  - instance method : 객체 생성하고 사용해야함 (메모리상에 할당이 되어야....)
+  - static method : 객체 생성 없이 바로 사용 가능함
+       object.methodName();
+       ClassName.methodName();  //
 
- > 함수의 자료형 타입!!
-
- > 디버깅
- 
- > 난수 발생 - 2가지 방법
+ > main Arguement 이용 값 넘기는 방법
 
 
  > OOP(객체지향)
@@ -79,7 +80,11 @@
  > bitCamp 3기수  카페
   https://cafe.naver.com/bitcamp5class
 
+ > 난수 발생 - 2가지
+
+
  > main Arguement 이용 값 넘기는 방법
+
 
  > OOP(객체지향)
 

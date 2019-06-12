@@ -1,0 +1,20 @@
+ package 과제;
+
+// 과제1]  1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4) + (1 + 2 + 3 + 4 + 5) = ?
+import java.util.Scanner;
+
+public class 과제01 {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+		int j = i + 1;
+		int k = j + 1; // k = i + 1 + 1
+		int l = k + 1; // l = i + 1 + 1 + 1
+
+		for (i = 1; i < 6; i++) {
+			System.out.print(j + (j + 1) + (k + 1) + (l + 1) + "\t");
+
+		} // end for
+	} // end main
+} // end class

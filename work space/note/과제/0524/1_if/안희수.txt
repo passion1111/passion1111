@@ -1,0 +1,22 @@
+package Quiz_if;
+
+import java.util.Scanner;
+
+public class Quiz_윤년 {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("연도를 입력하세요.");
+		int year = sc.nextInt();
+		String year1 = null;
+        
+		if( year % 4 == 0 ) {
+			if(( year % 100 != 0 ) || ( year % 400 == 0 ))  year1 = "윤년";
+		}
+        else year1 = "평년";
+		System.out.println(year1);
+	}
+}
+
+

@@ -1,0 +1,68 @@
+package ex01.method;
+
+public class Test {
+
+	public static void main(String[] args) {
+		input("±è±¤¹ü", 50, 50, 50);
+		input("±è±¤¹ü", 70, 80, 90);
+
+	}
+
+	public static void input(String user, int num1, int num2, int num3) {
+
+		System.out.println(user + "´ÔÀÇ Á¡¼ö");
+		System.out.println("±¹¾î\t ¿µ¾î \t Àü»ê");
+		System.out.println(num1 + "\t" + num2 + "\t" + num3 + "\t");
+		output(num1, num2, num3);
+
+	}
+
+	public static int Total(int num1, int num2, int num3) {
+
+		int sum = num1 + num2 + num3;
+		return sum;
+
+	}
+
+	public static double Average(int sum) {
+
+		double avg = sum / 3;
+		return avg;
+
+	}
+
+	public static char Grade(double avg) {
+		char grade = ' ';
+
+		switch ((int) avg / 10) {
+		case 10:
+		case 9:
+			grade = 'A';
+			break;
+		case 8:
+			grade = 'B';
+			break;
+		case 7:
+			grade = 'C';
+			break;
+		case 6:
+			grade = 'D';
+			break;
+		default:
+			grade = 'F';
+		}
+		return grade;
+	}
+
+	public static void output(int num1, int num2, int num3) {
+		int to = Total(num1, num2, num3);
+		double avg = Average(to);
+		char grade = Grade(avg);
+		System.out.println("ÃÑÁ¡Àº = " + to);
+		System.out.println("Æò±ÕÀº = " + avg);
+		System.out.println("ÇĞÁ¡Àº = " + grade);
+		System.out.println("");
+
+	}
+
+}

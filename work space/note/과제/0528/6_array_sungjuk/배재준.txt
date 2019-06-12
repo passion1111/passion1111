@@ -1,0 +1,53 @@
+package ex02.array;
+
+import java.util.Scanner;
+
+public class ArrayEx11 {
+	public static void main(String[] args) {
+		int num = 3;
+		Scanner sc = new Scanner(System.in);
+		String[] name = new String[num];
+		int[] kor = new int[num];
+		int[] eng = new int[num];
+		int[] com = new int[num];
+		int[] total = new int[num];
+		double[] avg = new double[num];
+		char[] grade = new char[num];
+		
+		for(int i = 0; i<num; i++) {
+			System.out.println( (i+1) +"번째 이름을 입력하시오 : ");
+			name[i] = sc.next(); 
+			System.out.println("국어 점수를 입력하시오 ");
+			kor[i] = sc.nextInt();
+			System.out.println("영어 점수를 입력하시오 ");
+			eng[i] = sc.nextInt();
+			System.out.println("전산 점수를 입력하시오 ");
+			com[i] = sc.nextInt();
+			total[i] = kor[i]+eng[i]+com[i];
+			avg[i] =total[i]/3;
+			grade[i] = ' ';
+			
+			if(avg[i]>= 90) {
+				grade[i] = 'A';
+				
+			}else if(avg[i]>= 80 ){
+				grade[i] = 'B';
+				
+			}else if(avg[i]>= 70){
+				grade[i] = 'C';
+				
+			}else if(avg[i]>= 60) {
+				grade[i] = 'D';
+			}else {
+				grade[i] = 'F';
+			}
+			
+			
+
+			System.out.println(name[i]+ "님의 성적표 입니다 \n" +"국어  = " + kor[i] +"\t영어 = " + eng[i]+ "\t전산 = " + com[i]);
+			System.out.printf("%s %d %s %.2f %s %c","총점은 =", total[i] , "평균은 = ", avg[i],"학점은  = ",grade[i] );
+			System.out.println();
+		}
+			
+	}// end main
+}// end class

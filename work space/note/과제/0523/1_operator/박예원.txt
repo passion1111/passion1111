@@ -1,0 +1,25 @@
+package ex02.operator;
+
+public class OperatorTest3 {
+
+	public static void main(String[] args) {
+		// 산술연산자 : =, -, *, /, %,....
+
+		int pay = 567890;
+		int x = 567890;
+		int y = 7890;
+		int z = 890;
+		int a = 90;
+
+		System.out.println("x / 10,000 = " + (x / 10000)); // 몫
+		System.out.println("x % 10,000 = " + (x % 10000)); // 나머지
+		System.out.println("y / 1,000 = " + (y / 1000)); // 몫
+		System.out.println("y % 1,000 = " + (y % 1000)); // 나머지
+		System.out.println("z / 100 = " + (z / 100)); // 몫
+		System.out.println("z % 100 = " + (z % 100)); // 나머지
+		System.out.println("a / 10 = " + (a / 10)); // 몫
+		System.out.println("a % 10 = " + (a % 10)); // 나머지
+
+	} // end main
+
+} // end class

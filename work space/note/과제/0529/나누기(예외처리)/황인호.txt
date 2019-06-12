@@ -1,0 +1,34 @@
+package Homework;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+//과제2] 두수 입력 받아서 나눗셈 하는 프로그램 작성 (예외처리)
+//
+//- 숫자가 아닌 문자 입력 됐을때.        
+//- 정수가 아닌 실수 데이터 입력 됐을때. 
+//- 어떤 수를 0으로 나눌 수 없다.
+
+public class HomeworkEx10 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		double result = 0.0;
+		int num1 = 0, num2 = 0;
+		try {
+			System.out.print("첫번째 숫자 입력 : ");
+			num1 = sc.nextInt();
+			System.out.print("두번째 숫자 입력 : ");
+			num2 = sc.nextInt();
+
+			result = num1 / num2;
+		} catch (InputMismatchException e) {
+			System.out.println("숫자만 입력해주세요.");
+
+		} catch (ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다");
+		}
+		result = (double)num1 / num2;
+		if (num2 != 0) 	System.out.printf("\n\n%d / %d = %.2f", num1, num2, result);
+		sc.close();
+	}
+}

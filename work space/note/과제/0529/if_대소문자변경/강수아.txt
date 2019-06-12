@@ -1,0 +1,18 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class Quiz_Aa {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("영문자 하나를 입력하세요 : ");
+		char ch = sc.next().charAt(0);
+		
+		if (ch>=65 && ch<=90) ch += 32;
+		else if (ch>=97 && ch<=122) ch -= 32;
+		
+		System.out.println("대소문자 변환 : "+ ch);
+	}
+
+}

@@ -1,0 +1,14 @@
+package Homeworks;
+
+public class no3 {
+	public static void main(String[] args) {
+		
+		float result=0;
+		
+		for(int i=1; i<10; i++) {
+			result += i/(i+1.0);
+		}
+		
+		System.out.printf("answer : %.2f", result);
+	}
+}

@@ -1,0 +1,22 @@
+package homework;
+
+public class Ex02 {
+	public static void main(String[] args) {
+		int sum = 0;
+		for(int i = 1; i <= 10; i++) {
+			if(i % 2 == 0) {
+				if(i == 10) {
+					System.out.print(i); 
+				}
+				else {
+					System.out.print(i + " + ");
+				}
+				sum+=i;
+				continue;
+			}
+			System.out.print("(" + (~i+1) + " ) + ");
+			sum+=(~i+1);
+		}
+		System.out.println(" = " + sum);
+	}
+}

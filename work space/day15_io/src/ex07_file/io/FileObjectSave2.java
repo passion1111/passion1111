@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class FileObjectSave2 {
@@ -47,9 +48,10 @@ public class FileObjectSave2 {
 				if (br.readLine().equalsIgnoreCase("N")) {
 					con = false;
 				}
-
+				
 			} // while end
-
+			
+			
 			System.out.println("members.txt  save!!!");
 		} catch (Exception e) {
 			e.printStackTrace();

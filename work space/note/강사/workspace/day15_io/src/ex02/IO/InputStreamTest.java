@@ -16,7 +16,7 @@ public class InputStreamTest {
 				System.out.println(ch);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
 }

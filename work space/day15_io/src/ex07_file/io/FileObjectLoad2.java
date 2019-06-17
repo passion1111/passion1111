@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
-public class FileObjectLoad2{
+public class FileObjectLoad2 {
 	public static void main(String[] args) throws Exception {
 		String name = null;
 		String position = null;
@@ -19,14 +19,11 @@ public class FileObjectLoad2{
 		 */
 		
 
-		File f = new File("C:\\Users\\user\\eclipse-workspace\\work space\\day15_io\\emp2.txt");
+		File f = new File("emp.txt");
 		FileInputStream fis1 = null;
-		FileInputStream fis2=null;
 		
 		ObjectInputStream bis = null;
-		
 		fis1 = new FileInputStream(f);
-		
 		bis = new ObjectInputStream(fis1);
 		
 		try {
@@ -34,7 +31,7 @@ public class FileObjectLoad2{
 
 			System.out.println("    >> 회원 정보 << \n");
 			System.out.println("이름 \t 직급 \t 부서");
-//			objectStream=new AppendableObjectOutputStream;
+
 			while (con) {
 				
 

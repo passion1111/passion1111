@@ -15,7 +15,7 @@ public class ServerTime {
 			System.out.println("server Start!!!");
 			ServerSocket ss = new ServerSocket(port); // socket 1
 			
-			while(true) {
+			
 				Socket s = ss.accept(); // socket 2
 				OutputStream os = s.getOutputStream(); //net 통해서 출력함
 				ObjectOutputStream oos = new ObjectOutputStream(os);
@@ -23,7 +23,8 @@ public class ServerTime {
 				oos.writeObject(new Date()); // 서버측 날짜를...
 				oos.flush();
 				s.close();
-			}
+				System.out.println("확인");
+			
 		} catch (Exception e) {
 			//e.printStackTrace();
 			System.out.println(e.getMessage());

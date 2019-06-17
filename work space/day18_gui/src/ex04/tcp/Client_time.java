@@ -9,7 +9,7 @@ import java.util.Date;
 public class Client_time {
 	public static void main(String[] args) {
 	
-			String serverIP="10.10.10.72";//127.0.0.1
+			String serverIP="10.10.10.174";//127.0.0.1
 			int port=7000;
 			Date date=null;
 			try {

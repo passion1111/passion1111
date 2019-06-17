@@ -9,10 +9,6 @@ public class FileCopy2 {
 //		이 방법 느림여
 		//outputstream-
 		byte[] buffer=new byte[1024*8];//바이트 빠름
-		byte[] buffer1=new byte[1024*9];
-		
-		File file=new File("jellyfish.jpg");
-		
 		
 		long start=System.currentTimeMillis();
 		
@@ -30,8 +26,5 @@ public class FileCopy2 {
 
 	}
 
-
-main
-Fileinput
 
 

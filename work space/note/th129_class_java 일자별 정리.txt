@@ -1,6 +1,662 @@
+>> day19 - 19/06/17
+
+ > network
+
+   TCP  /  UDP
+
+  cmd> netstat -a  / -n  / -an
+
+  http://localhost/
+  http://127.0.0.1/
+
+ > 자바 정리겸 강좌
+https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9
+
+
+
+ > Oracle 
+
+ > JDBC
+
+-------------------------------------------
+## 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+ < 5번째 과제 : 정규 표현식 & 예시 5개 
+   (이메일, 전화번호, 주민번호, 우편번호, URL, IP 주소, HTML 태그,...)   >
+
+=========================================
+>> day18 - 19/06/14
+
+
+ > GUI : awt, swing, JavaFX ( jdk 7.0 이후~ )
+
+  - 컨테이너 ? 
+  - 컴포넌트 ? 
+
+ -->> 참고 
+   https://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html
+   www.tutorialspoint.com/awt
+   http://www.programcreek.com/
+
+ > network
+
+  cmd> netstat -a  / -n  / -an
+
+  http://localhost/
+  http://127.0.0.1/
+
+ > Oracle 
+
+ > JDBC
+
+=============================================
+>> day17 - 19/06/13
+
+ > RandomAccessFile
+
+ > Thread <--- java.lang package
+   - 1의 CPU는 1의 작업
+      "시간차"
+  
+   Thread  class
+   Runnable  interface 
+
+    public void run()  {  }   // 스레드 실행부(구현부)
+
+
+ > Synchronized(동기화)
+
+  형식>
+   public synchronized void deposit(int amount, String name) {
+		 임계영역....
+   }
+
+
+   public void deposit(int amount, String name) {
+	synchronized(this) {
+		임계영역....
+	}	 
+   }
+
+문제] 구구단 출력하기 thread 이용할것 
+    예) 구구단 결과를 일정 시간 동안 화면에 출력하기
+
+ > inner class
+  클래스(outer class)안에 포함되어 있는 클래스(inner class)를 말함
+
+ > event
+    ~~~Listener   <--- interface
+
+    ~~~Adapter    <--- class 
+ 
+ > GUI : awt, swing, JavaFX ( jdk 7.0 이후~ )
+
+ > network
+
+
+ > Oracle 
+
+ > JDBC
+
+=================================================
+>> day16 - 19/06/12
+
+ > IO ( Input  Ouput ) <----- java.io package
+
+			Input			   Output
+   byte		   ~~~~InputStream	|	~~~OutputStream
+   charater	   ~~~~Reader		|	~~~Writer
+
+  -- InputStream : 입력의 최상위 클래스 : read()
+  -- OutputStream : 출력의 최상위 클래스 : write()
+
+문제1] 사칙연산 프로그램 작성 ( io 이용할것)
+	연산자(+,-,*,/) 입력받고, 숫자 2개 입력받아서... 
+
+문제2] employee.txt  ( file 이용 )
+ 	이름, 직급, 부서 입력해서 저장하기
+
+
+문제3] 비만도 측정 프로그램 작성하기 - collection, file io 이용하기
+   추가 / 삭제 / 출력 / 종료  처리할것 
+
+  몸무게, 키 를 입력 받아서  BMI 계산하기
+  BMI = 몸무게 / ( (키 / 100.0) * (키 / 100.0) )  ;
+
+  남 : (신장cm-100) X 0.9
+  여 : (신장cm-100) X 0.85
+
+ 판정 >
+18.5 미만	체중부족
+18.5 ~ 22.9	정상
+23.0 ~ 24.9	과체중
+25.0 이상	비만
+
+
+ URL
+ URI
+
+  DataInputStream	 / DataOutputStream
+  ObjectInputStream 	 / ObjectOutputStream
+ 
+   readXXX();	     		writeXXX(); 	
+       자료형		  	     자료형
+
+
+ > Thread 
+
+ > Syncronized
+
+ > inner class
+
+-------------------------------------------------------
+## 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+  < 4번째 과제 : DataBase >
+ >> 통합 과제 - 데이터베이스 종류(ORDBMS,NoSQL) 및 장단점 ,
+	        DML(select, insert, update, delete), DCL, DDL 명령어 형식 
+	        주요 용어 조사  
+
+	--- 참고 사이트 : http://www.dbguide.net/
+		         http://www.javatpoint.com/sql-tutorial
+
+
+
+===============================================
+
+>> day15 - 19/06/11
+
+ > Collection(자료구조) : data를 시스템에 효율적으로 저장하기 위한 방법
+
+  1) Set  : 순서없고, 중복허용하지 않음
+       HashSet  / TreeSet
+
+  2) List : 순서 있고, 중복허용한다
+    - 변수 --> 배열( 고정길이 )  --> 가변길이
+     int[] arr = new int[90]; 
+     
+     Vector <---- jdk 1.x ,  가변길이,  동기화지원
+     ArrayList  <--- jdk 2.x ,  가변길이,  동기화 지원안함
+	  	검색, 대량의 데이터 삽입/삭제
+
+     LinkedList  <--- data 삽입/삭제 수월함
+
+  메서드 설명 
+boolean offer() Queue(큐)에 객체를 넣는다 
+poll() Queue(큐)에서 데이터를 꺼내온다. 만일 Queue(큐)가 비어있다면 null 을 반환. 
+peek() 큐의 맨 아래 있는 객체를 반환한다. 이 때 객체를 큐에서 제거하진 않는다
+
+    - LinkedList 참고 사이트
+     http://alecture.blogspot.com/2012/10/linkedlist.html
+
+     Stack     LIFO
+     Queue <-- interface   FIFO 
+
+
+   3) Map : key/value 한쌍으로 처리. ( set + list )
+
+문제] Video class 
+     title 비디오제목
+     category  장르
+     lend   대여여부
+     lendName  대여자(고객명)
+     lendDate   대여일자(오늘날짜 입력하심 되요)
+
+ Video 추가 / 삭제 / Video 리스트 출력 / 수정 / 프로그램 종료  출력하는 프로그램 작성하기.
+
+
+ > Generic(제네릭)  :     <T> 
+
+ class Point {
+	int x, y;
+ }
+
+ class GenericEx<T> {
+	T  x, y;
+ }
+
+ > IO ( Input  Ouput ) <----- java.io package
+
+			Input			   Output
+   byte		   ~~~~InputStream	|	~~~OutputStream
+   charater	   ~~~~Reader		|	~~~Writer
+
+  -- InputStream : 입력의 최상위 클래스 : read()
+  -- OutputStream : 출력의 최상위 클래스 : write()
+
+문제] Emp class 
+     이름, 연락처, 부서, 직급, 급여
+
+  Emp 추가 / 삭제 / Emp 리스트 출력 / 수정 / 프로그램 종료  출력하는 프로그램 작성하기
+
+================================
+>> day14 - 19/06/10
+
+ > API 
+  
+   java.util package
+   Random class
+   Scanner class
+   날짜관련,...
+   형식지정,..
+   StringTokenizer
+   ....
+
+   java.text  package
+   SimpleDateFormat
+   ChoiceFormat / Comparator / MessageFormat .... 
+
+
+ > Collection(자료구조) : data를 시스템에 효율적으로 저장하기 위한 방법
+
+  1) Set  : 순서없고, 중복허용하지 않음
+       HashSet  / TreeSet
+
+  2) List : 순서 있고, 중복허용한다
+    - 변수 --> 배열( 고정길이 )  --> 가변길이
+     int[] arr = new int[90]; 
+     
+     Vector <---- jdk 1.x ,  가변길이,  동기화지원
+     ArrayList  <--- jdk 2.x ,  가변길이,  동기화 지원안함
+	  	검색, 대량의 데이터 삽입/삭제
+
+     LinkedList  <--- data 삽입/삭제 수월함
+
+  메서드 설명 
+boolean offer() Queue(큐)에 객체를 넣는다 
+poll() Queue(큐)에서 데이터를 꺼내온다. 만일 Queue(큐)가 비어있다면 null 을 반환. 
+peek() 큐의 맨 아래 있는 객체를 반환한다. 이 때 객체를 큐에서 제거하진 않는다
+
+    - LinkedList 참고 사이트
+     http://alecture.blogspot.com/2012/10/linkedlist.html
+
+     Stack     LIFO
+     Queue <-- interface   FIFO 
+
+문제] Customer class
+   name, address, tel  field 
+   생성자함수, set/get method
+
+  고객 추가 / 삭제 / 고객 리스트 출력 / 수정 / 프로그램 종료  출력하는 프로그램 작성하기.
+
+문제2] Score class
+       이름, 국어, 영어, 전산 점수 
+        총점, 평균, 학점(평점) 
+
+   학생 추가/ 삭제/ 리스트 출력 / 수정 / 프로그램 종료 하는 프로그램 작성하기
+
+
+ > Generic(제네릭)  :     <T> 
+
+ > IO ( Input  Ouput ) <----- java.io package
+
+
+------------------------------------------------
+## 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+  <3번째 과제 : Design Pattern >
+   1팀 :   김세종 - Abstract Factor 
+   2팀 :   조규민 - Factory Method 
+   3팀 :   옥영학 - Singleton
+   4팀 :   황인호 - Proxy / Factory Pattern
+
+=================================================
+>> day13 - 19/06/07
+
+ > interface 
+   - 다중 상속 구현....
+  
+    ex04.Test.java   interface
+    ex03.Abstract.Shape  abstract class
+    ex02.IDraw.java  interface
+
+ > final
+   class ---> 상속금지
+   method --> override 금지
+   field ---> 값 변경 금지(상수)
+
+ > 사용자 예외 만들기 -  
+
+ > static member  <--- 공유
+   호출 방법 > 
+	객체명.스태틱멤버 또는 스태틱멤버함수()
+        클래스명.스태틱멤버 또는 스태틱멤버함수()
+
+ > enum 열거형 - 새로운 클래스 타입을 정의하는것
+       - 특정한 값만을 가질 수 있는 데이터 타입을 정의 할때 필요하다.
+ 형식>
+	[접근지정자] enum 열거형이름 {  필요한 상수들 나열,..... }
+ 
+ > API 
+   java.lang package
+ 
+   Object
+   String
+   StringBuffer
+   StringBuilder
+   ....
+
+   Wraper class : 기본 자료형에 대응되는 클래스형 자료형
+    기본 자료형             클래스형(레퍼런스 또는 참조형)자료형
+    int 			Integer
+    float			Float
+    char			Character
+    double			Double
+    ....			....
+
+   java.util package
+   Random class
+   Scanner class
+   날짜관련,...
+   형식지정,..
+   StringTokenizer
+   ....
+
+   java.text.SimpleDateFormat
+
+  
+
+=============================================
+>> day12 - 19/06/05
+
+ > 상속
+
+ > abstract class (추상클래스)
+   - 미완성 클래스 <--- 자체적으로 객체 생성할 수 없다.
+    (단, 상속 받은 자손 클래스로는 객체 생성 할 수 있다.)
+   - 추상메소드를 갖고 있다.
+     public void disp() {   } // 일반메소드
+     public abstract void disp();  // 추상메소드 - 몸체(블럭)를 갖지 않는다
+   - abstract
+
+   형식>
+      abstract public class Point {  // 부모 추상 클래스
+		void disp() {   }
+		abstract void show(); // 추상메소드
+      }
+
+      class Sub extends Super {  // 자손(서브) 클래스
+
+      }
+   
+
+ > 다형성 : overload, constructor
+            abstract class 로도 가능함
+
+ 문제1] Trans 추상클래스 <--- 부모는 모든 자손에게 상속할 수 있는 최소한의것
+   추상메소드 start() / stop()
+   public String name() {
+ 	return "기차"; 
+   }
+
+   sub class : Subway / Bus / Biclycle / Plain
+  
+    MainEntry 에서 메인 함수 구현하기
+
+
+ > interface 
+   - 클래스 아님.(객체 생성 안됨)
+   - implements
+   - 추상메소드, 상수만 가질 수 있다.( abstract, final 생략 가능 )
+   - 다중 구현,...
+
+문제2] interface
+    Tran  interface로 구현 
+
+    Bus / Plan class 구현하기 
+
+
+  https://kahoot.it/
+
+
+ > final
+
+ > static member
+
+ > enum 열거형 
+ 
+ > API
+
+-----------------------------------------
+ - 정보처리 및 자격증 기출 문제사이트 
+ https://www.comcbt.com/cbt/index2.php?hack_number=29
+
+=======================================
+>> day11 - 19/06/04
+
+ > OOP(객체지향)
+   TV class 
+     채널, 색상, 소리
+     
+
+ > Constructor (생성자) 함수
+   - 클래스명과 동일하다.
+   - 리턴타입 없음( void 조차 사용하지 않음 )
+   - 중복정의 가능함 ( overload 가능 - 중복함수 )
+   - default constructor 갖고 있음
+     (단, 사용자가 생성자 함수를 재정의 하면 디폴트 생성자 함수 기능 상실함 )
+   - 멤버변수의 초기화 담당
+
+문제1] Rect class - x, y, x2, y2
+   생성자함수 3개 - 1,2, 4짜리 매개변수 갖는...
+   셋/겟 메소드
+   출력 메소드
+
+ > inheritance(상속)
+   - extends
+   - 단일 상속만 지원
+   - super 
+   - 재사용
+   - 확장 
+
+형식> 
+ class Super {  // 부모 클래스
+
+ }
+
+ class Sub  extends  Super {  // 자식클래스 
+
+ }
+
+cf) 
+-- java.lang package 자동으로 import 
+-- Object class  자동으로 extends 되고 있음.
+
+ > this :자기자신, 객체 생성 될때 그 객체의 시작 주소
+	this() : 생성자함수의 다른 이름
+
+   super : 부모 클래스의 멤버에 접근 할 수 있는 인스턴스
+	super() : 부모클래스의 생성자함수 
+	 Point pt = new Point();   pt와 같은 역할
+    	 pt.disp();
+
+
+ > overried (재정의) <--- 상속 
+   함수명, 리턴타입, 매개변수 개수가 같은 함수
+
+  cf) overload
+
+ > toString() 
+
+ 문제2] class Draw {  int w, h;  double result ;   }
+
+  sub class : Circle 원의 넓이 , Triangle 사각형넓이 / 2
+
+  생성자함수 
+  getter / setter method
+  output - user method or toString() override 
+ 
+
+ > default constructor  / API 만들기
+
+ //
+ /*   */
+ /**  */
+
+문제3] Person class  - super class 
+        이름, 키, 몸무게
+ 서브클래스 :  Student class - 학과, 학번, 학년
+      교수 클래스 - 교수번호, 직급(전임,조교수,외래교수),
+		    담당학과
+
+  
+      
+
+
+====================================
+>> day10 - 19/06/03
+
+ > OOP(객체지향)
+   - class 설계
+	1) 코딩레벨
+	2) 이클립스 기반 
+
+
+ > this : 자기자신, 객체가 생성 될때 그 객체의 시작 주소를 갖고 있다.
+
+
+문제1] class Sawn {
+	이름, 직급, 부서, 급여, 연락처
+	setter /getter method
+	output method	
+}
+
+문제2] 성적 프로그램을 클래스로 구현하기
+
+
+ > Constructor (생성자) 함수
+
+ > overried (재정의)
+
+
+2. 
+논리형 boolean - 1
+	문자형 char - 2  ASCII code  s.o.p( (int)'a'); //
+정수형	byte -1
+	short - 2
+	int - 4
+	long - 8
+실수형 float - 4
+	double - 8 
+
+ String str = "korea"; 
+
+3. 최단산쉬관논삼대콤
+ (), ., []
+  += , *=, <<= , >>=,... 
+
+  <=
+  >=
+
+  int a, b, c; 
+
+ 1.비교문
+  if ~ else
+ 2. switch ~ case
+ 3. for / while / do~while
+ 4. break, continue
+
+  for(자료형 변수명 : 배열명 또는 컬렉션 ) {
+
+	반복실행문;
+  }
+
+
+
+  if(조건) {
+	참일때 실행문;
+  }
+
+ int x = 3, y =5;
+ 
+ if( x > y ) s.o.p(x);
+ else if( y > x ) s.o.p(y);
+ else  s.o.p( == );
+
+
+  for(초기값; 조건 ; 증감식) {
+
+	반복실행문;
+  }
+
+  for( ; ; ) {
+
+	if() break;
+  }
+
+
+ class MainEntry {
+
+	public static void nameView() {
+
+		s.o.p("doyeon");
+
+	}
+
+	public static void main(String[] args) {
+		nameView();
+		s.o.p( nameView() );
+
+		String str = nameView();
+		s.o.p(str);
+	}
+
+	public static String nameView() {
+
+		String name = "doyeon";
+		//return name;
+
+		return "이도연";
+
+	}
+	
+ }
+
+
+12. object 
+13. private < default < protected < public 
+14.
+
+16. switch(조건) {
+	case 값1 : 실행문; break;
+	~
+	case 값n : 실행문; break;
+       	[default : 실행문; ]
+
+    }
+
+18. while(조건) {
+
+	반복실행구문;
+
+    }
+
+19. if(조건1) {
+
+	if(조건2) {
+
+
+		if(조건3) {
+
+
+		}
+	} 
+
+    }else {
+
+
+    }
+
+---------------------------
+
+ - 자바 교재 선정 유무? 2명 1) 다른 교체 가능?
+ - tcpschool
+ - http://www.easyspub.co.kr/50_Menu/VideoView/534/PUB#view
+
+==========================================
+
 >> day09 - 19/05/31
 
  > return value; //오직 1개 값만 리턴한다
+
+   return;  //제어권 넘김
 
    
   public returnType methodName() {
@@ -24,7 +680,7 @@
      
      Math.random() * n <=== 0 ~ n-1 값 추출됨
 
-  2) Random class - java.util package
+  2) Random calss - java.util package
 	nextXXX();
 	    자료형
 	nextInt();
@@ -36,10 +692,20 @@
 문제1] 업/다운 게임 프로그램 작성 (난수 이용)
 1~100 숫자 중에서 임의의 난수 추출해 놓고, 사용자는 5번의 기회를줘서 입력 받는다.  그 입력 받은 숫자와 추출한 난수가 같은지를 판정하는 프로그램 작성
 
+문제2] 로또 프로그램 작성 :   
+   1 ~ 45 숫자 중에서 6개 추출 (단, 같은수 없어야함)
 
- > overload(중복함수)
+
+ > overload method(중복함수)?
+ 함수명 같고, 매개변수의 개수가 다르거나, 
+ 매개변수의 개수가 같다면 자료형이 다른 함수
+
+  cf) override <--- 상속
+
 
  > 가변길이 배열
+   동일한 데이터일때 길이가 다른경우
+
 
  > OOP(객체지향)
 
@@ -632,12 +1298,16 @@ public     class     Hello    {  //시작블럭
 
  http://www.etnews.com/
 
+ https://www.codeproject.com
+
  > 동영상 강좌 & 문제 은행
  https://cafe.naver.com/thisisjava
  https://cafe.naver.com/javachobostudy
  https://www.orentec.co.kr/
  신입SW인력을 위한 실전 자바(Java)
+https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9
  https://www.opentutorials.org/course/1223
+ http://www.easyspub.co.kr/50_Menu/VideoView/534/PUB#view
 
 
  > 자격증

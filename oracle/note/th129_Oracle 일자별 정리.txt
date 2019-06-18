@@ -1,0 +1,137 @@
+>> day20 - 19/06/18
+
+ > oracle 기본 문법
+   DML , DDL,  DCL 명령어
+
+ > table 생성하기
+
+  KINGSMILE> create table tableName (
+		fieldName dataType, 
+		fieldName dataType(size)
+		);
+
+ KINGSMILE> create table Test (
+		no number, 
+		name varchar2(10));
+
+ > 사용자 생성 - 최소한의 권한만 부여한다.
+   scott / tiger   <--- 샘플 사용자들 있음
+   hr    / hr
+   
+   sys , system  / oracle <---- 관리자 계정임
+
+   kingsmile / oracle 
+
+  SQL> set sqlprompt "_USER> "  <--- 로그인한 계정으로 프롬프트 변경
+
+  SYS> alter user kingsmile default tablespace users quota unlimited on users;
+  
+
+ > DML - select 명령
+ 
+ 1. SELECT
+ -- 형식>
+  select 필드리스트,....
+   from  테이블명
+   where 조건 
+ 
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by 필드명
+
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by name asc <-- 오름차순 : asc 생략가능
+
+ 
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by name desc <-- 내름차순 
+
+ > 샘플 데이터 넣기
+  kingsmile> @경로/파일명.sql
+
+  kingsmile> @C:\th129_java_web_app_developer\2_DataBase\Data\sampledata.sql
+ 
+ ## CDB , PDB  12c 이후 변경됨
+
+CDB : CDB는 전체 데이터베이스로 메타데이터 및 데이터베이스의 데이터를 저장하는 여러 개의 컨테이너가 포함한다.
+ 
+PDB : 사용자 스키마, 데이터, 코드와 기타 데이터베이스 관련 오브젝트를 담고 있는 유저가 만든 개체이다.
+PDB는 CDB 내에서 고유하고 독립된 데이터베이스 환경을 가진다. 하나의 CDB는 복수 개의 PDB를 가질 수 있다.
+
+
+==================================
+>> 동영상 강좌 사이트 
+https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9
+
+========================================
+
+
+=========================================
+>> day19 - 19/06/17
+
+ > oracle 설치
+
+ > sql developer download
+http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/sqldev-downloads-403-2529784.html
+
+ > database 기본 문법
+
+  C:\Users\class4-teacher>sqlplus "/as sysdba" <-- dba 계정으로 로그인
+  C:\Users\class4-teacher>sqlplus  /nolog      <-- login 계정 없이
+
+  - version 변경되면서 수정 사항 생김
+  sql> alter session set "_oracle_script"=true;
+  또는 
+  sql> create user c##[계정명] identified by [패스워드];
+     예) sql> create user c##kingsmile identified by oracle;
+
+  SQL> create user doyeon identified by 1004 account unlock;
+
+
+참고>
+ https://blog.naver.com/PostView.nhn?blogId=kimdj217&logNo=221405032563&parentCategoryNo=&categoryNo=34&viewDate=&isShowPopularPosts=false&from=postView
+
+
+1. oracle 제거 및 설치
+
+  1) 제거
+-------------------------------------------------
+oracle 10g 제거
+http://blog.naver.com/PostView.nhn?blogId=kimgas2000&logNo=90132271162
+http://ggamdyya.egloos.com/41829 <----이거 참조!!!
+
+http://rocks51.tistory.com/41
+http://diyall.tistory.com/541
+-----------------------------------------------------------------------------
+2. 설치
+http://www.oraclejavanew.kr/bbs/board.php?bo_table=LecOracle&wr_id=206
+http://tanklove.tistory.com/173
+
+
+https://wikidocs.net/3900  
+http://www.thebetterday.com/entry/ORACLE-11g-Database-setup
+----------------------------------------------------------------------------
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=21
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=3
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=4
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=5
+
+http://www.oracle.com/technetwork/indexes/downloads/index.html
+
+-----------pdf--------------------------------------------------------------
+http://www.oracle.com/kr/corporate/magazines/okm-2011-autumn-trend5-522339-ko.pdf
+
+------------유용한 site------------------
+http://www.dbguide.net/index.db
+http://www.sqler.com/pSQL
+http://www.gurubee.net/oracle/sql
+
+
+------------------------------------------------
+http://www.antwiz.com/kr/

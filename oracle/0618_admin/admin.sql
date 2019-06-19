@@ -15,7 +15,7 @@ desc sampletable;  --해당 테이블 구조보기
 
 ---insert ---------
 
-insert into sampletable VALUES(10, 'doyeon',  '010-9872-0202',   '서울' );                             --그냥 쓸떄는 넣었던 순서대로 넣어야한다.
+insert into sampletable VALUES(10, 'doyeon',  '010-9872-0202',   '서울'  );                             --그냥 쓸떄는 넣었던 순서대로 넣어야한다.
 insert into sampletable VALUES(20, '강감찬',  '010-5656-0244',   '경기' );   
 
 insert into sampletable(name,phone,address,num) VALUES('영희', '010-999-9999', 'jeju',30);

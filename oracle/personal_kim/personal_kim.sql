@@ -1,4 +1,4 @@
-drop table professor ;
+select *from emp2;drop table professor ;
 
 create table professor
 (profno number(4) primary key,

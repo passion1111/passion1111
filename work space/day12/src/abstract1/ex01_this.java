@@ -27,6 +27,7 @@ class Circle extends Shape{
 	double r=5.0;
 	@Override
 	public double calc() {
+		
 		result= r*r*Math.PI;
 		return result;
 	}

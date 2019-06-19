@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="ex07_file.io.FileObjectSave2.AppendingObjectOutputStream"/>
 <fullyQualifiedTypeName name="ex07_file.io.AppendingObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>

@@ -23,9 +23,3 @@ public class URLEX {
 		br.close();
 	}
 }
-
-
-
-
-
-

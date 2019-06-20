@@ -33,17 +33,3 @@ public class MainEntry2 {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

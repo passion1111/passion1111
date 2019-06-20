@@ -31,7 +31,7 @@ public class MainEntry {
 		int d=Ib;//jdk 5.x이후부터 autoboxing,unboxing된다.
 		int num=Integer.parseInt(su);
 		
-		System.out.println(c+num);
+		System.out.println(c+num);`
 		System.out.println(c+d);
 		System.out.println(Ia.MAX_VALUE);//21억~
 		System.out.println(Ia.MIN_VALUE);//-21억~

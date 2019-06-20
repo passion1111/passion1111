@@ -24,10 +24,3 @@ public class FileReaderEx {
 	}
 	
 
-
-/*
- * 
- * bufferedReader =new BufferedREad(new inputstream(System.in))
- *String File;
- *File=br.readline();
- *FileReader fr=new Filerader(File);

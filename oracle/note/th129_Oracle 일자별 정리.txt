@@ -1,3 +1,19 @@
+>> day22 - 19/06/20
+
+ > oracle 기본 문법
+   DML , DDL,  DCL 명령어
+
+
+ > SID 확인 경로
+  C:\app\class4-teacher\product\18.0.0\dbhomeXE\network\admin\listener.ora
+C:\app\로그인계정\product\18.0.0\dbhomeXE\network\admin\listener.ora
+
+ > smaple table 참고 사이트
+ https://apexplained.wordpress.com/2013/04/20/the-emp-and-dept-tables-in-oracle/
+
+ https://www.oracletutorial.com/getting-started/oracle-sample-database/
+
+==========================================
 >> day21 - 19/06/19
 
  > oracle 기본 문법
@@ -37,7 +53,7 @@ ANY와는 반대되는 개념입니다.
 
 ------------------------------------------------
 # 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
-  <5번째 과제 : Refactorying >
+  <6번째 과제 : Refactorying >
 
    1팀 :   김세종 - Pull Up field / Pull Up Method
    2팀 :   조규민 - Inline class / Rename Method 

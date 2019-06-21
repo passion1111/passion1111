@@ -196,13 +196,15 @@ SELECT SUBSTR('ABCDEFG',3,4) "Substring"
 SELECT SUBSTR('ABCDEFG',-5,4) "Substring"
      FROM DUAL;
 
-SELECT SUBSTRB('ABCDEFGipo', 5, 4.2 ) "Substring with bytes"
+SELECT SUBSTRB('ABCDEFGipo', 5, 4.2 ) "Substring with bytes"           --소수점 노상관 정수값만 옵니당.
      FROM DUAL;
 
-SELECT SUBSTR('한글날', 1, 2) "Substring"  
+SELECT SUBSTR('한글날', 1, 2) "Substring"   --substr은 그냥 하나씩 읽어버림.
      FROM DUAL;
 
-SELECT SUBSTRb('한글', 1, 3) "Substring" 
+SELECT SUBSTRb('한글', 1, 3) "Substring"   --byre는 한글 한글자당 3바이트.
+                                                --오라클 버전에 따라서 한글 크기 다 다르고
+                                                --익스프레스 버전은 한글 한글자가 3바이트임/
      FROM DUAL;
 
 

@@ -3408,6 +3408,16 @@ SELECT deptno, DECODE(deptno, 10 , SUM(sal),   --8750
                               30 , MIN(sal)) sal  --950
   FROM emp
  GROUP BY deptno; 
+ select * from emp;
+SELECT ename ,
+       CASE
+          WHEN sal < 1000  THEN sal+(sal*0.8)
+          WHEN sal BETWEEN 1000 AND 2000 THEN sal+(sal*0.5)
+          WHEN sal BETWEEN 2001 AND 3000 THEN sal+(sal*0.3)
+          ELSE sal+(sal*0.1)
+       END sal
+  FROM emp; 
+ 
  
  -- 부서별로 급여 합계를 출력한다. 
 SELECT deptno, NVL(SUM(DECODE(deptno, 10, sal)),0) deptno10, 

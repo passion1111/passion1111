@@ -15,4 +15,8 @@
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="persnonal_teamproject2.Product"/>
+<fullyQualifiedTypeName name="persnonal_teamproject2.MenuSelection"/>
 </qualifiedTypeNameHistroy>

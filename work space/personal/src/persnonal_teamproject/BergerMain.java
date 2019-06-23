@@ -9,6 +9,9 @@ import java.util.Vector;
 	
 
 public class BergerMain {
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Vector<Product> ProductVector=new Vector<Product>();
 		Vector<Product> TempVector=new Vector<Product>();
@@ -24,16 +27,20 @@ public class BergerMain {
 		int TotalPrice = 0;
 		int ExtraSelect=0;
 		int DeliverySelect=0;
+		int Racecard=1;
+		
+		
 		do {
-		    System.out.println("원하시는 서비스의 숫자를 입력해주세요.");
+		    System.out.println("원하시는 서비스의 숫자를 입력해주세요."); //admin을 위해 뼈대만.
 		    while (!sc.hasNextInt()) {
 		        System.out.println("숫자를 입력부탁드립니다.");
 		        sc.next(); 
 		    }
-		   ServiceSelect= sc.nextInt(); // 유효서 검사 메소드로 만들어야함.
-		} while (ServiceSelect <= 0||ServiceSelect>4);
+		   ServiceSelect= sc.nextInt(); 
+		 
+		} while (ServiceSelect <= 0||ServiceSelect>4);  // 유효성 검사 메소드로 만들어야함. 
 		
-		
+		while(true) {
 		while(true) {//1메뉴번호선택 2.수량선택 시킨것 확인.
 			
 		for (int i = 0; i < ProductVector.size(); i++) {
@@ -44,18 +51,18 @@ public class BergerMain {
 		}
 			
 		//메소드로 만들고 while돌리면서 break기능 있게.
-			
+			//
 		  do {
-			    System.out.println("원하시는 메뉴를 번호를 입력해주세요.");
+			    System.out.println("원하시는 메뉴의 번호를 입력해주세요.,서비스 선택을 원하시면 4번을 입력해주세요.");
 			    while (!sc.hasNextInt()  ||  MenuSelect>ProductVector.size() || MenuSelect<0) {
 			        System.out.println("메뉴에 있는 번호를 선택바랍니다.");
 			        sc.next(); 
-			    }//setter메소드
+			    }//Exception대신사용하는 유효성검사.
 			MenuSelect=sc.nextInt();	
-
+			
 		}while(MenuSelect <= 0||MenuSelect>ProductVector.size());
 		  
-		  
+		 
 	
 			  do {
 				    System.out.println("수량을 선택해주세요.");
@@ -67,31 +74,62 @@ public class BergerMain {
 			}while(MenuSelect <= 0||MenuSelect>ProductVector.size());
 			  
 			  TempVector.add(ProductVector.get(MenuSelect-1)); //선택한것을 담고
-			  TempVector.get(MenuSelect-1).setAmount(AmountSelect);//수량도 정해줌.
-//			  데이터베이스로 해결하면 간단. 허나 데이터베이스 안쓸시 size>=이상부터
-//			  sort비교하는것처럼 비교하고 중복 remove한후 기존 setAmount에 기존값+해서 계산하면됨.
+			 System.out.println("두번째"+TempVector.get(TempVector.size()-1
+					 ).getAmount());
+			  if(TempVector.size()>=2) {
+				  for (int i = 0; i < TempVector.size(); i++) {
+					 for (int j = 0; j < TempVector.size(); j++) {
+						 if( TempVector.get(i).getPnum()==TempVector.get(j).getPnum()	& (!(i==j))  )
+						 {
+							 int TotalAmount=TempVector.get(i).getAmount()
+		 								+AmountSelect;
+							 System.out.println(TempVector.get(i).getAmount());
+							 System.out.println(TempVector.get(j).getAmount());
+							 
+							 TempVector.get(i).setAmount (TotalAmount ) ; //왜 갑자기  i j 가 동시에바뀌는거지.
+							 System.out.println(TempVector.get(i).getAmount());
+							 System.out.println(TempVector.get(j).getAmount());
+							 TempVector.remove(j);
+						 }else if(TempVector.get(i).getPnum()!=TempVector.get(j).getPnum()	) {
+							 TempVector.get(TempVector.size()-1).setAmount(AmountSelect);
+						 }
+					}
+					 
+				}
+			  }else {TempVector.get(TempVector.size()-1).setAmount(AmountSelect);//수량도 정해줌. 
+				  
+			  }
+			  
+				 
+			  //중복제거를 위해 하지만 2중 for문이기떄문에 성능문제가 있음.
+			  
+			  
+	
+			  
+//			  같은 메뉴 2번 입력하면 따로 표기됨 예) 짜장면 짜장면 입력하면 2번 표기 
+//			  데이터베이스로 해결하면 간단. 허나 데이터베이스 안쓸시 size>=2부터
+//			  sort비교하는것처럼 비교하고 중복 메뉴 remove한후 기존 Amount에 기존값+해서 계산하면됨.
+//			  아니면 set로하면 되는데 사용자가 선택한것을 순서대로보여주지못하고 랜덤으로 보여주게됨.
+//			  Hashmap은 지금 vector로 쓰는거보다 더 더러워진다고 생각합니다.
 			  
 			  System.out.println("주문하신 메뉴"); //수량과 메뉴 확인시켜줌.
+			  TotalPrice=0;
 			  for (int j = 0; j < TempVector.size(); j++) {
+				  
 				  System.out.println("메뉴 :"+TempVector.get(j).getProductName()+
 						  "\t수량"+TempVector.get(j).getAmount());
-				  TotalPrice=TempVector.get(j).getAmount()*TempVector.get(j).getPrice();
+				  TotalPrice+=TempVector.get(j).getAmount()*TempVector.get(j).getPrice();
+				 
 			  }
-			 System.out.println("총합 :"+TotalPrice);
-			 
+			  System.out.println("총합"+TotalPrice);
 			  
-			  
-			  System.out.println("추가주문 하시겠습니까?  1.예 2.아니오");
+	  System.out.println("추가주문 하시겠습니까?  1.예 2.아니오");
+			  ExtraSelect=sc.nextInt();
 			  if(ExtraSelect==2)break;
 			  
 		}		  
 			
-			  
-			
-		  
-		  
-		  
-		
+
 		  //select문 하나 더 만들어서 담긴것 확인
 		
 		  
@@ -99,7 +137,7 @@ public class BergerMain {
 		  for (int j = 0; j < TempVector.size(); j++) {
 			  System.out.println("메뉴 :"+TempVector.get(j).getProductName()+
 					  "\t수량"+TempVector.get(j).getAmount());
-			  TotalPrice=TempVector.get(j).getAmount()*TempVector.get(j).getPrice();
+			  
 		  }
 		 System.out.println("총합 :"+TotalPrice);
 		 
@@ -111,7 +149,7 @@ public class BergerMain {
 ////		 TempVector.remove(입력받은수-1);
 //			System.out.println("추가주문 하시겠습니까?");
 //		if(MenuSelect==7)	break;
-//		}
+//		}유효성검사하게 바꿔야함.
 //	
 //		
 //		
@@ -128,9 +166,9 @@ public class BergerMain {
 		  //		  
 		  
 		 int CouponSelect=0;
-		 int Coupon[]= {30,40,50};
+		 int Coupon[]= {30,40,50,0};
 		 do {
-			 System.out.println("어떤 쿠폰 가지고있어여? \n 1.30%할인 쿠폰 , 2.40%할인쿠폰 , 3.50%할인쿠폰");
+			 System.out.println("어떤 쿠폰 가지고있어여? \n 1.30%할인 쿠폰 , 2.40%할인쿠폰 , 3.50%할인쿠폰 4.없음");
 			 
 			while(!sc.hasNextInt()) {
 				System.out.println("숫자를 입력해주세요");
@@ -141,18 +179,32 @@ public class BergerMain {
 		 }while(CouponSelect>4||CouponSelect<=0);
 		 
 
-		  TotalPrice+=TotalPrice*Coupon[CouponSelect];;//쿠폰 클래스 만들어서 적용하기 if문으로 1번클릭하면으로 대체
+		  TotalPrice=TotalPrice*(100-Coupon[CouponSelect-1])/100;//쿠폰 클래스 만들어서 적용하기 if문으로 1번클릭하면으로 대체
 		  System.out.println("결제는 무엇으로 도와드릴까요? 1. 현금 , 2. 카드");
 		  int Select;
 		  Select=sc.nextInt();
-		  
-////		  
-////		  
-//		  
-////		  이 전체과정을 while문으로 적용하기.
-//		
-//	
+		  if(Select==2) {
+			  System.out.println("카드를 입력해주세요");
+//		  입력받기
+		  }
 
+//		  클래스파일 하나만들기 데이터베이스면 테이블하나만들기
+//		  대기표.
+		  String Bills ="";
+//		  int Racecard=1;
+		  for (int i = 0; i < TempVector.size(); i++) {
+			Bills+=  TempVector.get(i).getProductName()+TempVector.get(i).getPrice()+"\t"+TempVector.get(i).getAmount()+"개"+
+					"\n";
+
+			  
+		}
+		  TempVector.removeAllElements(); //결제를 완료하고 계산서를 저장했으니 
+		   Bills+="총합  :"+TotalPrice+"\n대기번호"+Racecard;
+		   Racecard++;
+		  System.out.println("계산서\n"+Bills);
+//		  하루 매상계산은 split으로 나눠준후에  짝수들 더해주기.
+
+		}
 		 
 	}
 }

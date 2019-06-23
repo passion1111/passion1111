@@ -25,9 +25,12 @@ public class BergerMain {
 		int MenuSelect = 0;
 		int AmountSelect;
 		int TotalPrice = 0;
+		int Racecard=1;
+		
+		//이 아래 select들은 나중에 DB저장을위해 그냥 만들어둠.
 		int ExtraSelect=0;
 		int DeliverySelect=0;
-		int Racecard=1;
+		
 		
 		
 		do {
@@ -82,17 +85,13 @@ public class BergerMain {
 						 if( TempVector.get(i).getPnum()==TempVector.get(j).getPnum()	& (!(i==j))  )
 						 {
 							 int TotalAmount=TempVector.get(i).getAmount()
-		 								+AmountSelect;
-							 System.out.println(TempVector.get(i).getAmount());
-							 System.out.println(TempVector.get(j).getAmount());
-							 
-							 TempVector.get(i).setAmount (TotalAmount ) ; //왜 갑자기  i j 가 동시에바뀌는거지.
-							 System.out.println(TempVector.get(i).getAmount());
-							 System.out.println(TempVector.get(j).getAmount());
+		 								+AmountSelect;  //중복되는 amount를 지우고 				 
+							 TempVector.get(i).setAmount (TotalAmount ) ; 
 							 TempVector.remove(j);
 						 }else if(TempVector.get(i).getPnum()!=TempVector.get(j).getPnum()	) {
 							 TempVector.get(TempVector.size()-1).setAmount(AmountSelect);
 						 }
+						 
 					}
 					 
 				}
@@ -101,11 +100,7 @@ public class BergerMain {
 			  }
 			  
 				 
-			  //중복제거를 위해 하지만 2중 for문이기떄문에 성능문제가 있음.
-			  
-			  
-	
-			  
+//				중복제거를 위해 하지만 2중 for문이기떄문에 성능문제가 있음.
 //			  같은 메뉴 2번 입력하면 따로 표기됨 예) 짜장면 짜장면 입력하면 2번 표기 
 //			  데이터베이스로 해결하면 간단. 허나 데이터베이스 안쓸시 size>=2부터
 //			  sort비교하는것처럼 비교하고 중복 메뉴 remove한후 기존 Amount에 기존값+해서 계산하면됨.
@@ -202,10 +197,10 @@ public class BergerMain {
 		   Bills+="총합  :"+TotalPrice+"\n대기번호"+Racecard;
 		   Racecard++;
 		  System.out.println("계산서\n"+Bills);
-//		  하루 매상계산은 split으로 나눠준후에  짝수들 더해주기.
-
+//		  하루 매상계산은 split으로 나눠준후 배열로 저장 후  짝수들 더해주기.
+//        DB로 할것이면 테이블하나 만들어서 추가추가.
 		}
-		 
+		 	
 	}
 }
 

@@ -2046,6 +2046,11 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> temp-branch
 
 !ENTRY org.eclipse.ui 4 0 2019-06-23 19:31:50.735
 !MESSAGE Unhandled event loop exception
@@ -2946,3 +2951,7 @@ java.lang.StringIndexOutOfBoundsException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+<<<<<<< HEAD
+=======
+>>>>>>> 오늘의 실수
+>>>>>>> temp-branch

@@ -9,9 +9,7 @@ import java.util.Vector;
 	
 
 public class BergerMain {
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		Vector<Product> ProductVector=new Vector<Product>();
 		Vector<Product> TempVector=new Vector<Product>();
@@ -43,7 +41,8 @@ public class BergerMain {
 		 
 		} while (ServiceSelect <= 0||ServiceSelect>4);  // 유효성 검사 메소드로 만들어야함. 
 		
-		while(true) {
+		while(true) { //전체 반복
+			
 		while(true) {//1메뉴번호선택 2.수량선택 시킨것 확인.
 			
 		for (int i = 0; i < ProductVector.size(); i++) {

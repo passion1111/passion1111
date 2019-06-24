@@ -12,7 +12,7 @@ public class DBconnection {
 		{
 			Connection conn=null;
 			try {
-				String user="kim";
+				String user="kimkim";
 				String pw="oracle";
 				String url="jdbc:oracle:thin:@localhost:1521:xe";
 				

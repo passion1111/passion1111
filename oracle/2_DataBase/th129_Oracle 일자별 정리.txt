@@ -1,0 +1,290 @@
+>> day24 - 19/06/24
+
+ - 테이블 복사 & 레코드 복사
+  -- 형식>
+create table 복사tableName
+    as select 필드명, 필드명,....from 테이블이름;
+
+ -- 형식>
+create table 복사tableName
+    as select 필드명, 필드명,....from 테이블이름 where 1=0;
+
+
+--형식>
+insert into 테이블이름
+    select 컬럼명, ... from 테이블이름
+
+
+ - UNIO  
+  union : 중복 레코드 미포함 합쳐서 출력
+  union all : 중복 레코드 포함해서 출력
+
+ - SubQuery 
+  ex) select * from emp where ename = ( 서브쿼리문장 ) ;
+
+
+ > 스칼라 서브쿼리, 서브쿼리, 인라인 뷰 
+ https://seohc.tistory.com/87
+
+
+
+ - ddl 만들기
+
+ - View
+
+
+=========================================
+>> day23 - 19/06/21
+
+ > join , table 복사 
+
+   join - pk/fk  ( O )
+   union - pk / fk ( X )
+  
+   inner join  /  outer join  / self join 
+
+select * from emp;
+select * from dept;
+
+-- 1. 사원들의 이름, 부서번호, 부서이름을 출력하라. (emp, DEPT table)
+-- 2. DALLAS에서 근무하는  사원의 이름, 직위, 부서번호, 부서이름을
+-- 출력하라. (dept table)
+-- 3. 이름에 'A'가 들어가는 사원들의 이름과 부서이름을 출력하라. ( emp, dept )
+-- 4. 사원이름과 그 사원이 속한 부서의 부서명, 그리고 월급을
+--출력하는데 월급이 3000이상인 사원을 출력하라. (emp, dept )
+-- 5. 직위가 'SALESMAN'인 사원들의 직위와 그 사원이름, 그리고
+-- 그 사원이 속한 부서 이름을 출력하라. (emp, DEPT)
+-- 6. 커미션이 책정된 사원들의 사원번호, 이름, 연봉, 연봉+커미션,
+-- 급여등급을 출력하되, 각각의 컬럼명을 '사원번호', '사원이름',
+-- '연봉','실급여', '급여등급'으로 하여 출력하라. ( emp, SALGRADE )
+--(비등가 ) 1 : 1 매핑 대는 컬럼이 없다
+-- 7. 부서번호가 10번인 사원들의 부서번호, 부서이름, 사원이름,
+-- 월급, 급여등급을 출력하라. ( emp, DEPT, SALGRADE )
+-- 8. 부서번호가 10번, 20번인 사원들의 부서번호, 부서이름,
+-- 사원이름, 월급, 급여등급을 출력하라. 그리고 그 출력된
+-- 결과물을 부서번호가 낮은 순으로, 월급이 높은 순으로
+-- 정렬하라. (emp, dept, SALGRADE )
+-- 9. 사원번호와 사원이름, 그리고 그 사원을 관리하는 관리자의
+-- 사원번호와 사원이름을 출력하되 각각의 컬럼명을 '사원번호',
+-- '사원이름', '관리자번호', '관리자이름'으로 하여 출력하라. ( emp )
+--SELF JOIN (자기 자신테이블의 컬럼을 참조 하는 경우)
+
+ > 정규식 표현
+  특정한 규칙을 가진 문자열의 집합
+
+ -- http://www.gurubee.net/lecture/1028
+ -- http://www.nextree.co.kr/p4327/
+ 
+ > emp & dept table smaple site
+ http://oraclemine.com/emp-and-dept-tables-in-oracle/
+
+ > 관계도 보기
+ 1) 메뉴: 파일 > 데이터모델러 > 임포트 > 데이터딕셔너리> ...
+ 2) 메뉴 : 보기 > 데이터모델러 > 브라우저 
+
+ > UML
+ http://www.jidum.com/jidums/view.do?jidumId=980
+
+
+===============================================
+>> day22 - 19/06/20
+
+ > oracle 기본 문법
+   DML , DDL,  DCL 명령어
+
+
+ > SID 확인 경로
+  C:\app\class4-teacher\product\18.0.0\dbhomeXE\network\admin\listener.ora
+C:\app\로그인계정\product\18.0.0\dbhomeXE\network\admin\listener.ora
+
+ > smaple table 참고 사이트
+ https://apexplained.wordpress.com/2013/04/20/the-emp-and-dept-tables-in-oracle/
+
+ https://www.oracletutorial.com/getting-started/oracle-sample-database/
+
+==========================================
+>> day21 - 19/06/19
+
+ > oracle 기본 문법
+   DML , DDL,  DCL 명령어
+
+비교 연산자와 ANY
+
+SUBSELECT의 결과 세트 목록 중에서 최소한 하나라도 만족하는 것을 의미합니다.
+경우에 따라서 최소값이 될 수도, 최대값이 될 수도 있습니다.
+다음의 용례를 잘 살펴 보세요. 비교 연산자와 ANY가 함께 사용될 때 ANY가 최소값일 수도 최대값일 수도 있습니다. 
+ANY가 '어떠한'이라는 뜻이니까, 최소한 하나의 조건은 만족해야 합니다.
+어떠한 값보다 크다는 것이 하나라도 만족하려면 '어떠한'이 '최소값'이 되어야겠죠.
+반면 어떠한 값보다 작다는 것이 하나라도 만족하려면 '어떠한'이 '최대값'이 되어야 합니다.
+
+> ANY : 최소값 보다 크면
+ 필드명(pay) >= ANY : 최소값보다 크거나 같으면   any( 300, 550, 400 )
+  < ANY : 최대값보다 작으면
+  <= ANY : 최대값보다 작거나 같으면
+   = ANY : IN과 같은 효과
+  != ANY : NOT IN과 같은 효과
+
+
+비교 연산자와 ALL
+
+ANY와는 반대되는 개념입니다.
+
+  필드명(pay) > ALL : 최대값 보다 크면  all( 300, 550, 400 )
+>= ALL : 최대값보다 크거나 같으면
+< ALL : 최소값보다 작으면
+<= ALL : 최소값보다 작거나 같으면
+= ALL : SUBSELECT의 결과가 1건이면 상관없지만 여러 건이면 오류가 발생합니다.
+!= ALL : 위와 마찬가지로 SUBSELECT의 결과가 여러 건이면 오류가 발생합니다.
+
+
+ > oracle 제거 방법
+ https://kyome.tistory.com/4
+
+------------------------------------------------
+# 팀(조)별 과제  - 매주 월요일 PM 2시 40분 ~ 
+  <6번째 과제 : Refactorying >
+
+   1팀 :   김세종 - Pull Up field / Pull Up Method
+   2팀 :   조규민 - Inline class / Rename Method 
+   3팀 :   옥영학 - Replace Temp with Query / Encapsulation Field
+   4팀 :   황인호 - Move Method / Move Field
+              Extract Method / Extract class
+
+==============================================
+>> day20 - 19/06/18
+
+ > oracle 기본 문법
+   DML , DDL,  DCL 명령어
+
+ > table 생성하기
+
+  KINGSMILE> create table tableName (
+		fieldName dataType, 
+		fieldName dataType(size)
+		);
+
+ KINGSMILE> create table Test (
+		no number, 
+		name varchar2(10));
+
+ > 사용자 생성 - 최소한의 권한만 부여한다.
+   scott / tiger   <--- 샘플 사용자들 있음
+   hr    / hr
+   
+   sys , system  / oracle <---- 관리자 계정임
+
+   kingsmile / oracle 
+
+  SQL> set sqlprompt "_USER> "  <--- 로그인한 계정으로 프롬프트 변경
+
+  SYS> alter user kingsmile default tablespace users quota unlimited on users;
+  
+
+ > DML - select 명령
+ 
+ 1. SELECT
+ -- 형식>
+  select 필드리스트,....
+   from  테이블명
+   where 조건 
+ 
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by 필드명
+
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by name asc <-- 오름차순 : asc 생략가능
+
+ 
+ select 필드리스트,....
+   from  테이블명
+   --where 조건
+   order by name desc <-- 내름차순 
+
+ > 샘플 데이터 넣기
+  kingsmile> @경로/파일명.sql
+
+  kingsmile> @C:\th129_java_web_app_developer\2_DataBase\Data\sampledata.sql
+ 
+ ## CDB , PDB  12c 이후 변경됨
+
+CDB : CDB는 전체 데이터베이스로 메타데이터 및 데이터베이스의 데이터를 저장하는 여러 개의 컨테이너가 포함한다.
+ 
+PDB : 사용자 스키마, 데이터, 코드와 기타 데이터베이스 관련 오브젝트를 담고 있는 유저가 만든 개체이다.
+PDB는 CDB 내에서 고유하고 독립된 데이터베이스 환경을 가진다. 하나의 CDB는 복수 개의 PDB를 가질 수 있다.
+
+
+==================================
+>> 동영상 강좌 사이트 
+https://www.youtube.com/playlist?list=PLieE0qnqO2kTyzAlsvxzoulHVISvO8zA9
+
+========================================
+
+
+=========================================
+>> day19 - 19/06/17
+
+ > oracle 설치
+
+ > sql developer download
+http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/sqldev-downloads-403-2529784.html
+
+ > database 기본 문법
+
+  C:\Users\class4-teacher>sqlplus "/as sysdba" <-- dba 계정으로 로그인
+  C:\Users\class4-teacher>sqlplus  /nolog      <-- login 계정 없이
+
+  - version 변경되면서 수정 사항 생김
+  sql> alter session set "_oracle_script"=true;
+  또는 
+  sql> create user c##[계정명] identified by [패스워드];
+     예) sql> create user c##kingsmile identified by oracle;
+
+  SQL> create user doyeon identified by 1004 account unlock;
+
+
+참고>
+ https://blog.naver.com/PostView.nhn?blogId=kimdj217&logNo=221405032563&parentCategoryNo=&categoryNo=34&viewDate=&isShowPopularPosts=false&from=postView
+
+
+1. oracle 제거 및 설치
+
+  1) 제거
+-------------------------------------------------
+oracle 10g 제거
+http://blog.naver.com/PostView.nhn?blogId=kimgas2000&logNo=90132271162
+http://ggamdyya.egloos.com/41829 <----이거 참조!!!
+
+http://rocks51.tistory.com/41
+http://diyall.tistory.com/541
+-----------------------------------------------------------------------------
+2. 설치
+http://www.oraclejavanew.kr/bbs/board.php?bo_table=LecOracle&wr_id=206
+http://tanklove.tistory.com/173
+
+
+https://wikidocs.net/3900  
+http://www.thebetterday.com/entry/ORACLE-11g-Database-setup
+----------------------------------------------------------------------------
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=21
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=3
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=4
+http://www.allsoft.co.kr/bbs/board.php?bo_table=study4_2&wr_id=5
+
+http://www.oracle.com/technetwork/indexes/downloads/index.html
+
+-----------pdf--------------------------------------------------------------
+http://www.oracle.com/kr/corporate/magazines/okm-2011-autumn-trend5-522339-ko.pdf
+
+------------유용한 site------------------
+http://www.dbguide.net/index.db
+http://www.sqler.com/pSQL
+http://www.gurubee.net/oracle/sql
+
+
+------------------------------------------------
+http://www.antwiz.com/kr/

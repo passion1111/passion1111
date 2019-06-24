@@ -1,0 +1,102 @@
+select Months_between
+  ( to_date('02-17-2017', 'MM-DD-YYYY') ,
+    to_date('01-01-2016', 'MM-DD-YYYY')   )  "Months"
+  from dual;
+
+select Months_between
+  ( to_date('07-31-2015', 'MM-DD-YYYY') ,
+    to_date('12-20-1988', 'MM-DD-YYYY')   )  "Months"
+  from dual;
+
+select to_char(add_months(hiredate, 1), 'DD-MM-YYYY' ) "Next month"
+  from professor
+  where name='심슨'
+  
+select * from professor;
+select * from emp2;
+
+select to_char(
+              add_months(birthday, 1), 'DD-MM-YYYY' ) "Next month"
+  from emp2
+  where name='나사장'
+-------------------------------------------
+select next_day('2001/01/20', 2) "Next Day" from dual;  -- 1 : 일요일  2:월요일,....
+select next_day('1988/01/20', 2) "Next Day" from dual;
+select next_day('2017/02/03', 6) "Next Day" from dual;  -- 6 : 금요일 
+-------------------------------------------------------
+select sysdate,
+    Last_day(sysdate) "Last",
+    Last_day(sysdate) - sysdate "Days Left"
+    from dual ;
+----------------------------------------------------------
+select birthday,
+    Last_Day(birthday) "Days Left"
+    from emp2;
+-----------------------------------------------
+select * from department;
+select * from tab;
+select * from product;
+
+select p_code, 
+          DECODE( p_code ,  100 , 'NEW YORK' ,
+                                   101 , 'DALLAS' ,
+                                   102 , 'BOSTON' ,
+                                   105 , 'CHICAGO' ,
+                                          '지역을 몰라요' )
+          "Location of inventory"
+      from product 
+      where p_code < 103 ;
+
+-------------------------------------------------------------------------------
+SELECT product_id,
+       DECODE (warehouse_id, 1, 'Southlake',
+                             2, 'San Francisco',
+                             3, 'New Jersey',
+                             4, 'Seattle',
+                                'Non domestic')
+       "Location of inventory" FROM inventories
+       WHERE product_id < 1775;
+       
+SELECT * FROM inventories ;
+select * from dept;
+
+SELECT deptno, DECODE(deptno, 10 , 'ACCOUNTING' ,
+                              20 , 'RESEARCH' ,
+                              30 , 'SALES', 'OPERATIONS') name
+  FROM dept;
+ 
+-- 10부서는 급여합계를, 20부서는 최대값을, 30부서는 최소값을 출력하는 예제
+select * from emp order by deptno;
+SELECT deptno, DECODE(deptno, 10 , SUM(sal),   --8750
+                              20 , MAX(sal),    --3000
+                              30 , MIN(sal)) sal  --950
+  FROM emp
+ GROUP BY deptno; 
+ 
+ -- 부서별로 급여 합계를 출력한다. 
+SELECT deptno, NVL(SUM(DECODE(deptno, 10, sal)),0) deptno10, 
+               NVL(SUM(DECODE(deptno, 20, sal)),0) deptno20,
+               NVL(SUM(DECODE(deptno, 30, sal)),0) deptno30,
+               NVL(SUM(DECODE(deptno, 40, sal)),0) deptno40
+  FROM emp
+ GROUP BY deptno; 
+-------------------------------------------------------------
+
+SUBSTR(‘ABC’,1,2) -> AB
+
+SELECT SUBSTR('ABC', 1 , 2) FROM dual;
+
+SELECT SUBSTR('ABCDEFG',3,4) "Substring"
+     FROM DUAL;
+
+SELECT SUBSTR('ABCDEFG',-5,4) "Substring"
+     FROM DUAL;
+
+SELECT SUBSTRB('ABCDEFGipo', 5, 4.2 ) "Substring with bytes"
+     FROM DUAL;
+
+SELECT SUBSTR('한글날', 1, 2) "Substring"  
+     FROM DUAL;
+
+SELECT SUBSTRb('한글', 1, 3) "Substring" 
+     FROM DUAL;

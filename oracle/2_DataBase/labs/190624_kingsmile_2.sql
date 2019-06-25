@@ -61,7 +61,7 @@ select name, weight
 
 select empno, name, deptno
     from emp2
-    where deptno in( 1000, 1001, 1002, 1010 );
+    where deptno in( 1000, 1001, 1002, 1010, 2000, 2001 );
     
 select * from emp2;
 select * from dept2;

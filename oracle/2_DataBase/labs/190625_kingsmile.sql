@@ -1,47 +1,3 @@
-
-select *from emp;
-select deptno,avg(sal) from emp group by deptno having 2000>avg(sal); 
-
-
-
---직위별 총급여를 갖는 뷰 테이블을 만들되 직위가 manager인 사원들은 제외하고 총급여가
---3000이상인 사원들 출력하시오              <>부등호 마주보는것도 먹힘
-
-create view v_emp5
-as select job,sum(sal) "총급여" from emp
-where  job<> 'manager'             --!=대신 <>으로 씀
-group by job
-having sum(sal)>3000;
-
-select*from emp where ename='KING';
---쿼리문은 대소문자 구분 안하지만 레코드는 대소문자 구분
-select*from emp where ename='king'; --안나옴
-
---교수테이블에서 테이블 구조만 복사된 c_professor 새로운테이블생성(이름,직위 입사일,이메일,홈페이지)하고 레코드복사하기
-select* from professor;
-create table c_professor(name,position,hiredate,email,hpage) as select name,position,hiredate,email,hpage from professor where 1=0;
---c_emp2 테이블의 구조물만 복사 c_emp22로 만드세요
-create table c_emp2 as select * from emp2 where 1=0;
-
---emp 테이블에서 c_emp22에 직위가 'manager'인 사람들과만 레코드 복사하시오 
-
-select *from emp;
-create table c_emp22 as select *from emp where job='MANAGER';
-select* from c_emp22;
-
---레코드 복사 insert into 테이블 복사 create
-
-
-
-
-
-
-
-
-
-
-
-
 --- View -------------------
 create view 뷰이름
 as
@@ -96,6 +52,7 @@ as
         group by deptno;
         
 select * from v_emp3;
+select * from emp;
 ----------------------------
 문제4] 부서별 평균급여를 갖는 뷰를 만들되, 평균급여가 2000 이상인
       부서만 출력하도록 하시오.
@@ -119,9 +76,8 @@ CREATE VIEW v_emp5
         WHERE job <> 'MANAGER' -- WHERE job != 'MANAGER'
         GROUP BY job
         HAVING SUM(sal) > 3000 ;
-        
-        
- SELECT * FROM v_emp5;     
+SELECT * FROM emp;                
+SELECT * FROM v_emp5;     
 
 --------------------------------------
 CREATE VIEW v_emp6 
@@ -173,5 +129,6 @@ select * from c_emp22;
 select * from c_emp22;
       
 ----------------------------------------------      
-      
+
+
       

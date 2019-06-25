@@ -216,4 +216,13 @@ rollback to savepoint update_sal; --여기로 돌아가자
 
 rollback to savepoint update_sal10;
 
+
+
 commit;--커밋하면 이제 못바꿈
+
+select*from kang.tt;
+delete*from kang.tt;  --delete는 권한이 없어서 못하고 select만 가능.
+
+select*from emp2;
+SELECT * FROM COLS WHERE TABLE_NAME = 'EMP2';
+SELECT * FROM ALL_TAB_COMMENTS WHERE TABLE_NAME = 'EMP2'

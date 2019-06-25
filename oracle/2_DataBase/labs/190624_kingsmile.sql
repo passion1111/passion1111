@@ -170,10 +170,18 @@ drop table c_emp5;
 create table c_emp5
     as select ename, empno, hiredate from emp where 1=0;
 select * from c_emp5;
+select * from emp2;
 ---------------------------------
+--alter table 테이블이름 modify 컬럼이름 변경자료형
+alter table emp modify ename varchar2(15);
+alter table emp2 modify empno number(4,0); 
 insert into c_emp5
-    select Cast(name varchar2(15)), empno, birthday from emp2;
+     select name, empno, birthday from emp2;
 
-insert into c_emp5
-    select convert(name, varchar2(15)), empno, birthday from emp2;
+    
+    
+    
+    
+    
+    
     

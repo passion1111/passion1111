@@ -8,7 +8,7 @@ public class DBconnection {
 
 	public static Connection dbConn;
 	
-		public static Connection getconnConnection()
+		public static Connection getconnConnection() //클래스를 그렇게 저장했기떄문에
 		{
 			Connection conn=null;
 			try {

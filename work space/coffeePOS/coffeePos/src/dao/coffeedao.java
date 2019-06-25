@@ -13,7 +13,10 @@ import bean.Coffee;
 import bean.Stock;
 
 
+
 public class coffeedao {
+
+
 	private String driver = "oracle.jdbc.driver.OracleDriver" ;
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe" ;
 	private String username = "kimkim" ;

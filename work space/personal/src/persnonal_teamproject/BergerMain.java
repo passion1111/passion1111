@@ -6,10 +6,61 @@ import java.util.Vector;
 
 
 
+class Product{
+	private int Pnum;
+	private String ProductName;
+	private int Price;
+	private int Amount;
+	
+	Product(int Pnum,String ProductName,int Price,int Amount){
+		this.Pnum=Pnum;
+		this.ProductName=ProductName;
+		this.Price=Price;
+		this.Amount=Amount;
+		
+		
+	}
+
+	public int getPnum() {
+		return Pnum;
+	}
+
+	public void setPnum(int pnum) {
+		Pnum = pnum;
+	}
+
+	public String getProductName() {
+		return ProductName;
+	}
+
+	public void setProductName(String productName) {
+		ProductName = productName;
+	}
+
+	public int getPrice() {
+		return Price;
+	}
+
+	public void setPrice(int price) {
+		Price = price;
+	}
+
+	public int getAmount() {
+		return Amount;
+	}
+
+	public void setAmount(int amount) {
+		Amount = amount;
+	}
+}
+	//Product로 나눌것.
+
 	
 
 public class BergerMain {
-	
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Vector<Product> ProductVector=new Vector<Product>();
 		Vector<Product> TempVector=new Vector<Product>();
@@ -41,8 +92,7 @@ public class BergerMain {
 		 
 		} while (ServiceSelect <= 0||ServiceSelect>4);  // 유효성 검사 메소드로 만들어야함. 
 		
-		while(true) { //전체 반복
-			
+		while(true) {
 		while(true) {//1메뉴번호선택 2.수량선택 시킨것 확인.
 			
 		for (int i = 0; i < ProductVector.size(); i++) {
@@ -99,12 +149,7 @@ public class BergerMain {
 			  }
 			  
 				 
-//				중복제거를 위해 하지만 2중 for문이기떄문에 성능문제가 있음.
-//			  같은 메뉴 2번 입력하면 따로 표기됨 예) 짜장면 짜장면 입력하면 2번 표기 
-//			  데이터베이스로 해결하면 간단. 허나 데이터베이스 안쓸시 size>=2부터
-//			  sort비교하는것처럼 비교하고 중복 메뉴 remove한후 기존 Amount에 기존값+해서 계산하면됨.
-//			  아니면 set로하면 되는데 사용자가 선택한것을 순서대로보여주지못하고 랜덤으로 보여주게됨.
-//			  Hashmap은 지금 vector로 쓰는거보다 더 더러워진다고 생각합니다.
+				
 			  
 			  System.out.println("주문하신 메뉴"); //수량과 메뉴 확인시켜줌.
 			  TotalPrice=0;

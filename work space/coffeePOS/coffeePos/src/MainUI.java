@@ -25,6 +25,7 @@ public class MainUI {
 	Vector<Coffee> list =new Vector<Coffee>();
 	Coffee coffee = null; 
 	Stock stock =null;
+	
 	coffeedao dao = null;
 	JLabel lblNewLabel_1;
 	String menu="";

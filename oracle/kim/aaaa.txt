@@ -1,0 +1,247 @@
+-- PL/SQL ----------------------------
+-- 프로시저 실행 결과 콘솔모드에 출력하겠다
+SEJONG> set serveroutput on;
+
+SEJONG> Declare     -- 선언부
+  2  vno numer(4);
+  3  vname varchar2(20);
+  4  Begin
+  5     select empno, name
+  6             into vno, vname
+  7     from emp2
+  8      where empno = &empno; -- &empno 통해서 값 입력 받기    
+  9      DBMS_output.put_line('입력값 :' || vno || '<--->' || vname);
+ 10  end;
+ 11  /  <--- 완료
+ 
+BEGIN
+    --dbms_output.put('UI 화면 설계 시험 잘보세요!!ㅠ');
+    dbms_output.put_line('SeJong Kim 222');
+    /*dbms_output.put_line('SeJong Kim 222');
+    dbms_output.put_line('SeJong Kim 222');*/
+END;
+/
+-------------------------------------
+drop procedure p_test;
+
+create procedure p_test 
+is
+    begin
+        dbms_output.put('UI 화면 설계 시험 잘보세요!!ㅠ');
+        dbms_output.put_line('SeJong Kim 222');
+    end;
+/
+------------------------------------------
+exec p_test;
+--------------------------------------
+create or replace procedure p_test(name in varchar2) 
+is
+    begin
+        dbms_output.put_line(name||'님 시험 합격입니다.!!!!');
+    end;
+/
+--------------------------------------------------
+exec p_test('김세종');
+exec p_test('김연아');
+
+create table userlist (
+    id varchar2(10),
+    name varchar2(20),
+    age number,
+    addr varchar2(50)
+);
+
+desc userlist;
+------------------------------------
+create or replace procedure p_userlist(
+    id in userlist.id%type := 'sejong',
+    name in userlist.name%type default '김세종',
+    age in userlist.age%type := 10,
+    addr in userlist.addr%type := null
+)
+is
+    Begin
+        insert into userlist values(id, name, age, addr);
+        dbms_output.put_line('insert 정보는 '||id||name||age||addr);
+    end;
+/
+-------------------------------------------------------------
+exec p_userlist('yuna', '김연아', 20, '서울'); -- 전체 필드 추가
+exec p_userlist; -- default data input
+exec p_userlist(id=>'박보검', age=>50); -- 원하는 필드값만 추가 가능
+--------------------------------------------------
+select * from userlist;
+------------------------------------------------------------
+select * from emp;
+select * from c_emp;
+
+insert into emp
+    select * from c_emp; -- 레코드 복사
+    
+DESCRIBE emp;
+
+declare e_name emp.ename%type;
+        e_sal emp.sal%type;
+begin
+    select sal, ename into e_sal, e_name from emp where empno='7782';
+    dbms_output.put_line('7782님의 이름은 '||e_name||' 급여는 '||e_sal);
+end;
+/
+
+declare data emp%rowtype;
+begin
+    select * into data from emp where empno='7782';
+    dbms_output.put_line(data.ename||', '||data.job||', '||data.mgr||', '||data.deptno);
+end;
+/
+---------------------------------
+declare 
+    su number := &su;
+    grade varchar2(2) := 'F';
+begin
+    if(su >= 90) then grade := 'A';
+    elsif(su >= 80) then grade := 'B';
+    elsif(su >= 70) then grade := 'C';
+    elsif(su >= 60) then grade := 'D';
+    end if;
+    dbms_output.put_line(grade||'학점 입니다.');
+end;
+/
+-----------------------------------------
+for 변수이름 in 시작.. 끝 loop
+    실행문장;
+end loop;
+-------------------------------------
+create table bit (
+    num number(3),
+    name varchar2(10)
+);
+
+select * from bit;
+---------------------------------------
+begin
+    for i in 1..10 loop
+        insert into bit values(i, sysdate);
+    end loop;
+end;
+/
+-------------------------------------
+while 조건식 loop
+     실행문장;
+     증감식;
+end loop;
+------------------------------------
+declare
+    su number := 0; -- 초기화
+begin 
+    while su < 50 loop
+        su := su + 1; -- 증감식
+        dbms_output.put_line('현재 su 값은 ' || su);
+    end loop;
+end;
+/
+ex) 1~10 까지출력;
+begin
+    for i in 1..10 loop
+        dbms_output.put(i || ' ');
+    end loop;
+    dbms_output.put_line(' '); 
+end;
+
+ex) 1~10사이의짝수만출력
+/
+begin
+    for i in 1..10 loop
+        if (i mod 2 = 0) then 
+            dbms_output.put(i || ' ');            
+        end if;
+    end loop;
+    dbms_output.put_line(' '); 
+end;
+
+ex) 2단의구구단출력
+declare
+    su number := &su;
+begin
+    for i in 1..9 loop
+        dbms_output.put_line(su||' * '||i||' = '||su*i);   
+    end loop;
+end;
+/
+
+declare
+    su number := &su;
+begin
+    for i reverse in 1..9 loop
+        dbms_output.put_line(su||' * '||i||' = '||su*i);   
+    end loop;
+end;
+
+select * from emp where job = 'MANAGER';
+-- JOB을 인수로 받아 해당하는 사원의 이름을 검색(프로시져작성 - CURSOR 이용함)
+create or replace procedure p_job_emp(e_job in emp.job%type)
+is
+    name emp.ename%type;
+    cursor c_name is select ename from emp where job = e_job; -- 1.커서선언
+begin
+    open c_name; -- 2.커서 열기
+    dbms_output.put_line('===============================');
+    loop
+        fetch c_name into name; -- 3. 커서로부터 데이터 읽기
+        exit when c_name%NOTFOUND; -- 커서에서 데이터를 찾을수 없으면 반복문 빠져나가라.
+        dbms_output.put_line(name || '님 담당업무는 ' || e_job);
+    end loop;
+    dbms_output.put_line('결과 레코드수 => ' || c_name%rowcount);
+    close c_name; -- 4. 커서 닫기
+end;
+
+exec p_job_emp('MANAGER');
+/
+--1번 특정 과목을 인수로 받아 그 과목을 강의하는 강사 정보 검색를 검색하는 프로시져 작성.
+select * from professor;
+select * from department;
+select p.name, d.dname from professor p join department d on p.deptno = d.deptno where d.dname = '컴퓨터공학과';
+
+create or replace procedure p_dname_professor(d_dname in department.dname%type)
+is
+data professor%rowtype;
+cursor c_name is select p.*
+                    from professor p join department d 
+                    on p.deptno = d.deptno 
+                    where d.dname = '컴퓨터공학과';
+begin
+    open c_name;
+    dbms_output.put_line('============================');
+    loop
+        fetch c_name into data;
+        exit when c_name%notfound;
+        dbms_output.put_line(data.name||', '||data.position||', '||data.email||', '||d_dname);
+    end loop;
+    dbms_output.put_line('결과 레코드수 => '|| c_name%rowcount);
+    close c_name;
+end;
+exec p_dname_professor('컴퓨터공학과');
+--2번 특정 과목을 수강하고 있는 학생의 정보를 검색하는 프로시져 작성
+select * from student;
+
+create or replace procedure p_dname_student(d_dname in department.dname%type)
+is
+data student%rowtype;
+cursor c_name is select s.*
+                    from student s join department d 
+                    on s.deptno1 = d.deptno 
+                    where d.dname = d_dname;
+begin
+    open c_name;
+    dbms_output.put_line('============================');
+    loop
+        fetch c_name into data;
+        exit when c_name%notfound;
+        dbms_output.put_line(data.name||', '||data.grade||', '||data.birthday||', '||d_dname);
+    end loop;
+    dbms_output.put_line('결과 레코드수 => '|| c_name%rowcount);
+    close c_name;
+end;
+exec p_dname_student('멀티미디어공학과');
+select * from department;
+select * from student;

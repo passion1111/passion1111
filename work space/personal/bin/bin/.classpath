@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="personal2/|personal_hashmap_in_hashmap/" kind="src" path=""/>
+	<classpathentry kind="src" path="personal_hashmap_in_hashmap"/>
+	<classpathentry kind="src" path="personal2"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

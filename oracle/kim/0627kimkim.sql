@@ -657,3 +657,17 @@ create table userlist(id varchar2(10) constraint id_pk primary key, --constraint
 name varchar2(10) not null
 );
 
+select*from gift;
+
+
+insert into gift values(55,1,1,1)
+ SELECT COLUMN_VAL1, COLUMN_VAL2, COLUMN_VAL3 FROM DUAL A
+WHERE NOT EXISTS (SELECT * FROM gift WHERE gno=);
+
+insert into gift  select 1111,2,3,4
+from dual 
+where not exists (select * from gift where gno =1111 );
+select*from gift;
+
+insert into gift select 1,'±×·¡',3,4
+				  from dual where not exists (select * from gift where gno =1); 

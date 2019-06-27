@@ -54,8 +54,10 @@ is
 exec p_emp;
 ------------------------------------------
 
+select*from gift;
+UPDATE gift SET  = '변경할값' WHERE [조건]
 
-
+alter table gift values(
 
 
 

@@ -40,7 +40,7 @@ public class PreparedStatementTest
             
             if(success > 0) {
                 System.out.println("데이터 입력 성공");
-            OracleTest__this a=new OracleTest__this();
+//            OracleTest__this a=new OracleTest__this();  //입력받은거 확인하는 것.
             }else
                 System.out.println("데이터 입력 실패");
  

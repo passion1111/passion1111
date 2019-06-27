@@ -13,7 +13,7 @@ public class StatementTest
         Statement stm = null;  // SQL 문을 나타내는 객체
         
         try {
-            conn = DbConnection223.getConnection();
+            conn = DbConnection.getConnection();
             stm = (Statement) conn.createStatement();
             
             String quary = "INSERT INTO TEST VALUES('id1', 'pw1', 'name1')";

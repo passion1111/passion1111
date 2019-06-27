@@ -8,6 +8,7 @@ public class HashMapEx02 {
 		map.put("수아", new Integer(900));
 		map.put("상주", new Integer(9000));
 		map.put("소영", new Integer(90000));
+		map.size();
 		
 		Set set=map.entrySet();
 		Iterator it=set.iterator();

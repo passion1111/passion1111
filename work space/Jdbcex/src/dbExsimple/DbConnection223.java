@@ -39,39 +39,39 @@ public class DbConnection223 {
 	}
       }
       
-	 public int menuadd(Menu menu) {
-		int result =-1;
-		
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		String sql="insert into menu(name,temp,price) values('이름' ,1,3000)";
-
-		try {
-			conn=DbConnection223.getConnection();
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, menu.getName());
-			pstmt.setInt(2, menu.getPrice());
-		
-			result=pstmt.executeUpdate();
-			conn.setAutoCommit(false);
-			conn.commit();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}try {
-			conn.rollback();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}finally {
-			try {
-				if(rs!=null) {rs.close();}
-				if(pstmt!=null) {pstmt.close();}
-				closeConnection();
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
-
-		return result;
-		 
-}
+//	 public int menuadd(Menu menu) {
+//		int result =-1;
+//		
+//		PreparedStatement pstmt=null;
+//		ResultSet rs=null;
+//		String sql="insert into menu(name,temp,price) values('이름' ,1,3000)";
+//
+//		try {
+//			conn=DbConnection223.getConnection();
+//			pstmt=conn.prepareStatement(sql);
+//			pstmt.setString(1, menu.getName());
+//			pstmt.setInt(2, menu.getPrice());
+//		
+//			result=pstmt.executeUpdate();
+//			conn.setAutoCommit(false);
+//			conn.commit();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}try {
+//			conn.rollback();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}finally {
+//			try {
+//				if(rs!=null) {rs.close();}
+//				if(pstmt!=null) {pstmt.close();}
+//				closeConnection();
+//			} catch (Exception e2) {
+//				// TODO: handle exception
+//			}
+//		}
+//
+//		return result;
+//		 
+//}
       }

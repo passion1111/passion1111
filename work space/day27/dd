@@ -1,0 +1,20 @@
+select*from gift;
+
+ INSERT INTO TB_NAME
+
+         (COLUMN_NAME1 , COLUMN_NAME2, COLUMN_NAME3)
+
+         SELECT COLUMN_VAL1, COLUMN_VAL2, COLUMN_VAL3 FROM DUAL A
+
+         WHERE NOT EXISTS (
+
+                        SELECT 0
+
+                        FROM TB_NAME
+
+                        WHERE COLUMN_NAME1 = 'COLUMN_VAL1'
+
+                       
+insert into gift values(55,1,1,1)
+ SELECT COLUMN_VAL1, COLUMN_VAL2, COLUMN_VAL3 FROM DUAL A
+WHERE NOT EXISTS (SELECT * FROM gift WHERE gno=args[0]);

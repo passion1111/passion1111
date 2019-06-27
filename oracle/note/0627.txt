@@ -1,0 +1,44 @@
+데이터베이스는 문자열을 작은순서대로 잡는다.
+
+그래서 desc했을떄 이도연이 1등으로 나옴. 
+
+
+
+
+
+프로시져
+
+만약 매달 가장 월급많이받는사람 누구지?라고할떄
+
+프로시져로 만들어두면 프로시져만 호출해두면 된다.
+
+
+oracle은 null값이 상위값. 다른디비들은 반대이다.
+
+드라이버 로드
+class forname("~~oracleDriver"
+
+반환값 exute quary
+
+반환값 x excuteupdate
+
+2.커넥션 오픈
+conn=drivermanager.getconnection(id,pw)
+3.사용 dml 명령어
+stmt=connn.connectionstatement
+resultset rs=stmt.excutequary
+while rs.next
+statement interfafe
+preparedstatement interface
+?=>변수
+4닫기
+
+
+
+
+String
+
+
+update gift set g_start=?
+		g_end=? where gno=?;
+?는 순서대로 불러옴.

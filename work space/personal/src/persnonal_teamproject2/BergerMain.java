@@ -6,7 +6,8 @@ import java.util.Vector;
 
 
 
-	
+
+Menu a=new Menu(d,d,d,);
 
 public class BergerMain {
 	

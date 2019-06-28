@@ -28,6 +28,7 @@ public class MainEntry {
 		else if(select==4) {GiftDelete gd=new GiftDelete();}
 		}
 		//commit따로 만들지 정하면 됨.  그리고 insert시  gno중복검사를 위해서 not exist적용
+//		update insert delete만들떄 연결하는부분 메소드로 따로 뺴두기.
 		
 		
 		

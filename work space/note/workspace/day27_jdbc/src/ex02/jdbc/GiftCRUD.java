@@ -23,7 +23,7 @@ public class GiftCRUD {
 		
 		System.out.print("원하는 기능을 선택해 주세요  \n");
 		System.out.println(
-				"1. Gift select,  2. Gift insert,  3. Gift update,  4. Gift delete, 5. Gift rollback, 6. exit  ");
+				"1. Gift select,  2. Gift insert,  3. Gift update, \n4. Gift delete, 5. Gift rollback, 6. exit  ");
 		num = sc.nextInt();
 
 		switch (num) {
@@ -38,9 +38,9 @@ public class GiftCRUD {
 			break;
 
 		case 6:
-			rs.close();
+			//rs.close();
 			// pstmt.close();
-			stmt.close();
+			//stmt.close();
 			getConnection().close();
 			System.exit(0);
 			break;
@@ -54,7 +54,7 @@ public class GiftCRUD {
 	}
 	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "kingsmile";
 		String pwd = "oracle";
 		String driver = "oracle.jdbc.driver.OracleDriver";
@@ -78,7 +78,7 @@ public class GiftCRUD {
 		
 		try {
 			stmt.executeQuery("INSERT INTO GIFT VALUES(" + gno + ", '"
-					+ new String(gname.getBytes("euc-kr"), "euc-kr") + "' ," + g_start + ", " + g_end + ")");
+					+ new String(gname.getBytes("utf-8"), "utf-8") + "' ," + g_start + ", " + g_end + ")");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -99,9 +99,11 @@ public class GiftCRUD {
 
 			System.out.println("현재 gno : ");
 			rs = stmt.executeQuery("select gno from gift where gno = " + modiNum);
+			
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + " 입니다.");
 			} // in while end
+			
 			System.out.println("몇 번으로 바꾸시겠습니까? ");
 			gno = sc.nextInt();
 

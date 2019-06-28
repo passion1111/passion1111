@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class GiftDelete {
 
-	GiftDelete() throws ClassNotFoundException, SQLException{
+	public GiftDelete() throws ClassNotFoundException, SQLException{
 		 Scanner sc=new Scanner(System.in);
 		 int select;
 		Class.forName("oracle.jdbc.OracleDriver"); // exception

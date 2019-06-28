@@ -23,9 +23,10 @@ public class FileObjectSave2 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		ObjectOutputStream oos = null;
 		File f = new File("emp.txt");
+		FileOutputStream fos = null;
 
 		try {
-			FileOutputStream fos = new FileOutputStream(f, true); // append mode
+			fos = new FileOutputStream(f, true); // append mode
 			oos = new ObjectOutputStream(fos);
 
 			while (con) {
@@ -54,6 +55,7 @@ public class FileObjectSave2 {
 			e.printStackTrace();
 		} finally {
 			oos.close();
+//			fos.close();
 		} // try end
 	}
 }

@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class GiftInsert {
 	 
-	GiftInsert(String[] args)	throws ClassNotFoundException, SQLException {
+	public  GiftInsert(String[] args)	throws ClassNotFoundException, SQLException {
 		// 1.Driver load,... exception
 		Class.forName("oracle.jdbc.OracleDriver");
 		// 2. Connection & Open

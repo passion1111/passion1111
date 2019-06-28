@@ -31,6 +31,7 @@ public class 클라이드 extends 적 {
 		if (count == 0)
 			return;
 		seed = (int) rand.nextInt(count);
+		
 		this.이동(현재, this.후보위치[seed]);
 	}
 }

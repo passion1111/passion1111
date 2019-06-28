@@ -12,6 +12,7 @@ public class 블랑키 extends 적 {
 
 	public void 자동이동(맵 현재, 맵 상, 맵 하, 맵 좌, 맵 우) {
 		Random rand = new Random();
+		
 		int seed;
 		count = 0;
 		if (상.상태 != 맵구성요소.벽 && 상.적 == null) {

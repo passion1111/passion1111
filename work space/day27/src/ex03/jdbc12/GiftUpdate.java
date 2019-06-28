@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class GiftUpdate {
-	GiftUpdate() throws ClassNotFoundException, SQLException{
+	public GiftUpdate() throws ClassNotFoundException, SQLException{
 		 Scanner sc=new Scanner(System.in);
 		 int select;
 		Class.forName("oracle.jdbc.OracleDriver"); // exception

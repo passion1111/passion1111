@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class GiftSelect {
-	GiftSelect() throws ClassNotFoundException, SQLException  {
+	public GiftSelect() throws ClassNotFoundException, SQLException  {
 		//1.Driver load,... exception
 		Class.forName("oracle.jdbc.OracleDriver");
 		//2. Connection & Open

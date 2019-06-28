@@ -28,13 +28,13 @@ public class FileObjectLoad2 {
 			System.out.println("    >> 회원 정보 << \n");
 			System.out.println("이름 \t 직급 \t 부서");
 
-			while (con) {
-
+			while (con) { //하나의 파일이 끝나면 다른 파일로 간주해야함. 포인터 변경됨
+				
 				name = (String) bis.readObject();
 				position = (String) bis.readObject();
 				part = (String) bis.readObject();
-				System.out.print(name + "\t" + position + "\t" + part + "\t");
-				System.out.println();
+				System.out.print(name + "\t" + position + "\t" + part + "\r\n");
+				//System.out.println();
 			}
 
 			/*
@@ -49,6 +49,7 @@ public class FileObjectLoad2 {
 			System.out.println("Success Load File!");
 		} finally {
 			bis.close();
+//			fis.close();
 		} // try end
 	}
 }

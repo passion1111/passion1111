@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.util.Random;
 import java.util.Scanner;
 
-public class main {
+ class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

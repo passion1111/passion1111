@@ -1,0 +1,15 @@
+getconnection getconnconnection 
+
+시
+
+
+명령어 -> 트랜잭션 
+트랜잭션이 완료되면 저장.
+
+
+
+db원격 접속방법
+
+호스트이름 ip
+포트 포트번호
+sid xe ,orcl 등등

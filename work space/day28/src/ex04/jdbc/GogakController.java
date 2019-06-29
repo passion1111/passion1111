@@ -102,6 +102,7 @@ public class GogakController { // Controller
 		rs = stmt.executeQuery("select * from " + className);
 		
 		ResultSetMetaData rsmd = rs.getMetaData();
+	
 		int count = rsmd.getColumnCount();
 		
 		while( rs.next() ) {

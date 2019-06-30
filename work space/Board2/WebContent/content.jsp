@@ -62,6 +62,7 @@ try{
 	</table>
 	
 	<a href="delete.jsp?idx=<%=rs.getString("idx")  %>">게시글 삭제</a>
+	<a href="modify_write.jsp?idx=<%=rs.getString("idx") %>">게시글 수정</a>
 	<a href="list.jsp">목록</a>
 	
 	

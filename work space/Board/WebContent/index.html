@@ -1,8 +1,48 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.*" %>
+<%@page import="java.util.regex.Pattern"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>게시판 만들고</title>
+<%
+	
+	String title=request.getParameter("title");
+	String writer=request.getParameter("writer");
+	String regdate=request.getParameter("regdate");
+	String content=request.getParameter("content");
+	int count=9999;
+	if(title==""||title==null)out.println("title이 null입니다");
+	if(writer==""||writer==null)out.println("writer가 null입니다");
+	else if(!Pattern.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$", writer));
+//정규식 고쳐야함.
+		out.println("이메일 형식이 아닙니다");
+	if(regdate==""||regdate==null)out.println("날짜가 null입니다.");
+	
+	
+try{
+	String driverName="oracle.jdbc.driver.OracleDriver";
+	String url="jdbc:oracle:thin:@localhost:1521:xe";
+	Class.forName(driverName);
+	Connection conn=DriverManager.getConnection(url, "kim", "oracle");
+	//out.println("oracle 데이터베이스 db에 성공적으로 접속했습니다");
+	
+	ResultSet rs=null;
+	String sql="select from board order by idx desc";
+	out.println("확인");
+	Statement stmt=conn.createStatement();
+	rs=stmt.executeQuery(sql);
+}
+	
+	catch(Exception e){
+		
+	}
+%>
+
 </head>
 <body>
 	<h1>게시글</h1>
@@ -10,21 +50,16 @@
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
-		<th>작성자</th>
+		<th>날짜</th>
 		<th>날짜</th>
 		<th>조회수</th>
 		</tr>
 	<tr>
 		<td>1</td>
-		<td>제목</td>
-		<td>작성자!</td>
-		<td>지금</td>
-		<td>1000</td>
+		<td><%=title %></td>
+		<td><%=writer %></td>
+		<td><%=regdate %></td>
+		<td><%=count %></td>
 	</tr>
 	
-
-
-</table>
-	<a href="write1.jsp">글쓰기</a>
-</body>
-</html>
+	

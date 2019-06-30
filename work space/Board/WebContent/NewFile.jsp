@@ -1,4 +1,6 @@
+<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.*" %>
 <%@page import="java.util.regex.Pattern"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -8,26 +10,13 @@
 <meta charset="EUC-KR">
 <title>게시판 만들고</title>
 <%
-try{
-	String driverName="oracle.jdbc.driver.OracleDriver";
-	String url="jdbc:oracle:thin:@localhost:1521:xe";
-	Class.forName(driverName);
-	Connection conn=DriverManager.getConnection(url, "kim", "oracle");
-	out.println("oracle 데이터베이스 db에 성공적으로 접속했습니다");
 	
-	ResultSet rs=null;
-	String sql="select from board order by idx desc";
+	String title=request.getParameter("title");
+	String writer=request.getParameter("writer");
+	String regdate=request.getParameter("regdate");
+	String content=request.getParameter("content");
+	int count=9999;
 	
-	PreparedStatement pstm=conn.prepareStatement(sql);
-
-	
-	catch(Exception e){
-		
-	}
-
-
-
-
 %>
 
 </head>
@@ -42,17 +31,15 @@ try{
 		<th>조회수</th>
 		</tr>
 	<tr>
-		<td><%=idx %></td>
+		<td>1</td>
 		<td><%=title %></td>
 		<td><%=writer %></td>
 		<td><%=regdate %></td>
 		<td><%=count %></td>
 	</tr>
+	</table>
+	</body>
+	</html>
+
 	
 	
-
-
-</table>
-	<a href="write1.jsp">글쓰기</a>
-</body>
-</html>

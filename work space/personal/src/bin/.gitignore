@@ -1,12 +1,11 @@
 /.classpath
 /.project
-/ChatServer.class
-/Getter.class
-/Switch.class
-/UDPClient.class
 /codingdojang/
 /pacman_confirm1/
+/pacman_pac/
 /pakage_network/
+/persnonal_0629/
+/persnonal_0629_2/
 /persnonal_teamproject/
 /persnonal_teamproject2/
 /personal/
@@ -20,5 +19,9 @@
 /personal_objectwrite/
 /personal_queue/
 /personal_stack/
-/serUDP.class
 /sususu1/
+/ChatServer.class
+/Getter.class
+/Switch.class
+/UDPClient.class
+/serUDP.class

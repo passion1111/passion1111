@@ -11,13 +11,6 @@
 </head>
 <body>
 
-	<form action="insert.jsp"  method="post"  onsubmit ="return formCheck()">
-	제목: <input type="text" name ="title"/> <br/>
-	작성자: <input type="text" name="writer"/> <br/>
-	내용: <textarea rows="10" cols="20" name="content"></textarea><br/>
-	날짜: <input type="text" name="regdate" /> <br/>
-	<input type="submit"/>
-	
 	<script>
 
 	function formCheck(){
@@ -70,6 +63,14 @@
 
 
 </script>
+	<form action="insert.jsp"  method="post"  onsubmit ="return formCheck();">
+	제목: <input type="text" name ="title"/> <br/>
+	작성자: <input type="text" name="writer"/> <br/>
+	내용: <textarea rows="10" cols="20" name="content"></textarea><br/>
+	날짜: <input type="text" name="regdate" /> <br/>
+	<input type="submit"/>
+	
+
 	
 	</form>
 	

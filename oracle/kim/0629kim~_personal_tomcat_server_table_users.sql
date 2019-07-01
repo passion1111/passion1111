@@ -44,7 +44,7 @@ create table Customers(
     update gift set gno=1 where gno=1;
     alter table gift drop column gnno;
     
-    create table board(
+    create table users(
     userid varchar2(50) ,
     firstname varchar2(50),
     lastname varchar2(50),

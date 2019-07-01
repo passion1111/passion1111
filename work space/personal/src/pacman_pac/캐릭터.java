@@ -34,7 +34,7 @@ public class 캐릭터 extends 유닛 {
 	}
 
 	public void 행동() {
-
+		//미완성
 	}
 
 	public void Eat() {

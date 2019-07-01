@@ -10,6 +10,15 @@ create table Customers(
     phone varchar2(20)
     );
     
+    create table board(
+    idx number primary key,
+    title varchar2(200),
+    writer varchar2(200),
+    regdate  varchar2(200),
+    count varchar2(200),
+    content clob);
+    drop table board;
+    commit;
     select*from dept2;
     insert into dept2 values(1111,1,1,1);
     commit;
@@ -35,14 +44,30 @@ create table Customers(
     update gift set gno=1 where gno=1;
     alter table gift drop column gnno;
     
-    create table users(
+    create table board(
     userid varchar2(50) ,
     firstname varchar2(50),
     lastname varchar2(50),
     dob date,
-    email varchar2(100)
+    email varchar2(100),
+    content clob
     );
+    drop table users;
     select*from users;
     update users set dob='01-01-1111';
     create sequence user_sequence;  
     commit;
+    insert into users values(1,'sss','aaa',sysdate,'dasod@naver.com','dasdas');
+    select *from users;
+    drop table board;
+    select*from board;
+    
+    create sequence board_sequence; 
+    drop sequence board_sequence;
+    
+    select BOARD_SEQUENCE.nextval from dual;
+    select *from board;
+    
+    commit;
+    select idx,title,writer,content,regdate,count from board where idx=190;
+    create sequence board_seq;

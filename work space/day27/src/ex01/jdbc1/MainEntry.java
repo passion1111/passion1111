@@ -11,8 +11,8 @@ public class MainEntry {
 		System.out.println("driver load sucess");		
 		//2. Connection & Open
 					//driver:@IP:portNumber:SID(or 전역데이터베이스명)
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-		String uid = "kimkim";
+		String url = "jdbc:oracle:thin:@10.10.10.173:1521:XE";
+		String uid = "system";
 		String pwd = "oracle";
 		
 		Connection conn = DriverManager.getConnection(url, uid, pwd);

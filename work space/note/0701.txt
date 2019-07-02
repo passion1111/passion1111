@@ -1,0 +1,54 @@
+stamtement 는 ?로보낼수가없음. 단점은 커넥션이 많이 발생한다는것?
+
+rs.next()해놓으면 rs는 필드쪽에 커서가 위치해있는다.
+
+
+getint number
+getstring   varchar varchar2
+
+prstm에서 set이나 get할떄 컬럼번호가아니라 필드명으로 쓰는것을 추천.  필드도 1번부터 시작을 합니다.
+
+resultset metadata
+
+statement는 고정값으로 들어가기떄문에
+
+preparedstatement는 물음표로 변수처리가 가능.
+
+
+
+
+
+
+\
+
+게시판에서 게시글 수정할떄 수정을 누르면 기존에 있던 정보를 불러오는 방시긍로 하는게 좋을것같다.
+
+그리고 alert로 화면을 띄우는것보다 입력창 옆에 비밀번호가 부적합합니다. 이렇게 띄우는것이 좋을것같다. 
+.
+
+
+
+
+
+
+
+
+
+
+
+
+getconnection getconnconnection 
+
+시
+
+
+명령어 -> 트랜잭션 
+트랜잭션이 완료되면 저장.
+
+
+
+db원격 접속방법
+
+호스트이름 ip
+포트 포트번호
+sid xe ,orcl 등등

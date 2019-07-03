@@ -2,6 +2,9 @@ package javamulti2;
 
 
 
+
+import java.io.DataInputStream;
+import java.net.Socket;
 	import java.io.DataOutputStream;
 import java.net.ServerSocket;
 	import java.net.Socket;
@@ -18,9 +21,11 @@ import java.net.ServerSocket;
 				dos = new DataOutputStream(s.getOutputStream());
 				
 				
-				}
+				
 			} catch (Exception e) {	e.printStackTrace(); }
 		}
+		
+			
 		
 		
 		
@@ -74,9 +79,6 @@ import java.net.ServerSocket;
 
 
 	
-
-	import java.io.DataInputStream;
-	import java.net.Socket;
 
 	public class Receiver implements Runnable{
 

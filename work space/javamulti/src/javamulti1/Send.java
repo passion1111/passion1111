@@ -3,6 +3,7 @@ package javamulti1;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.net.Socket;
 
 public class Send implements Runnable{
     DataOutputStream out;
@@ -18,6 +19,7 @@ public class Send implements Runnable{
             
             try
             {
+            	serversocket.
                 String msg = in2.readLine();    //키보드로부터 입력을 받음
                 out.writeUTF(msg);                //서버로 전송
             }catch(Exception e) {}

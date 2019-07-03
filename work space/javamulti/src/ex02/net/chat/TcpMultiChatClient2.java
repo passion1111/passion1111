@@ -3,22 +3,17 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class TcpMultiChatClient {
-	static Scanner sc=new Scanner(System.in);
+public class TcpMultiChatClient2 {
 	public static void main(String[] args) {
 		
 		
 		try {
-			while(true) {
 			String ip = "127.0.0.1";  //127.0.0.1
-			Socket s = new Socket(ip, 7999);
+			Socket s = new Socket(ip, 8000);
 			System.out.println("서버에 연결되었습니다.");
 			Thread send = new Thread(new ClientSender(s)); // inner class
 			Thread reciever = new Thread(new ClientReciever(s));
 			send.start();			reciever.start();
-			int a=sc.nextInt();
-			
-			}
 		} catch (Exception e) {e.printStackTrace();}
 	}//end main
 	
@@ -39,12 +34,8 @@ public class TcpMultiChatClient {
 		public void run() {
 			try {
 				String a="aa";
-				while( dos != null ) {dos.writeUTF("d");
-				
-				}
-				s.close();
+				while( dos != null ) dos.writeUTF("d");
 			} catch (Exception e) {	e.printStackTrace(); }
-			
 		}
 	}// ClientSender class end
 	

@@ -5,7 +5,11 @@ import java.util.*;
 
 public class TcpMultiChatServer2 {
 	ServerSocket ss = null;  //socket 1
+	ServerSocket ss2 = null;
 	Socket s = null; //socket 2
+	Socket s2 = null; 
+	
+	
 	
 	public TcpMultiChatServer2() { //생성자함수
 
@@ -16,16 +20,23 @@ public class TcpMultiChatServer2 {
 		
 		try {
 			ss = new ServerSocket(7999);
+			ss2= new ServerSocket(8000);
 			System.out.println("서버 시작 되었습니다.");
 			
 			while(true) {
 				s = ss.accept();
-				ServerReceiver thread = new ServerReceiver(s); //user class
-				thread.start(); //
+//				s2=ss2.accept();
+				
+				if(s!=null) {ServerReceiver thread = new ServerReceiver(s); 
+				thread.start();}//user class
+				 //
+				
 			}
-//		} catch (Exception e) {	e.printStackTrace(); }
-		} catch (Exception e) {	System.out.println("서버 접속 실패!!"); } 
+		} catch (Exception e) {	e.printStackTrace(); }
 	} // start() end
+	
+
+	
 	
 	
 	
@@ -43,6 +54,7 @@ public class TcpMultiChatServer2 {
 			this.s = s;
 			try {
 				dis = new DataInputStream(s.getInputStream()); //네트워크를 통해서 읽기
+				
 				dos = new DataOutputStream(s.getOutputStream()); //네트워크를 통해서 쓰기
 //			} catch (Exception e) {	e.printStackTrace(); }
 			} catch (Exception e) {	System.out.println("서버 리시브 실패!!"); }
@@ -55,9 +67,11 @@ public class TcpMultiChatServer2 {
 				
 				//System.out.println(dos.toString().hashCode());
 				String a=null;
+				
 				if( dis != null ) {
 					do{
-						System.out.println(dis.readUTF());
+				System.out.println(dis.readUTF());
+				System.out.println(s.getPort());
 					}while(dis==null);
 				}
 				

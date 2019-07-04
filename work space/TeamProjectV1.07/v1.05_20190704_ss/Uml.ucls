@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="Kiosk_main.CancelMenu" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/CancelMenu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="152" x="611" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="Kiosk_main.Menupan" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Menupan.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="154" x="956" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="Kiosk_main.Kioskmain" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Kioskmain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="803" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="Kiosk_main.Sale" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Sale.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="196" x="1150" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="Kiosk_main.EnterDesign" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/EnterDesign.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="186" x="1386" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="Kiosk_main.Menu" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="144" x="956" y="367"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="Kiosk_main.Payment" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Payment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="180" x="1612" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="Kiosk_main.General" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/General.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="214" x="1832" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="Kiosk_main.Menuchoose" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/Kiosk_main/Menuchoose.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="171" x="2086" y="66"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="MainEntry_controller.MainEntry" project="v1.05_20190704_ss" 
+    file="/v1.05_20190704_ss/src/MainEntry_controller/MainEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="789" y="507"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="11">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="12" name="menupan"/>      
+      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -1,5 +1,6 @@
 package persnonal_teamproject2;
 
+import java.util.Scanner;
 import java.util.Vector;
 
 class Product{
@@ -16,7 +17,15 @@ class Product{
 		
 		
 	}
-
+	Product(
+			
+			
+			){
+		Scanner sc=new Scanner(System.in);
+		int a=1;
+		a=sc.nextInt();
+		
+	}
 	public int getPnum() {
 		return Pnum;
 	}

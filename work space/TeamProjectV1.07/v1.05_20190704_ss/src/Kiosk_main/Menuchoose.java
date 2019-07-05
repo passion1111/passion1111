@@ -27,7 +27,7 @@ class Menuchoose {
 		ArrayList<CancelMenu> orderlist = new ArrayList<CancelMenu>();
 		
 		int i = 1;
-		if (menutree.size() == 0) {
+		if (menutree.size() == 0) {//주문없을시 이렇게 보여준다
 			System.out.println("선택하신 주문이없습니다");
 		} else {
 			while (it.hasNext()) {
@@ -35,6 +35,7 @@ class Menuchoose {
 				Menu m = (Menu) e.getValue();
 
 				orderlist.add(new CancelMenu((String) e.getKey(), i,m.getMenuamount()));
+//				orderlist.add(new Menu((String) e.getKey(), i));
 
 				System.out.println(i + ")" + e.getKey() + "  주문수량 : " + m.getMenuamount());
 				i++;
@@ -83,6 +84,9 @@ class Menuchoose {
 
 			System.out.println("없는 메뉴입니다.");
 			return;
+
 		}
+
 	}
+
 }

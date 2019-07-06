@@ -1,6 +1,7 @@
 package persnonal_teamproject2;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -21,6 +22,19 @@ public class BergerMain {
 		ProductVector.add(new Product(1,"Â¥Àå¸é",6000,1));
 		ProductVector.add(new Product(2,"Â«»Í",6000,1));
 		ProductVector.add(new Product(3,"ÅÁ¼öÀ°",15000,1));
+		Product a=new Product();
+		
+		ArrayList aa=new ArrayList();
+		
+		aa.add(new Product());
+		
+		aa.get(0).getAmount();
+		
+		
+		
+		a.add(new Product(4,"ÅÁ¼öÀ°",15000,1));
+		
+		a.get(0).getAmount();
 		
 		
 		Scanner sc=new Scanner(System.in);

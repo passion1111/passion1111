@@ -1,8 +1,11 @@
+/.classpath
+/.project
 /ChatServer.class
 /Getter.class
 /Switch.class
 /UDPClient.class
 /codingdojang/
+/image2/
 /pacman_confirm1/
 /pacman_pac/
 /pakage_network/
@@ -12,6 +15,7 @@
 /persnonal_teamproject/
 /persnonal_teamproject2/
 /personal/
+/personal03day_diary.txt
 /personal2_javachat/
 /personal2_practice_oop/
 /personal2_practice_oop2/

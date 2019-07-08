@@ -50,16 +50,5 @@ function formCheck(){
 		document.forms[0].content.focus();
 		return false;
 	}
-	//if (regdate == null || regdate == ""){
-	//	alert('날짜입력하시오');
-	//	document.forms[0].regdate.focus();
-	//	return false;
-	// }else if(regdate.match(/^\d\d\d\d\d\d+$/ig) == null ){
-	//	alert('숫자 형식(6자리)로 입력해')
-	//	document.forms[0].regdate.focus();
-	//	return false;
-	//}
+	
 }
-</script>
-</body>
-</html>

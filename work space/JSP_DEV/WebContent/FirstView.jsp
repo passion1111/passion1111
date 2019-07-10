@@ -10,7 +10,8 @@
 	<c:if test="${sessionScope.sessionID==null}">
 		<br><br><br>
 		<br><br><br>
-		<img src="img/welcome.jpg">
+		
+		<--<img src="img/welcome.jpg">-->
 		<br><br>	
 	</c:if>	
 			<!-- ·Î±×ÀÎ -->

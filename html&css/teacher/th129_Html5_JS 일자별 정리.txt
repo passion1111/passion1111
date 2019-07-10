@@ -1,0 +1,210 @@
+>> day35 - 19/07/09
+
+ - HTML  : 문서 구조
+
+ - CSS   : 디자인
+
+ - JavaScript : 동작/기능
+
+
+ > Server Setting
+  http://apache.org/  
+  http://tomcat.apache.org/
+
+  1) 폴더형(압축풀어서 설정)
+  2) 설치형 
+
+ > 환경설정
+   새로만들기 : TOMCAT_HOME
+                C:\app\apache-tomcat-8.5.42
+
+   Path 편집 :  ;%TOMCAT_HOME%\bin;
+
+
+ > 오라클 포트 번호 확인 및 변경 <--- 오라클에서 변경 방법
+C:\Users\class4-teacher>sqlplus /nolog
+SQL> conn /as sysdba
+
+  포트변경
+SQL> EXEC DBMS_XDB.SETHTTPPORT(9090);
+  포트 확인
+SQL> SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL;
+
+
+ jsp, servlet, el  <-- 이 파일들을 찾아서 자바폴더에 넣어둔다.
+
+
+ C:\app\apache-tomcat-8.5.42\lib\ 폴더에서 위의 파일들을 복사한다
+
+ C:\Program Files\Java\jdk1.8.0_212\jre\lib\ext\ 폴더에 붙여넣기한다
+
+
+ http://tcpschool.com/
+
+======================================
+>> day34 - 19/07/08
+
+ - HTML  : 문서 구조
+
+
+<html>  // 여는 태그
+	<meta charset="UTF-8">
+	<head>
+		<title>공부시작</title>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>  // 닫는 태그
+
+ - .htm  or  .html
+
+  html tag 유연성 있음
+  xml 엄격하다
+
+
+ - doctype
+
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+  <!doctype html>   5.x 
+
+ 
+ - CSS   : 디자인
+
+ - JavaScript : 동작/기능
+
+ - 한쌍, 단항  <br>  <p> <input>,..
+
+
+ https://www.w3.org/
+
+ - client side script : html, javascript, visualbasic script...
+     <---- 서버 구축 안되어 있어도 실행됨.
+ 편집기 : 메모장, 에디터플러스, 울트라에디트, 한글,......이클립스!!
+
+ - server sice script : asp, aspx, jsp, servlet, php
+
+ - n스크린 & 크로스 브라우저
+
+ > 동강 사이트 
+  - 생활코딩
+  https://opentutorials.org/course/2039
+  - do it!  고경희氏 
+  https://www.youtube.com/playlist?list=PLMp7xXc5vT2NPclzxmAWbAw51zA_Z3dSy
+
+==========================================
+>>>>>>> 유용한 사이트
+http://www.w3schools.com/
+http://www.w3.org/
+
+http://opentutorials.org/course/1
+
+https://msdn.microsoft.com/ko-kr/library/htbw4ywd(v=vs.94).aspx
+
+>> 제 4장 HTML5 자바스크립트 API
+http://html5.firejune.com/doc.html
+
+>> HTML5 & CSS3 활용
+http://2107.co.kr/tacademy/
+
+>> [CSS]스크롤바 따라다니는 플로팅 메뉴 만들기(광고 및 추천 설치)
+http://cocosoft.kr/149
+
+>> tag 테스트 할 수 있는 곳 
+http://jsbin.com/
+
+https://zygotebody.com/
+
+
+>> JavaScript
+http://www.w3schools.com/js/js_examples.asp
+
+http://jqueryvalidation.org/
+
+>> FileZilla 웹 서버 (무료)
+https://filezilla-project.org/
+https://filezilla-project.org/download.php?type=client
+
+
+====================================================
+
+[ 웹 워커 관련 참고 사이트]
+
+>http://slides.html5rocks.com/#web-workers
+
+>http://people.mozilla.com/~prouget/demos/worker_and_simulatedannealing/index.xhtml
+
+> http://html5demos.com/worker
+> http://htmlfive.appspot.com/static/tracker1.html
+
+[ Geolocation 참고 사이트]	
+
+> http://html5demos.com/geo
+
+> http://mobile.tutsplus.com/tutorials/mobile-web-apps/html5-geolocation/
+
+> http://diveintohtml5.info/geolocation.html
+
+
+[ 드래그 랜 드롭 참고 사이트]
+
+> http://html5demos.com/drag
+
+> http://html5demos.com/drag-anything
+
+> http://html5demos.com/dnd-upload
+
+[ SVG 관련 참고 사이트]
+
+> https://developer.mozilla.org/ko/demos/tag/tech:svg
+
+> http://svg-wow.org/camera/camera.xhtml
+
+> http://svg.kvalitne.cz/worldlandmarks/worldlandmarks.svg
+
+> http://debeissat.nicolas.free.fr/svg3d.php
+
+> http://codinginparadise.org/projects/svgweb/samples/demo.html
+
+> http://lavadip.com/experiments/jigsaw/
+
+> http://upload.wikimedia.org/wikipedia/commons/6/6c/Trajans-Columnlower-animated.svg
+
+> http://svg.kvalitne.cz/ireland/irelandvacation.svg
+
+> http://www.carto.net/papers/svg/us_crime_2000/map.svgz
+
+> http://workshop.rs/projects/twings/
+
+> http://www.themaninblue.com/experiment/Blobular/
+
+> http://www.bogotobogo.com/svg_source/SVGDigitalClock.svg
+
+[Canvas관련 참고 사이트]
+
+> http://www.feedtank.com/labs/html_canvas/
+
+> http://www.andrew-hoyer.com/experiments/cloth
+
+> http://www.nihilogic.dk/labs/strange_attractors/
+
+> http://www.professorcloud.com/mainsite/canvas-nebula.htm
+
+> http://bomomo.com/
+
+> http://spielzeugz.de/html5/liquid-particles.html
+
+> http://hakim.se/experiments/html5/sinuous/01/
+
+> http://hakim.se/experiments/html5/blob/03/
+
+> http://gyu.que.jp/jscloth/
+
+> http://www.chromeexperiments.com/arcadefire/
+
+> http://kennethjorgensen.com/canvas/tree.html
+
+=========================================
+> 동강
+https://www.youtube.com/playlist?list=PLMp7xXc5vT2NPclzxmAWbAw51zA_Z3dSy

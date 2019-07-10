@@ -27,6 +27,7 @@
 			margin: 0 auto 0 auto;
 		}
 		
+		
 		#header {
 			text-align: center;
 			width: 950px;

@@ -6,7 +6,9 @@
 <style type="text/css">
 select {
 	width: 900px;
-	height: 50px;
+	height: 30px;
+	
+	padding-right: 29px;
 }
 </style>
 </head>
@@ -16,20 +18,24 @@ select {
 	<br />
 
 	<select name="name">
-		<option value="pi">피터 파커</option>
+		<option value="pi"><font size="6" color="red">피터 파커</font></option>
 		<option value="pack">ㅇㅇㅇ</option>
 		<option value="maria">마리아 힐(코비 스멀더스)</option>
 		<option value="maria2">마리아 힐(코비 스멀더스)</option>
 </select>
 		<br />
-		
-		<input type="text" name="name" width="900" height="50"
+		<table>
+		<tr>
+		<td>
+		<input type="text" name="name" width="900" height="20"
 		placeholder="명대사(영화에 등장하지 않는 명대사는 영화측 공식 요청dㅣ 있을경우 삭제될수있습니다.)">
-
-		<br />
+		</td> <td></td></tr>
+		<tr>
+		<td>
 		<input type="text" name="name" width="900" height="50"
 		placeholder="설명(추가 설명이 있을 경우 입력하세요.)">
-		
+		</td><td></td></tr>
+		</table>
 	
 </body>
 </html>

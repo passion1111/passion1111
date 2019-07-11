@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+a { text-decoration:none }
+ a:link { color: blue; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: blue; text-decoration: underline;}
+
+
+
+body {
+
+ margin: 0px; <!-- 언제나 전체 body에는 margin 값을 0으로 세팅해준다-->
+
+
+ color: #FFF;
+
+}
+
+#box {
+
+ position: relative;
+
+ height: auto;
+
+ width: 900px;
+
+ margin: auto; <!-- 레이아웃을 싸고 있는 box의 margin을 auto로 주면 중앙정렬 효과-->
+
+ background-color: #F90;
+
+}
+
+/* #top {
+
+
+ height: 50px;
+
+ width: 800px;
+
+ position: relative;
+
+} */
+
+#left {
+
+
+ float: left;
+
+ height: 400px;
+
+ width: 600px;
+
+ position: relative;
+
+}
+
+#main {
+
+
+ float: left;
+
+ height: 300px;
+
+ width: 300px;
+
+ position: relative;
+
+}
+#middle{
+float:left;
+height:100px;
+width:900px;
+position:relative;
+ margin-top:150px;
+
+}
+#bottom {
+
+
+
+ 
+ margin-top:600px;
+ width: 900px;
+ height:800px;
+ position: absolute;
+
+ clear: both; <!-- 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;?? -->
+
+ /* float: left; <!-- 새로운 흐름을 지정해줘야 깨지지 않는다--> */
+
+}
+h1 em{
+display: inline-block;
+   background-color: blue;
+   color: white;
+   font-size: 20px;
+}
+table td{
+color: grey;
+font-weight:bold;
+
+}
+.tab2{
+border-spacing: 10px;
+
+}
+.td1{
+background-color: red;
+color:white;
+}
+.td2{
+background-color: white;
+color: black;
+
+}
+.midtab{
+width:800px;
+border-top-style:groove ;
+border-bottom-style: solid;
+text-align: center;
+
+
+}
+.midtabtd1{
+background-color: gray;
+}
+.midtab td{
+border-right-style:inset;
+
+}
+
+
+select {
+	width: 900px;
+	height: 30px;
+	
+	padding-right: 29px;
+}
+.table1{
+width: 900px;
+height: 90px;
+border-collapse: collapse;
+
+display: block;
+border-bottom-style:dotted		;
+border-top-style: solid;
+
+}
+.table2{
+width: 900px;
+height: 90px;
+border-collapse: collapse;
+
+display: block;
+border-bottom-style:dotted		;
+
+}
+
+.famtabtdID{
+width: 80px;
+color: gray;
+
+}
+.famtabRec{
+width: 80px;
+color: silver;
+
+}
+.famtabRec em{
+color: red;
+
+}
+.famtabrep{
+
+color: navy;
+text-align: right;
+
+}
+.famtabreg{
+color: gray;
+font-size: 5px;
+text-align: right;
+
+}
+.famspan{
+color: gray;
+font-size: 5px;
+
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+  	
+  	<Strong><font size="7"><strong>명대사</strong></font></Strong>
+	<br />
+
+	<select name="name">
+		<option value="pi">피터 파커/스파이더맨</option>
+		<option value="pack">닉 세종</option>
+		<option value="maria">미쉘 규민</option>
+		<option value="maria2">마리아 예원</option>
+</select>
+		<br />
+		<table >
+		<tr>
+		<td>
+		<input type="text" name="name"  style="width: 850px;"
+		placeholder="명대사(영화에 등장하지 않는 명대사는 영화측 공식 요청dㅣ 있을경우 삭제될수있습니다.)" >
+		</td> <td rowspan="2"><button value="등록" style="height: 60px;">등록</button></td></tr>
+		<tr>
+		<td>
+		<input type="text" name="name" style="width: 850px;"
+		placeholder="설명(추가 설명이 있을 경우 입력하세요.)">
+		</td></tr>
+		</table>
+		<br/>
+		총<font color="gray" size="6"><strong>635</strong></font>건 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select name="prior" style="width: 100px;height: 30px;">
+		<option value="pi">최신순</option>
+		<option value="pack">인기순</option></select>
+		<br/>
+		<table class='table1'>
+		<tr ><td></td></tr>
+		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td rowspan="2" ><img src="aa2.jpg" width="70px" ></td><td width="620"><font size="5">가자.가즈아아아</font></td><td class='famtabtdID'>아이디***</td><td class='famtabRec'>추천<em> 878</em></td><td class='famtabrep'>신고</td></tr>
+		<tr> <td width="70"><font color="red" size="4">피터 파커/스파이더맨<span class='famspan'>|&nbsp;톰 홀랜드</span></font></td><td></td><td colspan="2" class='famtabreg'>2019.7.7</td>  </tr>
+		
+		</table >
+		<table class='table2'>
+		<tr ><td></td></tr>
+		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td rowspan="2" ><img src="sesese.jpg" width="70px" height="70px" ></td><td width="620"><font size="5">우리 네이버 영화 페이지 만들자</font></td><td class='famtabtdID'>김*종</td><td class='famtabRec'>추천<em> 3000</em></td><td class='famtabrep'>신고</td></tr>
+		<tr> <td width="70"><font color="red" size="4">하하<span class='famspan'>|&nbsp;허허허</span></font></td><td></td><td colspan="2" class='famtabreg'>2019.7.10</td>  </tr>
+		
+		</table >
+		
+
+
+
+</body>
+</html>

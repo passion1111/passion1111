@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+
+a { text-decoration:none }
+ a:link { color: blue; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: blue; text-decoration: underline;}
+
+
+body {
+
+ margin: 0px; <!-- 언제나 전체 body에는 margin 값을 0으로 세팅해준다-->
+
+
+ color: #FFF;
+
+}
+
+#box {
+
+ position: relative;
+
+ height: auto;
+
+ width: 900px;
+
+ margin: auto; <!-- 레이아웃을 싸고 있는 box의 margin을 auto로 주면 중앙정렬 효과-->
+
+ background-color: #F90;
+
+}
+
+/* #top {
+
+
+ height: 50px;
+
+ width: 800px;
+
+ position: relative;
+
+} */
+
+#left {
+
+
+ float: left;
+
+ height: 400px;
+
+ width: 600px;
+
+ position: relative;
+
+}
+
+#main {
+
+
+ float: left;
+
+ height: 300px;
+
+ width: 300px;
+
+ position: relative;
+
+}
+#middle{
+float:left;
+height:100px;
+width:900px;
+position:relative;
+ margin-top:150px;
+
+}
+#bottom {
+
+
+
+
+ margin-top:600px;
+ width: 900px;
+ height:800px;
+ position: absolute;
+
+ clear: both; <!-- 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;?? -->
+
+ /* float: left; <!-- 새로운 흐름을 지정해줘야 깨지지 않는다--> */
+
+}
+h1 em{
+display: inline-block;
+   background-color: blue;
+   color: white;
+   font-size: 20px;
+}
+table td{
+color: grey;
+font-weight:bold;
+
+}
+.tab2{
+border-spacing: 10px;
+
+}
+.td1{
+background-color: red;
+color:white;
+}
+.td2{
+background-color: white;
+color: black;
+
+}
+.midtab{
+width:800px;
+border-top-style:groove ;
+border-bottom-style: solid;
+text-align: center;
+
+
+}
+.midtabtd1{
+background-color: gray;
+}
+.midtab td{
+border-right-style:inset;
+
+}
+  .sub {
+    width: 150px;
+    height: 150px;
+  }
+  .main {
+    max-width: 665px;
+    padding-top: 40px;
+    margin-left: 110px;
+  }
+  #main {
+    text-align: center;
+  }
+  img a:hover {
+    border: 1px solid red;
+  }
+  #title {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 50px;
+  }
+  #content {
+    text-align: center;
+  }
+  .move {
+    font-size: 30px;
+    background-color: #EBECED;
+    border: 1px solid #B6B8BB;
+  }
+ table, td {
+   padding: 0px;
+   border-spacing: 0px;
+ }
+ 
+
+ #select {
+    margin-right: -6px;
+    height: 66px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  button {
+    width: 80px;
+    height: 66px;
+    border: 1px solid #B1B6BC;
+    margin-left: -5px;
+    margin-bottom: 5px;
+    background-color: #6BA2E5;
+    color: white;
+    font-weight: bold;
+  }
+  #star td {
+    border: 1px solid black;
+
+  }
+  #zero {
+    font-weight: bold;
+  }
+  .info {
+    font-size: 2px;
+  }
+  .star {
+    width: 110px;
+    font-weight: bold;
+  }
+  .starMark {
+    color: red;
+  }
+  .content {
+    padding-left: 10px;
+  }
+  .grade {
+    text-align: right;
+    font-weight: bold;
+  }
+  .g1 {
+    color: red;
+  }
+  .g2 {
+    color: blue;
+  }
+  div {
+    width: 800px;
+  }
+  .line {
+    border-style: dotted;
+    border-color: #DFD9D9;
+  }
+  #chk {
+    color: red;
+  }
+  .num {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    margin-left: 270px;
+    margin-top: 20px;
+  }
+  .num td {
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+  }
+  #numChk {
+    color: red;
+  }
+  
+
+</style>
+</head>
+
+
+
+<body>
+<div id="box">
+
+
+
+  <div id="left">
+  
+  
+  <h1>스파이더맨 : 파 프롬 홈   <em>상영중</em></h1> 
+<h6>Spider-Man: Far From Home, 2019</h6>
+<hr>
+
+<table> <tr><td>관람객 </td>  <td> <img src="../images/pic11.png" >   </td>              <td>    기자 평론가</td><td><img src="../images/pic11.png" >  </td></tr>        
+<tr> <td>네티즌 </td>  <td> <img src="../images/pic13.png" >   </td>              <td>    내   평점</td> <td> <img src="../images/pic13.png">      </tr>     </table>
+<hr>
+<span><strong>개요 | </strong>  <a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=19">액션</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=6">모험</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=11">코미디</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=18">SF</a></span> <span>미국</span> <span>129분</span>
+<span>2019.07.02.개봉</span> <br/>
+<strong>감독 |</strong>  존 왓츠 <br/>
+<strong>출연 |</strong> 톰 홀랜드(피터 파커/스파이더맨),사무엘 L 잭슨(닉 퓨리)··· <a href="https://movie.naver.com/movie/bi/mi/detail.nhn?code=173123"><font color="grey"><u>더보기</u></font></a> <br/>
+<strong>등급 |</strong> [국내] 12세 관람가 [해외]PG-13 <br/>
+<strong>흥행 |</strong> 예매율 1위  누적관객  5,011,059명(07.09 기준)<br/>
+<img src="https://movie-phinf.pstatic.net/20190528_173/1559010281620RGKkp_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://movie-phinf.pstatic.net/20190528_31/1559010282011YdG1W_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://movie-phinf.pstatic.net/20190528_63/1559010282466qJjlQ_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42823_20190624051836.jpg" width="50" height="40">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42733_20190614032031.jpg" width="50" height="40">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42655_20190607015304.jpg" width="50" height="40">
+<br/>
+<table class='tab2' ><tr><td class='td1'>예매하기</td>   <td class='td2'>☆13,083</td> </tr></table>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+
+  <div id="main">
+  <img src="http://news.maxmovie.com/wp-content/uploads/2019/03/20190327_ljy_m_10000004.jpg" height="400" width="300" >
+  
+
+  </div>
+<div id="middle">
+<table class='midtab' >
+<tr>
+<td class='midtabtd'><a href="Nstory.html"> 주요정보</a></td><td class='midtabtd'><a href="Nactor.html">배우/제작진</a></td>
+<td class='midtabtd'><a href="NPhoto.html">포토</a></td><td class='midtabtd'><a href="Nmovie.html">동영상</a></td>
+<td class='midtabtd1'><a href="NGrade.html">평점</a></td><td class='midtabtd'><a href="Nreview.jsp">리뷰</a></td>
+<td class='midtabtd'><a href="Ntheater.html">상영시간표</a></td>
+<td class='midtabtd'><a href="Nfamous_line.html">명대사/연관영화</a></td>
+</tr>
+</table>
+
+
+
+</div>
+  <div id="bottom">
+  	  
+  	  <table>
+    <tr>
+      <td>
+        <select id="select" name="">
+          <option value="0">☆☆☆☆☆ 0</option>
+          <option value="1">★☆☆☆☆ 2</option>
+          <option value="2">★★☆☆☆ 4</option>
+          <option value="3">★★★☆☆ 6</option>
+          <option value="4">★★★★☆ 8</option>
+          <option value="5">★★★★★ 10</option>
+        </select>
+      </td>
+      <td><textarea name="" id="reg" cols="60" rows="4" placeholder="최대 한글 140자까지 가능하며, 스포일러는 삭제될 수 있습니다."></textarea></td>
+      <td><button value="등록">등록</button></td>
+  </tr>
+</table>
+
+<div>
+  <span>140자 평</span> | 총7,905건
+  <hr>
+    <span id="chk">v</span>호감순 v최신순 v평점 높은 순 v평점 낮은순
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox">관람객 평점만 보기
+  <hr>
+
+<table>
+  <!-- 평점 시작 -->
+  <tr>
+    <td class="star"><span class="starMark">★★★★★</span> 10</td>
+    <td class="content">
+      토니 스타크가 피터 파커를 얼마나 사랑하는지 알 수 있는 영화
+      <br><span class="info">이예린(leey****)  2019.07.02 09:00 신고</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="grade" colspan="2">공감 <span class="g1">4388</span> 비공감 <span class="g2">194</span><br><hr class="line"></td>
+  </tr>
+  <!-- 평점 끝 -->
+  <!-- 평점 시작 -->
+  <tr>
+    <td class="star"><span class="starMark">★★★★</span>☆ 8</td>
+    <td class="content">
+      이 글을 보신 모든분들 인생 대박나고 가족 모두가 만수무강 입니다
+      <br><span class="info">최정규(cjg4****)  2019.07.02 09:17 신고</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="grade" colspan="2">공감 <span class="g1">3671</span> 비공감 <span class="g2">526</span><br><hr class="line"></td>
+  </tr>
+  <!-- 평점 끝 -->
+  <!-- 평점 끝 -->
+  <!-- 평점 시작 -->
+  <tr>
+    <td class="star"><span class="starMark">★★★★★</span> 10</td>
+    <td class="content">
+      유투버들 다 틀렸어 ㅋㅋㅋ멀티버스는 개뿔... 관광버스만 무지허게 나옴 ㅋㅋㅋ 어쨌든 2시간 넘<br>
+      게 계속 찌리릿 했네요 역시 영화는 마블... 번역은 황석희...
+      <br><span class="info">키타맨(jhon****)  2019.07.02 09:00 신고</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="grade" colspan="2">공감 <span class="g1">2762</span> 비공감 <span class="g2">232</span><br><hr></td>
+  </tr>
+  <!-- 평점 끝 -->
+ </table>
+ <table class="num">
+   <tr>
+     <td class="num" id="numChk">1</td>
+     <td class="num">2</td>
+     <td class="num">3</td>
+     <td class="num">4</td>
+     <td class="num">5</td>
+     <td class="num">6</td>
+     <td class="num">7</td>
+     <td class="num">8</td>
+     <td class="num">9</td>
+     <td class="num">10</td>
+     <td class="num">></td>
+   </tr>
+ </table>
+
+</div>
+ 
+  	  
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+a { text-decoration:none }
+ a:link { color: blue; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: blue; text-decoration: underline;}
+
+
+
+
+body {
+
+ margin: 0px; <!-- 언제나 전체 body에는 margin 값을 0으로 세팅해준다-->
+
+
+ color: #FFF;
+
+}
+
+#box {
+
+ position: relative;
+
+ height: auto;
+
+ width: 900px;
+
+ margin: auto; <!-- 레이아웃을 싸고 있는 box의 margin을 auto로 주면 중앙정렬 효과-->
+
+ background-color: #F90;
+
+}
+
+/* #top {
+
+
+ height: 50px;
+
+ width: 800px;
+
+ position: relative;
+
+} */
+
+#left {
+
+
+ float: left;
+
+ height: 400px;
+
+ width: 600px;
+
+ position: relative;
+
+}
+
+#main {
+
+
+ float: left;
+
+ height: 300px;
+
+ width: 300px;
+
+ position: relative;
+
+}
+#middle{
+float:left;
+height:100px;
+width:900px;
+position:relative;
+ margin-top:150px;
+
+}
+#bottom {
+
+
+
+ margin-top:600px;
+ width: 900px;
+ height:800px;
+ position: absolute;
+
+ clear: both; <!-- 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;?? -->
+
+ /* float: left; <!-- 새로운 흐름을 지정해줘야 깨지지 않는다--> */
+
+}
+h1 em{
+display: inline-block;
+   background-color: blue;
+   color: white;
+   font-size: 20px;
+}
+table td{
+color: grey;
+font-weight:bold;
+
+}
+.tab2{
+border-spacing: 10px;
+
+}
+.td1{
+background-color: red;
+color:white;
+}
+.td2{
+background-color: white;
+color: black;
+
+}
+.midtab{
+width:800px;
+border-top-style:groove ;
+border-bottom-style: solid;
+text-align: center;
+
+
+}
+.midtabtd1{
+background-color: gray;
+}
+.midtab td{
+border-right-style:inset;
+
+}
+
+
+	.top {
+			float: left;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.top2 {
+			float: right;
+		}
+		.t1 {
+			width: 1000px;
+			height: 40px;
+		}
+		.t2 {
+			width: 600px;
+			height: 40px;
+		}
+		td {
+			border: 1px solid gray;
+			text-align: center;
+			font-weight: bold;
+		}
+		.t2 th {
+			text-align: left;
+		}
+		.wherethea{
+			border: none;
+			text-align: left;
+			color: red;
+		}
+		#count {
+			position: absolute;
+			left: 300px;
+			width: 80px;
+			text-align: center;
+			color: red;
+			background-color: #D3D3D3;
+		}
+		#where {
+			color: blue;
+			font-size: 23px;
+		}
+		.td1 {
+			text-align: left;
+		}
+		.mega {
+			 width: 150px;
+   			 height: auto;
+   			 float: left;
+   			 margin: 10px;
+   			 border: 1px solid gray;
+		}
+		select {
+			height: 30px
+		}
+		#seat {
+			font-size: 10px;
+		}
+		
+</style>
+</head>
+
+
+
+<body>
+<div id="box">
+
+
+
+  <div id="left">
+  
+  
+  <h1>스파이더맨 : 파 프롬 홈   <em>상영중</em></h1> 
+<h6>Spider-Man: Far From Home, 2019</h6>
+<hr>
+
+<table> <tr><td>관람객 </td>  <td> <img src="../images/pic11.png" >   </td>              <td>    기자 평론가</td><td><img src="../images/pic11.png" >  </td></tr>        
+<tr> <td>네티즌 </td>  <td> <img src="../images/pic13.png" >   </td>              <td>    내   평점</td> <td> <img src="../images/pic13.png">      </tr>     </table>
+<hr>
+<span><strong>개요 | </strong>  <a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=19">액션</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=6">모험</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=11">코미디</a>,<a href="https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?genre=18">SF</a></span> <span>미국</span> <span>129분</span>
+<span>2019.07.02.개봉</span> <br/>
+<strong>감독 |</strong>  존 왓츠 <br/>
+<strong>출연 |</strong> 톰 홀랜드(피터 파커/스파이더맨),사무엘 L 잭슨(닉 퓨리)··· <a href="https://movie.naver.com/movie/bi/mi/detail.nhn?code=173123"><font color="grey"><u>더보기</u></font></a> <br/>
+<strong>등급 |</strong> [국내] 12세 관람가 [해외]PG-13 <br/>
+<strong>흥행 |</strong> 예매율 1위  누적관객  5,011,059명(07.09 기준)<br/>
+<img src="https://movie-phinf.pstatic.net/20190528_173/1559010281620RGKkp_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://movie-phinf.pstatic.net/20190528_31/1559010282011YdG1W_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://movie-phinf.pstatic.net/20190528_63/1559010282466qJjlQ_JPEG/movie_image.jpg?type=n53_40_2">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42823_20190624051836.jpg" width="50" height="40">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42733_20190614032031.jpg" width="50" height="40">
+<img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42655_20190607015304.jpg" width="50" height="40">
+<br/>
+<table class='tab2' ><tr><td class='td1'>예매하기</td>   <td class='td2'>☆13,083</td> </tr></table>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+
+  <div id="main">
+  <img src="http://news.maxmovie.com/wp-content/uploads/2019/03/20190327_ljy_m_10000004.jpg" height="400" width="300" >
+  
+
+  </div>
+<div id="middle">
+<table class='midtab' >
+<tr>
+<td class='midtabtd'><a href="Nstory.html"> 주요정보</a></td><td class='midtabtd'><a href="Nactor.html">배우/제작진</a></td>
+<td class='midtabtd0'><a href="NPhoto.html">포토</a></td><td class='midtabtd'><a href="Nmovie.html">동영상</a></td>
+<td class='midtabtd'><a href="NGrade.html">평점</a></td><td class='midtabtd'><a href="Nreview.jsp">리뷰</a></td>
+<td class='midtabtd1'><a href="Ntheater.html">상영시간표</a></td>
+<td class='midtabtd'><a href="Nfamous_line.html">명대사/연관영화</a></td>
+</tr>
+</table>
+
+
+
+</div>
+  <div id="bottom">
+  	
+  	
+  	
+  	
+  	<div class="top">상영시간표</div>
+	<div class="top2"><select>
+	<option value="상연관 많은순">상연관 많은순</option>
+	<option value="극장명 가나다순">극장명 가나다순</option>
+	</select></div>
+	<br><br><br>
+	<table class="t1">
+		<tr>
+			<td class="td1">
+				&nbsp;지역&nbsp;&nbsp;
+				<select name="area">
+					<option value="서울">서울</option>
+					<option value="인천">인천</option>
+					<option value="경기">경기</option>
+				</select>
+				<select  name="area2">
+					<option value="전체">전체</option>
+					<option value="성북구/중랑구">성북구/중랑구</option>
+					<option value="강북구/노원구">강북구/노원구</option>
+				</select>
+				&nbsp;날짜
+				<select name="date">
+					<option value="20190710">2019년07월10일</option>
+					<option value="20190711">2019년07월11일</option>
+					<option value="20190712">2019년07월12일</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+	<img alt="megabox" src="megabox.png" class="mega">
+	<table class="t2">
+		<th>
+			<span id="where">메가박스 코엑스</span> 시간표> <span id="seat">| 좌석선택가능</span>
+		</th>
+		<tr>
+			<td class="wherethea">
+				2관
+			</td>
+			<td>
+				7:30
+			</td>
+			<td>
+				10:15
+			</td>
+			<td>
+				13:00
+			</td>
+			<td>
+				18:30
+			</td>
+			<td>
+				21:15
+			</td>
+			<td>
+				24:00
+			</td>
+		</tr>
+		<tr>
+			<td class="wherethea">
+				4관
+			</td>
+			<td>
+				8:45
+			</td>
+			<td>
+				11:30
+			</td>
+			<td>
+				14:15
+			</td>
+			<td>
+				17:00
+			</td>
+			<td>
+				19:45
+			</td>
+			<td>
+				22:30
+			</td>
+		</tr>
+		<tr>
+			<td class="wherethea">
+				MAX관
+			</td>
+			<td>
+				08:20
+			</td>
+			<td>
+				10:15
+			</td>
+			<td>
+				11:05
+			</td>
+			<td>
+				13:50
+			</td>
+			<td>
+				16:35
+			</td>
+			<td>
+				19:20
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<table id="count">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+	</tabel>
+  	
+  	
+  	
+  	
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

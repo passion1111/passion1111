@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: day37_js
+Bundle-SymbolicName: day37_js
+Bundle-Version: 1.0.0.qualifier

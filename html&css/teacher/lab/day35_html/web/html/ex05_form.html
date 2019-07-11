@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html><head>
+<meta charset="UTF-8">
+<title>공부 시작</title>
+</head>
+<body>
+<!-- get방식 전송: 글자수에 제한 있음(255자), 보안에 취약하다 -->
+<!-- <form action="../jsp/result.jsp" method="get">
+	이름: <input type="text" name="name" id="name" ><br>
+	비번: <input type="password" name="pwd"  ><br>
+	 <input type="submit" value="전송" >
+	 <input type="reset" value="취소" >
+</form> -->
+
+<!-- post 방식 전송 : 글자수 제한 없음. 약한 보안적이다. -->
+<form action="../jsp/result.jsp" method="post">
+	이름: <input type="text" name="name" id="irum" placeholder="이름 입력해" ><br>
+	비번: <input type="password" name="pwd" placeholder="비밀번호 입력란" ><br>
+	 <input type="submit" value="전송" >
+	 <input type="reset" value="취소" >
+</form>
+
+</body>
+</html>

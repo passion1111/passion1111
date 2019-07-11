@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html><head>
+<meta charset="UTF-8">
+<title>ex03_window.html</title>
+
+ <script type="text/javascript">
+    window.onload = function(){
+    	
+    	alert('change');
+    	
+    	var header1 = document.getElementById("header1");
+    	header1.innerHTML = 'JAVA SCRIPT';
+    	
+    	//header2 에 자신의 이름 출력 시킬것
+    	var name = document.getElementById("header2");
+    	name.innerHTML = '이도연';
+    	
+    	// 태그이름 p 갖고 와서 'th129기수님들 화이팅!!' 로 변경해주세요
+    	/* var p_tag = document.getElementsByTagName("div");
+    	p_tag.innerHTML = 'th129기수님들 화이팅!!'; */
+    	
+    	document.getElementsByTagName("div")[0].innerHTML = 'th129기수님들 화이팅!!';
+    	
+    	// class name으로 갖고 와서 글자 변경하기 
+    	var className = document.getElementsByClassName('change');
+    	className[0].innerHTML="13124314";
+    	
+    	document.getElementsByClassName('change')[0].innerHTML="가나다라";
+    	
+    	
+    }
+ 
+ </script>
+
+</head>
+
+
+<body>
+
+
+	<h1 id="header1">Header-1</h1>
+	<h1 id="header2">Header-2</h1>
+	
+	<div>tag name으로 제어하기 </div>
+	
+	<span class="change">class name으로 제어하기 </span>
+
+</body>
+</html>
+
+
+
+
+

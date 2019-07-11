@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html><head>
+<meta charset="UTF-8">
+<title>ex04_onclick.html</title>
+
+   <script type="text/javascript">
+   
+   		function myNum() {
+   			
+   			
+   			var z = "30";  //string
+   			var x = 100;
+   			var y = 200;
+   			var su = eval("x + y") ;
+   		
+   			alert(x + ", " + y + ", " + su);
+   			var su2 = (z);
+   			var num = eval("2 + 5"); 
+   			var su3 = eval("x + 50");
+   			var su4 = (3 + 5);
+   			var su5 = eval(8);
+   	   			
+   			alert(su2 + ", " + num + ", " + su3 + ", " + su4 + ", " + su5);
+   			
+   			var result = su + su3;
+   			//document.write(result);
+   			
+   			document.getElementById("demo").innerHTML = result;
+   			
+   			var willEval = " ";
+   			willEval += 'var number = 10; <br />' ;
+   			willEval += 'alert(number);';
+   			
+   			
+   			
+   			eval(willEval);
+   			alert(willEval);
+   			
+   			alert( number + 100 );
+   			
+   			var strNum = '30';
+   			eval(strNum);
+   			alert(strNum + number);
+   			
+   			//var abc;  // 초기화가 반드시 되어 있어야한다.
+   			//abc = 8888;
+   			
+   			/* document.write(x + "<br>");
+   			document.write(y + "<br>");
+   			document.write(su + "<br>"); */
+   			
+   			
+   		}
+   
+   </script>
+</head>
+<body>
+
+	<button onclick="myNum();">눌러봐</button>
+	<p id="demo"></p>
+</body>
+</html>
+
+
+
+
+

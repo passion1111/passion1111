@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+p em {
+	font-size: 20px;
+	font-family: 궁서체;
+	color: aqua;
+}
+
+.red {
+	color: red;
+}
+
+h1.red {
+	color: navy;
+}
+
+#header {
+	font: 14px 맑은 고딕;
+	background-color: fuchsia;
+}
+
+h2#header {
+	background-color: skyblue;
+	text-align: right;
+}
+
+

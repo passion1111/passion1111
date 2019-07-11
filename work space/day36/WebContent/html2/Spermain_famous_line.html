@@ -10,6 +10,56 @@ select {
 	
 	padding-right: 29px;
 }
+.table1{
+width: 900px;
+height: 90px;
+border-collapse: collapse;
+
+display: block;
+border-bottom-style:dotted		;
+border-top-style: solid;
+
+}
+.table2{
+width: 900px;
+height: 90px;
+border-collapse: collapse;
+
+display: block;
+border-bottom-style:dotted		;
+
+}
+
+.famtabtdID{
+width: 80px;
+color: gray;
+
+}
+.famtabRec{
+width: 80px;
+color: silver;
+
+}
+.famtabRec em{
+color: red;
+
+}
+.famtabrep{
+
+color: navy;
+
+}
+.famtabreg{
+color: gray;
+font-size: 5px;
+text-align: right;
+
+}
+.famspan{
+color: gray;
+font-size: 5px;
+
+}
 </style>
 </head>
 <body>
@@ -18,26 +68,55 @@ select {
 	<br />
 
 	<select name="name">
+<<<<<<< HEAD
 		<option value="pi"><font size="6" color="red">피터 파커</font></option>
 		<option value="pack">ㅇㅇㅇ</option>
 		<option value="maria">마리아 힐(코비 스멀더스)</option>
 		<option value="maria2">마리아 힐(코비 스멀더스)</option>
 		
+=======
+		<option value="pi">피터 파커/스파이더맨</option>
+		<option value="pack">닉 세종</option>
+		<option value="maria">미쉘 규민</option>
+		<option value="maria2">마리아 예원</option>
+>>>>>>> bf8d82e19e6809a3e5fb4477966378b1c8c54f5b
 </select>
 
 		<br />
-		<table>
+		<table >
 		<tr>
 		<td>
-		<input type="text" name="name" width="900" height="20"
-		placeholder="명대사(영화에 등장하지 않는 명대사는 영화측 공식 요청dㅣ 있을경우 삭제될수있습니다.)">
-		</td> <td></td></tr>
+		<input type="text" name="name"  style="width: 850px;"
+		placeholder="명대사(영화에 등장하지 않는 명대사는 영화측 공식 요청dㅣ 있을경우 삭제될수있습니다.)" >
+		</td> <td rowspan="2"><button value="등록" style="height: 60px;">등록</button></td></tr>
 		<tr>
 		<td>
-		<input type="text" name="name" width="900" height="50"
+		<input type="text" name="name" style="width: 850px;"
 		placeholder="설명(추가 설명이 있을 경우 입력하세요.)">
-		</td><td></td></tr>
+		</td></tr>
 		</table>
+		<br/>
+		총<font color="gray" size="6"><strong>635</strong></font>건 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select name="prior" style="width: 100px;height: 30px;">
+		<option value="pi">최신순</option>
+		<option value="pack">인기순</option></select>
+		<br/>
+		<table class='table1'>
+		<tr ><td></td></tr>
+		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td rowspan="2" ><img src="aa2.jpg" width="70px" ></td><td width="620"><font size="5">가자.가즈아아아</font></td><td class='famtabtdID'>아이디***</td><td class='famtabRec'>추천<em> 878</em></td><td class='famtabrep'>신고</td></tr>
+		<tr> <td width="70"><font color="red" size="4">피터 파커/스파이더맨<span class='famspan'>|&nbsp;톰 홀랜드</span></font></td><td></td><td colspan="2" class='famtabreg'>2019.7.7</td>  </tr>
+		
+		</table >
+		<table class='table2'>
+		<tr ><td></td></tr>
+		<tr></tr>
+		<tr><td></td></tr>
+		<tr><td rowspan="2" ><img src="sesese.jpg" width="70px" height="70px" ></td><td width="620"><font size="5">우리 네이버 영화 페이지 만들자</font></td><td class='famtabtdID'>김*종</td><td class='famtabRec'>추천<em> 3000</em></td><td class='famtabrep'>신고</td></tr>
+		<tr> <td width="70"><font color="red" size="4">하하<span class='famspan'>|&nbsp;허허허</span></font></td><td></td><td colspan="2" class='famtabreg'>2019.7.10</td>  </tr>
+		
+		</table >
 	
 </body>
 </html>

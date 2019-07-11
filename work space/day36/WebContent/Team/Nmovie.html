@@ -4,11 +4,11 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
+
 a { text-decoration:none }
  a:link { color: blue; text-decoration: none;}
  a:visited { color: black; text-decoration: none;}
  a:hover { color: blue; text-decoration: underline;}
-
 
 
 
@@ -83,6 +83,7 @@ position:relative;
 
 
 
+
  margin-top:600px;
  width: 900px;
  height:800px;
@@ -90,7 +91,6 @@ position:relative;
 
  clear: both; <!-- 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;?? -->
 
- /* float: left; <!-- 새로운 흐름을 지정해줘야 깨지지 않는다--> */
 
 }
 h1 em{
@@ -133,65 +133,6 @@ border-right-style:inset;
 
 }
 
-
-	.top {
-			float: left;
-			font-size: 30px;
-			font-weight: bold;
-		}
-		.top2 {
-			float: right;
-		}
-		.t1 {
-			width: 1000px;
-			height: 40px;
-		}
-		.t2 {
-			width: 600px;
-			height: 40px;
-		}
-		td {
-			border: 1px solid gray;
-			text-align: center;
-			font-weight: bold;
-		}
-		.t2 th {
-			text-align: left;
-		}
-		.wherethea{
-			border: none;
-			text-align: left;
-			color: red;
-		}
-		#count {
-			position: absolute;
-			left: 300px;
-			width: 80px;
-			text-align: center;
-			color: red;
-			background-color: #D3D3D3;
-		}
-		#where {
-			color: blue;
-			font-size: 23px;
-		}
-		.td1 {
-			text-align: left;
-		}
-		.mega {
-			 width: 150px;
-   			 height: auto;
-   			 float: left;
-   			 margin: 10px;
-   			 border: 1px solid gray;
-		}
-		select {
-			height: 30px
-		}
-		#seat {
-			font-size: 10px;
-		}
-		
 </style>
 </head>
 
@@ -248,12 +189,11 @@ border-right-style:inset;
 <div id="middle">
 <table class='midtab' >
 <tr>
-<td class='midtabtd'><a href=""> 주요정보</a></td><td class='midtabtd'><a href="Nactor.html">배우/제작진</a></td>
-<td class='midtabtd'><a href="NPhoto.html">포토</a></td><td class='midtabtd'><a href="Nmovie.html">동영상</a></td>
+ <td class='midtabtd'><a href=""> 주요정보</a></td><td class='midtabtd'><a href="Nactor.html">배우/제작진</a></td>
+<td class='midtabtd'><a href="NPhoto.html">포토</a></td><td class='midtabtd1'><a href="Nmovie.html">동영상</a></td>
 <td class='midtabtd'><a href="NGrade.html">평점</a></td><td class='midtabtd'><a href="">리뷰</a></td>
-<td class='midtabtd1'><a href="Ntheater.html">상영시간표</a></td>
+<td class='midtabtd'><a href="Ntheater.html">상영시간표</a></td>
 <td class='midtabtd'><a href="Nfamous_line.html">명대사/연관영화</a></td>
-
 </tr>
 </table>
 
@@ -265,119 +205,27 @@ border-right-style:inset;
   	
   	
   	
-  	<div class="top">상영시간표</div>
-	<div class="top2"><select>
-	<option value="상연관 많은순">상연관 많은순</option>
-	<option value="극장명 가나다순">극장명 가나다순</option>
-	</select></div>
-	<br><br><br>
-	<table class="t1">
-		<tr>
-			<td class="td1">
-				&nbsp;지역&nbsp;&nbsp;
-				<select name="area">
-					<option value="서울">서울</option>
-					<option value="인천">인천</option>
-					<option value="경기">경기</option>
-				</select>
-				<select  name="area2">
-					<option value="전체">전체</option>
-					<option value="성북구/중랑구">성북구/중랑구</option>
-					<option value="강북구/노원구">강북구/노원구</option>
-				</select>
-				&nbsp;날짜
-				<select name="date">
-					<option value="20190710">2019년07월10일</option>
-					<option value="20190711">2019년07월11일</option>
-					<option value="20190712">2019년07월12일</option>
-				</select>
-			</td>
-		</tr>
-	</table>
-	<br><br>
-	<img alt="megabox" src="megabox.png" class="mega">
-	<table class="t2">
-		<th>
-			<span id="where">메가박스 코엑스</span> 시간표> <span id="seat">| 좌석선택가능</span>
-		</th>
-		<tr>
-			<td class="wherethea">
-				2관
-			</td>
-			<td>
-				7:30
-			</td>
-			<td>
-				10:15
-			</td>
-			<td>
-				13:00
-			</td>
-			<td>
-				18:30
-			</td>
-			<td>
-				21:15
-			</td>
-			<td>
-				24:00
-			</td>
-		</tr>
-		<tr>
-			<td class="wherethea">
-				4관
-			</td>
-			<td>
-				8:45
-			</td>
-			<td>
-				11:30
-			</td>
-			<td>
-				14:15
-			</td>
-			<td>
-				17:00
-			</td>
-			<td>
-				19:45
-			</td>
-			<td>
-				22:30
-			</td>
-		</tr>
-		<tr>
-			<td class="wherethea">
-				MAX관
-			</td>
-			<td>
-				08:20
-			</td>
-			<td>
-				10:15
-			</td>
-			<td>
-				11:05
-			</td>
-			<td>
-				13:50
-			</td>
-			<td>
-				16:35
-			</td>
-			<td>
-				19:20
-			</td>
-		</tr>
-	</table>
-	<hr>
-	<table id="count">
-		<tr>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
-		</tr>
-	</tabel>
+  	<table> <tr><td width="60px"><Strong>동영상</Strong> <td>     <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<img src="../images/rectecng.png" /> </tr><tr><br/>
+<tr><td width="70px"><strong>예고편(4)</strong> <td>
+</table><br/>
+<table>
+<tr>
+ <td><img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42823_20190624051836.jpg" width="300" heifgt="200"></td>
+ <td><img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42733_20190614032031.jpg" width="300" heifgt="200"></td>
+<td><img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42655_20190607015304.jpg"  width="300" heifgt="200"></td>
+<td><img src="https://ssl.pstatic.net/imgmovie/multimedia/MOVIECLIP/TRAILER/42365_20190508102705.jpg"  width="300" heifgt="200"></td>
+</tr>
+<br/>
+<tr><td>HD <font size="4" color="blue">파이널 예고편</font>     <td>  HD <font size="4" color="blue">Team Up 30초 예고편</font> </td><td> HD <font size="4" color="blue">Legacy 30초 예고편 </td>
+<td>HD <font size="4" color="blue">2차 예고편</font></td>
+</tr>
+<tr>
+<td><font size="2" color="grey">2019.06.24</font></td> <td><font size="2" color="grey">2019.06.14</font></td> <td><font size="2" color="grey">2019.06.07</font></td> 
+<td><font size="2" color="grey">2019.05.08</font></td> 
+</tr>
+</table>
+  	
+  	
   	
   	
   	

@@ -1,3 +1,148 @@
+>> day38 - 19/07/12
+
+  - JavaScript
+
+  - jQuery 
+ 
+  - AJAX
+
+> chrome 부가기능 추가
+  https://chrome.google.com/webstore
+     web developer
+
+
+  - html5 폴더에 있는 파일 설명
+
+
+==============================
+>> day37 - 19/07/11
+
+ - JavaScript
+
+ > json
+
+var obj = {
+	필드 : 값,
+	필드 : 값,
+	필드 : 값,....
+	메소드명 : function() {
+		내용; 
+	}
+};
+
+var obj = {
+
+	[
+		필드 : 값,
+		필드 : 값,
+		필드 : 값,.....
+		메소드명 : function() {
+				내용;
+			}
+	]	
+};
+
+
+
+
+
+ 문제] 원하는 단을 입력 받아서 구구단 출력
+
+ - 자바스크립트 자동 완성
+ https://handcoding.tistory.com/8
+
+  http://oss.opensagres.fr/tern.repository/1.2.0
+
+
+ - https://www.codecademy.com
+
+=======================================
+>> day36 - 19/07/10
+
+
+ 팀과제> 팀홈페이지
+  인원수 * 2배 
+
+
+
+ 스카이프  25명
+ 디스코드  99명  <-- 10명최대초대인원
+ 팀뷰어
+
+ 다음팟
+ 아프리카 방송
+
+ > Web Page 
+  HTML/HTML5  : 문서구조(골격) 형성
+  JavaScript : 이벤트처리, 유효성 검사....
+  CSS : 디자인 
+
+ > CSS & CSS3
+  1. inline
+ <img src="Flower2.jpg" style="속성: 값; 속성: 값; .....;   /> <br>
+  2. internal
+  3. external   <--- file    .css
+
+   선택자 { 속성: 값;  속성: 값; .... }
+   선택자, 선택자2, 선택자3 .... { 속성: 값;  속성: 값; .... }
+   선택자  서브엘리먼트 { 속성: 값;  속성: 값; .... }
+   p  em { 속성: 값;  속성: 값; .... }
+   div  span { 속성: 값;  속성: 값; .... }
+
+  .className { 속성: 값;  속성: 값; .... }
+  .red { color: red; }   //클래스명
+  선택자.className { 속성: 값;  속성: 값; .... }
+  p.blue { 속성: 값;  속성: 값; .... }
+
+  #idName { 속성: 값;  속성: 값; .... }
+  #header { 속성: 값;  속성: 값; .... }
+  div#id { 속성: 값;  속성: 값; .... }
+
+
+ <a href="http://www.naver.com">NAVER</a>
+ <a href="mailto:kingsmile@paran.com">관리자에게 문의</a>
+
+ <a href="mailto:kingsmile@paran.com">kingsmile@paran.com</a>
+
+
+ > Html 구조(형식)
+ tag : 한쌍으로 구성 <=> 단항태그 있음
+
+<html>
+	<head><title></title></head>
+	<body>
+                            <!-- html 주석 -->
+	</body>
+</html> 
+
+ > DOCTYPE 
+ - 4.0.x
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+ - 5.x
+ <!DOCTYPE html>
+
+
+> 오라클 포트 번호 확인 & 변경  <-- 오라클에서 변경 방법
+SQL> sqlplus /nolog 
+SQL> conn /as sysdba 
+
+SELECT DBMS_XDB.GETHTTPPORT() FROM DUAL
+현재포트확인
+
+EXEC DBMS_XDB.SETHTTPPORT(9090)
+9090포트로 변경
+
+> Tomcat 에서 톰켓 포트 번호 변경 방법  (8080)
+ 1) 설정파일을 변경하기  : server.xml  
+ 2) 이클립스에서 변경하기  - 1, 2 
+
+ 1팀 : 조규민팀 - 김세종/김승수/박예원
+ 2팀 : 옥영학팀 - 김현태/박진산/배재준
+ 3팀 : 이소영팀 - 안희수/정준모/김광범/이태성/현상주
+ 4팀 : 황인호팀 - 강수아/문혜수/남민지/손지형
+
+======================================
 >> day35 - 19/07/09
 
  - HTML  : 문서 구조

@@ -26,19 +26,4 @@
     <!--
     <Manager pathname="" />
     -->
-    <Resource auth="Container" 
-          name="jdbc/orcl" 
-          driverClassName="oracle.jdbc.driver.OracleDriver" 
-          type="javax.sql.DataSource" 
-          url="jdbc:oracle:thin:@localhost:1521:xe" 
-          username="kim"
-          password="oracle" 
-          loginTimeout="10" 
-          maxActive="50" 
-          maxIdle="20"
-          maxWait="5000" 
-          testOnBorrow="true" />
-
-
-    
 </Context>

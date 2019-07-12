@@ -36,17 +36,278 @@ html, body {
   background: #ddd;
 }
 
+.top_right ul{
+ list-style:none;
+    margin-left:83%;
+    padding:5px;
+
+}
+.top_right li{
+ margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+
+}
+
+
+.menubar{
+border:none;
+border:0px;
+margin:0px;
+padding:0px;
+font-size:14px;
+font-weight:bold;
+}
+
+.menubar ul{
+background-color:blue;
+height:50px;
+list-style:none;
+margin:0;
+padding:10px;
+}
+
+.menubar li{
+float:left;
+padding:10px;
+}
+
+
+
+.menubar li a:hover, .menubar ul li:hover a{
+text-decoration:none;
+}
+
+.menubar li ul{
+background: rgb(109,109,109);
+display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+height:auto;
+padding:0px;
+margin:0px;
+border:0px;
+position:absolute;
+width:200px;
+z-index:200;
+/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul{
+margin-top:10px;
+display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+display:block;
+float:none;
+margin:0px;
+padding:0px;
+width:200px;
+}
+
+.menubar li:hover li a{
+background:none;
+}
+
+.menubar li ul a{
+display:block;
+height:50px;
+font-size:12px;
+font-style:normal;
+margin:0px;
+padding:0px 10px 0px 15px;
+text-align:left;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: rgb(71,71,71);
+border:0px;
+color:#ffffff;
+text-decoration:none;
+}
+
+.menubar p{
+clear:left;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+
 </style>
+
+
 </head>
 <body>
 
 <div id="head">
-  상단임돠
+  <div class="top_right">
+  <ul class="top_right_ul">
+  <li>
+  <button id="myBtn">로그인</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+  
+  
+  
+  
+  </li>
+  <li>회원가입</li>
+  <li>장바구니</li>
+  <li>[0]주문조회</li>
+  <li>돋보기</li>
+  
+  </ul>
+  </div>
+  
 </div>
 <div id="content">
-  <div id="box">콘텐츠 박스임돠</div>
+  <div id="box">
+  <div class="menubar">
+<ul>
+ <li>좋은생각</li>
+ <li>좋은느낌
+	<ul>
+     <li>착한생각</li>
+     <li>나쁜생각</li>
+     <li>옳지</li>
+     <li>착하지</li>
+    </ul>
+ </li>
+ <li>그래
+ <ul>
+     <li>착한생각</li>
+     <li>나쁜생각</li>
+     <li>옳지</li>
+     <li>착하지</li>
+    </ul>
+ </li>
+ 
+ <li>그래그래</li>
+</ul>
 </div>
-<div id="footer">카피라이트 부분임돠</div>
+
+  </div>
+		
+		
+		
+
+</div>
+<div id="footer">
+<div>sad</div>
+</div>
 
 </body>
 </html>

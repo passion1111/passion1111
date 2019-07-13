@@ -4,13 +4,20 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
-        
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://127.0.0.1:5501/Javascript/js_05_03.html",
-            "webRoot": "${workspaceFolder}/Javascript/"
+            "runtimeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222",
+                "--user-data-dir=remote-profile"
+            ],
+            "sourceMaps": true,
+            
+            "port": 9222,
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

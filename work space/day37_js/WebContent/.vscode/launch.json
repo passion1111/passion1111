@@ -7,16 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://127.0.0.1:5501/Javascript/js_05_03.html",
-            "runtimeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-            "runtimeArgs": [
-                "--remote-debugging-port=9222",
-                "--user-data-dir=remote-profile"
-            ],
-            "sourceMaps": true,
-            
-            "port": 9222,
+            "name": "Launch Chrome",
+            "url": "http://127.0.0.1:5501/0710/ex03_css.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

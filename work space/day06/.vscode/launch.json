@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry_quiz2",
+            "request": "launch",
+            "mainClass": "array2.Mainentry_quiz2",
+            "projectName": "day06"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry_quiz",
+            "request": "launch",
+            "mainClass": "array3.Mainentry_quiz",
+            "projectName": "day06"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry_quiz2",
+            "request": "launch",
+            "mainClass": "array3.Mainentry_quiz2",
+            "projectName": "day06"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry",
+            "request": "launch",
+            "mainClass": "array2.Mainentry",
+            "projectName": "day06"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry_quiz5",
+            "request": "launch",
+            "mainClass": "array2.Mainentry_quiz5",
+            "projectName": "day06"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mainentry_quiz4",
+            "request": "launch",
+            "mainClass": "array2.Mainentry_quiz4",
+            "projectName": "day06"
+        }
+    ]
+}

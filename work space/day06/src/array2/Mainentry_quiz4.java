@@ -1,13 +1,15 @@
 package array2;
 
+import java.util.Random;
 
-// ¹®Á¦4 
+// ï¿½ï¿½ï¿½ï¿½4 
 //      
 //      1 *  2  2
 //      5 *  7  35
 
 //    10  9  13 25
 public class Mainentry_quiz4 {
+
 	public static void main(String[] args) {
 
 		int[][] arr={{10,20,0},{1,2,0},{5,7,0}};
@@ -25,7 +27,9 @@ public class Mainentry_quiz4 {
 			}
 			System.out.println("");
 		}
-		
+		Random a=new Random();
+	int b=a.nextInt(55);
+	System.out.println(b);
 		
 		
 		

@@ -3,8 +3,7 @@
 
 <%@page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,19 +18,19 @@
 	String regdate=request.getParameter("regdate");
 	String content=request.getParameter("content");
 	int count=9999;
-	//if(title==""||title==null)out.println("titleï¿½ï¿½ nullï¿½Ô´Ï´ï¿½");
+	//if(title==""||title==null)out.println("titleÀÌ nullÀÔ´Ï´Ù");
 	
-	//if(writer==""||writer==null)out.println("writerï¿½ï¿½ nullï¿½Ô´Ï´ï¿½");
+	//if(writer==""||writer==null)out.println("writer°¡ nullÀÔ´Ï´Ù");
 	
-	//else if(!Pattern.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$", writer))out.println("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½");
-	//if(regdate==""||regdate==null)out.println("ï¿½ï¿½Â¥ï¿½ï¿½ nullï¿½Ô´Ï´ï¿½.");
+	//else if(!Pattern.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$", writer))out.println("ÀÌ¸ÞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù");
+	//if(regdate==""||regdate==null)out.println("³¯Â¥°¡ nullÀÔ´Ï´Ù.");
 	
 	try{
 		String driverName="oracle.jdbc.driver.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		Class.forName(driverName);
 		Connection conn=DriverManager.getConnection(url, "kim", "oracle");
-		out.println("oracle ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ dbï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½");
+		out.println("oracle µ¥ÀÌÅÍº£ÀÌ½º db¿¡ ¼º°øÀûÀ¸·Î Á¢¼ÓÇß½À´Ï´Ù");
 		
 	
 		String sql="insert into board "+"(idx,title,writer,regdate,count,content)"+
@@ -48,7 +47,7 @@
 		
 	}
 		catch(Exception e){
-			out.println("orcle ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ dbï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. <hr>");
+			out.println("orcle µ¥ÀÌÅÍº£ÀÌ½º dbÁ¢¼Ó¿¡ ¹®Á¦°¡ ÀÖ½À´Ï´Ù. <hr>");
 			out.println(e.getMessage());
 			e.printStackTrace();
 			

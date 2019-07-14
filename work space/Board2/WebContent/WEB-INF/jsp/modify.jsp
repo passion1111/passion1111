@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content= "text/html" charset="EUC-KR">
-<title>占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쌔븝옙占쌘울옙 </title>
+<title>게시판을 수정해보자용 </title>
 </head>
 <%
 	String idx = request.getParameter("idx");
@@ -18,11 +18,11 @@
 	String content = request.getParameter("content");
 	
 	int count = 9999;
-	if (title =="" || title ==null) out.println("title占쏙옙 null占싱댐옙");
-	if (writer == "" || writer == null ) out.println("writer占쏙옙 null占싱댐옙");
+	if (title =="" || title ==null) out.println("title이 null이다");
+	if (writer == "" || writer == null ) out.println("writer가 null이다");
 		else if(!Pattern.matches("^[_0-9a-zA-Z-]+@[0-9a-zA-Z-]+(.[_0-9a-zA-Z-]+)*$", writer))
-			out.println("占싱몌옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싣니댐옙");
-	if (content == "" || content == null) out.println("content占쏙옙 null占싱댐옙");
+			out.println("이메일 형식이 아니다");
+	if (content == "" || content == null) out.println("content가 null이다");
 	
 
 try{

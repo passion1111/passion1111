@@ -1,7 +1,7 @@
 package array2;
 
 
-// 3Çà 4¿­Â¥¸® 2Â÷¿ø ¹è¿­À» ¸¸µçÈÄ¿¡ °ªÀ» ³ÖÀ»‹š
+// 3ï¿½ï¿½ 4ï¿½ï¿½Â¥ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //      1  2 10 5
 //      9  7 3 20
 //      0  0 0  0
@@ -13,9 +13,9 @@ public class Mainentry_quiz2 {
 		int i=0,sum1,sum2;
 		
 			for(int  j=0;j<arr[0].length;j++) {
-				sum1=(arr[arr.length-3][j]);//1Çà °ª
-				sum2=arr[arr.length-2][j];//2Çà °ª
-			arr[arr.length-1][j]=sum1+sum2; //1Çà+2Çà °ª
+				sum1=(arr[arr.length-3][j]);//1ï¿½ï¿½ ï¿½ï¿½
+				sum2=arr[arr.length-2][j];//2ï¿½ï¿½ ï¿½ï¿½
+			arr[arr.length-1][j]=sum1+sum2; //1ï¿½ï¿½+2ï¿½ï¿½ ï¿½ï¿½
 			}
 		
 		for(i=0;i<arr.length;i++) {//i=0;i<2;i++
@@ -24,6 +24,7 @@ public class Mainentry_quiz2 {
 				
 				
 			}
+			
 			System.out.println("");
 		}
 	}

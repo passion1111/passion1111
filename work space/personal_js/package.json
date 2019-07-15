@@ -1,14 +1,19 @@
 {
   "name": "personal_js",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^24.0.15",
     "eslint": "^6.0.1"
-  }
+  },
+  "dependencies": {
+    "jest": "^24.8.0"
+  },
+  "keywords": [],
+  "description": ""
 }

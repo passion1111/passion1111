@@ -35,5 +35,25 @@ test('should be under 1600',()=>{
 
 //Regex
 test('there is no i in team',()=>{
-    expect('teamI').not.toMatch(/I/i);
+    expect('team').not.toMatch(/I/i);
 });
+
+//Arrays
+test('Admin should be in usernames',()=>{
+    usernames=['john','kare','admin'];
+    expect(usernames).toContain('admin');
+});
+
+// //working with async data 사용안될수도 있음
+test('user fetched name should be leanne graham',async()=>{
+    // expect.assertions(1); //없어도 pass
+    const data= await functions.fetchUser();
+        expect(data.name).toEqual('Leanne Graham');
+});  
+//promise
+test('user fetched name should be leanne graham',()=>{
+    // expect.assertions(1); //없어도 pass
+    return functions.fetchUser().then(data=>{
+        expect(data.name).toEqual('Leanne Graham');
+    });
+});  

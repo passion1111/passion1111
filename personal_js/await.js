@@ -11,10 +11,10 @@ function myFunc(){
 }
 
 async function myAsync(){
-    delayP(3).then((time)=>{
+    delayP(0).then((time)=>{
         console.log(time+"여긴 그냥임");
     });
-    
+    // console.log("두번찍히나?");//이해완료 
     // await...      //await은 promise가 resolve돼서 결과값이 넘어올떄까지 기달린다.
     return 'async'
 }
@@ -25,5 +25,5 @@ myAsync().then((result)=>{//여기서 result는 async 리턴값
  console.log(result);
 });
 console.log(myFunc());
-console.log(myAsync());
+// console.log(myAsync());
 

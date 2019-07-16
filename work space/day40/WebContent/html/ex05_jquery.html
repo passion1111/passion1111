@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html><head>
+<meta charset="UTF-8">
+<title>공부 시작</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <style type="text/css">
+ 	table, td { border: 1px solid black;
+ 		width: 650px;
+ 		height: 30px; 	
+ 	} 
+ </style>
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+        $('tr:even').css('backgroundColor', 'pink');
+         $('tr:odd').css('backgroundColor', 'yellow');
+         
+            // $('span').addClass('redtext');
+            $('span').addClass('redText').click(function(){
+                 $('.redText').css({background: "#cd5",color:"red"});
+            })
+ 	});
+ 
+ </script>
+
+</head>
+<body>
+        <span>span tag있는 곳에 동적으로 클래스명 넣기</span>
+<table>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td></tr>
+</table>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+    <style type="text/css">
+    table,td{
+        border: 1px solid black;
+        width: 650px;
+        height: 30px;
+        
+        }
+
+    
+    </style>
+    <script type="text/javascript">
+    ${document}.read(function(){
+        $('tr:even').css('backgroundColor', 'pink');
+ 		$('tr:odd').css('backgroundColor', 'yellow');
+    });
+    </script>
+</head>
+    <body>
+    <table>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+        <tr><td></td> <td></td> <td></td></tr>
+    </table>
+</body>
+</html> -->

@@ -19,3 +19,10 @@ test('Chunk an array of 3 values with length of 1', () => {
 
   expect(chunkedArr).toEqual([[1], [2], [3]]);
 });
+
+test('array값은 1,2,3,4가 돼야한다',()=>{
+  const numbers=[1,2,3,4];
+  const len=1;
+  const chunkArr=chunkArray(numbers,len);
+  expect(chunkArr).toEqual([[1], [2], [3],[4]]);
+});

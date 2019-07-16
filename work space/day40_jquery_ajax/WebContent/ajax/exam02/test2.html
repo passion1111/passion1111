@@ -46,7 +46,7 @@
 			httpRequest.send(null); 
 		} else if(method == 'Post') {
 			httpRequest.open(method, url, true);
-			httpRequest.setRequestHeader("Content-Type", "application/www-form-urlencoded");
+			httpRequest.setRequestHeader("Content-Type", "w-application/www-form-urlencoded");
 			httpReequest.send(args);
 		}
 		
@@ -70,6 +70,7 @@
 			if(httpRequest.status == 200) {
 				msg += "웹서버에서 정상적으로 수행\n";
 				msg += "결과 : " + httpRequest.responseText + "\n";
+				
 			} else {
 				msg += "웹서버에서 에러가 발생\n";
 				msg += "오류코드 : " + httpRequest.status + "\n";

@@ -1,17 +1,1 @@
-{
-    [
-        "idCnt":1,
-        "pwdCnt":1,
-        "name":"강감찬",
-        "age":20
-    ],
-    
-    [
-        "idCnt":1,
-        "pwdCnt":1,
-        "name":"강감찬",
-        "age":20
-    ]
-
-    ]
-}
+{"idCnt":1}

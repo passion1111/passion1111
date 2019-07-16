@@ -6,8 +6,8 @@
 			$(document).ready( function(){
 				var obj = $("[name=hobby]");
 				obj.change( function(){
-					//$("[name=hobby]").prop("checked",false);
-					//$(this).prop("checked",true);
+					// $("[name=hobby]").prop("checked",false);
+					// $(this).prop("checked",true);
 
 					var no = $("[name=hobby]:checked").length; 
 					if (no >1){
@@ -15,7 +15,7 @@
 						$(this).prop("checked",true);
 					}
 
-					//$(this).siblings().prop("checked",false);
+					// $(this).siblings().prop("checked",false);
 
 				});
 			});

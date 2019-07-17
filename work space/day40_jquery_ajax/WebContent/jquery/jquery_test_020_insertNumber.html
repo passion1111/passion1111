@@ -8,12 +8,12 @@
 				//-----------------------------------------------------------
 				// before 써서 번호 붙이기
 				//-----------------------------------------------------------
-				$(".dogList tr:eq(0) th:eq(0)").before("<th>번호");
+				$(".dogList tr:eq(0) th:eq(0)").before("<th>번호"); //doglist의 tr태그의 0번쨰를 가져오고. 그다음에 th의 0번쨰를 가져온다.이거전에 <th>번호를 넣음.
 				var no=1;
 				
-					var trObj = $(".dogList tr td");
+					var trObj = $(".dogList tr td");  //tr td를 가져와서.
 					trObj.each( function(){
-					$(this).before("<td>"+no++);
+					$(this).before("<td>"+no++); //this는 도그리스트 
 				});
 /*
 				//-----------------------------------------------------------

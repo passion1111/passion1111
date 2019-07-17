@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>Login Form</title>
+</head>
+<body>
+	<font size="4" color="bule"><b>Login HTML</b></font>
+	<hr/>
+	
+	<table border="1">
+						<!-- @WebServlet("/bit") -->
+		<form name="frm" action="../bit" method="get">
+			<tr>
+				<td>User ID : <input type="text" name="id" /> </td>
+			</tr>
+			
+			<tr>
+				<td>User PWD : <input type="password" name="pwd" /> </td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="Submit" onclick="sendData();" /> 
+					<input type="reset" value="Reset">
+				</td>
+			</tr>
+		</form>
+	</table>
+</body>
+</html>
+
+

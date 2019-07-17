@@ -4,12 +4,19 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
+       {
+           "type": "chrome",
+           "request": "launch",
+           "name": "Launch Chrome",
+           "url": "http://127.0.0.1:5500/letclosure.html",
+           "webRoot": "${workspaceFolder}"
+    //    },
       
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/error/aync_await2.js"
-        }
+    //     {
+    //         "type": "node",
+    //         "request": "launch",
+    //         "name": "Launch Program",
+    //         "program": "${workspaceFolder}/letclosure.js"
+    //     }
     ]
 }

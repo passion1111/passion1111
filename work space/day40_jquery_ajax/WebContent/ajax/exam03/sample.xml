@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <members>
-	<member>
+	<member>   <!--xml멤버를 부르면 member는 인덱스 순서에 맞게 불러온다.  -->> 
 		<id>hong</id>
 		<name>홍길동</name>
 	</member>

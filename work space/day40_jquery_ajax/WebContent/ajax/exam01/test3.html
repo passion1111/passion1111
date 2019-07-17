@@ -12,14 +12,14 @@
 		});
 	}); */
 
-	$(document).ready(function() {
-		// $('button').on("click", function() { 
-		$('#btn').click( function() {
+	$(document).ready(function() { //버튼이 눌리면 
+		// $('button').on("click", function() {   //on을 이용해서 click이벤트가 발생하면.
+		$('#btn').click( function() {//위에것 on을제거한 버전.
 			$.ajax({
 				url: 'hello.html',
 				
-				success: function(data) {
-					$('#msgView').append(data); //  load('hello.html');
+				success: function(data) { //성공하면
+					$('#msgView').append(data); //  load('hello.html');  //data를 append해라.
 				}
 			});
 		});
@@ -31,5 +31,10 @@
 	<div id="msgView" style="height: 100px; width: 500px; border: 1px solid black;">
 	</div>
 	<input type="button" id="btn" value="서버에 자료요청" />
+	<hr>
+	<img alt="" src="../../images/1.jpg" /> <br>
+	<img alt="" src="./../images/2.jpg" /> <br>
+	<img alt="" src="../../images/3.jpg" /> <br>
+	<img alt="" src="../../images/aa1.gif" /> 
 </body>
 </html>

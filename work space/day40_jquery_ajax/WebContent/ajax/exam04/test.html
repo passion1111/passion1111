@@ -24,7 +24,12 @@
 		if(httpRequest.readyState == 4) {
 			if(httpRequest.status == 200) {
 				//var memberList = JSON.parse(httpRequest.responseText);
-				var memberList = eval(httpRequest.responseText);
+				var memberList = eval(httpRequest.responseText); //eval로 가져오는 이유? 문자열 형태로가져오기 위해.
+													//eval로 넣는 이유는 객체타입이기떄문에.
+													//문자열을 코드로 인식하기 위해서?
+													//eval(string) -> 객체를 문자열 코드로 인식? 
+													//eval('2+2') 안에있는 스트링을 코드로 인식하기 위해
+													//문자열을 코드로 인식하게 하는 함수.
 				msg += '회원수 : ' + memberList.length + "명\n";
 				for(var i = 0; i < memberList.length; i++) {
 					var mem = memberList[i]	;

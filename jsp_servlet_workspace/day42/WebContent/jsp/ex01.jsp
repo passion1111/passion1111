@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!--선언문:자바,변수선언,제어문,함수
- <%-- <%! %> --%>
+<!--
+
  스크립트릿:자바,변수선언,제어문,..함수정의안됨 호출은됨. 
 <%--  <% %> --%>
  

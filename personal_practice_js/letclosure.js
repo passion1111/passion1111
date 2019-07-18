@@ -1,21 +1,28 @@
-// var btns=[
-//     document.getElementById('btn0'),
-//     document.getElementById('btn1'),
-//     document.getElementById('btn2')
+var btns=[
+    document.getElementById('btn0'),
+    document.getElementById('btn1'),
+    document.getElementById('btn2')
 
-// ];
-// //------------var로 하니까 그냥 3이 나와버림.
-// function setclick() {
-//     for (var i=0; i<3; i++){
-//         btns[i].onclick=function(){
-//             console.log(i);
+];
+//------------var로 하니까 그냥 3이 나와버림.
+function setclick() {
+    for (var i=0; i<3; i++){
+        // document.getElementById('btn1').onclick=function(){
+        //     console.log(i);
+        // }
+        btns[i].onclick=function(){
+            console.log(i);
 
-//         }
-//     }
-// }
+        }
+        console.log(3);
+    }
+}
     
 
-// setclick();
+setclick();
+
+//setclick 이 있어야 실행컨텍스트가 만들어지고 그래야 호이스팅으로 만들어질수가 있음.
+
 
 //-----------------let으로 하면 해당하는 버튼값이 불려짐.
 // var btns=[

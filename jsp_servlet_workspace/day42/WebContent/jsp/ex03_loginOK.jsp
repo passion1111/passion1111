@@ -26,7 +26,9 @@
 	 String id = request.getParameter("userId");
 	 String pwd = request.getParameter("pwd");
 	 
-	 String[] hobby = request.getParameterValues("hobby");
+/* 	 String[] hobby = request.getParameterValues("hobby"); */ //여러개 가져올떄
+	Map map=request.getParameterMap();         //이것도 여러개 가져올떄.
+	String[]hobby=(String[])map.get("hobby");
 %>
 
 당신의 id : <%= id %> <br>

@@ -10,9 +10,10 @@ function setclick() {
         // document.getElementById('btn1').onclick=function(){
         //     console.log(i);
         // }
-        btns[i].onclick=function(){
+      //btns[i].onclick=aa으로하고 함수명을 익명말고 aa라고해도 실행됨.
+      btns[i].onclick=function(){
             console.log(i);
-
+        
         }
         console.log(3);
     }
@@ -20,6 +21,7 @@ function setclick() {
     
 
 setclick();
+
 
 //setclick 이 있어야 실행컨텍스트가 만들어지고 그래야 호이스팅으로 만들어질수가 있음.
 

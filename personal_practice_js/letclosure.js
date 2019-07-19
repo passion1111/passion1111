@@ -15,10 +15,11 @@ function setclick() {
             console.log(i);
         
         }
-        console.log(3);
+        a=3;
+        console.log(a);
     }
 }
-    
+    console.log(3);
 
 setclick();
 

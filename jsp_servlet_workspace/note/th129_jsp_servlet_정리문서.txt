@@ -1,0 +1,193 @@
+>> day43 - 19/07/19
+
+
+ > jsp 문법
+
+ 3. JSP의 지시자와 액션태그
+(1)지시자(Directive)
+① page 지시자
+    - info : 페이지를 설명해 주는 문자열, 속성값의 내용이나 길이의 제한이 없음
+                (JSP페이지의 제목을 붙이는것같은 기능)
+                <%@ page info="JSPStudy.co.kr" %>
+   - language : 기본값 java(생략가능)
+                <%@ page language="java" %>
+   - contentType : 어떤 내용으로 출력할것인지 MIME형태 , ISO-8859-1(표준)
+                <%page contentType="text/html"; charset="EUC-KR">
+   - extends : 상속받은 클래스
+                <% page extends="com.jspstudy.Directive" %>
+   - import : package이름을 지정하지 않고 다른 클래스를 가져와서 사용
+                   (쉼표로 구분해서 사용가능, 유일하게 중복사용가능)
+                 <%@ page import="java.util.*, java.sql.*"
+                                   import="java.io.*  %>                          
+   - session : HttpSession을 사용할지여부
+                 <% page session="false" %>
+   - buffer : nono으로 지정하면 출력버퍼 사용안함
+                 <%@ page buffer="16kb" %>
+   - autoFlush : true로 설정할경우 자동으로 버퍼삭제(다 채워졌을때)
+                  <%@ page autoFlush="false" %>
+   - isThreadSafe : 동시에 여러브라우저의 요청을 처리할지 여부
+                   <%@ page  isThreadSafe="false" %>
+   - errorPage : 예외가 발생할 경우 넘겨주는 페이지
+                   <%@ page errorPage="Error.jsp" %>
+                    //Error페이지가 나타나지 않을 경우
+	    Explorer에서 도구 -> 인터넷옵션 -> 고급 -> HTTP오류페이지표시(체크해제)
+   - isErrorPage :에러처리 담당 페이지인지 아닌지 여부
+                   <%@ page isErrorPage="true" %>
+   - pageEncoding : 인코딩 지정(기본값 : ISO-8859_1)
+                   <%@ page pageEncoding="EUC-KR" %>
+② include 지시자: JSP파일 삽입
+③ taglib
+
+ > life cycle
+
+ > JSP내부객체
+JSP페이지에서 JSP컨테이너가 제공하는 특별한객체(변수)
+- request : javax.servlet.http.HttpServletReqeuest 
+                   (파라미터를 포함한 요청을 담고 있는 객체)
+- response : javax.servlet.http.HttpServletResponse
+                    (요청에 대한 응답)
+-out : javax.servlet.jsp.JspWriter
+          (페이지의 내용을 담고 있는 출력스트림객체)
+-session :  javax.servlet.http.HttpSession
+              (세션정보를 담고있는 객체)
+-application :javax.servlet.ServletContent
+               (모든페이지가 공유할 데이터를 담고있는 객체)
+-pageContent :javax.servlet.jsp.PageContext
+                         (페이지실행에 필요한 context정보를 담고있는객체)
+-page  :javax.servlet.jsp.HttpJspPage
+              (JSP페이지의 서블릿객체)
+-config  :javax.servlet.ServletConfig
+              (JSP페이지의 서블릿설정 데이타 초기화 정보 객체)
+-exception  :java.lang.Throwable
+                (JSP페이지의 서블릿 실행시 처리하지 못한 예외객체)
+5. scope
+   -객체가 사용될 수 있는 범위(Life cycle)
+     (page   <  request   <  session  <  application )
+
+
+ > Action tag ( JSP tag )
+
+====================================================
+>> day42 - 19/07/18
+
+ - 내장(빌트인) 객체 위치 <-- 라이프사이클 
+ C:\th129_java_web_app_developer\5_Jsp_Servlet\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\day42_jsp\org\apache\jsp\jsp
+
+
+ cf)
+ /day42_jsp/WebContent/download/memo.txt
+
+
+ http://10.10.10.194:8080/day42_jsp/jsp/ex10_Form.jsp
+
+
+ - 템플릿 페이지 : html, jsp
+
+ - 언어 : utf-8    1)  2) 
+
+ - server.xml 설정 수정 
+   1) Tomcat     2) eclipse 
+
+ - API 문서 링크 걸기
+
+
+ - jsp 기본 문법
+
+ 문제] for, if 
+   1~100 까지 중에서 3의 배수의 개수와 합을 구하는 프로그램 작성
+
+<%! %>
+<% %>
+<%= %>
+
+1. 스크립트요소 4가지
+(1) 선언문
+     <%!
+           변수 및 메소드를 선언하는 영역
+      %>
+(2)스크립트릿
+     <%
+         코드작성(변수선언, for, while,if등)
+      %>
+(3)표현식
+     <%=변수 또는 메소드%>
+(4)주석
+    i) HTML에서 주석
+       <!-- Fighting <%=name%>-->
+   ii) JSP에서 주석
+       <%-- Fighting<%=name%> --%>
+   iii)스크립트 언어주석
+      <% ........../* 주석*/(여러줄 주석)............%>
+      <% ...........//주석(한줄주석)...........%>
+
+2. 한글처리
+    <%@ page contentType="text/html; charset=KSC-5601" %>
+                                                                     (또는 EUC-KR)
+     request.setCharacterEncoding("KSC5601");
+     String name = 
+	new String(request.getParameter("name").getBytes("8859-1"), "ksc5601");
+     //톰캣5.x버젼에서 GET방식에서 한글이 깨질때
+
+
+ - 
+  http://     localhost:8080/html/ch01/Login.html
+   프로토콜  호스트명:포트번호 /경로/파일명 
+			  WebContent
+
+
+ - jsp / servlet API link 걸어두기 
+
+
+ - jsp doc 옵션 설명
+  https://linuxism.ustd.ip.or.kr/252
+
+
+ - 한글 깨짐 처리 참고 사이트
+ https://kartnaver.tistory.com/10
+
+===========================================
+
+http://10.10.10.194:8080/day41_servlet/servlet/com.bitCamp.date.ServletDate
+
+C:\th129_java_web_app_developer\5_Jsp_Servlet\workspace\.metadata\.plugins\org.eclipse.wst.server.core
+
+>> day41 - 19/07/17
+
+ > setting & test
+
+ > Servlet  4.0   - 1) class   2) servlet  <--- HttpServlet extends 
+   Java + html
+
+   ## 설정 해줘야함.  
+   1) web.xml   
+
+   <servlet>
+  		<servlet-name></servlet-name>
+  		<servlet-class></servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name></servlet-name>
+  		<url-pattern></url-pattern>
+  </servlet-mapping> 
+
+   2) annotation 
+
+  info.html  <--- name, phone, age
+  servlet에서 처리하는 page  만들기
+
+
+ > JSP  <--- 2.3
+   Html + java
+  
+  
+
+
+
+
+
+
+
+
+
+

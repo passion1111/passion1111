@@ -1,7 +1,7 @@
 package array;
-//¹®Á¦2 ±â»óÃ»
-//   Æ¯Á¤´ÞÀÇ °­¼ö·® Æò±ÕÀ» ±¸ÇÏ´Â ÇÁ·Î±×·¥ ÀÛ¼º(´Ü,30ÀÏ ±âÁØ)
-//ÀÔ·Â°áÁ¤ ³ªÁß¿¡
+//ï¿½ï¿½ï¿½ï¿½2 ï¿½ï¿½ï¿½Ã»
+//   Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½Û¼ï¿½(ï¿½ï¿½,30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+//ï¿½Ô·Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½
 import java.util.Scanner;
 
 public class MainEntry_quiz2 {
@@ -9,27 +9,27 @@ public class MainEntry_quiz2 {
 		int month,raindate=0,sum=0;
 		double avg=0;
 		Scanner sc=new Scanner(System.in);
-		System.out.println("´ÞÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½");
 		month=sc.nextInt();
 	
 		
-		System.out.println("ÇÑ´Þµ¿¾È ºñ°¡ ¿Â ³¯Àº");
+		System.out.println("ï¿½Ñ´Þµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		raindate=sc.nextInt();
 		int[] a=new int[raindate];
 		
 		for(int i=0;i<a.length;i++) {
-			System.out.println((i+1)+"¹ø¤Š ºñ¿Â³¯ÀÇ °­¼ö·®À» Àû¾îÁÖ¼¼¿ä");
+			System.out.println((i+1)+"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
 			a[i]=sc.nextInt();
 			sum+=a[i];		
 			
 		}
 		
 		avg=sum/30.;
-		System.out.println(month+"´ÞÀÇ °­¼ö·® Æò±ÕÀÔ´Ï´Ù.");
-		System.out.println("°­¼ö·® Æò±ÕÀº="+avg);
+		System.out.println(month+"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½="+avg);
 		 
 		
-	
+	sc.close();
 	
 	}
 }

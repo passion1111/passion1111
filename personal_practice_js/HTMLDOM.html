@@ -7,28 +7,51 @@
     <title>Document</title>
 </head>
 <body>
-<!--HTML요소들을 객체화하는 로드 과정이 포함됨.바디안에는
-여러 요소들이 꼬리에 꼬리를 붙이는식으로 이어져있음
-그래서 이름을통해서제어를 하게 됩니다.
-id의 경우 개성을 갖고있어 모든 id는 다르게 지정을 해줘야하고
-name속성은 id와다르게 중복사용이 가능하다.
--->
-<input type="button" value="출력"  onclick="printResult();" id="btnPrint">
-
+    <!--HTML요소들을 객체화하는 로드 과정이 포함됨.바디안에는
+        여러 요소들이 꼬리에 꼬리를 붙이는식으로 이어져있음
+        그래서 이름을통해서제어를 하게 됩니다.
+        id의 경우 개성을 갖고있어 모든 id는 다르게 지정을 해줘야하고
+        name속성은 id와다르게 중복사용이 가능하다.
+    -->
+    
+    <!-- <input type="button" value="출력"  onclick="printResult();" id="btnPrint"> -->
+    <!-- <input type="button" value="출력" id="btnPrint"><br>  html에서는 대쉬로 구분 자바스크립트에서는 낙타 표기법으로 구분-->
+    <input type="button" value="출력" id="btn-print"><br>
+ 
+    <span onclick="alert('hello');" id="span1">스팬입니다</span>"
 <script>
 function printResult() {
+    var btnPrint=document.getElementById("btn-print")
     var x,y
     x=prompt("x값을 입력해주세요");
     y=prompt("y값을 입력해주세요");
-    // btnPrint.value=x+y;
+    console.log(parseInt(x+y))
+    btnPrint.value=Number(x+y);
     //span은  value라는 속성이 없기떄문에
     span1.innerText=x+y;
-    innerHTML
+    
+   
 }
+function init() {
+    btnPrint=document.getElementById("btn-print")
+    btnPrint.onclick=printResult;
+}
+window.onload=init;
 //버튼이 눌리게되면 printREsult가 실행되게 되고 printresult에서는 x와 y값을 입력받은후에
 //btnprint의 value값을 x+y로 바꾸게해서 버튼에 출력대신 23이라는 숫자를 나타나게 함
+//변수 =함수   변수는 함수를 대표함.
+//변수=함수() 결과를 대입
+//자바스크립트 위치에따라서도 오류가 발생되냐 안되느냐도 정해짐.
+// 자바스크립트에서 메모리상에 없는 자바스크립트 코드가 보여지면
+// 에러가 발생돼서 자바스크립트에러가 떠서 기능을 구현하지 못할수도있음.    
+
+//바디에onload 할수도있고 
+//window에 onload를 걸수도있는데 body에 onload를 걸면 문제는
+//바디이외의 자원인 css라던가  이미지라던가 하는것들이
+// 가져오지않았을떄 onload가 돼서 문제가 생길수도있어서 
+// 잘 선택해야함.
 </script>
-<span onclick="alert('hello');" id="span1">스팬입니다</span>"
+
 
 </body>
 </html>

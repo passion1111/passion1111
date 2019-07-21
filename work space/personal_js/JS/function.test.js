@@ -1,5 +1,23 @@
 const functions=require('./jest');
 
+// beforeEach(()=>initDatabase());
+// afterEach(()=>closeDatabase());
+
+// const initDatabase=()=>console.log('database 초기화중');
+// const closeDatabase()=>console.log('database 닫음');
+//안됨 이유 찾아보기
+const namecheck=()=>console.log('checking name..');
+
+describe('checking name', () => {
+    beforeEach(()=>namecheck());
+    test('유저는 제프다',()=>{
+        const user='제프';
+        expect(user).toBe('제프');
+    });
+
+});
+
+
 test('adds 2+2 to equals 4',()=>{
     expect(functions.add(2,2)).toBe(4);
 });

@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest"
+    // "testwatch":"jest --watchAll" 바뀐게있나 확인하는 모드 
   },
   "author": "",
   "license": "ISC",

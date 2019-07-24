@@ -13,12 +13,12 @@
 
 <%
 	String id = request.getParameter("id");
-	//MemberDAO dao = MemberDAO.getInstance();
-	//int check = dao.confirmID(id);
+	MemberDAO dao = MemberDAO.getInstance();
+	int check = dao.confirmID(id);
 %>
 </head>
 <body bgcolor="<%=bodyback_c %>">
-<% //if(check == 1) { %>
+<% if(check == 1) { %>
 
 <table width="270" border="0" cellpadding="5" cellspacing="0">
 	<tr bgcolor="<%=title_c %>">
@@ -38,7 +38,7 @@
 </table>
 
 </form>
-<% //  }else { %>
+<%   }else { %>
 
 
 <table width="270" border="0" cellspacing="0" cellpadding="5">
@@ -49,7 +49,7 @@
  		</td>
  	</tr> 	
 </table>
-<% //} %>
+<% } %>
 </body>
 </html>
 

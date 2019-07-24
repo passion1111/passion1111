@@ -6,13 +6,14 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
+
 <jsp:useBean id="vo" class="edu.bit.member.MemberVO" />
-<jsp:setProperty name="vo" property="*" />
+<jsp:setProperty name="vo" property="*" />   <!-- getpropert는 필드당받아와야함. -->
 
 <%
-	//vo.setReg_date(new Timestamp(System.currentTimeMillis()));
-	//MemberDAO dao = MemberDAO.getInstance(); //연결
-//	dao.insert(vo);
+	vo.setReg_date(new Timestamp(System.currentTimeMillis()));
+	MemberDAO dao = MemberDAO.getInstance(); //연결
+	dao.insert(vo);
 %>
 
 <jsp:getProperty property="name" name="vo"/> 님의 회원 가입을 축하합니다.

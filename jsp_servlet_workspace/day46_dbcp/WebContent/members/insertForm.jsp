@@ -4,7 +4,7 @@
 <head>
 <title>회원가입창</title>
 <link href="/view/mystyle.css" rel="stylesheet" type="text/css">
-<script language="JavaScript">
+<script language="JavaScript"> <!-- 주석처리해놓아도 돌아감 만약 자바스크립트 안돌아가는 환경이라면 문제가 생길수있어서 주석을 달아놓음.-->
 <!--
     function checkIt() { //사용자가 입력폼에 입력한 상황을 체크
         var userinput = eval("document.userinput");
@@ -118,6 +118,7 @@
           <input type="submit" name="confirm" value="등 록" >
           <input type="reset" name="reset" value="다시입력">
           <input type="button" value="가입확인" onclick="javascript:window.location='main.jsp'">
+          <input type="button" value="회원목록보기" onclick="javascript:window.location='memberList.jsp'">
       </td>
     </tr>
   </table>

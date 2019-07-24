@@ -13,14 +13,14 @@
 	}
 	function checkIt(){
 		if(!document.myform.id.value){
-			alert("이름을 입력하지 않았습니다.");
+			alert("아이디를 입력하지 않았습니다.");
 			document.myform.id.focus();
 			return false;
 		}
 		
-		if(!document.myform.passwd.value){
+		if(!document.myform.pwd.value){
 			alert("비밀번호를 입력하지 않았습니다.");
-			document.myform.passwd.focus();
+			document.myform.pwd.focus();
 			return false;
 		}
 	}

@@ -26,7 +26,7 @@
 <body>
 <form name="myform" action="deletePro.jsp" 
 				method="post" onSubmit="return checkIt()">
-<table width="260" align="center" border="1" cellpadding="1" cellspacing="1">
+<table width="360" align="center" border="1" cellpadding="1" cellspacing="1">
 
 <tr height="30">
 	<td colspan="2" align="middle" bgcolor="<%=title_c %>">
@@ -38,7 +38,7 @@
 <tr height="30">
 	<td width="110" bgcolor="<%= value_c %>" align="center">비밀번호 </td>
 	<td width="150" align="center" >
-		<input type="password" name="passwd" size="15" maxlength="12">
+		<input type="password" name="passwd" size="20" maxlength="12">
 	</td>
 </tr>
 

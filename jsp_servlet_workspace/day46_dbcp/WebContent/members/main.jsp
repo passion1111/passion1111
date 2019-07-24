@@ -1,5 +1,7 @@
+<%@page import="edu.bit.member.MemberDAO"%>
 <%@ page  contentType="text/html; charset=utf-8"%>
 <%@ include file="../view/color.jsp"%>
+<%@page import="java.sql.*" %>
 <html>
 <head><title>Main Page</title>
 <link href="../view/mystyle.css" rel="stylesheet" type="text/css">
@@ -24,9 +26,9 @@ function focusIt()
 	 inputForm.id.focus();
 	 return false;
    }
-   if(!inputForm.passwd.value){
+   if(!inputForm.pwd.value){
      alert("비밀번호를 입력하세요.");
-	 inputForm.passwd.focus();
+	 inputForm.pwd.focus();
 	 return false;
    }
  }
@@ -35,6 +37,10 @@ function focusIt()
 </head>
 
 <body onLoad="focusIt();" bgcolor="<%=bodyback_c%>">
+<%
+	Connection conn=MemberDAO.getInstance().getConnection();
+	out.print("연결성공444");
+%>
   <table width=500 cellpadding="0" cellspacing="0"  align="center" border="1" >
       <tr>
        <td width="300" bgcolor="<%=bodyback_c%>" height="20">
@@ -78,7 +84,7 @@ function focusIt()
      </table>
      <br>
  <%}
- }catch(NullPointerException e){}
+ }catch(NullPointerException e){e.printStackTrace();}
  %>
  </body>
 </html>

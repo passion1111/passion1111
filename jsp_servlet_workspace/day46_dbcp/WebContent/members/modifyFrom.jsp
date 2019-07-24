@@ -34,7 +34,7 @@
 	//사용자의 id값은 세션속성값으로부터 얻어옴
 	String id = (String)session.getAttribute("memID");
 	MemberDAO dao = MemberDAO.getInstance();
-	MemberVO vo ; // = dao.getMember(id);  //
+	MemberVO vo  = dao.getMember(id);  //
 	
 	try{
 %>
@@ -103,9 +103,9 @@
 			<td width="200"  >Blog </td>
 			<td width="400" >
 			<% if(vo.getBlog() == null ) { %>
-			<input type="text" name="email" size="60" maxlength="50" >
+			<input type="text" name="blog" size="60" maxlength="50" >
 			<% }else { %>
-			<input type="text" name="email" size="60" maxlength="50" value="<%=vo.getBlog() %>">
+			<input type="text" name="blog" size="60" maxlength="50" value="<%=vo.getBlog() %>">
 			<% } %>
 			</td>
 		</tr>

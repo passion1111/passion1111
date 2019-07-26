@@ -13,20 +13,19 @@
 <link href="../view/style.css" rel = "stylesheet" type = "text/css">
 </head>
 <%
-	int num = Integer.parseInt(request.getParameter("num"));
-	String pageNum = request.getParameter("pageNum");
-	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	int num=Integer.parseInt(request.getParameter("num"));
+	String pageNum=request.getParameter("pageNum");
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	try{
-		BoardDAO dao = BoardDAO.getInstance();
-		BoardVO vo = dao.getDataDetail(num);
+		BoardDAO dao=BoardDAO.getInstance();
+		BoardVO vo=dao.getDataDetail(num);
+		int ref=vo.getRef();
+		int re_step=vo.getRe_step();
+		int re_level=vo.getRe_level();
 		
-		int ref = vo.getRef();
-		int re_step = vo.getRe_step();
-		int re_level = vo.getRe_level();
 		
-		System.out.print("content.jsp - ref : " + ref+" /re_step : " + re_step + " / re_level : " + re_level);
-%>
+	
+	%>
 <body bgcolor = "<%= bodyback_c %>">
 <center><b>상세보기 페이지</b><br>
 <form>

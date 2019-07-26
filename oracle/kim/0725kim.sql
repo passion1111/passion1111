@@ -46,7 +46,7 @@ select count(writer) from board;
 select rownum  ,email from board where rownum>1; 
 select * from board;
 delete from board;
-
+commit;
 UPDATE BOARD SET RE_STEP = RE_STEP + 1, RE_LEVEL = RE_LEVEL + 1 WHERE ref=1;
 
 SELECT MAX(RE_STEP) FROM BOARD where ref = 83 and re_level = 1
@@ -55,6 +55,15 @@ select count(writer) from board;
 select max(re_step) from board where ref=1 and re_level=1;
 
 
-select *,r from(select *, rownum r
-			from(select * from board order by ref desc, re_step asc)
-			order by ref desc, re_step asc, re_level asc, reg_date asc) where r>=2 and r<=5;
+select * from(select num, writer, email, subject, passwd,
+			reg_date, ref, re_step, re_level, content, ip, readcount, rownum r 
+			from(select num, writer, email, subject, passwd, reg_date, ref, re_step,
+			re_level, content, ip, readcount from board order by ref desc, re_step asc)
+			order by ref desc, re_step asc, re_level asc, reg_date asc) where r>=2 and r<=5
+            
+            
+            select * from(select num,writer,email,subject,rownum r from(select *from
+            board orderby ref desc,re_step asc)order by ref desc,re_step asc)where r>=2 and r<5;
+            
+            select *,rownum from dual;
+            select * from(select rownum r from (select *from dual)) where r<5;

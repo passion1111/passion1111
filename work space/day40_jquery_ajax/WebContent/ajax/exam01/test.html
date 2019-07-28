@@ -12,13 +12,13 @@
 			httpRequest = new XMLHttpRequest();
 		}else if( window.ActiveXObject ) {  //IE
 			httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		}else {
+		}else {  
 			httpRequest = null;
 		}
 	 
 	  //2단계 : 서버에서 응답해준 결과를 처리할 수 있는 callback함수를 설정
 		httpRequest.onreadystatechange = responseMsg;
-		
+		//async로 자바스크립트 실습해볼것
 		//3단계 : 초기화 작업(open())을 한후, XMLHttpRequest객체가 서버에게 요청(send() )
 		/* httpRequest.open('GET', 'hello.html', true); */
 		httpRequest.open('GET', 'hello.html', true);

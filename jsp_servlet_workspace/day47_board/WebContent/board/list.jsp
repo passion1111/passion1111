@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ page  import="edu.bit.board.*" %>
 <%@ page import="java.util.*  ,  java.text.SimpleDateFormat"  %>
 
 <%@ include file = "/view/color.jsp" %>

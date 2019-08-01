@@ -1,11 +1,13 @@
 <!-- updatePro.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="edu.bit.board.*  , java.sql.Timestamp" %>
+<%@ page import="edu.bit.board.model.*,java.sql.Timestamp" %>
 
-<% request.setCharacterEncoding("utf-8"); %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 
-<jsp:useBean id="vo" class="edu.bit.board.BoardVO">
+<jsp:useBean id="vo" class="edu.bit.board.model.BoardVO">
 	<jsp:setProperty name="vo" property="*" />
 </jsp:useBean>
 

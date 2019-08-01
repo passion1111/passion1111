@@ -1,14 +1,14 @@
 <!-- deletePro.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="edu.bit.board.*" %>
+<%@ page import="edu.bit.board.model.*" %>
 <%@ page import="java.sql.Timestamp" %>
 
 <%
 	request.setCharacterEncoding("utf-8");
 %>
 
-<jsp:useBean id="vo"  class="edu.bit.board.BoardVO">
+<jsp:useBean id="vo"  class="edu.bit.board.model.BoardVO">
     <jsp:setProperty  name="vo"   property="*"  />
 </jsp:useBean>
 

@@ -2,10 +2,8 @@
 <%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,  edu.bit.board.*" %>
-
-<% request.setCharacterEncoding("utf-8"); %>
-<jsp:useBean id="vo" class="edu.bit.board.BoardVO">
+<%@ pedu.bit.board.model.*a.util.*request.setCharacterEncoding("UTF-8");CharacterEncoding("utf-8"vo %>
+<jspedu.bit.board.model.BoardVOs="edu.bit.board.BoardVO">
 	<jsp:setProperty name="vo" property="*" />
 </jsp:useBean>
 

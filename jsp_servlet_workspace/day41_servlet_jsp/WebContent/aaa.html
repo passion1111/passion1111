@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ 
+    
+        <input type="button" id="#btnOK" value="눌러">
+
+        <script>
+               
+         
+         
+         
+             //    weather?id=2172797&appid=b6907d289e10d714a6e88b30761fae22
+                 var apiURI ="http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=11b4785b3669c9705747ef7b30401e47";
+                 $.ajax({
+                     url: apiURI,
+                     dataType: "json",
+                     type: "GET",
+                  
+                     success: function(resp) {
+                         console.log(resp);
+                         console.log("현재온도 : "+ (resp.main.temp- 273.15) );
+                                       
+                     }
+                 })
+                
+                 
+                 </script>
+
+    </body>
+</html>

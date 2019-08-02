@@ -25,7 +25,7 @@ public class BoardDAO
 		return instance;
 	}
 	
-	// ½ÃÄö½º¸¦ °¡Á®¿Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	public int getSeq()
 	{
 		int result = 1;
@@ -33,12 +33,12 @@ public class BoardDAO
 		try {
 			conn = DBConnection.getConnection();
 			
-			// ½ÃÄö½º °ªÀ» °¡Á®¿Â´Ù. (DUAL : ½ÃÄö½º °ªÀ» °¡Á®¿À±âÀ§ÇÑ ÀÓ½Ã Å×ÀÌºí)
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. (DUAL : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½)
 			StringBuffer sql = new StringBuffer();
 			sql.append("SELECT BOARD_NUM.NEXTVAL FROM DUAL");
 			
 			pstmt = conn.prepareStatement(sql.toString());
-			// Äõ¸® ½ÇÇà
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			rs = pstmt.executeQuery();
 			
 			if(rs.next())	result = rs.getInt(1);
@@ -51,7 +51,7 @@ public class BoardDAO
 		return result;	
 	} // end getSeq
 	
-	// ±Û »ðÀÔ
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean boardInsert(BoardBean board)
 	{
 		boolean result = false;
@@ -59,7 +59,7 @@ public class BoardDAO
 		try {
 			conn = DBConnection.getConnection();
 			
-			// ÀÚµ¿ Ä¿¹ÔÀ» false·Î ÇÑ´Ù.
+			// ï¿½Úµï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ ï¿½Ñ´ï¿½.
 			conn.setAutoCommit(false);
 			
 			StringBuffer sql = new StringBuffer();
@@ -68,11 +68,11 @@ public class BoardDAO
 			sql.append(", BOARD_RE_REF, BOARD_COUNT, BOARD_DATE, BOARD_PARENT)");
 			sql.append(" VALUES(?,?,?,?,?,?,?,sysdate,?)");
 			
-			int num = board.getBoard_num();			// ±Û¹øÈ£(½ÃÄö½º °ª)
-			int ref = board.getBoard_re_ref(); 		// ±×·ì¹øÈ£
-			int parent = board.getBoard_parent(); 	// ºÎ¸ð±Û¹øÈ£
+			int num = board.getBoard_num();			// ï¿½Û¹ï¿½È£(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+			int ref = board.getBoard_re_ref(); 		// ï¿½×·ï¿½ï¿½È£
+			int parent = board.getBoard_parent(); 	// ï¿½Î¸ï¿½Û¹ï¿½È£
 			
-			// ºÎ¸ð±ÛÀÏ °æ¿ì ±×·ì¹øÈ£¿Í ±Û¹øÈ£ µ¿ÀÏ
+			// ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½È£ï¿½ï¿½ ï¿½Û¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 			if(parent == 0) ref = num;
 			
 			pstmt = conn.prepareStatement(sql.toString());
@@ -88,7 +88,7 @@ public class BoardDAO
 			int flag = pstmt.executeUpdate();
 			if(flag > 0){
 				result = true;
-				conn.commit(); // ¿Ï·á½Ã Ä¿¹Ô
+				conn.commit(); // ï¿½Ï·ï¿½ï¿½ Ä¿ï¿½ï¿½
 			}
 			
 		} catch (Exception e) {
@@ -106,7 +106,7 @@ public class BoardDAO
 	} // end boardInsert();
 	
 	
-	// ±Û¸ñ·Ï °¡Á®¿À±â
+	// ï¿½Û¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public ArrayList<BoardBean> getBoardList(HashMap<String, Object> listOpt)
 	{
 		ArrayList<BoardBean> list = new ArrayList<BoardBean>();
@@ -119,7 +119,7 @@ public class BoardDAO
 			conn = DBConnection.getConnection();
 			StringBuffer sql = new StringBuffer();
 			
-			// ±Û¸ñ·Ï ÀüÃ¼¸¦ º¸¿©ÁÙ ¶§
+			// ï¿½Û¸ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			if(opt == null)
 			{
 				/*
@@ -161,10 +161,10 @@ public class BoardDAO
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, start+9);
 				
-				// StringBuffer¸¦ ºñ¿î´Ù.
+				// StringBufferï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("0")) // Á¦¸ñÀ¸·Î °Ë»ö
+			else if(opt.equals("0")) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			{
 				sql.append("SELECT * FROM");
 				sql.append(" (SELECT  ROWNUM AS rnum, data.* FROM ");
@@ -186,7 +186,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("1")) // ³»¿ëÀ¸·Î °Ë»ö
+			else if(opt.equals("1")) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			{
 				sql.append("SELECT * FROM");
 				sql.append(" (SELECT  ROWNUM AS rnum, data.* FROM ");
@@ -194,7 +194,7 @@ public class BoardDAO
 				sql.append("			BOARD_CONTENT, BOARD_FILE,BOARD_COUNT,");
 				sql.append("			BOARD_RE_REF, BOARD_PARENT, BOARD_DATE");
 				sql.append("	FROM MEMBER_BOARD");
-				sql.append(" 	WHERE BOARD_CONTENT like ?");
+				sql.append(" 	WHERE BOARD_C ONTENT like ?");
 				sql.append("	START WITH BOARD_PARENT = 0");
 				sql.append("	CONNECT BY PRIOR BOARD_NUM = BOARD_PARENT");
 				sql.append("	ORDER SIBLINGS BY BOARD_RE_REF desc)");              
@@ -208,7 +208,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("2")) // Á¦¸ñ+³»¿ëÀ¸·Î °Ë»ö
+			else if(opt.equals("2")) // ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 			{
 				sql.append("SELECT * FROM");
 				sql.append(" (SELECT  ROWNUM AS rnum, data.* FROM ");
@@ -232,7 +232,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("3")) // ±Û¾´ÀÌ·Î °Ë»ö
+			else if(opt.equals("3")) // ï¿½Û¾ï¿½ï¿½Ì·ï¿½ ï¿½Ë»ï¿½
 			{	
 				sql.append("SELECT * FROM");
 				sql.append(" (SELECT  ROWNUM AS rnum, data.* FROM ");
@@ -282,7 +282,7 @@ public class BoardDAO
 	} // end getBoardList
 	
 	
-	// ±ÛÀÇ °³¼ö¸¦ °¡Á®¿À´Â ¸Þ¼­µå
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	public int getBoardListCount(HashMap<String, Object> listOpt)
 	{
 		int result = 0;
@@ -293,15 +293,15 @@ public class BoardDAO
 			conn = DBConnection.getConnection();
 			StringBuffer sql = new StringBuffer();
 			
-			if(opt == null)	// ÀüÃ¼±ÛÀÇ °³¼ö
+			if(opt == null)	// ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				sql.append("select count(*) from MEMBER_BOARD");
 				pstmt = conn.prepareStatement(sql.toString());
 				
-				// StringBuffer¸¦ ºñ¿î´Ù.
+				// StringBufferï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("0")) // Á¦¸ñÀ¸·Î °Ë»öÇÑ ±ÛÀÇ °³¼ö
+			else if(opt.equals("0")) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				sql.append("select count(*) from MEMBER_BOARD where BOARD_SUBJECT like ?");
 				pstmt = conn.prepareStatement(sql.toString());
@@ -309,7 +309,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("1")) // ³»¿ëÀ¸·Î °Ë»öÇÑ ±ÛÀÇ °³¼ö
+			else if(opt.equals("1")) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				sql.append("select count(*) from MEMBER_BOARD where BOARD_CONTENT like ?");
 				pstmt = conn.prepareStatement(sql.toString());
@@ -317,7 +317,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("2")) // Á¦¸ñ+³»¿ëÀ¸·Î °Ë»öÇÑ ±ÛÀÇ °³¼ö
+			else if(opt.equals("2")) // ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				sql.append("select count(*) from MEMBER_BOARD ");
 				sql.append("where BOARD_SUBJECT like ? or BOARD_CONTENT like ?");
@@ -327,7 +327,7 @@ public class BoardDAO
 				
 				sql.delete(0, sql.toString().length());
 			}
-			else if(opt.equals("3")) // ±Û¾´ÀÌ·Î °Ë»öÇÑ ±ÛÀÇ °³¼ö
+			else if(opt.equals("3")) // ï¿½Û¾ï¿½ï¿½Ì·ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				sql.append("select count(*) from MEMBER_BOARD where BOARD_ID like ?");
 				pstmt = conn.prepareStatement(sql.toString());
@@ -348,7 +348,7 @@ public class BoardDAO
 	} // end getBoardListCount
 	
 	
-	// »ó¼¼º¸±â
+	// ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	public BoardBean getDetail(int boardNum)
 	{	
 		BoardBean board = null;
@@ -385,7 +385,7 @@ public class BoardDAO
 		return board;
 	} // end getDetail()
 	
-	// Á¶È¸¼ö Áõ°¡
+	// ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean updateCount(int boardNum)
 	{
 		boolean result = false;
@@ -393,7 +393,7 @@ public class BoardDAO
 		try {
 			conn = DBConnection.getConnection();
 			
-			// ÀÚµ¿ Ä¿¹ÔÀ» false·Î ÇÑ´Ù.
+			// ï¿½Úµï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ ï¿½Ñ´ï¿½.
 			conn.setAutoCommit(false);
 			
 			StringBuffer sql = new StringBuffer();
@@ -406,11 +406,11 @@ public class BoardDAO
 			int flag = pstmt.executeUpdate();
 			if(flag > 0){
 				result = true;
-				conn.commit(); // ¿Ï·á½Ã Ä¿¹Ô
+				conn.commit(); // ï¿½Ï·ï¿½ï¿½ Ä¿ï¿½ï¿½
 			}	
 		} catch (Exception e) {
 			try {
-				conn.rollback(); // ¿À·ù½Ã ·Ñ¹é
+				conn.rollback(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
 			} catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
@@ -422,7 +422,7 @@ public class BoardDAO
 	} // end updateCount
 	
 	
-	// »èÁ¦ÇÒ ÆÄÀÏ¸íÀ» °¡Á®¿Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	public String getFileName(int boardNum)
 	{
 		String fileName = null;
@@ -447,14 +447,14 @@ public class BoardDAO
 		return fileName;
 	} // end getFileName
 		
-	// °Ô½Ã±Û »èÁ¦
+	// ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean deleteBoard(int boardNum) 
 	{
 		boolean result = false;
 
 		try {
 			conn = DBConnection.getConnection();
-			conn.setAutoCommit(false); // ÀÚµ¿ Ä¿¹ÔÀ» false·Î ÇÑ´Ù.
+			conn.setAutoCommit(false); // ï¿½Úµï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ ï¿½Ñ´ï¿½.
 
 			StringBuffer sql = new StringBuffer();
 			sql.append("DELETE FROM MEMBER_BOARD");
@@ -470,12 +470,12 @@ public class BoardDAO
 			int flag = pstmt.executeUpdate();
 			if(flag > 0){
 				result = true;
-				conn.commit(); // ¿Ï·á½Ã Ä¿¹Ô
+				conn.commit(); // ï¿½Ï·ï¿½ï¿½ Ä¿ï¿½ï¿½
 			}	
 			
 		} catch (Exception e) {
 			try {
-				conn.rollback(); // ¿À·ù½Ã ·Ñ¹é
+				conn.rollback(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
 			} catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
@@ -486,14 +486,14 @@ public class BoardDAO
 		return result;
 	} // end deleteBoard
 	
-	// ±Û ¼öÁ¤
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public boolean updateBoard(BoardBean border) 
 	{
 		boolean result = false;
 		
 		try{
 			conn = DBConnection.getConnection();
-			conn.setAutoCommit(false); // ÀÚµ¿ Ä¿¹ÔÀ» false·Î ÇÑ´Ù.
+			conn.setAutoCommit(false); // ï¿½Úµï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ falseï¿½ï¿½ ï¿½Ñ´ï¿½.
 			
 			StringBuffer sql = new StringBuffer();
 			sql.append("UPDATE MEMBER_BOARD SET");
@@ -512,12 +512,12 @@ public class BoardDAO
 			int flag = pstmt.executeUpdate();
 			if(flag > 0){
 				result = true;
-				conn.commit(); // ¿Ï·á½Ã Ä¿¹Ô
+				conn.commit(); // ï¿½Ï·ï¿½ï¿½ Ä¿ï¿½ï¿½
 			}
 			
 		} catch (Exception e) {
 			try {
-				conn.rollback(); // ¿À·ù½Ã ·Ñ¹é
+				conn.rollback(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
 			} catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
@@ -529,7 +529,7 @@ public class BoardDAO
 	} // end updateBoard
 	
 	
-	// DB ÀÚ¿øÇØÁ¦
+	// DB ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void close()
 	{
 		try {

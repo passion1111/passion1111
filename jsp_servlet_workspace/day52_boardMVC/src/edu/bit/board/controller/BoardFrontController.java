@@ -47,7 +47,7 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if( com.equals("writeForm.do")) {
-			nextPage = "writeForm.jsp";
+			nextPage = "/board/writeForm.jsp";
 		}else if( com.equals("writePro.do")) {
 			nextPage = "writePro.jsp";
 		}else if( com.equals("deleteForm.do")) {
@@ -59,7 +59,7 @@ public class BoardFrontController extends HttpServlet {
 		}else if( com.equals("updatePro.do")) {
 			nextPage = "updatePro.jsp";
 		}
-		
+	
 		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 		d.forward(request, response);
 	}

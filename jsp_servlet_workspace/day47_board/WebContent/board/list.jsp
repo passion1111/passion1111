@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.*  ,  java.text.SimpleDateFormat"  %>
-
+    <%@page import="edu.bit.board.*"%>
 <%@ include file = "/view/color.jsp" %>
 
 <%
@@ -13,6 +13,7 @@
 	String pageNum = request.getParameter("pageNum");
 	
 	if( pageNum == null ) pageNum = "1";
+	
 	
 	int currentPage = Integer.parseInt(pageNum);  // ex) 1
 	int startRow = (currentPage * pageSize) - SU; // (1 * 7) - 6 = 1 : start

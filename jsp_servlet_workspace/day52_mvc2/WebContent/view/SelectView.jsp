@@ -8,8 +8,12 @@
 <title>select임</title>
 </head>
 <body>
-<jsp:useBean id="vo" class="com.service.SelectService" />
-<jsp:setProperty property="*" name="vo"/>
+<c:forEach var="i" items="${list }">
 
+
+
+${i.name }
+
+</c:forEach>
 </body>
 </html>

@@ -1,5 +1,4 @@
-<%@page import="edu.bit.board.model.BoardVO"%>
-<%@page import="edu.bit.board.model.BoardDAO"%>
+    <%@page import="edu.bit.board.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../view/color.jsp" %>

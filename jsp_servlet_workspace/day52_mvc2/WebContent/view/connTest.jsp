@@ -9,10 +9,9 @@
 <title>ConnTest</title>
 </head>
 <body>
-<%--
+<%
 	EmpDAO dao=new EmpDAO();
 
---%>
-<jsp:useBean id="dao" class="com.dao.EmpDAO"></jsp:useBean>
+%>
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 <context reloadable="true">
 	<WatchedResource>WEB-INF/web.xml</WatchedResource>
-	 <Resource name="jdbc:EmpDB"
+	 <Resource name="jdbc:BoardDB"
 	 			 auth="Container"
             type="javax.sql.DataSource"
 			username="kim"

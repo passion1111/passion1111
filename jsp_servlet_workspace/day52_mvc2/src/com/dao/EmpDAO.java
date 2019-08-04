@@ -27,9 +27,9 @@ public class EmpDAO {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
-	}// end 생성자함수 
+	}// end �깮�꽦�옄�븿�닔 
 	
-	//데이터 검색(select)
+	//�뜲�씠�꽣 寃��깋(select)
 	public ArrayList<EmpDTO> select() {
 		
 		ArrayList<EmpDTO> list = new ArrayList<EmpDTO>();
@@ -57,7 +57,7 @@ public class EmpDAO {
 			CloseUtil.close(pstmt);
 			CloseUtil.close(conn);
 		}//try end
-		
+		System.out.println("dao거쳐갔어여");
 		return list;
 	}//end select()
 	

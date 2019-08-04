@@ -1,4 +1,4 @@
-<%@page import="edu.bit.board.model.BoardDAO"%>
+<%@page import="edu.bit.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,8 +9,8 @@
 </head>
 <body>
 <%
-
-BoardDAO.getConnection();
+BoardDAO dao=BoardDAO.getInstance();
+dao.getConnection();
 out.print("ddd");
 %>
 </body>

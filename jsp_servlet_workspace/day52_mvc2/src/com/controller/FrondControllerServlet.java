@@ -1,5 +1,6 @@
 package com.controller;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,8 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.service.*;
+
 import com.domain.EmpDTO;
+import com.service.SelectService;
 
 @WebServlet("*.do")
 public class FrondControllerServlet extends HttpServlet {
@@ -24,28 +26,30 @@ public class FrondControllerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		getRequestURI()와 getContextPat 메소드를 사용하여 사용자 요청시 추가한 식별값을 얻는다
+//		getRequestURI()�� getContextPat 硫붿냼�뱶瑜� �궗�슜�븯�뿬 �궗�슜�옄 �슂泥��떆 異붽��븳 �떇蹂꾧컪�쓣 �뼸�뒗�떎
 		String requestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
 		String command=requestURI.substring(contextPath.length());
 		System.out.println("requestURI "+requestURI);
 		System.out.println("contextPath "+contextPath);
 		System.out.println("command "+command);
-	//식별값을 비교 처리하여 원하는 작업을 수행한다.
+	//�떇蹂꾧컪�쓣 鍮꾧탳 泥섎━�븯�뿬 �썝�븯�뒗 �옉�뾽�쓣 �닔�뻾�븳�떎.
 		if(command.equals("/insert.do")) {
-			System.out.println("insert.do로 들어옴");
+			System.out.println("insert.do濡� �뱾�뼱�샂");
 		}
-		else if(command.equals("/select.do")) {
-//			System.out.println("select.do로 들어옴");
+		else if(command.equals("/view/select.do")) {
+//			System.out.println("select.do濡� �뱾�뼱�샂");
 		ArrayList<EmpDTO> list=new SelectService().execute(request,response);	
-		RequestDispatcher rd=request.getRequestDispatcher("/view/SelectView");
+		request.setAttribute("list", list);
+		System.out.println("command다녀갔어여");
+		RequestDispatcher rd=request.getRequestDispatcher("/view/SelectView.jsp");
 		rd.forward(request, response);
 		}
 		else if(command.equals("/delte.do")) {
-			System.out.println("delete.do로 들어옴");
+			System.out.println("delete.do濡� �뱾�뼱�샂");
 		}
 		else if(command.equals("/update.do")) {
-			System.out.println("update.do로 들어옴");
+			System.out.println("update.do濡� �뱾�뼱�샂");
 		}
 	
 	

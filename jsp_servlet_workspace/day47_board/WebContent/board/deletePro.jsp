@@ -1,7 +1,7 @@
 <!-- deletePro.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="edu.bit.board.model.*" %>
+    <%@page import="edu.bit.board.*"%>
 <%@ page import="java.sql.Timestamp" %>
 
 <%

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import trade.board.model.TradeBoardDao;
+import common.action.ActionForward;
+import trade.board.action.TradeBoardListAction;
+import trade.board.model.TradeBoardDAO;
 
 @WebServlet("*.do")
 public class TradeBoardController extends HttpServlet {
@@ -27,16 +29,22 @@ public class TradeBoardController extends HttpServlet {
 		System.out.println(requestURI);
 		System.out.println(contextPath);
 		System.out.println(command);
-		
+
 		
 		if(command.equals("view/list.do")) {
-			System.out.println("list.do");
 //			TradeBoardDao dao=new TradeBoardDao();
-			RequestDispatcher rd=request.getRequestDispatcher("/view/Connsuc.jsp");
-			request.setAttribute("dd", "22222");
-			TradeBoardDao dao=new TradeBoardDao();
-			rd.forward(request, response);
-		}
+			TradeBoardDAO dao=new TradeBoardDAO();
+
+			try {
+				ActionForward action=new TradeBoardListAction().execute(request, response);
+				System.out.println(action.getNextPath() +"dddd");
+				RequestDispatcher rd=request.getRequestDispatcher(action.getNextPath());
+				
+				rd.forward(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 	}
+}
 
 }

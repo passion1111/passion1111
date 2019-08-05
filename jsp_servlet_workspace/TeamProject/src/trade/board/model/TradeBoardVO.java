@@ -1,9 +1,8 @@
-package jsp.board.model;
+package trade.board.model;
 
 import java.sql.Date;
 
-public class BoardBean 
-{
+public class TradeBoardVO {
 	private int board_num;  		// 글번호  
 	private String board_id; 		// 글 작성자
 	private String board_subject; 	// 글 제목   

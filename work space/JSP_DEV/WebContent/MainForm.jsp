@@ -9,7 +9,6 @@
 			
 		이 부분을 EL과 JSTL로 변경하면 아래와 같다.	
 	--%>
-	
 <html>
 <head>
 	<title>메인 화면</title>

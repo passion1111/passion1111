@@ -1,6 +1,8 @@
 package trade.board.model;
 
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,6 +45,7 @@ public class TradeBoardDAO {
         int result = 0;
         String opt = (String)listOpt.get("opt"); // 검색옵션(제목, 내용, 글쓴이 등..)
         String condition = (String)listOpt.get("condition"); // 검색내용
+        
         
         try {
             conn = getConnection();
@@ -101,6 +104,7 @@ public class TradeBoardDAO {
         	try {
         		rs.close();
         		pstmt.close();
+        		conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -160,6 +164,7 @@ public class TradeBoardDAO {
 	        	try {
 	        		rs.close();
 	        		pstmt.close();
+	        		conn.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -171,7 +176,7 @@ public class TradeBoardDAO {
 	    
 	    
 	    // 글목록 가져오기
-	    public ArrayList<TradeBoardVO> getBoardList(HashMap<String, Object> listOpt)
+	    public ArrayList<TradeBoardVO> getBoardList(HashMap<String, Object> listOpt) throws UnsupportedEncodingException
 	    {
 	        ArrayList<TradeBoardVO> list = new ArrayList<TradeBoardVO>();
 	        
@@ -179,8 +184,8 @@ public class TradeBoardDAO {
 	        String condition = (String)listOpt.get("condition"); // 검색내용
 	        int start = (Integer)listOpt.get("start"); // 현재 페이지번호
 	        int end=4;         //한번에 보여줄 페이지
-	        
-	        try {
+	        System.out.println(condition+"컨디션 입니다.");
+	         try {
 	            conn = getConnection();
 	            StringBuffer sql = new StringBuffer();
 	            
@@ -305,6 +310,7 @@ public class TradeBoardDAO {
 	        	try {
 	        		rs.close();
 	        		pstmt.close();
+	        		conn.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

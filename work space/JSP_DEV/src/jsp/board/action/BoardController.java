@@ -21,41 +21,41 @@ public class BoardController extends HttpServlet
 	private HashMap<String,Action> commandMap;
 	
 	/**
-	 * ÃÖÃÊ ½ÇÇà init
+	 * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ init
 	 */
 	public void init(ServletConfig config) throws ServletException {	
         loadProperties("jsp/board/properties/BoardCommand");
     }
 	
 	/**
-	 * ÇÁ·ÎÆÛÆ¼ ÆÄÀÏ¿¡¼­ Å°°ª°ú Å¬·¡½º Á¤º¸¸¦ ÃßÃâÇÏ¿© ±×°ÍÀ» Map¿¡ ÀúÀåÇÑ´Ù.
-	 * @param filePath ÇÁ·ÎÆÛÆ¼ ÆÄÀÏÀÇ °æ·Î
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½×°ï¿½ï¿½ï¿½ Mapï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	 * @param filePath ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	 */
 	private void loadProperties(String filePath) 
 	{
 		commandMap = new HashMap<String, Action>();
 		
 		ResourceBundle rb = ResourceBundle.getBundle(filePath);
-		Enumeration<String> actionEnum = rb.getKeys(); // Å°°ªÀ» °¡Á®¿Â´Ù.
+		Enumeration<String> actionEnum = rb.getKeys(); // Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		 
 		while (actionEnum.hasMoreElements()) 
 		{
-			// ¸í·É¾î¸¦ °¡Á®¿Â´Ù.
+			// ï¿½ï¿½É¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 			String command = actionEnum.nextElement(); 
-			// ¸í·É¾î¿¡ ÇØ´çÇÏ´Â Action Å¬·¡½º ÀÌ¸§À» °¡Á®¿Â´Ù.
+			// ï¿½ï¿½É¾î¿¡ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ Action Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 			String className = rb.getString(command); 
 			
 			try {
-				 Class actionClass = Class.forName(className); // Å¬·¡½º »ý¼º
-				 Action actionInstance = (Action)actionClass.newInstance(); // Å¬·¡½ºÀÇ °´Ã¼¸¦ »ý¼º
+				 Class actionClass = Class.forName(className); // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				 Action actionInstance = (Action)actionClass.newInstance(); // Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				 
-				 // È­¸éÀüÈ¯ Action ÀÎÁö È®ÀÎÇÑ´Ù. È­¸éÀüÈ¯ ActionÀÌ¸é ¸í·É¾î¸¦ Àü´ÞÇÑ´Ù.
+				 // È­ï¿½ï¿½ï¿½ï¿½È¯ Action ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½. È­ï¿½ï¿½ï¿½ï¿½È¯ Actionï¿½Ì¸ï¿½ ï¿½ï¿½É¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				 if(className.equals("jsp.board.action.BoardFormChangeAction")){
 					 BoardFormChangeAction bf = (BoardFormChangeAction)actionInstance;
 					 bf.setCommand(command);
 				 }
 				 
-				 // ¸Ê¿¡ ¸í·É¾î¿Í ActionÀ» ´ã´Â´Ù.
+				 // ï¿½Ê¿ï¿½ ï¿½ï¿½É¾ï¿½ï¿½ Actionï¿½ï¿½ ï¿½ï¿½Â´ï¿½.
 				 commandMap.put(command, actionInstance);
 				
 			} catch (Exception e) {
@@ -65,7 +65,7 @@ public class BoardController extends HttpServlet
 	}
 
 	/**
-	 * GET ¹æ½ÄÀÏ °æ¿ì doGet()
+	 * GET ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ doGet()
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -73,7 +73,7 @@ public class BoardController extends HttpServlet
 	}  	
 		
 	/**
-	 * POST ¹æ½ÄÀÏ °æ¿ì doPost()
+	 * POST ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ doPost()
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet
 	}
 
 	/**
-	 * ¸í·É¾î¿¡ µû¸¥ ÇØ´ç ActionÀ» ÁöÁ¤ÇØ ÁØ´Ù.
+	 * ï¿½ï¿½É¾î¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Actionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
 	 * @param request
 	 * @param response
 	 * @throws ServletException
@@ -89,13 +89,13 @@ public class BoardController extends HttpServlet
 	 */
 	private void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		// ³Ñ¾î¿Â Ä¿¸Çµå¸¦ ÃßÃâÇÏ´Â °úÁ¤
+		System.out.println("í”„ë¡œì„¸ìŠ¤ì‹œìž‘?");
+		// ï¿½Ñ¾ï¿½ï¿½ Ä¿ï¿½Çµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 		String requestURI = request.getRequestURI();
 		int cmdIdx = requestURI.lastIndexOf("/") + 1;
 		String command = requestURI.substring(cmdIdx);
 
-		// URI, command È®ÀÎ
+		// URI, command È®ï¿½ï¿½
 		// System.out.println("requestURI : "+requestURI);
 		//System.out.println("Board cmd : "+command);
 		
@@ -103,23 +103,25 @@ public class BoardController extends HttpServlet
 		Action action = null;
 		
 		try {
-			// ¸Ê¿¡¼­ ¸í·É¾î¿¡ ÇØ´çÇÏ´Â ActionÀ» °¡Á®¿Â´Ù.
+			// ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½É¾î¿¡ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ Actionï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 			action = commandMap.get(command);
 			
 			if (action == null) {
-                System.out.println("¸í·É¾î : "+command+"´Â Àß¸øµÈ ¸í·ÉÀÔ´Ï´Ù.");
+                System.out.println("ï¿½ï¿½É¾ï¿½ : "+command+"ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
                 return;
             }
 
 			forward = action.execute(request, response);
 			
 			/*
-			 * È­¸éÀÌµ¿ - isRedirext() °ª¿¡ µû¶ó sendRedirect ¶Ç´Â forward¸¦ »ç¿ë
-			 * sendRedirect : »õ·Î¿î ÆäÀÌÁö¿¡¼­´Â request¿Í response°´Ã¼°¡ »õ·Ó°Ô »ý¼ºµÈ´Ù.
-			 * forward : ÇöÀç ½ÇÇàÁßÀÎ ÆäÀÌÁö¿Í forwad¿¡ ÀÇÇØ È£ÃâµÉ ÆäÀÌÁö´Â request¿Í response °´Ã¼¸¦ °øÀ¯
+			 * È­ï¿½ï¿½ï¿½Ìµï¿½ - isRedirext() ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ sendRedirect ï¿½Ç´ï¿½ forwardï¿½ï¿½ ï¿½ï¿½ï¿½
+			 * sendRedirect : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ requestï¿½ï¿½ responseï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
+			 * forward : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ forwadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ requestï¿½ï¿½ response ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			 */
+			System.out.println("dddd");
 			if(forward != null){
 				if (forward.isRedirect()) {
+					System.out.println(forward.getNextPath());
 					response.sendRedirect(forward.getNextPath());
 				} else {
 					RequestDispatcher dispatcher = request

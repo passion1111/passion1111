@@ -151,6 +151,6 @@
 
 
       <Context docBase="USA2" path="/USA2" reloadable="true" source="org.eclipse.jst.jee.server:USA2"/><Context docBase="JSP_DEV" path="/JSP_DEV" reloadable="true" source="org.eclipse.jst.jee.server:JSP_DEV"/></Host>
-    </Engine>
+  </Engine>
   </Service>
 </Server>

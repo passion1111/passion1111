@@ -22,18 +22,16 @@ public class BoardWriteAction implements Action
 		
 		ActionForward forward = new ActionForward();
 				
-		// ¾÷·Îµå ÆÄÀÏ »çÀÌÁî
+
 		int fileSize= 5*1024*1024;
-		// ¾÷·ÎµåµÉ Æú´õ Àý´ë°æ·Î
+
 		String uploadPath = request.getServletContext().getRealPath("/UploadFolder");
 
 		try {
 			
-			// ÆÄÀÏ¾÷·Îµå 
 			MultipartRequest multi = new MultipartRequest
 					(request, uploadPath, fileSize, "euc-kr", new DefaultFileRenamePolicy());
 
-			// ÆÄÀÏÀÌ¸§ °¡Á®¿À±â
 			String fileName = "";
 			Enumeration<String> names = multi.getFileNames();
 			if(names.hasMoreElements())
@@ -45,8 +43,8 @@ public class BoardWriteAction implements Action
 			BoardDAO dao = BoardDAO.getInstance();
 			BoardBean border = new BoardBean();
 			
-			border.setBoard_num(dao.getSeq()); // ½ÃÄö½º°ª °¡Á®¿Í ¼¼ÆÃ
-			border.setBoard_id(multi.getParameter("board_id")); // È÷µç°ª
+			border.setBoard_num(dao.getSeq()); 
+			border.setBoard_id(multi.getParameter("board_id")); // ï¿½ï¿½ï¿½ç°ª
 			border.setBoard_subject(multi.getParameter("board_subject"));
 			border.setBoard_content(multi.getParameter("board_content"));
 			border.setBoard_file(fileName);
@@ -60,7 +58,7 @@ public class BoardWriteAction implements Action
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("±Û ÀÛ¼º ¿À·ù : " + e.getMessage());
+			System.out.println("ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + e.getMessage());
 		}
 		return forward;
 	}

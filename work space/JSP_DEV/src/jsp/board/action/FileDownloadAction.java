@@ -16,37 +16,33 @@ public class FileDownloadAction implements Action
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		// ´Ù¿î·ÎµåÇÒ ÆÄÀÏ¸íÀ» °¡Á®¿Â´Ù.
+		System.out.println("ì°í˜?");
+		// ï¿½Ù¿ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		String fileName = request.getParameter("file_name");
 
-		// ÆÄÀÏÀÌ ÀÖ´Â Àı´ë°æ·Î¸¦ °¡Á®¿Â´Ù.
-		// ÇöÀç ¾÷·ÎµåµÈ ÆÄÀÏÀº UploadFolder Æú´õ¿¡ ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UploadFolder ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
 		String folder = request.getServletContext().getRealPath("UploadFolder");
-		// ÆÄÀÏÀÇ Àı´ë°æ·Î¸¦ ¸¸µç´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		String filePath = folder + "/" + fileName;
 
 		try {
 			File file = new File(filePath);
 			byte b[] = new byte[(int) file.length()];
 			
-			// pageÀÇ ContentTypeµîÀ» µ¿ÀûÀ¸·Î ¹Ù²Ù±â À§ÇØ ÃÊ±âÈ­½ÃÅ´
 			response.reset();
 			response.setContentType("application/octet-stream");
 			
-			// ÇÑ±Û ÀÎÄÚµù
 			String encoding = new String(fileName.getBytes("euc-kr"),"8859_1");
 			
-			// ÆÄÀÏ ¸µÅ©¸¦ Å¬¸¯ÇßÀ» ¶§ ´Ù¿î·Îµå ÀúÀå È­¸éÀÌ Ãâ·ÂµÇ°Ô Ã³¸®ÇÏ´Â ºÎºĞ
 			response.setHeader("Content-Disposition", "attachment;filename="+ encoding);
 			response.setHeader("Content-Length", String.valueOf(file.length()));
 			
-			if (file.isFile()) // ÆÄÀÏÀÌ ÀÖÀ»°æ¿ì
+			if (file.isFile()) 
 			{
 				FileInputStream fileInputStream = new FileInputStream(file);
 				ServletOutputStream servletOutputStream = response.getOutputStream();
 				
-				//  ÆÄÀÏÀ» ÀĞ¾î¼­ Å¬¶óÀÌ¾ğÆ®ÂÊÀ¸·Î ÀúÀåÇÑ´Ù.
 				int readNum = 0;
 				while ( (readNum = fileInputStream.read(b)) != -1) {
 					servletOutputStream.write(b, 0, readNum);
@@ -59,7 +55,7 @@ public class FileDownloadAction implements Action
 		} catch (Exception e) {
 			System.out.println("Download Exception : " + e.getMessage());
 		}
-
+		
 		return null;
 	}
 

@@ -31,19 +31,22 @@ public class TradeBoardController extends HttpServlet {
 		System.out.println(command);
 
 		
-		if(command.equals("view/list.do")) {
+		if(command.equals("list.do")) {
 //			TradeBoardDao dao=new TradeBoardDao();
 			TradeBoardDAO dao=new TradeBoardDAO();
-
+			
 			try {
-				ActionForward action=new TradeBoardListAction().execute(request, response);
-				System.out.println(action.getNextPath() +"dddd");
-				RequestDispatcher rd=request.getRequestDispatcher(action.getNextPath());
+				new TradeBoardListAction().execute(request, response);
+				RequestDispatcher rd=request.getRequestDispatcher("/view/list.jsp");
 				
 				rd.forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+	}else if(command.contentEquals("view/writeForm.do")) {
+		 
+		
+		requestDispatcher rd=request.getRequestDispatcher("/view/list.jsp");
 	}
 }
 

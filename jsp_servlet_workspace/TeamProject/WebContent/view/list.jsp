@@ -1,11 +1,12 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"  errorPage="../error/error404.jsp" %>
 	
 <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt_rt" %>
-
 <html>
 <head>
+
 <title>게시판</title>
 </head>
 <body >
@@ -13,6 +14,7 @@ ddddddddddddddddddddddd
 ${listCount } 카운트있니<br>
 ${condition } 컨디션있니
 	<center>
+	
 		<b>글 목록(전체 글 : ${ listCount })
 		</b>
 
@@ -96,7 +98,7 @@ ${condition } 컨디션있니
 		
 		<c:choose>
 		<c:when test="${opt!=null }">
-		<c:if test="${startPage >2 }" >
+		<c:if test="${startPage >5 }" >
 			<a href="list.do?page=${ startPage-1  }&condition=${condition}&opt=${opt}">[이전] </a>
 		</c:if>
 
@@ -144,7 +146,7 @@ ${condition } 컨디션있니
 			<input type="text" size="20" name="condition"/>&nbsp;
 			<input type="submit" value="검색"/>
 		</form>	
- 
+
 
 </body>
 </center>

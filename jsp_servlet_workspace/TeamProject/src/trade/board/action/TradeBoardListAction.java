@@ -1,8 +1,9 @@
 package trade.board.action;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,32 +16,39 @@ import trade.board.model.TradeBoardVO;
 public class TradeBoardListAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request,
+	public void execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		  ActionForward forward = new ActionForward();
-	        //ÇÑ¹ø¿¡ º¸¿©ÁÙ ÆäÀÌÁö
+		
+//		ActionForward forward = new ActionForward();
+	        //ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		  int pageSize=2;
 		  
-	        // ÇöÀç ÆäÀÌÁö ¹øÈ£ ¸¸µé±â
+	        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½
 	        int spage = 1;
 	        String page = request.getParameter("page");
 	        
 	        if(page != null)
 	            spage = Integer.parseInt(page);
 	        
-	        // °Ë»öÁ¶°Ç°ú °Ë»ö³»¿ëÀ» °¡Á®¿Â´Ù.
+	        // ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	        
+
 	        String opt = request.getParameter("opt");
-	        String condition = request.getParameter("condition");
+	        
+	        String condition=request.getParameter("condition");
+	        
+	        if(condition!=null) {
+	        	
+	        	condition=URLDecoder.decode(request.getParameter("condition"),"euc-kr");
+	        }
+	        
+	       System.out.println(condition);
 	        
 	        
-	       
 	        
 	        
-	        System.out.println(condition);
-	        
-	        
-	        // °Ë»öÁ¶°Ç°ú ³»¿ëÀ» Map¿¡ ´ã´Â´Ù.
+	        // ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mapï¿½ï¿½ ï¿½ï¿½Â´ï¿½.
 	        HashMap<String, Object> listOpt = new HashMap<String, Object>();
 	        listOpt.put("opt", opt);
 	        listOpt.put("condition", condition);
@@ -50,14 +58,14 @@ public class TradeBoardListAction implements Action {
 	        int listCount = dao.getBoardListCount(listOpt);
 	        ArrayList<TradeBoardVO> list =  dao.getBoardList(listOpt);
 	        
-	        // ÇÑ È­¸é¿¡ 3°³ÀÇ °Ô½Ã±ÛÀ» º¸¿©Áö°ÔÇÔ
-	        // ÆäÀÌÁö ¹øÈ£´Â ÃÑ 2°³, ÀÌÈÄ·Î´Â [´ÙÀ½]À¸·Î Ç¥½Ã
+	        // ï¿½ï¿½ È­ï¿½é¿¡ 3ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ 2ï¿½ï¿½, ï¿½ï¿½ï¿½Ä·Î´ï¿½ [ï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	        
-	        // ÀüÃ¼ ÆäÀÌÁö ¼ö
+	        // ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	        int maxPage = (int)(listCount/5.0 + 0.2);
-	        //½ÃÀÛ ÆäÀÌÁö ¹øÈ£
+	        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	        int startPage = (int)(spage/5.0 + 0.8) * 2 - 1;
-	        //¸¶Áö¸· ÆäÀÌÁö ¹øÈ£
+	        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	        int endPage = startPage + 1;
 	        if(endPage > maxPage)    endPage = maxPage;
 	        
@@ -72,31 +80,29 @@ public class TradeBoardListAction implements Action {
 	        
 	        
 	        
-	        //ÇÑ¹ø¿¡ º¸¿©ÁÙ ÆäÀÌÁö 
+	        //ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	        request.setAttribute("pageSize", pageSize);
-	        // 4°³ ÆäÀÌÁö¹øÈ£ ÀúÀå
+	        // 4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	        request.setAttribute("spage", spage);
 	        request.setAttribute("maxPage", maxPage);
 	        request.setAttribute("startPage", startPage);
 	        request.setAttribute("endPage", endPage);
 	        
-	        // ±ÛÀÇ ÃÑ ¼ö¿Í ±Û¸ñ·Ï ÀúÀå
+	        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	        request.setAttribute("listCount", listCount);
 	        request.setAttribute("list", list);
 	        
-	        //°Ë»öÁ¶°Ç À¯Áö¸¦ À§ÇØ °Ë»öÁ¶°Ç°ú °Ë»ö³»¿ëÀ» ´Ù½Ã º¸³½´Ù.
+	        //ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	       if(opt!=null) {
 	        request.setAttribute("opt", opt);
 	        request.setAttribute("condition", condition);
 	       }
 	        
-	        // ´Ü¼ø Á¶È¸ÀÌ¹Ç·Î forward()»ç¿ë (= DBÀÇ »óÅÂº¯È­ ¾øÀ¸¹Ç·Î) 
-	        forward.setRedirect(false);
-	        forward.setNextPath("/view/list.jsp");
+	        // ï¿½Ü¼ï¿½ ï¿½ï¿½È¸ï¿½Ì¹Ç·ï¿½ forward()ï¿½ï¿½ï¿½ (= DBï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½) 
+	      
 	        
 	        
-	        
-	        return forward;
+	       
 	    }
 
 

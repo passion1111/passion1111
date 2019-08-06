@@ -96,7 +96,7 @@ ${condition } 컨디션있니
 		
 		<c:choose>
 		<c:when test="${opt!=null }">
-		<c:if test="${startPage >2 }" >
+		<c:if test="${startPage >5 }" >
 			<a href="list.do?page=${ startPage-1  }&condition=${condition}&opt=${opt}">[이전] </a>
 		</c:if>
 

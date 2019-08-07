@@ -133,6 +133,7 @@ CREATE SEQUENCE guestbook_no_seq;
 -- 11. ´ñ±Û ½ÃÄö½º 
 
 create sequence COMMENT_SEQ; 
+select *from MEMBER_BOARD;
 
 
 

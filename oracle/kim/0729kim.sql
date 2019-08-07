@@ -14,7 +14,7 @@ create table jsp_board(
 	lev number,
 	sunbun number
 );
-
+select *from BOARD_COMMENT;
 create sequence jsp_board_idx 
 	increment by 1
 	start with 1
@@ -40,3 +40,5 @@ nocache;
 SELECT * FROM reply;
 
 SELECT * FROM jsp_board;
+
+select *from board_comment;

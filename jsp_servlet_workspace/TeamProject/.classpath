@@ -5,7 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-
+>>>>>>> 06ecfd47cd2e0175c6af4c669fcf0e06b4a65254
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>

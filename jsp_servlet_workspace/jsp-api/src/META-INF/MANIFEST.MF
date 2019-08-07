@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.9
+Bnd-LastModified: 1559679602346
+Bundle-ManifestVersion: 2
+Bundle-Name: TOMCAT_9_0_21
+Bundle-SymbolicName: TOMCAT_9_0_21
+Bundle-Version: 0
+Created-By: 1.8.0_212 (AdoptOpenJDK)
+DSTAMP: 20190604
+Import-Package: javax.el,javax.servlet,javax.servlet.http
+Originally-Created-By: 1.8.0_212-b03 ()
+Private-Package: javax.servlet.jsp,javax.servlet.jsp.el,javax.servlet.
+ jsp.resources,javax.servlet.jsp.tagext
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+TODAY: June 4 2019
+Tool: Bnd-4.0.0.201805111645
+TSTAMP: 2119
+X-Compile-Source-JDK: 1.8
+X-Compile-Target-JDK: 1.8
+
+Name: javax/servlet/jsp/
+Implementation-Title: javax.servlet.jsp
+Implementation-Vendor: Apache Software Foundation
+Implementation-Version: 2.3.FR
+Specification-Title: Java API for JavaServer Pages
+Specification-Vendor: Sun Microsystems, Inc.
+Specification-Version: 2.3

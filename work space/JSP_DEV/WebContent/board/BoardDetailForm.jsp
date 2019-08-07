@@ -246,7 +246,7 @@
 				<!-- 버튼 -->
 				<td width="100">
 					<div  id="btn">
-						<a href="#" ">[답변]</a><br>
+						<a href="#" onclick="cmReplyOpen(${comment.comment_num})">[답변]</a><br>
 					<!-- 댓글 작성자만 수정, 삭제 가능하도록 -->	
 					<c:if test="${comment.comment_id == sessionScope.sessionID}">
 						<a href="#" onclick="cmUpdateOpen(${comment.comment_num})">[수정]</a><br>	

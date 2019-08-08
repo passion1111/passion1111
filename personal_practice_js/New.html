@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="./TradeBoardreplyWriteAction.do">[댓글등록]</a></p>	
+    <input type="button" id="insert" value="등록" onclick="insert('insert',0)" >
+    <br>
+    <input type="text" id="modify">
+    <input type="button"  value="수정" onclick="insert('modify',0)">
+    ${vo.tra_num}
+</div>
+</td>
+</c:if>
+
+</form>
+</tr>
+
+
+</table>
+
+
+<script>
+function insert(insert,ref){
+var i =document.getElementById(insert).value;
+console.log(i);
+}
+function modify(){
+location.href='dddd.do';
+}
+</script>
+
+    
+</body>
+</html>

@@ -31,6 +31,10 @@ function fncWriteform(){
     document.getElementById('writeForm2').style.display='none';
 
 }
+function submit(){
+    document.getElementById('aaaa').action='www.naver.com';
+    document.getElementById('aaaa').submit();
+}
 
 //-->
 </script>
@@ -51,25 +55,45 @@ function fncWriteform(){
         <td width='10px;'>:</td>
         <td width='350px;'><input type='text' id='MODI_VAL' name='MODI_VAL' style='width:200px;'></td>
         <td width='30px;'><input type='button' onclick='javascript:fncModify();' value='입력'></td>
+        <td><span id="write_form" onclick="javascript:fncWriteform()">답글</span></td>
+  
     </tr>
     <tr id='write' style="display: none" height='25'>
         <td>답글 아이디</td>
         <td>:</td>
         <td><input type="text" name="id"></td>
-        <td><input type="button" value="입력"></td>
+        <td><input type="button" value="입력" onclick="window.location.href='TradeBoardRepleWriteAction.do?ref=1'"></td>
     </tr>
 
     <tr id='writeForm2'  height='25'>
             <td>내아이디</td>
             <td>:</td>
             <td><input type="text" name="id"></td>
-            <td><input type="button" value="입력"></td>
+            <td><input type="button" value="입력" onclick="window.location.href='TradeBoardRepleWriteAction.do?ref=0'"></td>
 </table>
 
-</form>
-    </body>
-</html> 
+<form id='aaaa'>
+<input type="button" onclick="submit()" value="버튼">
 
+</form>
+</form>
+
+<input type="text" id="hi">
+<input type="button" onclick="sub('hi')">
+<input type="text" id="hi">
+<input type="text" id="hi">
+<input type="text" id="hi">
+<input type="text" id="hi">
+
+</body>
+</html>     
+<script>
+function sub(hi){
+   var i =document.getElementById(hi).value;
+   console.log(i);
+    location.href='aaa'+i;
+}
+</script>
 <!-- <script>
 funcition Modfit(this.FormData.id){
     (#id).$(document).ready(function () {

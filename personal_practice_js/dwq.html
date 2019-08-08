@@ -55,7 +55,7 @@ function submit(){
 <form name='frm'>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <table bgcolor='#F6F6F6' style='font-size:12px;'>
-    <tr id='READ' height='55'>
+    <tr id='READ' height='55' class="read">
         <td width='70px;'>세션아이디</td>
         <td width='10px;'>:</td>
         <td width='350px;'><span id='READ_VAL'>ㅇㅇㅇㅇㅇㅇ</span> <font style='font-size:5px;' >지금은 시간입니다.</font>&nbsp;&nbsp;</td>
@@ -63,7 +63,7 @@ function submit(){
         <td><span id="write_form" onclick="javascript:fncWriteform()">답글</span></td>
         <td>삭제</td>
     </tr>
-    <tr id='MODI' style='display:none' height='25'>
+    <tr id='MODI' style='display:' height='25' class="modi">
         <td width='50px;'>수정폼 세션아이디</td>
         <td width='10px;'>:</td>
         <td width='350px;'><input type='text' id='MODI_VAL' name='MODI_VAL' style='width:200px;'></td>
@@ -72,7 +72,7 @@ function submit(){
         <td onclick="javascript:fncmodicancle()">입력취소</td>
   
     </tr>
-    <tr id='write' style="display: none" height='25'>
+    <tr id='write' style="display: " height='25' class="write">
         <td>답글 아이디</td>
         <td>:</td>
         <td><input type="text" name="id"></td>
@@ -82,7 +82,7 @@ function submit(){
 <br><br>
 <div>
 <table>
-    <tr id='writeForm2'  height='25'>
+    <tr id='writeForm2'  height='25' class="writeform2">
             <td>내아이디</td>
             <td>:</td>
             <td><input type="text" id="id"></td>
@@ -91,19 +91,12 @@ function submit(){
         </table>
 </div>
 <form id='aaaa'>
-<input type="button" onclick="submit()" value="버튼">
 
 </form>
 </form>
 
-<input type="text" id="hi">
-<input type="button" onclick="sub('hi')" value="확인">
-<input type="text" id="hi">
-<input type="text" id="hi">
-<input type="text" id="hi">
-<input type="text" id="hi" onclick="sub('hi')">
 
-
+<!-- 
 
 <table bgcolor='#F6F6F6' style='font-size:12px;'>
     <tr class='READ1' height='55'>
@@ -116,7 +109,7 @@ function submit(){
     </tr>
     </table>
     <table bgcolor='#F6F6F6' style='font-size:12px;'>
-        <tr class='READ1' height='55'>
+        <tr class='READ1' height='55' id='55'>
             <td width='70px;'>세션아이디</td>
             <td width='10px;'>:</td>
             <td width='350px;'><span id='READ_VAL'>ㅇㅇㅇㅇㅇㅇ</span> <font style='font-size:5px;' >지금은 시간입니다.</font>&nbsp;&nbsp;</td>
@@ -126,15 +119,15 @@ function submit(){
         </tr>
         </table>
         <table bgcolor='#F6F6F6' style='font-size:12px;'>
-            <tr class='READ1' height='55'>
+            <tr class='READ1' height='55' id='44'>
                 <td width='70px;'>세션아이디</td>
                 <td width='10px;'>:</td>
                 <td width='350px;'><span id='READ_VAL1'>ㅇㅇㅇㅇㅇㅇ</span> <font style='font-size:5px;' >지금은 시간입니다.</font>&nbsp;&nbsp;</td>
                 <td width='30px;'><span id='MODBTN' style='cursor:hand;' onclick='javascript:fncModi();'>수정</span></td>
-                <td><span id="write_form" onclick="javascript:sub('READ_VAL1')">답글</span></td>
+                <td><span id="write_form" onclick="javascript:sub('55')">답글</span></td>
                 <td>삭제</td>
             </tr>
-            </table>
+            </table> -->
 
 
 
@@ -145,10 +138,23 @@ function submit(){
 <script>
 function sub(hi){
    var i=document.getElementsByClassName('READ1');
-    for (let index = 0; index < i.length; index++) {
+   
+   for (let index = 0; index < i.length; index++) {
+       i[index].style.display='none';
        
-       i[index].style.backgroundColor = "red";     
-    }
+   }
+   document.getElementById(hi).style.display='';
+   
+//    console.log(i3);
+//    if(i2==i3) console.log(11);
+
+//    i[2].getElementById(hi).value='dddd';
+   
+    // for (let index = 0; index < i.length; index++) {
+       
+       
+    //    console.log(i[index].value);    
+    // }
    
 }
 </script>

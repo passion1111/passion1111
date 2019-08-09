@@ -1,39 +1,377 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<title>MVC 게시판</title>
+	
 </head>
+
 <body>
-    <a href="./TradeBoardreplyWriteAction.do">[댓글등록]</a></p>	
-    <input type="button" id="insert" value="등록" onclick="insert('insert',0)" >
-    <br>
-    <input type="text" id="modify">
-    <input type="button"  value="수정" onclick="insert('modify',0)">
-    ${vo.tra_num}
-</div>
-</td>
-</c:if>
-
-</form>
-</tr>
+${vo.tra_alive }<br>
 
 
+<!-- 게시판 수정 -->
+<table cellpadding="0" cellspacing="0">
+	<tr align="center" valign="middle">
+		<td colspan="5">MVC 게시판</td>
+	</tr>
+	
+	<tr>
+		<td style="font-family:돋음; font-size:12" height="16">
+			<div align="center">제 목&nbsp;&nbsp;</div>
+		</td>
+		
+		<td style="font-family:돋음; font-size:12">
+		${vo.tra_subject }
+		</td>
+	</tr>
+	
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="font-family:돋음; font-size:12">
+			<div align="center">내 용</div>
+		</td>
+		<td style="font-family:돋음; font-size:12">
+			<table border=0 width=490 height=250 style="table-layout:fixed">
+				<tr>
+					<td valign=top style="font-family:돋음; font-size:12">
+					<c:if test="${vo.tra_filename!=null}">
+					<img src="${pageContext.request.contextPath}/UploadFolder/${vo.tra_filename}" />
+					
+					</c:if>
+					${vo.tra_contents}
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-family:돋음; font-size:12px">
+			<div align="center">첨부파일</div>
+		</td>
+		<td style="font-family:돋음; font-size:12px">
+		<c:if test="${vo.tra_filename!=null }">
+	
+		<a href="FileDownload.do?file_name=${vo.tra_filename}">
+			${vo.tra_filename }
+		</a>
+		</c:if>
+		</td>
+	</tr>
+	
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;"></td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+	<
+	<tr align="right" valign="middle">
+		<td colspan="5">
+			<font size=2>
+			dasd
+			${vo.tra_writer}
+			 <c:if test="${sessionScope.member ==vo.tra_writer }"> 
+			<a href="./TradeBoardModifyFormAction.do?num=${vo.tra_num }">
+			[수정]
+			</a>&nbsp;&nbsp;
+			<a href="./TradeBoardDeleteAction.do?num=${vo.tra_num}">
+			[삭제]
+			</a>&nbsp;&nbsp;
+			 </c:if>
+			
+			<a href="./list.do">[목록]</a>&nbsp;&nbsp;
+			</font>
+		</td>
+	</tr>
+	</table>
+<br><br><br>
+				<!-- 본문 작성-->
+				
+				<input type="hidden" id="tradeboardnum" value="${vo.tra_num}">
+				<input type="hidden" id="tradecontentcomment_id" value="${sessionScope.member}">
+
+<!-- 로그인 했을 경우만 댓글 작성가능 -->
+	<%-- 	<table>
+			<c:if test="${sessionScope.sessionID !=null}">
+		<c:if test="${sessionScope.member!=null }">
+
+			<tr bgcolor="#F5F5F5">
+			<form id="wirteReplyForm" >
+				<input type="hidden" id="tradeboardnum" value="${vo.tra_num}">
+				<input type="hidden" id="tradecontentcomment_id" value="${sessionScope.member}">
+				<!-- 아이디-->
+				<td width="100">
+				${vo.}
+				vo.get(i)
+				vo.
+					<div id="${vo.tra_num}">
+						${sessionScope.member}
+					</div>
+				</td>
+				<td width="550">
+				
+					
+					<div>
+						<textarea id="TradeBoardReple_Content" rows="4" cols="70" ></textarea>
+					</div>
+				</td>
+				
+				<td width="100">
+
+					<div id="btn">
+						<input type="button"  value="등록" onclick="sub('TradeBoardReple_Content',0,'${sessionScope.member}')" />
+					</div> <!-- 등록 버튼 div -->
+
+				</td>
+				</c:if> <!-- 세션 end if -->
+				
+			</form>
+			</tr>
+		
+	
+		</table> --%>
+		
+		<br>
+		 <c:forEach var="replylist" items="${replylist }">
+		<%-- ${replylist.trarep_num } 부모번호<br>
+		${replylist.trarep_writer } 작성자 <br>
+		${replylist.trarep_contents } 내용 <br>
+		 ${replylist.trarep_date } 시간<br>
+		 ${sessionScope.member}세션 아이디<br>
+		 
+		 ${replylist.trarep_writer } 작성자<br>
+		 
+		 <c:if test="${sessionScope.member == replylist.trarep_writer}"> 
+	
+		걸려야하는데.<BR>
+		 </c:if> 
+		ddd
+		 --%>
+		
+		<!-- 게시글 살아있다면. -->
+<c:if test="${replylist.trarep_alive ==0 }">
+<div>
+		<table border="1">
+<tr class='read' height='25' style='display:  ;' id='READ${replylist.trarep_num}' >
+        <td width='90px;'><c:if test="${replylist.trarep_numref eq 1 }"><font size='3' color="gray">${replylist.trarep_writerrepwriter }</font> </c:if>${replylist.trarep_writer}</td>
+        <td width='10px;'>:</td>
+        <td width='350px;'><span id='${replylist.trarep_num }READ_VAL'>${replylist.trarep_contents}</span> <font style='font-size:5px;' >${replylist.trarep_date }</font>&nbsp;&nbsp;</td>
+        <c:if test="${sessionScope.member eq replylist.trarep_writer }">
+        <td width='30px;'><span id='MODBTN' style='cursor:hand;' onclick="fncModi(${replylist.trarep_num})">수정</span></td>
+        
+        <%-- <td><input type="button" value="삭제" onclick="replydelete(${replylist.trarep_num},${replylist.trarep_tranum })"></td>  --%>
+        
+        <td width='30px;'><span  onclick="replydelete(${replylist.trarep_num},${replylist.trarep_tranum })">수정</span></td>
+        </c:if>
+        <c:if test="${not empty sessionScope.member }">
+        <td><span id="write_form" onclick="javascript:fncWriteform(${replylist.trarep_num})">답글</span></td>
+    	</c:if>
+    </tr>
+        
+    <tr class='modi' style='display: none;' height='25' id='MODI${replylist.trarep_num }'>
+        <td width='50px;'>수정폼 세션아이디</td> 
+        <td width='10px;'>:</td>
+        <td width='350px;'><input type='text' id='${replylist.trarep_num }MODI_VAL' name='MODI_VAL' style='width:200px;'></td>
+        <td width='30px;'><input type='button' onclick="javascript:submodi(${replylist.trarep_num },${replylist.trarep_tranum },'${replylist.trarep_num }MODI_VAL');" value='입력'></td>
+        <td><span id="write_form" onclick="javascript:fncWriteform()">답글</span></td>
+        <td onclick="javascript:fncmodicancle()">입력취소</td>
+    </tr>
+    
+    <tr class='write' style="display:none " height='25' id='WRITE${replylist.trarep_num }'>
+        <td>답글 세션</td>
+        <td>:</td>
+        <td><input type="text" id="${replylist.trarep_writerrep}"></td>     
+        <td><input type="button" value="입력" onclick="subrereply('${replylist.trarep_writerrep }',1,'${sessionScope.member}',${replylist.trarep_writerrep},${replylist.trarep_numref_lv },'${replylist.trarep_writer }')"></td>
+    </tr>							
+    
 </table>
+</div>
+</c:if>
+	<c:if test="${replylist.trarep_alive==1 }">
+		<table border="1">
+<tr class='read' height='25' style='display:  ;'  >
+      <td width="465px">삭제된 댓글입니다.</td>  
+      
+    </tr>
+    </table>
+	
+	</c:if>
+	
+	</c:forEach>
+
+<c:if test="${not empty sessionScope.member }">
+<div>
+<table  border="1" >
+    <tr id='writeForm2'  height='25' style='display:'>
+            <td>${sessionScope.member }</td>
+            <td>:</td>
+            <td><input type="text" id="TradeBoardreply_Content"></td>
+            <td><input type="button" value="입력" onclick="sub('TradeBoardreply_Content',0,'${sessionScope.member}')" /></td>
+        </tr>
+        </table>
+        
+	</div>
+	</c:if>
+<!-- 수정   id='writer'
+	 답글   id='글번호' -->
 
 
 <script>
-function insert(insert,ref){
-var i =document.getElementById(insert).value;
-console.log(i);
+	/* function insert(insert,ref){
+		var i =document.getElementById(insert).value;
+		console.log(i);
+		}
+	function modify(){
+	location.href='dddd.do';
+} */
+
+
+//그냥 등록전송 눌렀을떄
+	function sub(TradeBoardreply_Content,ref,writer){
+// 써야할것 작성자  ,  게시판 글 번호 ,글내용,답글인지 아닌지, writer는 답글일경우 답글
+// 
+   var tradeboardnum=document.getElementById('tradeboardnum').value;   //글번호 또는 = writer
+   
+   console.log(tradeboardnum);
+    var tradeBoardreply_Content =document.getElementById(TradeBoardreply_Content).value; //글내용  TradeBoardreply_Content
+   var tradecontentcomment_id=document.getElementById('tradecontentcomment_id').value; //작성자
+    //ref 그냥인지 대댓글인지.
+    
+    console.log(tradeBoardreply_Content,ref,tradecontentcomment_id,tradeboardnum); 
+     location.href="TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum=0&tradeBoarReplyNumlv=0";
+	console.log("TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum=0"
+	 );
 }
-function modify(){
-location.href='dddd.do';
+ 
+ 
+ //답글 전송 눌렀을떄
+	function subrereply(TradeBoardreply_Content,ref,writer,rewriterrep,tradeBoarReplyNumlv,tradeboardreplywriterreplywriter){
+	// 써야할것 작성자  ,  게시판 글 번호 ,글내용,답글인지 아닌지, writer는 답글일경우 답글
+	// 
+	   var tradeboardnum=document.getElementById('tradeboardnum').value;   //글번호 또는 = writer
+	   console.log(tradeboardnum);
+	    var tradeBoardreply_Content =document.getElementById(TradeBoardreply_Content).value; //글내용 
+	   var tradecontentcomment_id=document.getElementById('tradecontentcomment_id').value; //작성자
+	   var tradeBoardreplyWriterNum=rewriterrep //답글다는사람의 번호
+	    var tradeBoarReplyNumlv=tradeBoarReplyNumlv+1; 											//답글 레벨
+	   
+	   //ref 그냥인지 대댓글인지.
+	    console.log("TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum="+tradeBoardreplyWriterNum); 
+	     location.href="TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum="+tradeBoardreplyWriterNum+"&tradeBoarReplyNumlv="+tradeBoarReplyNumlv+"&tradeboardreplywriterreplywriter="+tradeboardreplywriterreplywriter;
+	 }
+ //수정눌렀을떄 고유번호,게시판번호,컨텐츠
+ 	function submodi(tra_num,tra_tranum,content){
+	 var tradeBoardreply_Content =document.getElementById(content).value;
+	 console.log(tra_num,tra_tranum,tradeBoardreply_Content);
+	 location.href="TradeBoardReplyModify.do?trarep_num=" +tra_num+ "&tradeboardnum="+tra_tranum+"&trarep_contents="+tradeBoardreply_Content;
+	 
+ }
+	 function fncModi(writer,writer2){
+	 document.getElementById(writer2).value = document.getElementById(writer).innerHTML;
+	 console.log(111);
+ 
+ }
+  function replydelete(replynum,tradeboardnum){
+	  if(confirm("정말 삭제하시겠습니까?")){
+		location.href="TradeBoardReplyDelete.do?trarep_num="+replynum+"&tradeboardnum="+tradeboardnum;
+	   }else{
+		return false;
+	   }
+  }
+ 
+  
+  
+ 
+ 
+ 
+ //글 css정리
+ 
+ //수정 MODI_VA
+function fncModi(writenum)
+{
+    var i=document.getElementsByClassName('read');
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = '';
+        
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+        
+    }
+    //jstl로 변수명 지정해줄것.
+ document.getElementById('MODI'+writenum).style.display='';
+ document.getElementById(writenum+'MODI_VAL').value=document.getElementById(writenum+'READ_VAL').innerText;
+
+ document.getElementById('READ'+writenum).style.display='none';
+ document.getElementById('writeForm2').style.display='none';
+
+
+
+
+
 }
-</script>
+
+
+
+//답글
+function fncWriteform(writenum){
+    var i=document.getElementsByClassName('read');
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = '';
+        
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+    
+    }
+   
+
+/*  document.getElementById('WRITE').style.display='';
+ 
+ document.getElementById('writeForm2').style.display='none';
+   */
+  
+ 
+ document.getElementById('MODI'+writenum).style.display='none';
+ document.getElementById('WRITE'+writenum).style.display='';
+ document.getElementById('writeForm2').style.display='none';
+
+  
+  
+    // document.getElementById('READ').style.display = '';
+    // document.getElementById('write_form').innerText='';
+    // document.getElementById('MODI').style.display = 'none';
+    // document.getElementById('write').style.display='';
+    // document.getElementById('writeForm2').style.display='none';
+
+}
+function fncmodicancle()
+{
+    var i=document.getElementsByClassName('read');
+
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = '';
+        
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+    
+    }
 
     
+    document.getElementById('writeForm2').style.display='';
+}
+
+
+</script>
+
 </body>
 </html>

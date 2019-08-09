@@ -1,5 +1,6 @@
 select * from tra;
 select * from trarep;
+desc trarep;
 select *  from  (select rownum rnum,tra_num,tra_subject,tra_readcount,tra_date,tra_writer , tra_filename,tra_contents,tra_head,tra_alive from(select * from tra  order by tra_num desc))where 0<=rnum and rnum<=5 and tra_head; 
 commit;
 --거래 댓글 테이블
@@ -68,3 +69,7 @@ desc trarep;
 select * from  trarep;
 select count(*) from  trarep where trarep_tranum = 9;
 select *from trarep;
+
+
+select count(*) from tra where tra_head ='전체';
+select *from tra;

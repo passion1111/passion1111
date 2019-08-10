@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON 테스트</title>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 
+</head>
+<body>
+    <a id="checkJson" style="cursor:pointer" onclick="aa('checkJson')">출력</a><br><br>
+    <div id="output"></div>
+    <input type="button" onclick="hi()">
+    <table>
+        <tr id='ddd'>
+    <td><input type="button" onclick='ajox(this)'id='33' value="족스"></td>
+</tr>
+</table>
+<li onclick="hihihihihi()">d</li>>
+<script>
+     
+        function hi() {
+            var jason=new Object();
+            jason.name="ddd";
+            jason.age=3;
+           JSON.stringify(jason);
+           console.log(jason);
+           console.log(jason.age+4);
+        }
+        
+        function ajox(hi) {
+            var jsondate=new Object();
+           jsondate.name='ㅇㅇ';
+           jsondate.value=hi.value;
+           jsondate.age=3;
+           JSON.stringify(jsondate);
+           console.log(jsondate);
+
+        //    console.log(hi.parentNode); //부모의 부모 노드를찾아감
+            $.ajax({
+                type:"get",
+               async:false, 
+               url:"http://localhost:8080/USA/Test2",
+               data:{data2:jsondate},
+               dataType:"json",
+               success:function(data){
+                   alert(data+'성공');
+               },
+            //    error:function(date){
+            //        alert('실패');
+            //    }
+   
+   
+            })
+            
+        // })
+    };
+    
+
+
+            function aa() {
+               var js= "wdda" +123+' '
+               var jsonStr = '{"name":"박지성","age":25,"gender":"남자","nickname":"날센돌이"}';
+               console.log(jsonStr);
+               var jsonObj = JSON.parse(jsonStr);
+                 var output ="회원 정보<br>";
+                 output += "=======<br>";
+                 output += "이름: " + jsonObj.name+"<br>";
+                  output += "나이: " + jsonObj.age+"<br>";
+                 output += "성별: " + jsonObj.gender+"<br>";
+                 output += "별명: " + jsonObj.nickname+"<br>"; 
+                 $("#output").html(output);
+            };
+    function hihihihihi(){
+        alert('d');
+    }
+     </script>
+   
+</body>
+</html>

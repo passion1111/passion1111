@@ -1,0 +1,361 @@
+현재 댓글을 달시 프로그램 현황
+에이작스를 입력하는순간 
+subajax( 으로 함수이동 받아가는값은 0,세션멤버값
+그러면   id =tradeboardnum인  vo.tra_num 이것은 게시판 번호를 의미함.
+그리고  tradecontentcomment_id의 값을 받아오는데 이것은 sessionScope.member이고 작성자를 의미.
+ref는 0값을 받아오고 스트링형태.
+content는 ajaxjung아이디의 value를 가져옴.
+writernum 이것은 누구의댓글인지 알아낼려고 얻는값 0으로 할당. ref==0
+numlv도 당연히 0
+tranum은  게시판번호.
+
+데이터를  이제 test4인 액션에보냄.
+
+test4에서는
+jsonobject로 요청받은 json데이터를 담아오고.
+dao.getreplynum으로 댓글 고유번호를 할당. 변수는 trarepnum
+원래 게시판 번호 tranum을 요청 trarepTranum변수
+trarepContent는 작성내용을 담고 변수명은 content
+trarepWriter는 작성자 
+ref는 대댓글유무.
+trareprepwriter는 누구의 댓글을 참조하는지 참조하는 사람의 아이디. wrtierrepwriter로 요청받음.
+trarepNumlv는 대댓글의 순서.
+
+trarepWriternum은  부모 작성자 번호 ajax보낼떄는writernum로 요청
+trarepNumlv는 답글 순서 numlv로 받음.
+
+결과를 vo에 담아서.
+result(참거짓) 거짓일경우 msg 댓글등록에 실패하셨습니다를 리턴.
+
+그후 msg에 데이터를 담고 그것만 보냄 test4는 결국 데이터를 입력받기만하는공간.
+그후 리턴받아서 pagestatus를 insert로 변경후 sessioncheck로 보냄.
+
+
+
+test3은 sessioncheck() 가 실행되면 실행됨 sessioncheck는 페이지 시작하자마자 실행.
+초기할당으로돼있는것은
+pagestatus="start"
+var currentpage="1"; enrkwl
+
+
+sessioncheck에서는
+obj에
+tranum은 게시판번호
+pagestatus
+currentpage
+를 담아서 test3에 보냄.
+
+
+test3에서는
+tranum을 초기화
+currentpage 1로 초기화
+pagestatus 변수 선언후 start로
+
+json을 받아온후
+게시판번호 tranum
+페이지 상태  pagestatus
+currentpage를 받아옴.
+
+
+그후 totalobject 가장 큰
+replyarray 중간자식
+replyinfo 가장 작은.
+arraylist list선언
+list에 dao.getreplylist를 담음(나중에 int형으로 바꿀것)
+
+그후 pagesize 5로 할당
+pagesizeref 은 size에서 -1
+pageblock은 3
+listcount는 list.size()
+페이지 크기pagecount
+시작페이지 startpage
+마지막페이지 endpage
+pagecount<endpage일떄 endpage=pagecount로 할당
+그후
+pagestatus가 start와 같으면  currentpage는 1로 설정
+insert와 같으면 currentpage를pagecount로 설정
+
+시작댓글 번호를 구하기위해
+TradeBoardReplystartnum=currentpage*pageSize-pageSizeref
+                                        최근페이지*한번에볼페이지-(한번에볼페이지-1)
+마지막 글번호
+TradeBoardReplyendnum=TradeBoardReplystartnum+pageSize-1;     //(pageSizeref)으로 교체할것
+                                          시작페이지                  한번에볼페이지-1
+
+ replylist라는 arraylist를 선언후 시작
+
+그후			 pagecount
+			startPage);
+			endPage);
+			pageBlock);
+			currentpage);
+
+			를 변수에 담음. 그 변수이름은 page
+
+그후 replylist를 사이즈만큼 돌려서
+num에는 댓글 고유번호
+tranum에는 게시판번호
+content에는 게시판내용
+writer에는 작성자
+trarep_writerrep 부모 작성자 그룹.
+numref 에는 ref 대댓글인지 판단유무
+trarep_numref_lv 에는 몇번쨰인지
+alive에는 살아있는 글인지
+trarep_writerrepwriter 는 부모 작성자가 누구인지.
+trarep_date 는 작성 날짜.
+그후 어레이에담고
+다시 토탈 오브젝트에 담는데 그 이름은 replyinfo
+
+
+
+그 아래는 세션을 담는데 
+session이란 이름에 session을 담음.
+
+데이터가 성공적으로 sessioncheck에서보내지면
+ currentpage를 바로 설정해주고.
+sessioncompare을 다녀옴후 //sessioncompare 댓글연습 지울것.
+
+sessionpage로 페이징처리르해줌.
+
+sessiontotalreplylist라는 아이디의 text에 총 댓글 수를 innertext로 할당.
+
+그후 tableinsert로 댓글들을 화면에 찍어줌.
+
+
+
+sessionpage먼저 참고하면
+j라는 임시태그저장소를 만들어주고
+startpage
+endpage
+pagecount라는 변수를 각각 맞게 설정해줌.
+
+
+만약 page상태가 insert라면
+
+시작페이지는 최근페이지-1/페이지블럭 을 내림처리하고  다시 페이지블럭을 곱해준후 +1를 해준다
+
+그리고 마지막페이지는 pagecount로 할당.
+
+tempnum에 startpage를 담은후에
+startpage가 page블럭보다 크면 이전 버튼을 만들수있게함.
+
+그리고 시작페이지부터 끝페이지까지
+alink(this)로 갈수있는것을 만들고.
+
+이후페이지도 pagecount가 endpage보다 클떄까지마 돌음
+
+그후 sessionjavalist라는 아이디의 내부 html에 j를 추가시켜줌.
+
+테이블처리는
+replyinfo.alive==0 게시판이 살아있으면.
+read class로 tr을 시작 id는 READ+댓글 고유번호 num
+
+만약 ref가 1과 같다면 trarep_writerrepwriter 부모작성자이름을 불러옴. 회색글씨로
+if엔드끝
+
+그후 replyinfo.writer 즉 작성자를 찍어주고 td로 닫아주고
+********************************
+다른 td에 span에 id=num(작성자고유번호)를 할당.    앞으로 작성자 고유번호가 id이면 확인할것
+답글일떄 작성자 고유번호 getElementbyID로 가져오지 않으면 확인할것.
+
+스판다음에는 바로 컨텐츠내용이 들어가고 시간을찍어줌   즉 고유번호로 가져오면 작성자의 컨텐츠내용을 가져올수있음.
+
+만약 세션과 작성자가 같으면 span MODBTN이라는 id를 만들고 그안에는 클릭시 funcmodi라는 함수를 호출
+가져가는값은 댓글 고유번호와 this (this는 getelementbyid로 css조절이 안돼서 가져간것 참고할것.
+
+답글의 id는 write_form 눌렀을시에는 마찬가지로 고유댓글번호 num과 this를 가져감
+
+삭제시는 고유번호num, 게시판번호 tranum을 집어넣음.
+
+alive==0의 end문 
+--------------------------------------------------------------------
+alive==1일경우
+tr에 read클래스 수정에는 modi 답글 write라는 클래스만 할당해주고 끝.
+그리고 데이터가 살아있다면 
+tr에  modi라는 클래스할당 display는 none으로 id는 MODI+댓글고유번호로 같은 tr내에 있음
+가장 앞에는 sessionmember가 적혀져있고 그다음에는  text id에 고유번호+MODI_VAL이라는 아이디할당
+버튼이 눌렸을시 submodi라는 함수를 실행하는데  value는 입력인것을 보아 수정입력을 의미하는것같다. 
+submodi안에는 댓글고유번호,게시판번호,댓글고유번호+MODI_VAL이라는 값 그러니 총 3개를 보냄
+입력취소시에는 fncmodicancle을 실행
+
+
+수정테이블끝
+
+답글테이블
+write를 라는 클래스할당 id는 WRITE+댓글고유번호
+
+답글텍스트의 id는 
+고유번호+WRITE
+답글 입력을 눌렀을떄는
+subajaxrep라는 함수가 실행되는데
+1.댓글고유번호
+2.1이라는값 (답글이니 ref가 1)
+3.sessionmember값.
+4.trarep_writerrep 부모 작성자 번호.
+5.레벨.
+6.writer 작성자
+
+그후 값을 check1523이라는 아이디 div에보내버림
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+깨달은것 하나 댓글에는 작성자 참고 번호가 할당돼있어야함. 같은 번호로 묶기위해서.

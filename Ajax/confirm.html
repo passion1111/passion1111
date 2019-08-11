@@ -1,147 +1,679 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
 <html>
 <head>
-    <title>JSON 테스트</title>
-  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
- 
+	<title>MVC 게시판</title>
+	<style>
+	.replypaging { display: block; margin: 0; }
+	.replypaging li { display: inline; font-size: 10px }
+	.replypaging li a { font-family: 'Trebuchet MS', sans-serif; font-size: 30px; }
+	
+	</style>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
-<body>
-    <a id="checkJson" style="cursor:pointer" onclick="aa('checkJson')">출력</a><br><br>
-    <div id="output"></div>
-    <input type="button" onclick="hi()">
-    <table>
-        <tr id='ddd'>
-    <td><input type="button" onclick='ajox(this)'id='33' value="족스"></td>
-</tr>
-</table>dd
-<li onclick="hihihihihi()">d</li>>
+
+<body onload="sessioncheck()">
+
+
+
+
+<!-- 게시판 수정 -->
+<table cellpadding="0" cellspacing="0">
+	<tr align="center" valign="middle">
+		<td colspan="5">게시판</td>
+	</tr>
+	
+	<tr>
+		<td style="font-family:돋음; font-size:12" height="16">
+			<div align="center">제 목&nbsp;&nbsp;</div>
+		</td>
+		
+		<td style="font-family:돋음; font-size:12">
+		${vo.tra_subject }
+		</td>
+	</tr>
+	
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="font-family:돋음; font-size:12">
+			<div align="center">내 용</div>
+		</td>
+		<td style="font-family:돋음; font-size:12">
+			<table border=0 width=490 height=250 style="table-layout:fixed">
+				<tr>
+					<td valign=top style="font-family:돋음; font-size:12">
+					<c:if test="${vo.tra_filename!=null}">
+					<img src="${pageContext.request.contextPath}/UploadFolder/${vo.tra_filename}" />
+					
+					</c:if>
+					${vo.tra_contents}
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="font-family:돋음; font-size:12px">
+			<div align="center">첨부파일</div>
+		</td>
+		<td style="font-family:돋음; font-size:12px">
+		<c:if test="${vo.tra_filename!=null }">
+	
+		<a href="FileDownload.do?file_name=${vo.tra_filename}">
+			${vo.tra_filename }
+		</a>
+		</c:if>
+		</td>
+	</tr>
+	
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;"></td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+	<
+	<tr align="right" valign="middle">
+		<td colspan="5">
+			<font size=2>
+			dasd
+			${vo.tra_writer}
+			 <c:if test="${sessionScope.member ==vo.tra_writer }"> 
+			<a href="./TradeBoardModifyFormAction.do?num=${vo.tra_num }">
+			[수정]
+			</a>&nbsp;&nbsp;
+			<a href="./TradeBoardDeleteAction.do?num=${vo.tra_num}">
+			[삭제]
+			</a>&nbsp;&nbsp;
+			 </c:if>
+			
+			<a href="./list.do">[목록]</a>&nbsp;&nbsp;
+			</font>
+		</td>
+	</tr>
+	</table>
+<br><br><br>
+				<!-- 본문 작성-->
+				
+				<input type="hidden" id="tradeboardnum" value="${vo.tra_num}">
+				<input type="hidden" id="tradecontentcomment_id" value="${sessionScope.member}">
+
+
+		
+		<br>
+		 <c:forEach var="replylist" items="${replylist }">
+		<%-- ${replylist.trarep_num } 부모번호<br>
+		${replylist.trarep_writer } 작성자 <br>
+		${replylist.trarep_contents } 내용 <br>
+		 ${replylist.trarep_date } 시간<br>
+		 ${sessionScope.member}세션 아이디<br>
+		 
+		 ${replylist.trarep_writer } 작성자<br>
+		 
+		 <c:if test="${sessionScope.member == replylist.trarep_writer}"> 
+	
+		걸려야하는데.<BR>
+		 </c:if> 
+		ddd
+		 --%>
+		
+
+		<!-- 게시글 살아있다면. -->
+<div>
+		<table border="1">
+<c:if test="${replylist.trarep_alive ==0 }">
+<tr class='read' height='30' style='display:  ;' id='READ${replylist.trarep_num}' >
+        <td width='90px;'><c:if test="${replylist.trarep_numref eq 1 }"><font size='1' color="gray">ㄴ${replylist.trarep_writerrepwriter }</font> </c:if>${replylist.trarep_writer}</td>
+        <td width='10px;'>:</td>
+        <td width='350px;'><span id='${replylist.trarep_num }READ_VAL'>${replylist.trarep_contents}</span> <font style='font-size:5px;' >${replylist.trarep_date }</font>&nbsp;&nbsp;</td>
+        <c:if test="${sessionScope.member eq replylist.trarep_writer }">
+        <td width='30px;'><span id='MODBTN' style='cursor:hand;' onclick="fncModi(${replylist.trarep_num},this)">수정</span></td>
+        
+        <%-- <td><input type="button" value="삭제" onclick="replydelete(${replylist.trarep_num},${replylist.trarep_tranum })"></td>  --%>
+        
+        <td width='30px;'><span  onclick="replydelete(${replylist.trarep_num},${replylist.trarep_tranum })">삭제</span></td>
+        </c:if>
+        <c:if test="${not empty sessionScope.member }">
+        <td><span id="write_form" onclick="javascript:fncWriteform(${replylist.trarep_num})">답글</span></td>
+    	</c:if>
+    </tr>
+    </c:if>
+   <c:if test="${replylist.trarep_alive ==1 }">
+   <tr class='read' height='25' style='display:  ;'  >
+      <td width="465px">삭제된 댓글입니다.</td>  
+      
+    </tr>
+   <table style="border-collapse: collapse"   >
+
+   </table>
+   </c:if>
+        
+    <tr class='modi' style='display: none;' height='25' id='MODI${replylist.trarep_num }'>
+        <td width='50px;'>수정폼 세션아이디</td> 
+        <td width='10px;'>:</td>
+        <td width='350px;'><input type='text' id='${replylist.trarep_num }MODI_VAL' name='MODI_VAL' style='width:200px;'></td>
+        <td width='30px;'><input type='button' onclick="javascript:submodi(${replylist.trarep_num },${replylist.trarep_tranum },'${replylist.trarep_num }MODI_VAL');" value='입력'></td>
+        <td><span id="write_form" onclick="javascript:fncWriteform(${replylist.trarep_num})">답글</span></td>
+        <td onclick="javascript:fncmodicancle()">입력취소</td>
+    </tr>
+    
+    <tr class='write' style="display:none " height='25' id='WRITE${replylist.trarep_num }'>
+        <td>답글 세션</td>
+        <td>:</td>
+        <td><input type="text" id="${replylist.trarep_writerrep}"></td>     
+        <td><input type="button" value="입력" onclick="subrereply('${replylist.trarep_writerrep }',1,'${sessionScope.member}',${replylist.trarep_writerrep},${replylist.trarep_numref_lv },'${replylist.trarep_writer }')"></td>
+    	<td onclick="javascript:fncmodicancle()">취소</td>
+    </tr>							
+    
+</table>
+</div>
+
+	
+	
+	</c:forEach>
+
+<c:if test="${not empty sessionScope.member }">
+<div>
+<table  border="1" >
+    <tr id='writeForm2'  height='25' style='display:'>
+            <td>${sessionScope.member }</td>
+            <td>:</td>
+            <td><input type="text" id="TradeBoardreply_Content"></td>
+            <td><input type="button" value="입력" onclick="sub('TradeBoardreply_Content',0,'${sessionScope.member}')" /></td>
+        </tr>
+        </table>
+        
+	</div>
+	</c:if>
+<!-- 수정   id='writer'
+	 답글   id='글번호' -->
+	
+<!-- 지울것 -->
+<br><br><Br><Br>
+<input type="button" value="최근페이지" onclick="currentpageclick()">
+<input type="button" value="눌러라" onclick="sessioncheck()">
+<li id='sessionjava'></li>
+<br><br><Br><br><Br><br><Br>
+
+
+<!-- 아래부터 -->
+
+
+<li id='sessionjavamodify'></li>
+
+<input type="text" id="ajaxjung">
+<input type="button" onclick="subajax('000','0','${sessionScope.member}')"value="에이작스">
+<!-- 지울것 -->
+<li id='sessiontotalreplylist'></li>
+
+<ul class="replypaging">
+
+<li id='sessionjavalist'></li>
+
+</ul>
+
+
+<input type="button" onclick="why()"value="에이작스">
 <script>
-     
-        // function hi() {
-        //     var jason=new Object();
-        //     jason.name="ddd";
-        //     jason.age=3;
-        //    JSON.stringify(jason);
-        //    console.log(jason);
-        //    console.log(jason.age+4);
-        // }
-        
-     /*    function ajox(hi) {
-            var jsondate=new Object();
-           jsondate.name='ㅇㅇ';
-           jsondate.value=hi.value;
-           jsondate.age=3;
-           JSON.stringify(jsondate);
-           console.log(jsondate);
+function why(){
+	var i=299;
+	 document.getElementById("MODI300").style.display=' ';
+	 console.log("와이는돌기는하냐")
+	// document.getElementById('READ'+i).style.display="none";
+	 
+	 $("#READ299").hide();
+	 console.log(document.getElementById(i+'READ_VAL').innerText);
 
-        //    console.log(hi.parentNode); //부모의 부모 노드를찾아감
-            $.ajax({
-                type:"post",
-               async:false, 
-               url:"http://localhost:8080/USA/Test2",
-               data:{data2 : jsondate},
-               success:function(data2){
-                   alert(data2+'성공');
-               },
-            //    error:function(date){
-            //        alert('실패');
-            //    }
+}
+
+//페이징 처리 참고.
+function alink(currentpagemove){
+    event.preventDefault();
+	console.log(currentpagemove.innerText);
+	currentpage=currentpagemove.innerText;
+	if(currentpagemove.innerText=="이후"){
+	currentpage=String( Number(currentpagemove.parentNode.previousSibling.innerText)+1);
+		
+	}else if(currentpagemove.innerText=="이전"){
+		//현재페이지를 this로 현재 html요소를 가져온후 a link 상위에있는 li요소를 가져온후 li안에 있는 숫자를 가져온후 +1해준다.
+		//자바단에서 String으로 받기떄문에 text를 숫자형으로 바꿔준후 다시 string형태로 변환
+		currentpage=String( Number(currentpagemove.parentNode.nextSibling.innerText)-1);
+		
+	}
+	
+	pagestatus="move";
+	sessioncheck();
+	
+	
+}
+//페이징처리 참고
+
+	/* function insert(insert,ref){
+		var i =document.getElementById(insert).value;
+		console.log(i);
+		}
+	function modify(){
+	location.href='dddd.do';
+} */
+
+
+//그냥 등록전송 눌렀을떄
+	function sub(TradeBoardreply_Content,ref,writer){
+// 써야할것 작성자  ,  게시판 글 번호 ,글내용,답글인지 아닌지, writer는 답글일경우 답글
+// 
+   var tradeboardnum=document.getElementById('tradeboardnum').value;   //글번호 또는 = writer
    
-   
-            })
-            
-       
-    };  //정상버전*/
-
-   /*  function ajox(hi) {
-        var jsondate=new Object();
-       jsondate.name='ㅇㅇ';
-       jsondate.value=hi.value;
-       jsondate.age=3;
-       JSON.stringify(jsondate);
-       console.log(jsondate);
-
-    //    console.log(hi.parentNode); //부모의 부모 노드를찾아감
-        $.ajax({
-            type:"post",
-           async:false, 
-           text:"json",
-           url:"http://localhost:8080/USA/Test2",
-           data:{data : JSON.stringify(jsondate)},
+   console.log(tradeboardnum);
+    var tradeBoardreply_Content =document.getElementById(TradeBoardreply_Content).value; //글내용  TradeBoardreply_Content
+   var tradecontentcomment_id=document.getElementById('tradecontentcomment_id').value; //작성자
+    //ref 그냥인지 대댓글인지.
+    
+    console.log(tradeBoardreply_Content,ref,tradecontentcomment_id,tradeboardnum); 
+     location.href="TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum=0&tradeBoarReplyNumlv=0";
+	console.log("TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum=0"
+	 );
+}
+ 
+ //ajax 글 등록
+ 
+ function subajax(TradeBoardreply_Content,ref,writer){
+// 써야할것 작성자  ,  게시판 글 번호 ,글내용,답글인지 아닌지, writer는 답글일경우 답글
+// 
+   var tradeboardnum=document.getElementById('tradeboardnum').value;   //글번호 또는 = writer
+   	obj=new Object();
+	obj.content=document.getElementById('ajaxjung').value;//글 내용 변수로 담아옴.
+	obj.writer=document.getElementById('tradecontentcomment_id').value;//글 작성자
+	obj.ref=ref;
+	obj.writernum="0";  //댓글다는 작성자의 번호 0이면 seq+1처리할것임.
+	obj.numlv="0";
+	obj.tranum=${vo.tra_num};
+	
+	
+	
+	$.ajax({
+         type:"post",
+        async:false, 
+        url:"http://localhost:8080/USA/Test4",
+        data:{data : JSON.stringify(obj)},
+        success:function(data2){
+       // var json=	JSON.parse(data2);
+           if(data2[0].result!=null){
+            alert(data2);
+           }
+           pagestatus="insert";
            
-           success:function(data2){
-        	   var jsonObj = JSON.parse(data2);
-        	   console.log(jsonObj.members[0].name);
-				eung(jsonObj);
-           },
-       
+           sessioncheck();		
+        }
+	});
+ }
+ 
+ //글 등록 로직.
+ 
+ 
+ 
+ //답글 전송 눌렀을떄
+	function subrereply(TradeBoardreply_Content,ref,writer,rewriterrep,tradeBoarReplyNumlv,tradeboardreplywriterreplywriter){
+	// 써야할것 작성자  ,  게시판 글 번호 ,글내용,답글인지 아닌지, writer는 답글일경우 답글
+	// 
+	   var tradeboardnum=document.getElementById('tradeboardnum').value;   //글번호 또는 = writer
+	    var tradeBoardreply_Content =document.getElementById(TradeBoardreply_Content).value; //글내용 
+	   var tradecontentcomment_id=document.getElementById('tradecontentcomment_id').value; //작성자
+	   var tradeBoardreplyWriterNum=rewriterrep //답글다는사람의 번호
+	    var tradeBoarReplyNumlv=tradeBoarReplyNumlv+1; 											//답글 레벨
+	   
+	   //ref 그냥인지 대댓글인지.
+	    console.log("TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum="+tradeBoardreplyWriterNum); 
+	     location.href="TradeBoardreplyWriteAction.do?tradeboardnum=" +tradeboardnum+ "&TradeBoardreply_Content="+tradeBoardreply_Content+"&tradecontentcomment_id="+tradecontentcomment_id+"&ref="+ref+"&tradeBoardreplyWriterNum="+tradeBoardreplyWriterNum+"&tradeBoarReplyNumlv="+tradeBoarReplyNumlv+"&tradeboardreplywriterreplywriter="+tradeboardreplywriterreplywriter;
+	 }
+ 
+ 
+ 	function subajaxrep(content,ref,writer,rewriterrep,tradeBoarReplyNumlv,tradeboardreplywriterreplywriter){
+ 		console.log(342)
+ 		/* var tranum=document.getElementById('tradeboardnum').value;
+ 		var content=content;
+ 		
+ 		obj =new Object();
+ 		obj.tranum=document.getElementById('tradeboardnum').value;
+ 		obj.content=content;
+ 		obj.ref="1";
+ 		obj.writer=writer;
+ 		obj.wrtierrepwriter=tradeboardreplywriterreplywriter;
+ 		obj.numlv=tradeBoarReplyNumlv;
+ 		obj.writernum=rewriterrep;
+ 		//답글달면  
+ 		
+ 		
+ 		$.ajax({
+ 	         type:"post",
+ 	        async:false, 
+ 	        url:"http://localhost:8080/USA/Test4",
+ 	        data:{data : JSON.stringify(obj)},
+ 	        success:function(data2){
+ 	       // var json=	JSON.parse(data2);
+ 	           if(data2[0].result!=null){
+ 	            alert(data2);
+ 	           }
+ 	          pagestatus="move";//답글다는사람이 있는페이지로 지정하기위해서.
+ 	           
+ 	           sessioncheck();		
+ 	        }
+ 	}); */
+ 	}
+ 
+ 
+ //수정눌렀을떄 고유번호,게시판번호,컨텐츠
+ 	function submodi(tra_num,tra_tranum,content){
+	 var tradeBoardreply_Content =document.getElementById(content).value;
+	 console.log(tra_num,tra_tranum,tradeBoardreply_Content);
+	 location.href="TradeBoardReplyModify.do?trarep_num=" +tra_num+ "&tradeboardnum="+tra_tranum+"&trarep_contents="+tradeBoardreply_Content;
+	 
+ }
+	 
+  function replydelete(replynum,tradeboardnum){
+	  if(confirm("정말 삭제하시겠습니까?")){
+		location.href="TradeBoardReplyDelete.do?trarep_num="+replynum+"&tradeboardnum="+tradeboardnum;
+	   }else{
+		return false;
+	   }
+  }
+ 
+  
+  
+ 
+ 
+ 
+ //글 css정리
+ 
+ //수정 MODI_VA
+function fncModi(moditranum,dd)
+{
+	 
 
-
-        })
+	
+	 console.log('MODI'+moditranum);
+	 
+    var i=document.getElementsByClassName('modi');
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = 'block';
         
-   
-}; //정상 버전 2 데이터 주고 받을수있음*/
-
-function ajox(hi) {
-    var jsondate=new Object();
-   jsondate.name='ㅇㅇ';
-   jsondate.value=hi.value;
-   jsondate.age;
-   JSON.stringify(jsondate);
-   console.log(jsondate);
-
-//    console.log(hi.parentNode); //부모의 부모 노드를찾아감
-    $.ajax({
-        type:"post",
-       async:false, 
-       text:"json",
-       url:"http://localhost:8080/USA/Test2",
-       data:{data : JSON.stringify(jsondate)},
-       
-       success:function(data2){
-    	   var jsonObj = JSON.parse(data2);
-    	   console.log(jsonObj.members[0].name);
-			eung(jsonObj);
-       },
-   
-
-
-    })
-    
-
-};
-    
-
-
-            function aa() {
-               var js= "wdda" +123+' '
-               var jsonStr = '{"name":"박지성","age":25,"gender":"남자","nickname":"날센돌이"}';
-               console.log(jsonStr);
-               var jsonObj = JSON.parse(jsonStr);
-                 var output ="회원 정보<br>";
-                 output += "=======<br>";
-                 output += "이름: " + jsonObj.name+"<br>";
-                  output += "나이: " + jsonObj.age+"<br>";
-                 output += "성별: " + jsonObj.gender+"<br>";
-                 output += "별명: " + jsonObj.nickname+"<br>"; 
-                 
-                 $("#output").html(output);
-            };
-    function hihihihihi(){
-        alert('d');
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+        
     }
-    function eung(data){
-    	for(i in data.members){
-    		
-    		console.log(data.members[i].name);
+    //jstl로 변수명 지정해줄것.
+   
+ document.getElementById('MODI'+moditranum).style.display='block ';
+ 
+    //이것을 누른 폼(리드)을 안보이게하고.
+  dd.parentNode.parentNode.style.display="none";
+    
+    
+ console.log(dd.parentNode.parentNode.childNodes[2].childNodes[0])
+ //수정폼을 보이게함.
+ dd.parentNode.parentNode.nextSibling.style.display="block";
+ 
+ console.log(dd.parentNode.parentNode.nextSibling.nextSibling); 
+ 
+ 
+ console.log(dd.parentNode.parentNode.nextSibling.childNodes[1].childNodes[0])
+ 
+ //수정폼에다가 read안에있는 text값을 불러옴. css가 적용되지 않아서 위와같은 방법을 사용했음. 정적이면 무조건 아래에있는방법으로 사용할것.
+   dd.parentNode.parentNode.nextSibling.childNodes[1].childNodes[0].value=dd.parentNode.parentNode.childNodes[2].childNodes[0].innerText;
+ //document.getElementById(moditranum+'MODI_VAL').value=document.getElementById(moditranum+'READ_VAL').innerText;
+ 
+ //console.log(dd.parentNode.parentNode.nextSibling.childNode)
+ 
+ //document.getElementById('READ'+moditranum).style.display='none';
+ //document.getElementById('writeForm2').style.display='none';
+
+
+
+
+
+}
+
+
+
+//답글
+function fncWriteform(writenum,dd){
+    var i=document.getElementsByClassName('read');
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = 'block';
+        
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+    
+    }
+   
+
+/*  document.getElementById('WRITE').style.display='';
+ 
+ document.getElementById('writeForm2').style.display='none';
+   */
+  
+   dd.parentNode.parentNode.style.display="block";
+   dd.parentNode.parentNode.nextSibling.style.display="none";
+   dd.parentNode.parentNode.nextSibling.nextSibling.style.display="block";
+ //document.getElementById('MODI'+writenum).style.display='none';
+ //document.getElementById('WRITE'+writenum).style.display='block';
+ //document.getElementById('writeForm2').style.display='none';
+
+  
+  
+    // document.getElementById('READ').style.display = '';
+    // document.getElementById('write_form').innerText='';
+    // document.getElementById('MODI').style.display = 'none';
+    // document.getElementById('write').style.display='';
+    // document.getElementById('writeForm2').style.display='none';
+
+}
+function fncmodicancle()
+{
+    var i=document.getElementsByClassName('read');
+
+    for (let index = 0; index < i.length; index++) {
+        // i[index].style.display=' ';
+        document.getElementsByClassName('read')[index].style.display = '';
+        
+        document.getElementsByClassName('modi')[index].style.display = 'none';
+        document.getElementsByClassName('write')[index].style.display = 'none';
+        
+    
+    }
+
+    
+    document.getElementById('writeForm2').style.display='';
+}
+
+
+/////////////////////아래부터는 테스트
+ var currentpage="1";
+ 
+ //시작일때는 가장 처음에 달린 댓글부터.'start' 페이지 이동일떄는 
+ var pagestatus="start";
+ function currentpageclick(){
+	 var i=2;
+	 currentpage=String(i);
+	 sessioncheck();
+ }
+ function replyinsertclick(){
+	 
+ }
+function sessioncheck(){
+	console.log(currentpage);
+	var obj=new Object();
+	obj.tranum=${vo.tra_num};
+	obj.pagestatus=pagestatus;
+//	console.log(check)
+	console.log(currentpage+"지금은 세션체크안 최근페이지확인")
+	obj.currentpage=currentpage;
+	
+	
+	$.ajax({
+         type:"post",
+        async:false, 
+        url:"http://localhost:8080/USA/Test3",
+        data:{data:JSON.stringify(obj)},
+        success:function(data2){
+        var json=	JSON.parse(data2);
+        	currentpage=String(json.page[0].currentpage);
+            sessioncompare(json);//댓글불러와주기.
+            sessionpage(json); //페이징처리뿌리기
+            document.getElementById('sessiontotalreplylist').innerText='총 댓글 '+json.totalreply;
+          //  $('#sessionjavalist').html(json).trigger("create");
+            //아래부터는 실험
+            tableinsert(json);
+        }
+	
+})
+}
+
+
+
+//댓글 찍어주는곳 아래에서 나머지 개발중.
+function sessioncompare(data){
+	var i;
+	console.log(data.session[0].session);
+
+	
+	
+	if(data.session[0].session!=null){
+		for(j in data.replyinfo){
+		//if(data.replyinfo[j].)
+		i+="<div>";
+		i+="<table border='1'>";
+		i+="<tr id='writeForm2'  height='25' style='display:'>";
+		i+="<td>"+data.replyinfo[j].content+ "<td>";
+		i+="</tr></table>+${sessionScope.member}";
+		}
+		document.getElementById('sessionjava').innerHTML=i;
+		console.log(111);
+		}
+
+
+		
+}
+
+
+
+
+//여기까지 테스트
+//페이징처리
+function sessionpage(data){
+	var j;
+	var startpage=data.page[0].startpage;
+	var endpage=data.page[0].endpage;
+	var pagecount=data.page[0].pagecount;
+	
+	if(pagestatus=="insert"){
+		//(currentpage-1)/pageBlock) * pageBlock + 1
+		startpage=( Math.floor((data.page[0].currentpage-1) /data.page[0].pageblock ) )*data.page[0].pageblock  +1;
+		console.log(startpage+ "여기는 세션 페이지 스타트페이지 비교문");
+		endpage=data.page[0].pagecount;
+	}
+	
+	var tempnum=startpage;
+		if(data.page[0].pageblock<startpage){
+			j+="<li><a href='#' onclick='alink(this)'>";
+	 		j+="이전"+"</a></li>";
+		}
+	for(var i=startpage;i<=endpage;i++){
+		j+="<li><a href='#' onclick='alink(this)'>";
+		j+=tempnum+"</a></li>"
+		tempnum++;
+	}
+	if(pagecount>endpage){
+		j+="<li><a href='#' onclick='alink(this)'>";
+		j+="이후"+"</a></li>";
+	}
+	
+	document.getElementById('sessionjavalist').innerHTML=j;
+	}
+	
+	
+	
+	
+///아래부터는 테이블 처리
+function tableinsert(data){
+	var i;
+	for(j in data.replyinfo){
+	
+	i+='<div>';
+	i+='<table border="1">';
+	
+	if(data.replyinfo[j].alive==0){
+	
+		//고칠것
+	i+='<tr class="read" height="30" style="display:  ;" id="READ'+data.replyinfo[j].num+'" >';
+
+	i+='<td width="90px;" >';
+		if( data.replyinfo[j].numref ==1){
+	i+='<font size="1" color="gray">ㄴ'+data.replyinfo[j].trarep_writerrepwriter+'</font> ';	
+		}
+	i+=data.replyinfo[j].writer+'</td>';
+	i+='<td width="10px;"">:</td>';	
+    i+='<td width="330px;"><span id="'+data.replyinfo[j].num+'">'+data.replyinfo[j].content   +'</span> <font style="font-size:5px;" >'+data.replyinfo[j].trarep_date+'</font>&nbsp;&nbsp;</td>'
+    	if(data.replyinfo[j].writer==data.session[0].session)	{
+    i+='<td width="40px;"><span id="MODBTN" style="cursor:hand;" onclick="fncModi('+data.replyinfo[j].num+',this)">수정</span></td>'
+    	if(data.session[0].session!=null){
+    i+='<td width="40px;"><span id="write_form" onclick="javascript:fncWriteform('+ data.replyinfo[j].num +',this)">답글</span></td>';
     	}
-    	
-    	
-    }
-     </script>
-   
+    i+='<td width="40px;"><span  onclick="replydelete('+data.replyinfo[j].num+','+data.replyinfo[j].tranum+')">삭제</span></td>';
+      	} //세션값과 글쓴이가 같은지.
+	i+="</tr>";		
+	}	//alve==0세션끝나는곳
+	//글쓰기 끝.
+	
+	if(data.replyinfo[j].alive==1){
+	i+='<tr class="read" height="25" style="display:  ;"  >   <td width="465px">삭제된 댓글입니다.</td>';
+	i+='</tr><tr class="modi"><td></td></tr>';
+	i+='<tr class="write"><td></td></tr>';
+	i+='</table>';
+	
+	
+	}
+	//none으로 바꿀것.
+	if(data.replyinfo[j].alive==0){
+		
+		
+	
+	i+='<tr class="modi" style="display: none " height="25" id="MODI'+data.replyinfo[j].num+'">';
+	i+='<td width="50px">'+data.session[0].session+'</td>';
+	i+='<td width="350px;""><input type="text" id="'+data.replyinfo[j].tranum+'MODI_VAL" name="MODI_VAL" style="width:200px;"></td>';
+	i+='<td width="30px;"><input type="button" onclick="javascript:submodi('+data.replyinfo[j].num +','+data.replyinfo[j].tranum +',"'+data.replyinfo[j].num+'MODI_VAL");" value="입력"></td>';
+	//i+='<td><span id="write_form" onclick="javascript:fncWriteform('+data.replyinfo[j].num +')">답글 </span></td>';
+	i+='<td onclick="javascript:fncmodicancle()">입력취소</td></tr>';
+	
+
+	
+	i+='<tr class="write" style="display: none " height="25" id="WRITE'+data.replyinfo[j].num +'">';
+	i+='<td>답글</td> <td>:</td>';
+	i+='<td width="350px"><input type="text" id="'+data.replyinfo[j].trarep_writerrep+'" style="width: 360px; height:20px;"></td>';
+	i+='<td><input type="button" value="입력" onclick="subajaxrep("'+data.replyinfo[j].trarep_writerrep+'",1,"'+data.session[0].session+'",'+data.replyinfo[j].trarep_writerrep+'",'+data.replyinfo[j].trarep_numref_lv+',"'+data.replyinfo[j].writer+'") "></td>';
+	
+	
+	i+='<td onclick="javascript:fncmodicancle()">취소</td>';
+	i+='</tr>'
+	i+='</table>';
+	i+='</div>';
+	}
+	}
+	document.getElementById('check1523').innerHTML=i;
+	console.log("되고있나");
+	
+}
+
+</script>
+<div id='check1523'>
+
+</div>
 </body>
 </html>

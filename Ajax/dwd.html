@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a id='LocationAnchor' name=''></a>
+	<div id='linkholder'>
+		<a href='javascript:RedirectLocation("LocationAnchor", "Show1", "#Show1");'>Display Option 1</a><br />
+		<a href='javascript:RedirectLocation("LocationAnchor", "Show2", "#Show2");'>Display Option 2</a><br />
+		<a href='javascript:RedirectLocation("LocationAnchor", "Show3", "#Show3");'>Display Option 3</a><br />
+		<a href='javascript:RedirectLocation("LocationAnchor", "Show4", "#Show4");'>Display Option 4</a><br />
+		<a href='javascript:RedirectLocation("LocationAnchor", "Show5", "#Show5");'>Display Option 5</a>
+	</div>
+	<div id='Show1' style='display:none;'>
+		1st Option
+	</div>
+	<div id='Show2' style='display:none;'>
+		2nd Option
+	</div>
+	<div id='Show3' style='display:none;'>
+		3rd Option
+	</div>
+	<div id='Show4' style='display:none;'>
+		4th Option
+	</div>
+	<div id='Show5' style='display:none;'>
+		5th Option
+	</div>
+	<div id='Intructions' style='display:block;'>
+		Click on the above links to see different values, then use the back button to see your browsing history.
+    </div>
+    
+    <script>
+    function CheckForHash(){
+        console.log("111");
+			if(document.location.hash){
+				var HashLocationName = document.location.hash;
+				HashLocationName = HashLocationName.replace("#","");
+				document.getElementById(HashLocationName).style.display='block';
+				document.getElementById('Intructions').style.display='none';
+				for(var a=0; a<5; a++){
+					if(HashLocationName != ('Show' +(a+1))){
+						document.getElementById('Show'+(a+1)).style.display='none';
+					}
+				}
+			}else{
+				document.getElementById('Intructions').style.display='block';
+				for(var a=0; a<5; a++){
+					document.getElementById('Show'+(a+1)).style.display='none';
+				}
+			}
+		}
+		function RenameAnchor(anchorid, anchorname){
+			document.getElementById(anchorid).name = anchorname; //this renames the anchor
+		}
+		function RedirectLocation(anchorid, anchorname, HashName){
+			RenameAnchor(anchorid, anchorname);
+			document.location = HashName;
+		}
+		var HashCheckInterval = setInterval("CheckForHash()",200);
+		window.onload = CheckForHash;
+    
+    </script>
+</body>
+</html>

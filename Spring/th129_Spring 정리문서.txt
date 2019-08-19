@@ -1,0 +1,50 @@
+
+>> day62 - 19/08/19
+
+ - STS 다운로드
+   http://spring.io/
+
+ - 용어조사 과제
+
+ Framework 	
+ bean		
+ DI(Dependency Injection(의존성주입)- IoC
+ AOP(Aspect Oriented Programming(관점지향프로그래밍)
+ POJO			
+ proxy  or proxy 우회
+ Validation			
+ HandlerMapping
+ Dispatcher Servlet		
+ Spring MVC Life Cycle
+ ContextLoaderListener	
+ 패턴매칭
+
+ Join Point		
+ Pointcut		
+ Aspect		
+ Advice		
+ Weaving
+
+ expression	
+ Annotation	
+ Repository	
+ 트랜잭션
+
+ 전자정부표준 프레임워크(egov)		
+ Maven : 프로젝트 관리 도구 
+
+ 아키텍처(architecture)
+
+
+-------유용한 사이트----------------------------------------
+https://www.youtube.com/watch?v=CsOrR-4nH-s&list=PLzXU1vW098TSRZ0oSWqPCVCNeBa4BmCJ8
+
+ http://www.wiz.center/search/spring
+
+>> MyBatis 참고
+http://www.mybatis.org/mybatis-3/ko/getting-started.html
+
+>> Admin LTE
+ https://almsaeedstudio.com/themes/AdminLTE/index2.html
+=====================================
+

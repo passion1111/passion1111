@@ -1,0 +1,154 @@
+프레임워크
+요약 소프트웨어 어플리케이션이나 솔루션의 개발을 수월하게 하기 위해 소프트웨어의 구체적 기능들에 해당하는 부분의 설계와 구현을 재사용 가능하도록 협업화된 형태로 제공하는 소프트웨어 환경을 말한다.
+
+빈   <--하나의 객체.
+스프링 빈(Bean)이란 스프링 설정파일(IoC 컨테이너)에 등록되어 있는 <bean>태그를 의미한다. 스프링은 IoC(Inversion of Control)와 DI(Dependency Injection)을 사용하기 위해서 어플리케이션에 필요한 각 자바 객체들을 미리 생성해두고 IoC(DI) 컨테이너에 담아 객체를 주입하는 방식으로 동작하게 되는데 그 때 각 자바 객체들을 <bean>태그 방식으로 담아 관리한다.
+받아올떄는 getbeans를 이용해서 받아온다.
+
+
+스프링 빈(Bean)은 id와 class 속성을 사용하는데 id는 생략할 수 있지만 class는 필수이다. class에는 는 정확할 패키지 경로와 클래스명을 기재해야 한다.
+
+하지만 몇몇 설정을 위한 클래스를 제외하고는 거의 어노테이션(@)을 이용하고,
+
+Dependency Injection(의존성 주입)
+
+객체 자체가 아니라 Framework에 의해 객체의 의존성이 주입되는 설계 패턴
+
+현재 객체가 다른 객체와 상호작용(참조)하고 있다면 현재 객체는 다른 객체에 의존성을 가진다.
+
+
+
+
+AOP란
+Aspect-Oriented Programming: 관점 지향 프로그래밍
+특정 기능이 있는 클래스 안에는 본질적인(핵심적인) 처리만 기술 하고, 본질적이지 않은(추가 기능, 부가 기능) 기능들을 따로 기술
+구체적으로 로그 출력, 예외 처리 등 공통화할 수 있는 처리를 Aspect라는 하나의 단위로 모아 어떠한 객체가 원래 해야 할 일만 기술할 수 있도록 만드는 기술
+
+.
+결국 POJO를 정리하자면, 순수자바소스 단 종속적이지 않아야한다.
+
+특정 규약(contract)에 종속되지 않는다. (Java 언어와 꼭 필요한 API 외에 종속되지 않는다.)
+특정 환경에 종속되지 않는다.
+객체지향원리에 충실해야 한다.
+POJO를 사용하는 이유
+코드의 간결함 (비즈니스 로직과 특정 환경/low 레벨 종속적인 코드를 분리하므로 단순하다.)
+자동화 테스트에 유리 (환경 종속적인 코드는 자동화 테스트가 어렵지만, POJO는 테스트가 매우 유연하다.
+객체지향적 설계의 자유로운 사용
+
+프록시
+원하는 코드를 일괄적으로 적용할수있는방법.
+대상 객체에 Advice가 적용된 후 생성된 객체
+
+프록시 우회란(?? 스프링개념 확인할것)
+중계서버를 이용하여 접근자를 속일수있는것.
+
+validation유효성 검사.
+
+HandlerMapping이란?
+- 웹요청이 들어올 경우 DispatcherServlet객체(web.xml에 설정)가 요청을 어떤 컨트롤러에게
+위임할 것인지를 결정해야 하는데 그 요청과 해당요청을 처리하는 컨트롤러의 맵핑을 담당하는 인터페이스
+
+
+디스패처서블릿.  Dispatcher-Servlet
+Servlet Container에서 HTTP프로토콜을 통해 들어오는 모든 요청을 프레젠테이션 계층의 제일앞에 둬서 중앙집중식으로 처리해주는 프론트 컨트롤러(Front Controller)
+
+스프링 라이플 사이클.
+1. 먼저 브라우저로부터 요청이 들어오면 일단 Filter을 거치게 된다. Filter에서 하는 대표적인 처리를 보면 Encoding이 있다
+2. 다음으로 DispatcherServlet이 Controller에 요청을 전달하기 전에 가로챈다. 요청을 가로챈 후 HandlerMapping을 통해 요청에 해당하는 적절한 Controller을 찾게 된다. 그리고 DispatcherServlet에 그것을 전달한다
+3. DispatcherServlet은 실행할 Controller 정보를 HandlerAdapter에 전달하게 된다.
+
+4. HandlerAdapter는 해당 Controller을 호출하게 된다.
+5. Controller에서는 전달된 요청을 처리한다. 예를 들어 게시판의 글 목록을 가져오는 요청을 받으면 Controller는 게시판 Service를 호출하고 Service에서는 DAO를 통해 게시판 글 목록을 가져오게 된다.  
+
+6. 전달받은 View의 이름을 가지고 ViewResolver에서 매핑된 View를 찾아서 반환한다.
+
+7. DispatcherServlet은 반환된 View를 넘기게 된다.
+
+
+
+ContextLoaderListener	
+
+같은 클래스패스라도 서블릿 네임이 다르면 각기 다른웹 어플리케이션 컨텍스트를 생성하게 된다.
+
+패턴매칭
+미리 설정한 패턴에 맞춰서 스프링에서 알아서 고쳐주거나 특정 명령어를 실행할수있게만드는것,
+
+JoinPoint
+
+Advice를 적용 가능한 지점을 의미한다. 메서드 호출, 필드 값 변경 등이 Joinpoint에 해당한다.
+
+ Pointcut
+
+Joinpoint의 부분 집합으로서 실제로 Advice가 적용되는 Jointpoint를 나타낸다. 스프링에서는 정규 표현식이나 AspectJ 문법을 이용하여 Pointcut을 정의할 수 있다
+
+Aspect
+
+여러 객체에 공통으로 적용되는 공통 관심 사항을 Aspect라고 한다. 트랜잭션이나 보안 등이 Aspect의 좋은 예이다.
+
+Advice
+
+언제 공통 관심 기능을 핵심 로직에 적용할 지를 정의하고 있다. 예를 들어, '메서드를 호출하기 전'(언제)에 '트랜잭션을 시작한다.'(공통기능)기능을 적용한다는 것을 정의하고 있다.
+
+ Weaving
+
+Advice를 핵심 로직 코드에 적용하는 것을 weaving 이라고 한다.(분리한 관점을 여러 차례 모률에 삽입하는 것을 AOP에서는 위빙 (Weaving: 엮기)이라고 부른다.) 즉 공통 코드를 핵심 로직 코드에 삽입하는 것이 weaving이다.
+
+SpEL은 Spring Expression Language의 줄임말로 스프링의 객체들의 정보를 질의하거나 조작하여 어떤 값을 표현할 수 있는 강력한 표현 언어다. 
+
+
+어노테이션@
+XML : 분리
+- 결합도를 낮추고 유지보수성을 높이기 위해 xml로 설정하였으나 xml이 너무 많아지면 오히려 유지보수성이 낮아지는 아이러니한 상황 발생
+- 유지보수성에 방점
+- 시스템 전체에 영향을 주고 이후에 변경 가능성이 있는 것은 xml로 설정
+
+@Component
+<context:component-scan> 태그를 추가하면 어노테이션이 적용된 클래스를 빈으로 등록하게된다.
+
+
+Required는 필수 프로퍼티임을 명시하는 것으로 설정하지 않을 경우 빈 생성시 예외를 발생
+
+@Autowired
+의존관계를 자동설정할 때 사용하며 타입을 이용하여 의존하는 객체를 삽입해 준다. (해당 타입의 빈객체가 존재하지 않거나 또는 2개 이상 존재할 경우 스프링은 예외를 발생시킨다.)
+
+@Qualifier
+location : with @Autowired
+@Autowired 동일 타입의 빈객체가 존재시 특정빈을 삽입할 수 있게 설정
+
+
+@Scope
+설정 : prototype, singleton, request, session, globalSession
+기본적 빈의 범위 "singleton"
+
+@PostConstruct
+location : 해당 작업 메서드 앞
+의존하는 객체를 설정한 이후에 초기화 작업을 수행하기 위해 사용. 스프링에 의해 인스턴스가 생성된 후 어노테이션이 적용된 메서드 호출. CommonAnnotationBeanPostProcessor 클래스를 빈으로 등록(<context:annotation-config> 태그로 대신 가능)
+
+@PreDestory
+location : 해당 작업 메서드 앞
+컨테이너에서 객체를 제거하기 전에 해야할 작업을 수행하기 위해 사용
+CommonAnnotationBeanPostProcessor 클래스를 빈으로 등록(<context:annotation-config> 태그로 대신)
+
+@Inject
+Spring 3부터 지원하는 Annotation. 특정 framework에 종속되지 않은 어플리케이션을 구성하기 위해서 @Inject를 사용할 것을 권장.
+
+@Service
+비즈니스로직이 들어가는 Service 빈 등록
+
+@Repository
+일반적으로 DAO에 사용되며 DB Exception을 DataAcessException으로 변환한다.
+
+@Contoroller
+Spring MVC의 Controller 클래스 선언을 단순화. 스프링 컨트롤러, 서블릿을 상속할 필요가 없으며, @Controller로 등록된 클래스 파일에 대한 bean을 자동으로 생성해준다
+
+트랜잭션 이란?
+트랜잭션은 어떤 일련의 작업을 의미 합니다.
+어떤 일련의 작업들은 모두 에러 없이 끝나야 하며, 
+만약 중간에 에러가 발생 한다면, 에러 발생 이전 시점까지 작업되었던 내용은 모두 원상복구 되어야 합니다.
+이렇게 데이터에 대한 무결성을 유지하기 위한 처리 방법을 '트랜잭션 처리' 라고 합니다.
+
+
+전자정부 표준프레임워크는 대한민국의 공공부문 정보화 사업 시 플랫폼별 표준화된 개발 프레임워크를 말한다. 
+
+메이븐은 자바기반 자동화 빌드도구중 하나 거기에는 아파치 메이븐과 아파치앤트가있다. 클래스 라이브러리를
+형상관리처럼 해줄수있다.

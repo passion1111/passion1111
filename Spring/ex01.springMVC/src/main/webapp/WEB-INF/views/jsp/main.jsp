@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>요기는 메인점 제이에스피입니다~</title>
 </head>
 <body>
 <h1>
-	Hello world!  
+	새로만든 main jsp입니다.
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>

@@ -38,6 +38,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";  //WEB-INF/views/+home+.jsp   prefix : //WEB-INF/views/   postfix : jsp  그래서 home만 적어도 알아서 돌아가버림.
+	//	return "main";
 	}
 	
 }

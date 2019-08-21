@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="student" class="ex02.di.Student">
+<property name="name" value="안희수"/>
+<property name="age" value="29"/>
+<property name="gender" value="남성"/>
+</bean>
+
+<bean id="salaryman" class="ex02.di.Salaryman">
+<property name="name" value="박예원"/>
+<property name="age" value="23"/>
+<property name="gender" value="여성"/>
+</bean>
+</beans>

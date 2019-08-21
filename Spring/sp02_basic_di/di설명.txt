@@ -1,0 +1,117 @@
+1. ex01.di
+-필요한 객체를 [생성자]를 통해서 주입 받아서 사용
+-두 객체의 lifecycle 이 동일 
+
+2. ex02.di
+-필요한 객체를 [setter] 를 통해서 주입 받아서 사용
+-객체의 생성이 서로 독립적이고 필요시 객체의 주입
+
+
+3. ex03.di
+-인터페이스 구현을 통해서 객체의 주입 
+
+시나리오
+A class , B class
+
+ [ A클래스가 B라는 클래스를 사용하는 방법 ]
+
+	1)  A = new A() ==> B라는 클래스의 생성을  A 라는 클래스가  담당
+	    A라는 클래스의 생성자에서 B객체를 생성
+	   -has-a(포합관계) > 집합연관계
+	   
+	2) 필요에 따라서 객체를 주입
+	   각각 생성의 시점은 틀리고 필요시 setter 를 통해서 주입(injection)
+	   B = new B()
+	   A = new A();
+	   A.setB(B)
+	       
+       
+정리(Injection) 방법
+	1. constructor   injection (생성자 주입)
+		1.1 (이것은 spring 이 추구하는 방법이 아니예요 ^^)
+		A a = new A();  ==> 생성자에서 new B();
+	
+		1.2 
+		B b = new B();
+		A a = new A(b); ==> 생성자에서 this.b = b;
+		
+	2. setter  injection (셋터 메소드 주입)
+	    B b = new B();
+	    A a = new A();
+	    a.setB(b);
+--------------------------------------------------------------
+오해 ) SpringFramework 없이도 DI 구현이 가능 ==>  그런데 Spring 사용 좀 더 ..편하게 DI(Dependency injection) : 의존성 주입
+
+의존성 : 어떤 [클래스]가 자신의 임무를 다하기 위해 [필요한 값]이나 [필요한 클래스]를 사용
+주입   : 어떤 클래스의 인스턴스(객체)에 대해 외부로 부터 의존을 설정하는 방법
+방법   : 생성자 주입 , setter 주입
+
+Spring 에서는 객체들의 의존성 주입을 코드가 아닌 설정(세팅)을 통해서 관리 제어
+1. Spring [xml 파일] 안에서 객체를 [조립]해서 사용
+1.1 조립품 :  NewRecordImpl , NewRecordImpl record = new NewRecordImpl(20,30,90) 
+            NewRecordViewImpl 
+1.2 조립품 과 조립품을 이용해서 더 큰 조립품을 만드는 과정 ....
+
+  --클래스의 확장성을 고려 Interface 활용
+
+
+
+------------------------------------------------
+[정리]
+
+
+(x)
+1.public class  Foo{
+   private Bar bar;
+   public Foo(){
+   		bar = new Bar();
+   }
+}    
+--위 코드는 의존성 주입 (Spring 사용하지 않는 방법)    
+Spring 에서는 (생성자 주입)
+public class  Foo{
+	private Bar bar;
+	public Foo(Bar bar){
+		this.bar = bar;
+	}
+}
+main >
+Bar b = new Bar();
+Foo f = new Foo(b);          
+
+
+Spring 에서는 (setter 주입)
+public class Foo{
+	private Bar bar;
+	public Foo(){}
+	public setBar(Bar bar){
+		this.bar = bar;
+	}
+}
+main >
+Bar b= new Bar();
+Foo f = new Foo();
+f.setBar(b);
+
+==> 스프링 설정을 통해서  조립 (appCtx.xml 에서 조립)
+==> 조립품(객체) SpringFramework 가지는 Container(IOC) 안에서 관리가 됩니다
+
+
+*스프링은 여러개의 조립품(bean) 을 각각 생성해서 조립(생성자 , setter )하는 형태 
+*주문이 들어어면 여러가지를 만들어서 서로 필요에 따라 섞는 과정을 통해서 사용
+> diConfig.xml 작업을 하였습니다
+
+
+컴퓨터를 주문제작 하는 회사
+
+주문서_1)
+1.메인보드
+2.VGA 카드(LG)
+3.Memory(SAMSUNG)
+
+주문서_2)
+1.메인보드
+2.VGA 카드(SAMSUNG)
+3.Memory(google)
+
+==>이런 작업들을 xml 설정파일에서 

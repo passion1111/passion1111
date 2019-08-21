@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="ex04.spring.di.NewRecordImpl"  id="record">
+		<!-- 생성자를 통해서 값(value) 주입 
+			kor , math , eng  순서대로 아래 값을 받는다
+			
+			<constructor-arg value="50" />
+			<constructor-arg value="60" />
+			<constructor-arg value="70" />
+		-->
+		
+			<constructor-arg name="eng" value="70" />
+			<constructor-arg name="math" value="80" />
+			<constructor-arg name="kor" value="100" />
+			</bean>
+
+	<!--  
+		NewRecordViewImpl view = new NewRecordViewImpl();
+		//조립
+		view.setRecord(record);
+	-->
+	<bean class="ex04.spring.di.NewRecordViewImpl"    id="view">
+		<!--record 변수명 > setter 구현 > 객체  -->
+		<property name="record"   ref="record" />
+	</bean>
+
+</beans>

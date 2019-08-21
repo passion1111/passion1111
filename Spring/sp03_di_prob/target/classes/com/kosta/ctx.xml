@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="employee" class="com.kosta.EmployeePersonImpl">
+		<constructor-arg name="name" value="김연아"/>
+		<constructor-arg name="gender" value="여자"/>
+		<constructor-arg name="age" value="27"/>
+		
+	</bean>
+	
+
+	<bean id="student" class="com.kosta.StudentPersonImpl">
+		<property name="name" value="해피도연" />
+		<property name="age" value="33" />
+		<property name="gender" value="남자" />
+		<!-- <property name="score" value="100" /> -->
+	</bean>
+	<bean id="info" class="com.kosta.MyInfomation">
+		<property name="person"  ref="student" />
+	</bean>
+	
+	<bean id="info2" class="com.kosta.MyInfomation">
+		<property name="person"  ref="employee" />
+	</bean>
+	
+</beans>
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+(자바 코드를 이용한 설정)
+
+객체의 생성과 조립 (삽입) > Spring 통해서
+1. 설정을 가지는 xml 파일 만들어서 관리
+2. xml 설정  없이 (xml 파일 없이) 
+   => 자바 코드 이용한 설정 (순수하게 Annotation 제공 ..)
+
+
+Xml 설정 없이 사용가능 (편리성에 따라서 선택)
+-XML문법 대신 자바코드를 이용해서 빈객체를 생성하고
+ 프로퍼티를 설정하며
+ GenericXmlApplicationContext 대신
+ AnnotationConfigApplicationContext 사용해서
+ context(Container) 생성하는 것이 다른점
+ 
+ 
+@Configuration ==>> 해당 클래스가 스프링 설정으로 사용됨을 지정
+public class ConfigContext{}
+
+
+
+@Configuration
+public class ConfigContext{
+ 
+ @Bean 
+ public user user(){ 
+ 	return new user();
+ }
+
+}
+ > 어노테이션과 메서드 이름을 이용해서 스프링 컨테이너가 사용할 빈 객체 설정
+ > 메서드가 리턴한 객체를 빈객체로 사용하겠다 (메서드의 이름 : 빈의 식별자)
+ > user() 라는 이름인 user를 빈의 이름으로 이용하겠다
+ 
+ result ==> <bean id="user" class="ex05.di.annotation.User" /> 생성
+ 
+ 그런데 코드를 보면
+ public User user(){ // 메서드 이름이 빈의 이름이 된다.
+        return new User(); //싱글톤
+    }
+ 자바 코드에서 new 를 사용 객체를 직접 생성 ...
+ 
+result ==> XML 설정은 빈 객체를 스프링 컨테이너가 생성하는 반면
+            자바설정에서는 자바 설정 코드에서 직접 객체 생성 코드 (new 를 해주어야 한다)
+            
+         
+******의존객체 주입******
+-XML 설정에서 <constructor>  <property) 태그 사용
+  태그를 이용 설정한 의존 객체도 컨테이너가 주입 ....
+
+-XML설정 파일 없이 자바코드로 ,,,,, 
+-자바 설정에서는 [직접 의존 객체 주입] 
+
+ex)
+@Bean
+public MemberDao memberDao(){
+	return new MemberDao();
+}
+--<bean id="memberDao" class="Spring.MemberDao">
+
+
+@Bean
+public MemberRegisterService memberRegSvc(){
+//다른 빈객체를 의존 주입 경우
+//해당 빈 객체의 메서드를 호출 의존객체 주입
+ return new MemberRegisterService(memberDao());
+
+xml 설정 
+<bean id="memberDao" class="spring.MemberDao" />
+<bean id="memberRegSvc class="spring.MemberRegisterService >
+	<constructor ref="memberDao" />
+</bean>
+ 
+----------
+class MemberRegisterService{
+	private MemberDao memberdao;
+	public MemberRegisterService(MemberDao memberdao){
+		this.memberdao = memberdao;
+	}
+
+}
+---------- 
+ 
+ 
+ 
+*자바 설정한 코드 객체도(싱글톤)
+ 
+}
+
+
+    

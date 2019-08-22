@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+	<bean id="record1" class="ex02.di.annotation.Recorder">
+		<qualifier value="cord" />
+	</bean>
+	
+	<bean id="record2" class="ex02.di.annotation.Recorder" />
+	<bean id="monitorViewer" class="ex02.di.annotation.MonitorViewer" />
+	
+	<!-- 
+	주의 사항 id= 주입하는 [멤버변수명] 또는 [파라메터명]과 같은 경우 에러 없이 주입
+	<bean id="record" class="ex02.di.annotation.Recorder"></bean> 
+	
+	-->
+ 
+ </beans>

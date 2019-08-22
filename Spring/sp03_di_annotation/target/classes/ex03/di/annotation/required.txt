@@ -1,0 +1,21 @@
+@Autowired(required=false)
+@Autowired 부가적 설정 기능
+required=false 를 걸어놓으면 context(container)안에
+injection 되는 타입의 객체(bean)가 존재하지 않아도
+Error 없이 실행 가능
+
+같은 기능의 annotation
+
+@Required
+목적 : 필수 [프로퍼티]를 지정 
+설정 위치 : setter메소드
+추가설정 : RequiredAnnotationBeanPostProcessor 클래스를 빈으로 등록시켜줘야 한다. 
+		 (xml 등록)
+해당 설정 대신에<context:annotation-config> 태그를 사용해도 된다.
+         (context 설정)
+<beans 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--  
+		MonitorViewer viewer = new MonitorViewer();
+		viewer.setRecorder(new Recorder());
+	-->
+	<!-- <context:annotation-config /> 
+		 자동으로 annotation 적용에 필요한 클래스를 자동으로 로드
+	-->
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	<!--  
+		하나 하나 어노테이션을 적용할때마다 필요한 클래스를 로드 하는 것은 힘들다
+		한번에 어노테이션에 필요한 클래스들을 로드시키는 역활을
+		<context:annotation-config ... 담당
+	-->
+	<bean id="monitorviewer" class="DI_Annotation_01.MonitorViewer">
+		<!-- 주석 : @AutoWired 자동 설정 
+		<property name="recorder">
+			<ref bean="recorder"/>
+		</property> 
+		-->
+	</bean>
+	<bean id="xxxx" class="DI_Annotation_01.Recorder"></bean>
+	
+</beans>   
+
+
+
+

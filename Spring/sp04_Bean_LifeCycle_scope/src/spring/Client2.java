@@ -4,7 +4,7 @@ public class Client2 {
 
 	private String host;
 	
-	public void setHost(String host) {
+	public void setHost(String host) {  //DI
 		this.host = host;
 		System.out.println("Client2.setHost() 실행");
 	}

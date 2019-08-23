@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MainEntry {
 
 	public static void main(String[] args){
+		//스프링 컨테이너.
         ApplicationContext ac =
                 new AnnotationConfigApplicationContext(ConfigContext.class);
         User user = ac.getBean("user",User.class);

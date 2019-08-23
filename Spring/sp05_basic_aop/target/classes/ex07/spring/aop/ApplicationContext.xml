@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+<bean id="cal" class="ex07.spring.aop.CalcImpl"></bean>
+
+<bean id="logPrintAroundAdvice"     class="ex07.spring.aop.LogPrintAroundAdvice"></bean>
+<bean id="logPrintBeforeAdvice"     class="ex07.spring.aop.LogPrintBeforeAdvice"></bean>
+<bean id="logPrintAfterAdvice"      class="ex07.spring.aop.LogPrintAfterAdvice"></bean>  
+<bean id="logPrintThrowingAdvice"   class="ex07.spring.aop.LogPrintThrowingAdvice"></bean>  
+
+<!-- 
+	PointCut 개념을 사용해서 객체가 가지고 있는 특정 함수만 제한적으로 
+	(보조관심사) 처리
+	Spring AOP 
+	1. 함수의 이름을 통해서 
+	spring 제공하는  :NameMatchMethodPointcut
+	-org.springframework.aop.support.NameMatchMethodPointcut
+	-org.springframework.aop.support.DefaultPointcutAdvisor (포인터 컷 정의)
+	-org.springframework.aop.framework.ProxyFactoryBean
+-->
+
+<!-- 1단계 NameMatchMethodPointcut  -->
+<!-- <bean id="nameMatchMethodPointcut" 
+      class="org.springframework.aop.support.NameMatchMethodPointcut">
+	<property name="mappedName" value="ADD"></property>
+	<property name="mappedNames">
+		<list>
+			<value>ADD</value>
+			<value>MUL</value>
+		</list>
+	</property>
+</bean> -->
+<!-- 2단계 DefaultPointcutAdvisor -->
+<!-- <bean id="defaultPointcutAdvisor" 
+      class="org.springframework.aop.support.DefaultPointcutAdvisor">
+	<property name="pointcut" ref="nameMatchMethodPointcut"></property>
+	<property name="advice"   ref="logPrintAroundAdvice"></property>      
+</bean> -->
+
+<!-- 
+	2. 패턴이름을 통해서 (정규)
+	  org.springframework.aop.support.RegexpMethodPointcutAdvisor
+	  정규표현식 사용
+	  .*a : .=> 어떤한 문자도 올수 있다  , *=>0개 이상 올수 있다
+	  ?=> 0개 또는 1개
+	  카페 )정규표현식 
+ -->
+<!-- 패턴 1단계 -->
+<bean id="regexpMethodPointcutAdvisor" 
+      class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+ 		<property name="patterns">
+ 			<list>
+ 				<value>.*AD.*</value>
+ 				<value>.*MUL.*</value>
+ 			</list>
+ 		</property>
+ 		<property name="advice" ref="logPrintAfterAdvice"></property>     
+ </bean>
+
+<!-- 3단계 ProxyFactoryBean -->
+<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<property name="proxyInterfaces">
+		<list>
+			<value>ex07.spring.aop.ICalc</value>
+		</list>
+	</property>
+	<property name="target" ref="cal"></property>
+	<property name="interceptorNames">
+		<list>
+			<!-- 
+			<value>logPrintBeforeAdvice</value>
+			<value>logprintAroundAdvice</value> 
+			<value>logPrintAfterAdvice</value>
+			<value>logprinThrowingAdvice</value>
+			-->
+			<!--<value>defaultPointcutAdvisor</value> : 함수기반이름-->
+			<value>regexpMethodPointcutAdvisor</value>
+		</list>
+	</property>
+</bean>
+</beans>
+
+
+
+
+
+

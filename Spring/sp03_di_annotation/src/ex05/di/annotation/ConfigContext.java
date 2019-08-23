@@ -3,10 +3,10 @@ package ex05.di.annotation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration  //스프링에서 사용되는 클래스임을 알려주는  어노테이션임으로  명시.
 public class ConfigContext {
 	
-    @Bean
+    @Bean //객체생성 어노테이션.
     public User user(){ // 메서드 이름이 빈의 이름이 된다.
         return new User();
     }

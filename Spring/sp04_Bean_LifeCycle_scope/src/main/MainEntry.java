@@ -13,10 +13,13 @@ public class MainEntry {
 				new GenericXmlApplicationContext("classpath:springconf.xml");
 		Client client = ctx.getBean("client", Client.class);
 		
+		
 		client.send();
 		ctx.close();
-		
-		
-		
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+//           같은 주소를 가지고 있음.		
+//		Client c2 = ctx.getBean("client", Client.class);
+//		System.out.println(client.hashCode());
+//		System.out.println(c2.hashCode());
 	}
 }

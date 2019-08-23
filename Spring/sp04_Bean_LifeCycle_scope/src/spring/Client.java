@@ -27,6 +27,7 @@ public class Client implements InitializingBean, DisposableBean {
 	//초기화 메서드  (이벤트를 내부적으로 가지고 자동 호출 : 호출시점)
 	//InitializingBean 대한 구현부
 	//afterPropertiesSet : property injection 후에
+	//생성-> setter -> afterpropertiesset실행 -> 함수호출 ->context.close시-> destory
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("Client.afterPropertiesSet() 실행");

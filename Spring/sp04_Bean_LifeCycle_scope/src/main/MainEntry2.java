@@ -13,5 +13,8 @@ public class MainEntry2 {
 		Client2 client = ctx.getBean("client2", Client2.class);
 		client.send();
 		ctx.close();
+//		Client2 c2 = ctx.getBean("client2", Client2.class);
+//		System.out.println(client.hashCode());
+//		System.out.println(c2.hashCode());
 	}
 }

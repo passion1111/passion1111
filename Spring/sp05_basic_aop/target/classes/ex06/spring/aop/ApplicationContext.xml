@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<bean id="cal" class="ex06.spring.aop.CalcImpl"></bean>
+<bean id="logPrintAroundAdvice"   class="ex06.spring.aop.LogPrintAroundAdvice"></bean>
+<bean id="logPrintBeforeAdvice"   class="ex06.spring.aop.LogPrintBeforeAdvice"></bean>
+<bean id="logPrintAfterAdvice"    class="ex06.spring.aop.LogPrintAfterAdvice"></bean>  
+<bean id="logPrintThrowingAdvice"   class="ex06.spring.aop.LogPrintThrowingAdvice"></bean>  
+<bean id="proxy" class=" org.springframework.aop.framework.ProxyFactoryBean">
+	<!--
+		ProxyFactoryBean 클래스가 가지는 의존객체 주입 (property 로)
+		property 의 name 값은  setter 구현한 ProxyFactoryBean 멤버변수명
+	-->
+	<property name="proxyInterfaces">
+		<list>
+			<value>ex06.spring.aop.ICalc</value> <!-- 인터페이스 경로  -->
+		</list>
+	</property>
+	<property name="target" ref="cal"></property>
+	<property name="interceptorNames"><!-- 보조관심사  -->
+		<list>
+			<!-- 여러개의 보조관심사 적용이 가능하다
+				AroundAdvice , BeforeAdvice  , logPrintAfterAdvice
+				동시에 적용 가능
+			-->
+		    <value>logPrintAroundAdvice</value> <!-- 핸들러 ID값  -->
+			<value>logPrintBeforeAdvice</value>
+			<value>logPrintAfterAdvice</value>
+			<value>logPrintThrowingAdvice</value>
+		</list>
+	</property>
+</bean>
+
+</beans>

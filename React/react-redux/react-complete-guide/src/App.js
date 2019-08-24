@@ -1,7 +1,7 @@
-import React,{Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Person from './Person/Person';
+import React, { Component } from "react";
+import "./App.css";
+import Person from "./Person/Person";
+import Userinput from "./Userinput/UserInput";
 
 // function App() {
 //   return (
@@ -11,69 +11,81 @@ import Person from './Person/Person';
 //   );
 // }
 
-
 //class based
-class App extends Component{
-  state={
-    persons:[
-    {name:"232132",age:28},
-    {name:'manu',age:30},
-    {name:'2322',age:33330}
+class App extends Component {
+  state = {
+    persons: [
+      { name: "232132", age: 28 },
+      { name: "manu", age: 30 },
+      { name: "2322", age: 33330 }
     ],
-    otherState:"some other value"
-  }
-  switchNameHandler=(newName)=>{
+    otherState: "some other value",
+    showPersons:true
+  };
+  switchNameHandler = newName => {
     console.log("Was clicked");
     // 절대 이렇게 쓰지 말것.this.state.persons[0].name="하와아"
     this.setState({
-      persons:[
-        {name: "첫쨰",age:28},
-        {name:newName,age:30},
-        {name:'세번쨰',age:33330}
-        ]
+      persons: [
+        { name: "첫쨰", age: 28 },
+        { name: newName, age: 30 },
+        { name: "세번쨰", age: 33330 }
+      ]
+    });
+  };
 
-    })
-  }
-
-  nameChangedHandler=(event)=>{
+  nameChangedHandler = event => {
     this.setState({
-      persons:[
-        {name: "newName",age:432423},
-        {name: event.target.value,age:30},
-        {name: 'ㅇㅇㅇ',age:33330}
-        ]
+      persons: [
+        { name: "newName", age: 432423 },
+        { name: event.target.value, age: 30 },
+        { name: "ㅇㅇㅇ", age: 33330 }
+      ]
+    });
+  };
+ toggle
+ personsHandler=()=>{
+   const doesShow=this.state.show
+ }
+  render() {
+    const style = {
+      border: "1px",
+      backgroundColor: "white"
+    };
 
-    })
-  }
-
-  render(){
-    return(
+    return (
       <div className="App">
-<h1>리액트를 확인</h1>
-<Person name={this.state.persons[0].name} age={this.state.persons[0].age}
- click={this.switchNameHandler.bind(this,"자식한테 보내주자")}
- changed={this.nameChangedHandler}> 
- 
-  myhass</Person>
-<Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-<Person name="manu" age="33"/>
-<Person/>
-              {/* 함수 ()를 쓰지말것 왜냐하면 함수실행되면 리렌더링되니까 */}
-<button onClick={()=>this.switchNameHandler("요롷게 저렇게")}>눌려라</button>
-
+        <h1 style={style}>리액트를 확인</h1>
+        <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+          click={this.switchNameHandler.bind(this, "자식한테 보내주자")}
+          changed={this.nameChangedHandler}
+        >
+          myhass
+        </Person>
+        <div>
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+          />
+          <Person name="manu" age="33" />
+          <Person />
+        </div>
+        {/* 함수 ()를 쓰지말것 왜냐하면 함수실행되면 리렌더링되니까 */}
+        <button onClick={() => this.switchNameHandler("요롷게 저렇게")}>
+          눌려라
+        </button>
+        <Userinput currentName="ㅇㅇㅇ" />
       </div>
-    )
-// 이렇게도 가능한데.
-// return React.createElement('div',null,"h1","여기야여기")
-// return React.createElement('div',{className:"App"},React.createElement('h1',null,'맞아?'))
-
+    );
+    // 이렇게도 가능한데.
+    // return React.createElement('div',null,"h1","여기야여기")
+    // return React.createElement('div',{className:"App"},React.createElement('h1',null,'맞아?'))
+  }
 }
-}
-
 
 export default App;
-
-
 
 //리액트 훅 이용
 // import React, { useState } from 'react';

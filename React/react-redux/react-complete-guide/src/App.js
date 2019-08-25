@@ -1,144 +1,54 @@
-import React, { Component } from "react";
-import "./App.css";
-import Person from "./Person/Person";
-import Userinput from "./Userinput/UserInput";
+import React, { Component } from 'react';
+import './App.css';
+import Validation from './Vaildation/Validation';
+import Char from './char/Char';
 
-// function App() {
-//   return (
-//     <div className="App">
-//     <h1>리액트를 배우는중입니다.</h1>
-//     </div>
-//   );
-// }
-
-//class based
 class App extends Component {
   state = {
-    persons: [
-      { name: "232132", age: 28 },
-      { name: "manu", age: 30 },
-      { name: "2322", age: 33330 }
-    ],
-    otherState: "some other value",
-    showPersons:true
-  };
-  switchNameHandler = newName => {
-    console.log("Was clicked");
-    // 절대 이렇게 쓰지 말것.this.state.persons[0].name="하와아"
-    this.setState({
-      persons: [
-        { name: "첫쨰", age: 28 },
-        { name: newName, age: 30 },
-        { name: "세번쨰", age: 33330 }
-      ]
-    });
-  };
+    userInput: ''
+  }
 
-  nameChangedHandler = event => {
-    this.setState({
-      persons: [
-        { name: "newName", age: 432423 },
-        { name: event.target.value, age: 30 },
-        { name: "ㅇㅇㅇ", age: 33330 }
-      ]
+  inputChangedHandler = ( event ) => {
+    this.setState( { userInput: event.target.value } );
+  }
+
+  deleteCharHandler = ( index ) => {
+    const text = this.state.userInput.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+    this.setState({userInput: updatedText});
+  }
+
+  render () {
+    const charList = this.state.userInput.split('').map((ch, index) => {
+      return <Char 
+        character={ch} 
+        key={index}
+        clicked={() => this.deleteCharHandler(index)} />;
     });
-  };
- toggle
- personsHandler=()=>{
-   const doesShow=this.state.show
- }
-  render() {
-    const style = {
-      border: "1px",
-      backgroundColor: "white"
-    };
 
     return (
       <div className="App">
-        <h1 style={style}>리액트를 확인</h1>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.switchNameHandler.bind(this, "자식한테 보내주자")}
-          changed={this.nameChangedHandler}
-        >
-          myhass
-        </Person>
-        <div>
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}
-          />
-          <Person name="manu" age="33" />
-          <Person />
-        </div>
-        {/* 함수 ()를 쓰지말것 왜냐하면 함수실행되면 리렌더링되니까 */}
-        <button onClick={() => this.switchNameHandler("요롷게 저렇게")}>
-          눌려라
-        </button>
-        <Userinput currentName="ㅇㅇㅇ" />
+        <ol>
+          <li>Create an input field (in App component) with a change listener which outputs the length of the entered text below it (e.g. in a paragraph).</li>
+          <li>Create a new component (=> ValidationComponent) which receives the text length as a prop</li>
+          <li>Inside the ValidationComponent, either output "Text too short" or "Text long enough" depending on the text length (e.g. take 5 as a minimum length)</li>
+          <li>Create another component (=> CharComponent) and style it as an inline box (=> display: inline-block, padding: 16px, text-align: center, margin: 16px, border: 1px solid black).</li>
+          <li>Render a list of CharComponents where each CharComponent receives a different letter of the entered text (in the initial input field) as a prop.</li>
+          <li>When you click a CharComponent, it should be removed from the entered text.</li>
+        </ol>
+        <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
+        <hr />
+        <input
+          type="text"
+          onChange={this.inputChangedHandler}
+          value={this.state.userInput} />
+        <p>{this.state.userInput}</p>
+        <Validation inputLength={this.state.userInput.length} />
+        {charList}
       </div>
     );
-    // 이렇게도 가능한데.
-    // return React.createElement('div',null,"h1","여기야여기")
-    // return React.createElement('div',{className:"App"},React.createElement('h1',null,'맞아?'))
   }
 }
 
 export default App;
-
-//리액트 훅 이용
-// import React, { useState } from 'react';
-// import './App.css';
-// import Person from './Person/Person';
-
-// const app = props => {
-//   const [personsState, setPersonsState] = useState({
-//     persons: [
-//       { name: 'Max', age: 28 },
-//       { name: 'Manu', age: 29 },
-//       { name: 'Stephanie', age: 26 }
-//     ]
-//   });
-
-//   const [otherState, setOtherState] = useState('some other value');
-
-//   console.log(personsState, otherState);
-
-//   const switchNameHandler = () => {
-//     // console.log('Was clicked!');
-//     // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-//     setPersonsState({
-//       persons: [
-//         { name: 'Maximilian', age: 28 },
-//         { name: 'Manu', age: 29 },
-//         { name: 'Stephanie', age: 27 }
-//       ]
-//     });
-//   };
-
-//   return (
-//     <div className="App">
-//       <h1>Hi, I'm a React App</h1>
-//       <p>This is really working!</p>
-//       <button onClick={switchNameHandler}>Switch Name</button>
-//       <Person
-//         name={personsState.persons[0].name}
-//         age={personsState.persons[0].age}
-//       />
-//       <Person
-//         name={personsState.persons[1].name}
-//         age={personsState.persons[1].age}
-//       >
-//         My Hobbies: Racing
-//       </Person>
-//       <Person
-//         name={personsState.persons[2].name}
-//         age={personsState.persons[2].age}
-//       />
-//     </div>
-//   );
-//   // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
-// };
-
-// export default app;

@@ -14,9 +14,9 @@ public class MainEntry {
 		
 		ICalc proxyCal = (ICalc)ctx.getBean("proxy");
 		
-		//System.out.println(proxyCal.ADD(5,10));
+		System.out.println(proxyCal.ADD(5,10));
 		System.out.println(proxyCal.MUL(5,10));
-		//System.out.println(proxyCal.SUB(10,5));
+		System.out.println(proxyCal.SUB(10,5));
 	}
 
 }

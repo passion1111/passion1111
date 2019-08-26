@@ -23,8 +23,8 @@ class App extends Component {
     const charList = this.state.userInput.split('').map((ch, index) => {
       return <Char 
         character={ch} 
-        key={index}
         clicked={() => this.deleteCharHandler(index)} />;
+        key={index}
     });
 
     return (

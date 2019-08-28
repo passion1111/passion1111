@@ -1,0 +1,51 @@
+전제조건:
+1. Maven 사용하지 않음
+   -필요한 Spring lib는 각각 참조
+2. SpringMVC
+   -spring-web-4.1.6
+   -spring-webmvc-4.1.6 추가
+3. 필수
+   -core , context, beans , expression , aop
+   -의존 : logging
+------------------------------------------------------------
+SpringMVC 세팅
+
+1. web.xml 에서 설정
+   -DispatcherServlet 설정작업 완료
+   -url-pattern 정의  > *.htm      ex)*.do 또는 *.action 등등
+   > http://localhost:8090/SpringMVC_Basic_01/login.htm 요청이 오면
+   > DispatcherServlet 클래스 동작 
+
+2. spring-servlet.xml (Spring Container 역활을 하는 xml 생성)
+   ***주의사항***
+    여기서 xml 파일의 이름은 반드시 web.xml에서 설정한
+   <servlet-name>spring</servlet-name> 안에 [이름과]-[servlet].xml 로
+   >> 최종 설명파일명 : spring-servlet.xml     
+
+3. [HandlerMapping] 이용해서 필요한 controller 찿는다
+    기존 > Model2 MVC
+         String command = "/boardlist.do";
+         if(command.equals("/boradlist.do")){
+         	 boardservice service = new boardservice();
+ 
+         }
+   -<bean name="/hello.htm" 코드 > HandlerMapping
+   -HandlerMapping 통해서 필요한 컨트롤로 사용
+
+ 4.SpringMVC에서 사용할 Controller 생성
+   -public class HelloController implements Controller
+   -ModelAndView 객체를 리턴하는 함수 handleRequest 가지고
+   -Model 작업과 View 작업을 하고
+   -ModelAndView 객체를 리턴
+   
+ 5. 	<bean name="/hello.htm" 
+              class="kr.or.kosta.HelloController"></bean> 완성
+              
+ 6.최종
+ 
+   요청 >  http://localhost:8090/SpringMVC_Basic_01/index.html
+   결과 >  http://localhost:8090/SpringMVC_Basic_01/hello.htm  
+   
+ 7. viewResolver  객체 생성
+    --org.springframework.web.servlet.view.InternalResourceViewResolver
+                  

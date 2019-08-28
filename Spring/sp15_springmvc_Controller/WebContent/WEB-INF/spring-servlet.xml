@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="kr.edu.bit.HelloController" name="/hello.bo"/>
+	<bean class="kr.edu.bit.ListController" name="/list.bo"/>
+	
+	<!-- 뷰 리졸브. -->
+	<bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="WEB-INF/View/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

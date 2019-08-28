@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- controller bean create -->
+	<bean name="/list.do" class="edu.bit.controller.ListController">
+	<property name="guestDAO" ref="dao"/>
+	</bean>
+	
+	<bean name="/writeAction.do" class="edu.bit.controller.WriteFormController">
+	<property name="dao" ref="dao"/>
+	</bean>
+	<bean name="/Writeform.do" class="edu.bit.controller.WriteFormController2"/>
+	<bean name="/Delete.do" class="edu.bit.controller.Delete">
+	<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean name="/modifyform.do" class="edu.bit.controller.ModiftForm">
+	<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/modifyAction.do" class="edu.bit.controller.modifyAction">
+	<property name="dao" ref="dao"></property>
+	</bean>
+	
+	
+	<!-- <bean id="dao" class="edu.bit.model.GuestDAOImp" > </bean> -->
+	
+	
+	
+	
+	<!--viewresolver  -->
+	<bean id="viewresolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/WEB-INF/view/"/>
+	<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>

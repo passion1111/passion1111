@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- springConfig-servlet.xml -->
+
+	<context:annotation-config />
+	
+	<!-- 빈객체 생성 및 조립(주입) -->
+	<!-- 
+		HandlerMapping
+		1. 요청에 대해서 어떤 컨트롤러를 사용할지에 대한 결정
+		2. 사용할 컨트롤러에 빈객체 생성
+		3. 각 빈이 사용할 빈객체 생성
+		4. DI 작업(의존성 주입 : 주로 setter method > property 로 주입
+	 -->
+
+	<!-- Test_1 -->
+	<bean class="com.controller.HomeController"/>
+	
+	<!-- Test_2 : Form(Get/Post) -->
+	<bean class="com.controller.NewArticleController" />
+	<bean class="com.service.ArticleService" />
+	
+
+	<!-- Test_3 : Form(Get/Post) : List, Object 데이터 받기 -->
+	
+	<!-- Test_4 : parameter @RequestParam 처리하기 -->
+	
+	<!-- Test_5 : Cookie > @CookieValue 사용하기 -->
+	
+	<!-- Test_6 : @ModelAttribute 사용법  -->
+
+	<!-- ViewResolver구현 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix"  value=".jsp"/>
+	</bean>
+</beans>
+
+
+
+
+
+

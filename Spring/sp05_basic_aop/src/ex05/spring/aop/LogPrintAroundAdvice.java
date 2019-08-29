@@ -1,5 +1,5 @@
-package ex05.spring.aop;
 
+package ex05.spring.aop;
 import java.util.Arrays;
 
 import org.aopalliance.intercept.MethodInterceptor;

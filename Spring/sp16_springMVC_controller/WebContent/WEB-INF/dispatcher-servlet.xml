@@ -28,7 +28,7 @@
 	<!-- <bean id="dao" class="edu.bit.model.GuestDAOImp" > </bean> -->
 	
 	
-	
+	 
 	
 	<!--viewresolver  -->
 	<bean id="viewresolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+<context:annotation-config />
+<!--  
+	컨테이너(IOC) : 객체의 생성과 조립
+	전제 App 사용하는  공통빈 설정
+	
+	공통 : viewResolver 
+	DB 작업 : 연결 , Template , DAO 단 ...
+	org.springframework.jdbc.datasource.DriverManagerDataSource;
+	org.springframework.jdbc.core.JdbcTemplate;
+-->
+ <bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+ 	<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+ 	<property name="username" value="kim"></property>
+ 	<property name="password" value="oracle"></property>
+ </bean>
+ <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+ 	 <property name="dataSource" ref="driverManagerDataSource"></property>
+ </bean>
+ 
+	
+	
+	<!-- ViewResolver 통한 view 페이지 설정 -->
+	<bean id="viewResolver"  
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	  <property name="prefix" value="/WEB-INF/view/" />
+       	  <property name="suffix" value=".jsp" />	
+    </bean>
+
+    <!-- DAO 단 injection -->
+    <bean id="memberDAOImple" class="com.model.MemberDAOImpl">
+    	<!-- <property name=""></property>  Autowire-->
+    </bean>
+    
+
+
+   
+
+</beans>

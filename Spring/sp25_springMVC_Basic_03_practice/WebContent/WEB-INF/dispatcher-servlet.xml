@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+<context:annotation-config />
+<!-- 빈객체 생성 및 조립 (주입) -->
+<!--  
+	HandlerMapping
+	1.요청에 대해서 어떤 컨트롤러를 사용할지에 대한 결정
+	2.사용할 컨트롤서 빈객체생성
+	3.각 빈이 사용할  빈객체 생성
+	4.DI 작업(의존성 주입 : 주로 setter > Property 로 주입
+-->
+
+	<!-- 	
+	   기본 컨트롤러 코드 HandlerMapping 주소가 name="" 정의
+		<bean name="/customer/notice.htm" class="controllers.customer.NoticeController">
+			<property name="noticedao" ref="noticedao" />
+		</bean> 
+	-->	
+
+   <!--  TEST_1 -->
+   <bean id="hellocontroller" class="com.controller.HelloController"></bean>
+
+   
+   <!--  TEST_2 : Form(GET:POST) -->
+   	<bean id="newarticlecontroller" class="com.controller.NewArticleController">
+   		<!-- articleservice 에 대한 setter 구현 되어있다면
+   		<context:annotation-config />
+   		 -->
+   		<!-- <property name="articleservice" ref="articleservice"></property> -->
+   	</bean>
+  	<bean id="articleservice" class="com.service.ArticleService"></bean>
+
+	
+	<!-- TEST_3 : Form(GET:POST) : List , Object  데이터 받기-->
+	<bean id="orderController" class="com.controller.OrderController"></bean>
+
+
+	<!-- TEST_4 : parameter @RequestParam 처리하기-->
+	<bean id="searchController" class="com.controller.SearchController"></bean>
+	
+	
+	<!-- TEST_5 : Cookie > @CookieValue 사용하기 -->
+	<bean id="cookieController" class="com.controller.CookieController"></bean>
+	
+	
+	<!-- TEST_6 : @ModelAttribute 사용법 2번쨰  -->
+	<bean id="codeSearchController" class="com.controller.CodeSearchController"></bean>
+	
+	
+   <!-- ViewResolver 구현  -->
+   <bean id="ViewResolver"  
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	  <property name="prefix" value="/WEB-INF/view/" />
+       	  <property name="suffix" value=".jsp" />	
+    </bean>
+</beans>
+
+
+
+
+
+
+
+

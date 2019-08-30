@@ -1,0 +1,5 @@
+1. @Controller
+2. @RequestMappinig("/hello.do");
+
+
+3.게시판 글쓰기를 통한 연습

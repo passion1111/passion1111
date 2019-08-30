@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+<context:annotation-config />
+<!-- 일반적인 Controller(개발자가 생성한)
+      빈객체로 생성 필요하다면 주입(조립) 
+ -->
+<bean id="loginController" class="com.controller.LoginController"></bean>
+<bean id="logOutController" class="com.controller.LogOutController"></bean>
+<!-- 
+	DB 작업을 위해서
+	컨테이너 안에 있는 : memverDAOImpl 주입
+	loginController 코드에서
+	@Autowired
+	private MemberDAO memberdao;
+ -->
+ <bean id="joinController" class="com.controller.JoinController"></bean>
+ <bean id="memberCheckController" class="com.controller.MemberCheckController"></bean>
+ 
+</beans>

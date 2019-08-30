@@ -1,0 +1,81 @@
+1. SpringMVC 로그인 처리하기
+2. Table 생성
+ 
+create table UserMember(
+		id varchar2(20),
+		name varchar2(20),
+		pwd varchar2(20),
+		email varchar2(30),
+		age number
+);
+	
+3. 접속계정 : springuser, 1004
+
+4. Model(DTO, DAO), View, Controller
+
+5. Model > vo, dao 클래스 작업
+
+6. Controller > controller 클래스 
+
+7. View > WEB-INF > view > view 작업
+
+8. SpringMVC = Spring lib 추가
+	-기본 : core, beans, context ...
+	-웹   : 2가지 (Web, WebMVC)
+	-의존 : logging....
+	-기타 : JSTL ..
+	-DB  : JDBC 드라이버 ..
+	-Spring JDBC : Spring-jdbc , Spring-tx
+	
+9. Spring core (DI, 빈 객체)
+	-설정 (xml ... 통해서)
+	-Web.xml 역할
+	--1. DispatcherServlet 설정 > <url-pattern> 설정
+	--2. DispatcherServlet 사용하는 container인 xml 파일의 이름은
+	---- dispatcher-servler.xml
+	--3. DispatcherServlet 사용하는 container인 xml 파일의 [이름을 달리]하거나
+		[여러개를 사용]하는 방법
+		
+	--정리 방법1)
+	1. <listener>
+		- /WEB-INF/applicationContext.xml 로드(SpringContainer 생성)
+		- 다른 컨테이너가 사용하는 공통 빈을 생성
+		- 웹 프로젝트(톰캣) 시작과 동시에 로드
+		- 공통빈 (DB 작업, JDBC 작업 코드)
+		- applicationContext.xml 안의 빈은 전체 APP 공통사용
+	2. DispatcherServlet 가지는 servlet name과 동일한 xml 설정
+		- dispatcher-servlet.xml > 일반적인 컨트롤러를 빈 객체로 생성
+		
+	--정리 방법2)
+	<servlet>
+  	<servlet-name>dispatcher</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				classpath:/WEB-INF/applicationContext.xml
+				classpath:/WEB-INF/dispatcher-servlet.xml
+			<param-value>
+		</init-param>
+	</servlet>
+	
+4. 필터(한글처리)
+		-web.xml
+		-<filter-name>Encoding</filter-name>
+  		-<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	
+5. applicationCOntext.xml 설정하기	
+	--DB연동
+		--기존 JDBC 사용
+		--현재
+		 org.springframework.jdbc.datasource.DriverManagerDataSource;
+		 org.springframework.jdbc.core.JdbcTemplate;
+		 org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+
+6. view 단 페이지 (레이아웃 구성)
+
+[조별과제]
+조별 카페에 올리기 > 오늘 퇴근 전까지 ....
+7. 회원가입 하는 처리 (insert into UserMember where ....)
+    회원조회 (select * from UserMember where id='kingsmile'  	   
+  	   

@@ -5,7 +5,7 @@ import Char from './char/Char';
 
 class App extends Component {
   state = {
-    userInput: ''
+    userInput: 'd'
   }
 
   inputChangedHandler = ( event ) => {
@@ -23,8 +23,8 @@ class App extends Component {
     const charList = this.state.userInput.split('').map((ch, index) => {
       return <Char 
         character={ch} 
-        clicked={() => this.deleteCharHandler(index)} />;
-        key={index}
+        clicked={() => this.deleteCharHandler(index)}
+        key={index}   />;
     });
 
     return (
@@ -46,6 +46,7 @@ class App extends Component {
         <p>{this.state.userInput}</p>
         <Validation inputLength={this.state.userInput.length} />
         {charList}
+        {console.log(charList)}
       </div>
     );
   }

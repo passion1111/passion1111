@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GUEST">
+	<select id="getAllList" resultType="guest">
+		select * from guest order by no desc
+	</select>
+	
+	<select id="getDetailByno"  parameterType="int" resultType="guest">
+		select * from guest where no = #{no}
+	</select>
+	
+    <insert id="insertGuest" parameterType="guest">
+    	insert into guest(no,name,pwd,email,home,content,regdate)
+    	values(guest_Seq.NEXTVAL , #{name},#{pwd},#{email},#{home},#{content},sysdate)
+    </insert>
+    
+    <update id="updateGuest" parameterType="guest">
+    	update guest
+    	set name=#{name} , email=#{email} , home=#{home} , content=#{content}
+    	where no = #{no}
+    </update>
+    
+    <delete id="deleteGuest" parameterType="int">
+    	delete from guest where no =#{no}
+    </delete>
+    
+    <!-- ***********************************************  
+    parameterType="hashMap" 장점
+     키값 :컬럼명 , value값 : 데이터
+    -->
+    <select id="selectSearch" parameterType="hashMap" resultType="guest">
+    	<!--  
+    		 1. Java 코드
+    		 Map<String, String> map = new HashMap<>(); //collection
+      		 map.put("column",column ); //column : name or email or home
+      		 map.put("keyvalue", keyvalue); //keyvalue : 홍길동
+             
+             2. 함수 호출시 
+             session.selectList("GUEST.selectSearch" ,map);
+    	
+    	     3. xml에서 
+    		 parameterType="hashMap"
+    		
+    		map key   : column , keyvalue
+    		map value : #{column} , ${column}
+    		
+    		Tip : ${column} : 컬럼명
+    	-->
+    	
+    	select * from guest
+    	<!-- where name like '%김유신%' -->
+    	<if test="column != null">
+    		where ${column} like '%' || #{keyvalue} || '%'    	
+    	</if>
+    </select>
+    
+    
+    <select id="selectSearch2" parameterType="hashMap" resultType="guest">
+    	select * from guest
+    	<where>
+    		<if test="name != null">
+    			name = #{keyvalue}
+    		</if>
+    	    <if test="email != null">
+    	    	or email = #{keyvalue}
+    	    </if>
+			<if test="home != null">
+				or home = #{keyvalue}
+			</if>    	
+    	</where>    	
+    	
+    	
+    </select>
+</mapper>

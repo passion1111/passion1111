@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+">
+<context:annotation-config />
+<!-- 빈객체 생성 및 조립 (주입) -->
+<!--  
+	HandlerMapping
+	1.요청에 대해서 어떤 컨트롤러를 사용할지에 대한 결정
+	2.사용할 컨트롤서 빈객체생성
+	3.각 빈이 사용할  빈객체 생성
+	4.DI 작업(의존성 주입 : 주로 setter > Property 로 주입
+	
+	5.게시판에 List 목록 출력 > Spring Controller 구현 > NoticeController 클래스
+	6.게시판 상세보기 > Spring Controller 구현 > NoticeDetailController  클래스
+-->
+
+	<!-- DAO 빈객체 생성 -->
+	<!-- <bean id="noticedao" class="dao.NoticeDao"></bean> -->
+	<bean id="customerController" class="ncontrollers.CustomerController" ></bean>
+	<bean id="noticeDao" class="dao.NewNoticeDao"></bean>   
+	
+	
+	</beans>
+
+
+
+
+
+
+
+

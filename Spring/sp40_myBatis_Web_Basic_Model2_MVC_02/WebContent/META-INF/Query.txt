@@ -1,0 +1,11 @@
+CREATE TABLE guest(
+ no NUMBER,  
+ name VARCHAR2(20), 
+ pwd VARCHAR2(20), 
+ email VARCHAR2(20), 
+ home VARCHAR2(20), 
+ content VARCHAR2(50), 
+ regdate DATE
+);
+
+CREATE SEQUENCE guest_Seq;

@@ -1,0 +1,13 @@
+CREATE TABLE Board(
+    board_no number,
+    subject varchar2(30),
+    writer varchar2(30),
+    reg_date date,
+    readCount number,
+    content VARCHAR2(2000),
+    pwd varchar2(15),
+    email varchar2(30),
+    group_no number,
+    print_no number,
+    print_level number
+);

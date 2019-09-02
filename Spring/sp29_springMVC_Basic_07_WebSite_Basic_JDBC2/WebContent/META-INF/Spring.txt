@@ -1,0 +1,173 @@
+기존 : JSP 기반의 사이트 (DAO  , VO)
+
+고전적인 Spring 기반의 서비스
+
+
+
+Spring 사용 LIB :
+MAIN
+spring-framework-3.2.9.RELEASE-with-docs\spring-framework-3.0.2.RELEASE\dist\
+spring-framework-3.0.2.RELEASE-dependencies\org.apache.commons\
+
+
+dist\안에 Jar import ....
+
+1. web.xml => Front Contoller : DispatcherServlet 구현
+           => URL 패턴 : *.htm
+
+2. 필요한 객체를 Load => 패턴을 가지고 있는 녀석들
+   사용자가 notice.htm
+   xml 하나 추가 ->     <servlet-name>dispatcher</servlet-name>
+   dispatcher-servlet.xml 생성
+   
+-------------------------------------------------------------------------------
+Spring 도 기존의 MVC 사용 
+Model 유지
+View 유지
+Controller =>  DispatcherServlet => 사용하는 서비스 class 제작
+
+3. Controller 역활을 하는 클래스 제작 
+   => NoticeController 클래스 
+   단 이 클래스는 implements Controller 구현 하여야 한다
+   =>handleRequest 메서드가 모든 처리 담당
+   =>글쓰기 -> 클래스
+   =>글상세 -> 클래스 
+   =>필요한 DAO 클래스도 참조 관계로 가지고 있다
+
+4.  NoticeController 인젝션 처리 통해 DispatcherServlet 사용할 수 있게
+    NoticeController 를 빈으로 등록  (페턴 구현)
+    사용하는 추가 class 에 대해서 setter 처리 할 수 있도록 ref=설정
+    
+    주의사항
+    <property name="noticeDao" ref="noticeDao"></property>   
+     =>name="noticeDao" => private NoticeDao noticeDao;
+     =>setter 동작 
+
+5. view 단처리 (JSTL and EL)
+   jar 추가
+   
+6. 기본적인 조회 처리 완료
+------------------------------------------------------------
+현재 추가적인 구현 : 상세보기  구현
+그런데 현재 사용하는 Spring 방식에서는 하나의 기능이(method) 구현 하기 위해서
+별도로 하나의 클래스 생성(controller) 상세를 처리하는 ....
+-> 그래서 annotation 사용하면 지금의 문제를 해결 가능 (하나의 클래스가 여러개의 기능)    
+   
+   
+================================
+**SpringMVC_Basic_06_WebSite_Annotation 시작
+1. public class NoticeController  implements Controller
+   >> Annotation  적용하기 (하나나의 클래스가 여러가지 업무)
+   >> @Controller , @RequestMapping("") ,@RequestMapping(value="")
+   >> index.jsp >> <a href="customer/notice.htm"> 전환
+   >> @Controller
+	  @RequestMapping("/customer/") 
+      public class CustomerController{
+      
+      	@RequestMapping("notice.htm")	
+      	publc String notices() 함수가 동작
+      } 
+   
+2. 게시판 작업 
+   -전작업 : 글목록보기 작업 , 글상세보기 
+   -현작업 : 글쓰기 , 글수정 , 글삭제  ,파일 업로드 다운로드
+
+3. web.xml 추가 적인 설정작업
+   -한글처리 (Filter ....)    
+   
+4. 글목록보기 처리(notice.htm 로 요청) 
+
+5. 글상세보기 처리(noticeDetail.htm 로 요청) 
+  
+  
+  
+6. 글쓰기 처리(noticeReg.htm 로 요청)    
+   -페이지설정된 link > htm 확장자 변환
+   -Controller  처리
+   -FileUpload  처리
+    -cos lib 작업 
+    -<form ... enctype="multipart/form-data" 강제 
+    -업로드할 폴더 생성 : 폴더생성 확인
+    -C:\Kosta95\Spring\Spring_Labs\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SpringMVC_Basic_06_WebSite_Annotation\upload
+    
+   -Spring 에서 파일 업로드 lib 제공
+    -IO : C:\Kosta95\Spring\Spring_Utils\Framework\spring-framework-3.0.2.RELEASE-dependencies\org.apache.commons\com.springsource.org.apache.commons.io\1.4.0
+    -Upload :C:\Kosta95\Spring\Spring_Utils\Framework\spring-framework-3.0.2.RELEASE-dependencies\org.apache.commons\com.springsource.org.apache.commons.fileupload\1.2.0 
+   
+   
+ 7. 글삭제 처리 (noticeDetail.jsp) 링크
+ 
+ 
+ 8. 글수정 처리 (두가지 GET , POST)
+    주의 -> EDIT 페이지 >    <form ... enctype="multipart/form-data" 
+   
+   
+ 9  다운로드  
+ 
+ 이번 프로젝트에서는
+ -Controller > @Controller Annotation  사용과
+ -각 함수의 @RequestMapping
+ -파라메터 객체 처리 등을 학습 
+ -view 단에 객체를 출력하는 EL 작업 
+   
+==========================================
+이번 프로젝트 에서는 
+**JDBCTemplate  작업***
+dao패키지 안에 있는 dao 클래스 수정
+
+
+1. applicationcontext.xml (컨테이너 설정)
+
+2. web.xml > listener > 로드 
+ 
+3. applicationcontext.xml 추가 빈설정 (DB관련 , 공통빈(DAO))
+   -DriverManagerDataSource 빈객체
+   -JdbcTemplate 빈객체 (datasource injection)
+   -fileupload > applicationcontext.xml > 수정
+
+4. jdbc , transaction 처리 위한 spring lib 추가
+
+
+5. NoticeDao > 인터페이스 변환
+   NewNoticeDao > 클래스 생성 > NoticeDao 구현
+   -jdbcTemplate 멤버변수 > injection(Annotation)
+   -xml에서 빈등록 및 
+   -각각 함수 구현
+  
+6. 다중파일업로드 처리 코드 변환
+   VO .. 변경
+   Table 수정 
+   alter table notices
+   add FILESRC2 VARCHAR2(500 BYTE);
+   Page 변경
+  
+   
+7. file 처리 (CustomerController 수정)
+   글쓰기
+   수정하기 수정
+==============================================
+** JDBC2
+SimpleJdbcTemplate 을 상속관계로 정의하고 사용해 보기 
+
+1. public class NewNoticeDao extends SimpleJdbcDaoSupport implements NoticeDao
+
+2. 	<bean class="dao.NewNoticeDao" id="noticeDao">
+	<!-- 
+	실제 NewNoticeDao 에는 dataSource 녀석의 멤버필드나 setter (x) 
+	     NewNoticeDao extends SimpleJdbcDaoSupport 에서 보면 
+	     SimpleJdbcDaoSupport 클래스가 dataSource 라는 이름의 setter(0) 
+	-->
+     <property ref="driverManagerDataSource" name="dataSource"/>
+	</bean>
+
+3. <!--
+ 	Simple 사용으로 주석 
+ 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+ 	 	<property name="dataSource" ref="driverManagerDataSource"></property>
+ 	</bean> 
+ 	--> 
+
+
+
+
+     

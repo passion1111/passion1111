@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+ <tiles-definitions>
+ 	<definition name="hello" template="/template/layout.jsp">
+ 		<put-attribute name="title" value="Hello world" />
+ 		<put-attribute name="header" value="/template/header.jsp" />
+ 		<put-attribute name="menu" value="/template/menu.jsp" />
+ 		<put-attribute name="body" value="/hello_body.jsp" />
+ 		<put-attribute name="footer" value="/template/footer.jsp" />
+ 		
+ 	</definition>
+ 	<!-- 공통 페이지 주소의 변경이 일어난 경우 -->
+ 	<definition name="hello2" template="/template/layout.jsp">
+ 		<put-attribute name="title" value="Hello world" />
+ 		<put-attribute name="header" value="/template/header2.jsp" />
+ 		<put-attribute name="menu" value="/template/menu.jsp" />
+ 		<put-attribute name="body" value="/hello_body.jsp" />
+ 		<put-attribute name="footer" value="/template/footer2.jsp" />
+ 	</definition>
+ 	
+ 	<!-- definition 상속해서 사용하기  -->
+ 	<definition name="itworld.base" template="/template/layout.jsp">
+ 		<put-attribute name="title" value="Hello world" />
+ 		<put-attribute name="header" value="/template/header.jsp" />
+ 		<put-attribute name="menu" value="/template/menu.jsp" />
+ 		<put-attribute name="body" value="/hello_body.jsp" />
+ 		<put-attribute name="footer" value="/template/footer.jsp" />
+ 	</definition>
+ 	<!-- 상속을 통한 재정의 
+ 		 위에서가는 put-attribute 그대로 사용하고
+ 		 재정의한것은 현재것 적용
+ 	  -->
+ 	<definition name="itworldsub" extends="itworld.base">
+ 		<put-attribute name="title" value="itworldsub" />
+ 	</definition>
+ 	
+ </tiles-definitions>      
+       

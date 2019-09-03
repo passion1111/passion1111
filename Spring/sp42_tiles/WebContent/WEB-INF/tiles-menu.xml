@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- tiles-menu.xml -->
+<!DOCTYPE tiles-definitions PUBLIC 
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.2//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_2_2.dtd">
+	
+<tiles-definitions>
+	<definition name="home" template="/template2/layout.jsp" 
+										preparer="com.bit.tiles.MenuItemView">
+										
+			
+		<put-attribute name="title"  value="HOME WORLD" />
+		<put-attribute name="header"  value="/template2/header.jsp" />
+		<put-attribute name="menu"  value="/template2/home_menu.jsp" />
+		<put-attribute name="body"  value="/hello_body.jsp" />
+		<put-attribute name="footer"  value="/template2/footer.jsp" />
+	</definition>
+</tiles-definitions>
+
+
+
+
+

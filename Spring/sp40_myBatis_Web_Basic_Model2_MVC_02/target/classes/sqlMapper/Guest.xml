@@ -59,7 +59,10 @@
     
     
     <select id="selectSearch2" parameterType="hashMap" resultType="guest">
+    
     	select * from guest
+    	
+    	
     	<where>
     		<if test="name != null">
     			name = #{keyvalue}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+<context:annotation-config />
+<!-- @Controller 적용된 클래스 빈객체 자동 생성
+     ncontrollers 패키지명
+ -->
+<context:component-scan base-package="ncontrollers"/>
+
+
+
+
+
+<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- <bean id="customerController" class="ncontrollers.CustomerController" ></bean> -->
+	<bean id="noticeDao" class="dao.NewNoticeDao"></bean>   
+ 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 		<property name="dataSource" ref="driverManagerDataSource"></property> 
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+
+

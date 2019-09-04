@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+<context:annotation-config />
+<context:component-scan base-package="ncontrollers"/>
+
+<bean id="noticeDao"     class="dao.NewNoticeDao"></bean>   
+<bean id="newMemberDao"  class="dao.NewMemberDao"></bean>
+
+
+
+<!-- Tiles START설정 -->
+<bean id="tilesConfigurer" 
+      class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	<property name="definitions">
+		<list>
+			<value>/WEB-INF/spring/appServlet/Tiles.xml</value>
+		</list>
+	</property>
+</bean>
+<!-- Tiles END 설정 -->
+
+<!-- 2개의 ViewResolver 설정하기 
+UrlBasedViewResolver : request url 을 사용하는 view resolver.
+InternalResourceViewResolver :
+ UrlBasedViewResolver 의 하위객체로 
+ InernalResourceView(Servlet, jsp) 와 
+ jstlView, TilesView 를 지원한다.
+
+-->
+<!-- urlBasedViewResolver 설정하기 : Tiles -->
+<bean id="urlBasedViewResolver" 
+      class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<property name="viewClass" 
+			  value="org.springframework.web.servlet.view.tiles3.TilesView" />
+</bean>		
+<!-- InternalResourceViewResolver 설정하기 : 접미사  -->	
+<!-- <bean id="ViewResolver"  
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       	  <property name="suffix" value=".jsp" />	
+</bean> -->
+ 
+</beans>
+
+
+
+
+
+
+
+

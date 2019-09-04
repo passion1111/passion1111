@@ -24,7 +24,7 @@ public class ContactController {
 	
 	@RequestMapping("/contacts")
 	public ModelAndView showContacts() {
-		return new ModelAndView("Contact","command",new Contact());
+		return new ModelAndView("jsp.Contact","DD",new Contact());
 		                                  //두번쨰 command에   new Contact()를 넣어줌.
 	}
 }

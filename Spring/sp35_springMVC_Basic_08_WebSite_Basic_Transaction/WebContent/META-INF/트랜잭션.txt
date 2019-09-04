@@ -1,0 +1,237 @@
+CREATE TABLE TNOTICES (
+  SEQ        VARCHAR2(10 BYTE)           NULL,
+  TITLE      VARCHAR2(200 BYTE)          NULL,
+  WRITER     VARCHAR2(50 BYTE)           NULL,
+  CONTENT    VARCHAR2(4000 BYTE)         NULL,
+  REGDATE    TIMESTAMP(6)                NULL,
+  HIT        NUMBER                      NULL,
+  FILESRC    VARCHAR2(500 BYTE)          NULL,
+  FILESRC2   VARCHAR2(500 BYTE)          NULL
+);
+COMMIT;
+
+DROP TABLE TMEMBER
+CREATE TABLE TMEMBER (
+  "UID"         VARCHAR2(50 BYTE)          NULL,
+  PWD         VARCHAR2(50 BYTE)          NULL,
+  NAME        VARCHAR2(50 BYTE)          NULL,
+  GENDER      VARCHAR2(10 BYTE)          NULL,
+  BIRTH       VARCHAR2(10 BYTE)          NULL,
+  IS_LUNAR    VARCHAR2(10 BYTE)          NULL,
+  CPHONE      VARCHAR2(15 BYTE)          NULL,
+  EMAIL       VARCHAR2(200 BYTE)         NULL,
+  HABIT       VARCHAR2(200 BYTE)         NULL,
+  REGDATE     DATE                       NULL
+);
+
+SELECT * FROM TNOTICES;
+SELECT * FROM TMEMBER;
+
+----------------------------------------------------------
+ALTER TABLE TMEMBER ADD(POINT number(10) DEFAULT(0));
+
+ALTER TABLE TMEMBER ADD CONSTRAINT ck_TMEMBER_point check(point < 3);
+ALTER TABLE TNOTICES ADD CONSTRAINT pk_TNOTICES_seq PRIMARY KEY(SEQ);
+ALTER TABLE TNOTICES ADD CONSTRAINT uk_TONTICES_title UNIQUE(title);
+
+INSERT INTO Tmember("UID",pwd,NAME) VALUES('kingsmile','11','1');
+COMMIT;
+
+=====================================================================
+
+Spring Transaction
+*트랜잭션 : 하나의 논리적인 작업 단위
+*DB : 
+begin tran
+ 	insert ,,, 
+ 	update ,,,,
+commit or rollback
+*ACID : 원자성 , 지속성 , 일괄성 , 격리성
+*Spring 통해서 CRUD (insert , delete , update) Default : autocommit
+
+*스프링에서 제공하는 TransactionMananger는 호환성 
+모든 다른 트랜잭션 프레임워크의 상위 타입입니다
+
+=====================================================================
+수업 시나리오
+->포인트 제도
+게시판에 글을 쓰면 포인트 부여
+TNOTICES
+TMEMBER
+
+commit or rollback
+----------------------------------->BEGIN
+TNOTICES  insert .... 글을 쓰면 
+TMEMBER   update .... point ..... 1point 증가
+----------------------------------->END
+
+*xml설정을 통해서 처리
+1. 일반적인 DataSourceTransactionManager 사용
+2. transactionTemplate 사용
+
+[[[[ 처리순서 ]]]]
+**xml 설정*****************************************
+<!-- JDBC기반의 트랜잭션 관리자(Connection 얻어내기)-->
+1.applicationcontext.xml 설정
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 	<property name="dataSource" ref="driverManagerDataSource"></property> 
+</bean>
+
+<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+ 	<property name="transactionManager" ref="transactionManager"></property>
+</bean>
+
+
+**Spring 기반의 트랜잭션 (자바코드)********************************
+
+1. NewNoticeDao ..
+   doa.NewNoticeDao Table 명 변경
+   --> NOTICES > TNOTICES
+   --> MEMBER  > TMEMBER
+   
+    추가
+   @Autowired
+   private TransactionTemplate transactionTemplate;
+
+2. NoticeDao 인터페이스에서 함수 추가하기
+ 	//게시물 입력시 회원의 point를 증가시키는 메서드
+	public void InsertAndPointOfMember(Notice n , String id)
+	throws ClassNotFoundException , SQLException;
+
+3. NewNoticeDao ..
+  @Override
+	public void InsertAndPointOfMember(Notice n ,String id) throws ClassNotFoundException, SQLException {
+
+		String sql = "INSERT INTO TNOTICES" +
+				     "(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC ,FILESRC2 ) " +
+				     "VALUES( (select NVL(MAX(SEQ),0) +1 from TNOTICES), ?, ?, 'kosta', SYSDATE, 0, ? , ?)";
+		String sql2 = "update TMEMBER set point = point+1 where name=?";
+		try {
+			template.update(sql, n.getTitle(),n.getContent(),n.getFileSrc(),n.getFileSrc2());
+			template.update(sql2, id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	
+	}
+	여기서 문제점은 : 자동 rollback 되지만
+	게시글은 등록이 되고 member 쪽은 point update 만 rollback 처리
+	결국 : 두개의 함수가 commit 또는 rollback을 처리 하기 위해 
+	      Transaction 기능 필요
+	
+4. CustomerController 에서 글쓰기 처리 수정
+	//기존 Transaction 없는 메서드
+	//noticeDao.insert(n); 주석 처리
+	noticeDao.InsertAndPointOfMember(n, "KGLIM"); 
+---------------------------------------------------------------------------------
+CASE 1
+ 아래를 사용하는 함수 모양이 :  public void....
+ //1. TransactionCallbackWithoutResult 결과값이 없는 경우
+ //final Notice n ,final String id 상수값 설정 (변경 없다는 보장)
+ 	public void InsertAndPointOfMember(final Notice n ,final String id) throws ClassNotFoundException, SQLException {
+
+		final String sql = "INSERT INTO TNOTICES" +
+				     "(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC ,FILESRC2 ) " +
+				     "VALUES( (select NVL(MAX(SEQ),0) +1 from TNOTICES), ?, ?, 'kosta', SYSDATE, 0, ? , ?)";
+		String sql2 = "update TMEMBER set point = point+1 where name=?";
+		/*
+		 * Transaction 없이 처리 문제 발생
+		 try {
+			template.update(sql, n.getTitle(),n.getContent(),n.getFileSrc(),n.getFileSrc2());
+			template.update(sql2, id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		*/
+		try {
+			transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+				@Override
+				protected void doInTransactionWithoutResult(TransactionStatus arg0) {
+				
+						template.update(sql, n.getTitle(),n.getContent(),n.getFileSrc(),n.getFileSrc2());
+						template.update(sql2, id);
+				}
+			 });
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	
+	}
+CASE 2
+    아래를 사용하는 함수 모양이 : public String .....
+ //2.TransactionCallback<String> 트랜잭션 처리 후 결과값이 있다면
+  /*
+  transactionTemplate.execute(new TransactionCallback<String>() {
+   @Override
+   public String doInTransaction(TransactionStatus arg0) {
+ 		template.update(sql, n.getTitle(),n.getContent(),n.getFileSrc(),n.getFileSrc2());
+		template.update(sql, id);
+    return "return value";
+   }
+  });
+
+
+
+3. AOP : 관점지향 프로그래밍 (aspect) : 주관심사는 보조업무 무었인 몰라도 
+   -> 보안 , 트랜잭션 , 로그 업무 (보조업무) => 사용자는 모르는 업무
+   -> 주업무(로그인) =>사용자
+   -> 주업무 코드를 수정하지 않고 보조업무를 끼워넣는 것 
+    보조업무 사용하는 핵심 객체 : 프록시(proxy)  
+
+<!--
+xml에서 
+ 
+1. 가짜 proxy 생성 (진짜 noticeDao 의 이름을 ...noticeDaoImpl)
+2. 가짜가 진짜의 이름 :noticeDao 생성 
+3. 실제 트랜잭션을 처리할 interceptor  를   bean 생성
+ -->
+ <bean id="noticeDaoImpl" class="dao.NewNoticeDao">
+ <property name="dataSource" ref="driverManagerDataSource"></property>
+</bean>
+<bean id="noticeDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+ <property name="target" ref="noticeDaoImpl"></property>
+ <property name="interceptorNames">
+  <list>
+   <value>transactionInterceptor</value>
+  </list>
+ </property> 
+</bean>
+<!-- 보조업무(트랜잭션) : InsertAndPointOfMember   : 보조업무(트랜잭션)  -->
+<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+ <property name="transactionManager" ref="transactionManager"></property>
+ <property name="transactionAttributes">
+  <props>
+    <prop key="InsertAndPointOfMember">PROPAGATION_REQUIRED</prop>
+  </props>
+ </property>
+</bean>
+
+
+코드레벨에서는 
+@Override
+ public void InsertAndPointOfMember(Notice n ,  String id) throws ClassNotFoundException, SQLException {
+   String sql = "INSERT INTO TNOTICES(SEQ, TITLE, CONTENT, WRITER, REGDATE, HIT, FILESRC , FILESRC2) " +
+    "     VALUES( (SELECT NVL(MAX(TO_NUMBER(SEQ)),0)+1 FROM TNOTICES), :title, :content, 'NEWUSER', SYSDATE, 0, :fileSrc , :fileSrc2)";
+   String sql2="update TMEMBER SET point = point+1 where name=?";
+  //게시판 글쓰기
+  //회원포인트 업데이트 => 하나의 논리적 단위로 처리하겠다
+ 	template.update(sql, n.getTitle(),n.getContent(),n.getFileSrc(),n.getFileSrc2());
+	template.update(sql, id);
+
+ }
+*********************************************************************** 
+4. Annotation을 통한 설정
+   선택은 여러분이 ...
+ 
+xml schema 정보에 3가지 추가   
+xmlns:tx="http://www.springframework.org/schema/tx"
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+
+<tx:annotation-driven transaction-manager="aaa" />
+=> transaction-manager="transactionManager"
+만약에 id="aaaa" 라면 
+<bean id="aaaa" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ <property name="dataSource" ref="driverManagerDataSource"></property> 
+</bean>
+

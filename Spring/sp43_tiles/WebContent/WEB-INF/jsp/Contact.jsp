@@ -9,11 +9,11 @@
 </head>
 <body>
 <h2>Contact Manager</h2>
-<form:form method="post" acceptCharset="addContact.htm">
+<form:form method="post" acceptCharset="addContact.htm" modelAttribute ="DD">
 	<table>
 		<tr>
 			<td><form:label path="firstname"> First Name</form:label></td>
-			<td><form:input path="firstname"/></td>
+			<td><form:input path="firstname" /></td>
 		</tr>
 		
 		<tr>

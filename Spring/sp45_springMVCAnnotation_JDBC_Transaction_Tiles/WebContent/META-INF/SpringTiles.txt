@@ -1,0 +1,32 @@
+1. 공통 영역에 구성
+2. master 페이지 개념의 설정을 통해 공통 페이지 구성
+3. Tiles라이브러리 를 사용하여 공통 영역에 대한 설정
+
+라이브러리  : http://tiles.apache.org/
+          : 현재 다운로드 : tiles-2.2.2-bin.zip
+          
+          
+1. 현재 프로젝트 공통영역이 구성 안되어 있다
+   그래서 공통영역와 설정과 분리 작업 
+   
+2. Jsp : <jsp:include ....>   작업
+3. 영역 정리 layout.jsp 페이지 만들어서 => master 페이지 역활
+4. Tiles 라이브러리 추가 
+5. Tiles.xml 통해서 페이지 설정
+6. Tiles객체를 사용하기 위한 설정
+7. Tiles에서 사용하기 위한 view단설정 (공통페이지 설정)
+TEST  문제점
+
+1. 사용자 직접 URL 주소를 통해서 페이지를 요청 => WEB-INF (특정영역)
+   =>http://localhost:8080/SpringMVCAnnotation_JDBC_Transaction_Tiles/WEB-INF/views/NewFile.jsp
+   => WEB-INF 영역: jsp
+      js , css (x)
+
+2. Tiles 통해서 view단이 처리되면 요청 view처리 못함
+   =>org.springframework.web.servlet.view.InternalResourceViewResolver 사용처리
+   =>return "noticeDetail"; 잡았다면
+   =>><property name="suffix" value=".jsp"></property>
+3. 2번에 처리를 했더니 공통영역에 대한 설정 관계 UI  설정을 받지 못한다
+   
+   
+4. 문제점 : 절대경로 / 상대경로    

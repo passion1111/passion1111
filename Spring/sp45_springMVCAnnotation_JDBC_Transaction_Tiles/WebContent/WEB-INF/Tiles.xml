@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+  <!-- 홈경로 처리 -->
+   <definition name="home.*" template="/WEB-INF/views/inc/layout.jsp">
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+	<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" />
+  </definition>
+  <definition name="*.*" template="/WEB-INF/views/{1}/inc/layout.jsp">
+    <put-attribute name="title" value="코스타에 오신것을 환영합니다" />
+    <put-attribute name="css" value="{2}.css" />
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+	<put-attribute name="aside" value="/WEB-INF/views/{1}/inc/aside.jsp" />
+	<put-attribute name="visual" value="/WEB-INF/views/{1}/inc/visual.jsp" />
+	<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+  </definition>
+
+ <!--
+    result : 공통 패턴을 갖는다면  
+    하나의 설저으로 해결가능(다른 폴더의 자원까지)
+     
+   	패턴을 설정할수 있는 고민
+  	customer.notice => namespace 역활
+  	customer.* => {1}.jsp
+  	customer.include.*.* =>    {1}{2}.jsp => ab.jsp
+  
+    2단계 다른 경로에 있는 파일을 패턴을 처리 해서 완료
+ 	<definition name="joinus.*" template="/joinus/inc/layout.jsp">
+    <put-attribute name="header" value="/inc/header.jsp" />
+	<put-attribute name="footer" value="/inc/footer.jsp" />
+	<put-attribute name="aside" value="/joinus/inc/aside.jsp" />
+	<put-attribute name="visual" value="/joinus/inc/visual.jsp" />
+	<put-attribute name="content" value="/joinus/{1}.jsp" />
+  </definition> -->
+ 
+  
+  
+    
+   <!-- 
+   1단계  수정
+    extends="customer.notice 상속관계를 통해 공통파일의 사용
+   <definition name="customer.noticeDetail"  extends="customer.notice">
+	<put-attribute name="content" value="/customer/noticeDetail.jsp" />
+   </definition> 
+  -->
+  
+  <!-- <definition name="customer.joinus" template="/joinus/inc/layout.jsp">
+    <put-attribute name="header" value="/inc/header.jsp" />
+	<put-attribute name="footer" value="/inc/footer.jsp" />
+	<put-attribute name="aside" value="/joinus/inc/aside.jsp" />
+	<put-attribute name="visual" value="/joinus/inc/visual.jsp" />
+	<put-attribute name="content" value="/joinus/join.jsp" />
+  </definition> -->
+</tiles-definitions>

@@ -17,6 +17,8 @@
 					<li>
 						<a href="">kosta가이드</a>
 					</li>
+					0개행이 업데이트됐스빈다 에러x ->commit
+					무결성  에러 o ->rollback
 					<li>
 						<a href="" >kosta과정</a>
 					</li>

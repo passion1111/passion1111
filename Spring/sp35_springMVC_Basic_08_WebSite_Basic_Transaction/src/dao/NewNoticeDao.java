@@ -100,6 +100,7 @@ public class NewNoticeDao implements NoticeDao {
 			 });
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			
 		}
 	
 	}

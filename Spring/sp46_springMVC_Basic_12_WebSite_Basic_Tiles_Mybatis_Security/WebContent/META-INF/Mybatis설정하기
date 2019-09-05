@@ -1,0 +1,39 @@
+1.Mybatis lib 사용하기
+  -dependency 검색
+  -아래 pom.xml 기술
+  <dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis</artifactId>
+	<version>3.1.1</version>
+  </dependency>
+  
+  <dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis-spring</artifactId>
+	<version>1.2.2</version>
+  </dependency>
+
+
+2. bean 설정
+   	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath*:kr/co/mycom/model/mapper/*xml" />
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
+	</bean>
+
+
+3. mapperLocations 설정 바꾸기 : classpath*:mapper/*xml
+
+
+4. mpper/NoticeDao.xml 생성 
+
+
+5. NoticeDao.xml 코드 생성 (여러분이 하세요)
+
+
+6. NewNoticeDao.java 필요없어요
+
+
+7. CustomerController.java 수정

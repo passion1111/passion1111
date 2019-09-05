@@ -1,0 +1,17 @@
+기존 SpringMVC_Basic_09_WebSite_Basic_JDBC_Tiles를
+복사해서
+새로운 프로젝트 작성
+
+SpringMVC_Basic_09_WebSite_Basic_JDBC_Tiles_Convert_Maven
+으로 작성
+1. Web Project Settings 에서 이름변경
+2. Project 에서 오른쪽 버튼 팝업 메뉴에서
+3. configure > Convert to Maven Project 로 변환
+4. 그럼 Maven 프로젝트로 변환 됩니다
+
+그럼 Maven 이 관리하는 폴더들이 생성되고
+     pom.xml 이 자동 생성됩니다
+
+5.그럼 에러가 뜨겠죠 (lib 추가가 되지 않아서요)
+6.그럼 문제 : pom.xml 에 <dependency></dependency> 을 통해
+              프로젝트가 에러 없이 동작되도록 하세요

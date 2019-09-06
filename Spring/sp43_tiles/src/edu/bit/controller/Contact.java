@@ -5,6 +5,15 @@ public class Contact {
 	private String lastname;
 	private String email;
 	private String telephone;
+	
+	public static void main(String[] args) {
+		
+		
+		do {
+			int i=0;
+		}while(false);
+	}
+	
 	public String getFirstname() {
 		return firstname;
 	}

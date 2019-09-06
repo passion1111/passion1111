@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.dept.model.Dept2DAO">
+	<!-- 리스트 가져오기 -->
+	<select id="getDept2List" resultType="kr.co.dept.model.Dept2DTO">
+		select * from dept2 order
+		by
+		dcode asc
+	</select>
+	<select id="getDept2" parameterType="int" resultType="kr.co.dept.model.Dept2DTO">
+		select *
+		from dept2 where dcode = #{dcode}
+	</select>
+	<select id="searchDept2List" parameterType="hashMap"
+		resultType="kr.co.dept.model.Dept2DTO">
+		select * from DEPT2
+		<where>
+			<if test="dcode !=null">
+				or dcode like '%' || #{keyvalue} || '%'
+			</if>
+			<if test="dname !=null">
+				or dname like '%' || #{keyvalue} || '%'
+			</if>
+			<if test="pdept !=null">
+				or pdept like '%' || #{keyvalue} || '%'
+			</if>
+			<if test="area !=null">
+				or area like '%' || #{keyvalue} || '%'
+			</if>
+		</where>
+		order by dcode asc
+	</select>
+
+	<insert id="insertDept2" parameterType="kr.co.dept.model.Dept2DTO">
+		insert into dept2(dcode,
+		dname, pdept, area) values(#{dcode}, #{dname}, #{pdept}, #{area})
+	</insert>
+	<delete id="deleteDept2" parameterType="kr.co.dept.model.Dept2DTO">
+		delete from dept2 where
+		dcode=#{dcode}
+	</delete>
+	<delete id="multideleteDept2">
+		delete from DEPT2 where dcode in
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	<update id="updateDept2" parameterType="kr.co.dept.model.Dept2DTO">
+		update dept2 set
+		dname=#{dname}, pdept=#{pdept} , area=#{area} where dcode=#{dcode}
+	</update>
+
+
+
+</mapper>

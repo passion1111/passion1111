@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 	@RequestMapping("index.htm")
 	public String join(){
+		System.out.println("ㅇㅇㅇ");
 		//Tiles 적용 이전
 		//return "index.jsp";
 	    

@@ -1,11 +1,24 @@
-alter table tnotices add(filesrc2 varchar2(400));
-commit;
-select * from tmember;
-desc tmember;
-select * from tnotices;
-update tmember set point =2 where pwd ='11';
+CREATE OR REPLACE TRIGGER triger_test
+       BEFORE
+       UPDATE  or delete ON dept
+       FOR EACH ROW
+	   
+	   BEGIN
+        insert into roll(userid) values(1);
 
-desc tmember;
-select *from tmember where pwd='0';
-insert into tmember(pwd,name,gender) values(00,'11', '11' );
-update tmember set (pwd,name,gender) =(select pwd,name,gender from tmember where pwd='0');
+     END;
+     select *from dept;
+     select *from roll;
+   UPDATE dept SET dname = 'ÃÑdd¹«ºÎ' WHERE deptno = 30;
+   
+  CREATE OR REPLACE TRIGGER abc
+    before
+  INSERT OR UPDATE or delete ON dept
+    FOR EACH ROW
+begin
+    insert into dept(deptno) values(1);
+end;
+    /
+    drop trigger abc;
+    select* from dept;
+    insert into dept(deptno) values(2);

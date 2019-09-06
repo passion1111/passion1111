@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<context:component-scan base-package="kosta" />
+	<!-- 클라이언트의 요청이 있으면 별도의 Controller 거치지 않고 바로 ViewResoler로 향한다(jsp를 부른다 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- https://aircook.tistory.com/75 -->
+	<bean name="/index.kosta"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="index" />
+	</bean>
+	
+<bean name="JsonView"
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" /> 
+
+
+</beans>

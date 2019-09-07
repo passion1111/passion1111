@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%
 	String url = request.getContextPath()+"/multifileUploadForm";
-	response.sendRedirect(url);
+	response.sendRedirect(url);  // onload대신.
 %>

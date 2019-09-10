@@ -20,16 +20,60 @@ select  nvl((case when name='소방'
                                                             end )  >0;
 
 select * from nowdate;
-select  a ,name from (select name, case when name='소방' 
-                        then case when (sysdate-birth)>30 then (sysdate-birth) end
+select  a ,name,birth,case when name='소방' 
+                       then birth+180
+                                                             
+                        when name='전기' then birth+180
+                                                         
+                       when name='전기2 then  birth+365 end                                   
+
+ from (select name,birth, case when name='소방' 
+                        then case when (sysdate-birth)>23 then (sysdate-birth) end
                             when name='전기'                                   
-                        then case when (sysdate-birth)>180 then (sysdate-birth)end             
+                        then case when (sysdate-birth)>150 then (sysdate-birth)end             
                             when name='전기3'                                
-                        then case when (sysdate-birth)>365 then (sysdate-birth)end                                   
+                        then case when (sysdate-birth)>335 then (sysdate-birth)end                                   
                                                             end a from nowdate)  where a>0;
                                                             
+                
                                                             
-                                                        
+   
+   
+   
+                       
+                       
+ select  round(a,0) 지난기간 ,name,birth,case when name='소방' 
+                       then birth+180                                    
+                        when name='전기' then birth+180          
+                       when name='전기2' then  birth+365 end  완료일                                  
+
+ from (select name,birth, case when name='소방' 
+                        then case when (sysdate-birth)>23 then (sysdate-birth) end
+                            when name='전기'                                   
+                        then case when (sysdate-birth)>150 then (sysdate-birth)end             
+                            when name='전기3'                                
+                        then case when (sysdate-birth)>335 then (sysdate-birth)end                                   
+                                                            end a from nowdate)  where a>0;  
+                                                            
+                                                            
+create or replace view facilcheck as
+ select  round(a,0) 지난기간 ,name,birth,case when name='소방' 
+                       then birth+180                                    
+                        when name='전기' then birth+180          
+                       when name='전기2' then  birth+365 end  완료일                                  
+
+ from (select name,birth, case when name='소방' 
+                        then case when (sysdate-birth)>23 then (sysdate-birth) end
+                            when name='전기'                                   
+                        then case when (sysdate-birth)>150 then (sysdate-birth)end             
+                            when name='전기3'                                
+                        then case when (sysdate-birth)>335 then (sysdate-birth)end                                   
+                                                            end a from nowdate)  where a>0;  
+                                                            select *from facilcheck;
+   
+   
+                                                            
+select * from nowdate;                                  
     
     select 10 ,a from dual where 10 as a >0;                                                       
 select 10 as "a" from dual where "a">0;

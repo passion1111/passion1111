@@ -60,7 +60,7 @@ create or replace view facilcheck as
  select  round(a,0) 지난기간 ,name,birth,case when name='소방' 
                        then birth+180                                    
                         when name='전기' then birth+180          
-                       when name='전기2' then  birth+365 end  완료일                                  
+                       when name='전기2' then  birth+365 end  완료일   ,a+1110 지난일                               
 
  from (select name,birth, case when name='소방' 
                         then case when (sysdate-birth)>23 then (sysdate-birth) end
@@ -69,6 +69,9 @@ create or replace view facilcheck as
                             when name='전기3'                                
                         then case when (sysdate-birth)>335 then (sysdate-birth)end                                   
                                                             end a from nowdate)  where a>0;  
+                                                            /
+                                                            
+                                                            
                                                             select *from facilcheck;
    
    

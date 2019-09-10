@@ -85,7 +85,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void insertReply(BoardDTO dto) {
-		BoardDAO boardDAO = sqlsession.getMapper(BoardDAO.class);
+		BoardService boardDAO = sqlsession.getMapper(BoardService.class);
 		boardDAO.updateSort(dto);
 		boardDAO.insertReply(dto);
 

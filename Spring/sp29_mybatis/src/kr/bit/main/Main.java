@@ -12,8 +12,15 @@ public class Main {
 		SqlSession sqlsession=SqlMapClient.getSqlSession();
 		
 		sqlsession.getConnection();
+		
 		Emp2 emp=sqlsession.selectOne("emp22","나한라");
+		
+		
+		
+		
+		
 		System.out.println("결과확인");
 		System.out.println(emp.getEmpno());
+		
 	}
 }

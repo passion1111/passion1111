@@ -13,7 +13,7 @@ public interface BoardService {
 	
 	public int updateBoard(BoardDTO dto); //수정
 	public int deleteBoard(BoardDTO dto); //삭제
-	
+	public void updateSort(BoardDTO dto);
 	public void updateHit(int num); //조회수 증가
 	public int getBoardCount(); //글의수
 	public void insertReply(BoardDTO dto); //답변저장.

@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class BoardController {
 
+	
 	@Resource
 	private BoardService boardService;
+	
 	
 	@RequestMapping("/writeform.htm")
 	public String writeform(){

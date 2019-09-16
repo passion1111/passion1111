@@ -10,6 +10,7 @@
 		<init-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/librain-servlet.xml</param-value>
+		
 		</init-param>
 	</servlet>
 	
@@ -40,8 +41,8 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
-	
+
+      		      
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/index.jsp</welcome-file>
 	</welcome-file-list>

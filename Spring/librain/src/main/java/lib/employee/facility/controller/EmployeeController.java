@@ -21,6 +21,7 @@ public String check(Model model) {
 	System.out.println("확인");
 	List<FacilitiesDTO> list=facilitiesDAO.facSelect();
 	model.addAttribute("list",list);
+	INDEX
 	return "employee/erp/facility/example";
 }
 

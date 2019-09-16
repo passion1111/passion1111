@@ -3,6 +3,7 @@ package kr.co.mycom.Service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.catalina.core.ApplicationContext;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,6 +28,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void insertBoard(BoardDTO dto) {
+		ApplicationContext xml
 		    //기존 : Spring 에서는 sqlsession 사용(x)
 			//sqlsession.insert("BOARD.insertall");
 		

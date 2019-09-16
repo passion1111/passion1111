@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.co.mycom.model.BoardDAO">
+
 	<!-- 글쓰기 -->
 	<insert id="insertBoard" parameterType="kr.co.mycom.model.BoardDTO">
 		insert into spring_board(num, name, email, pwd, subject, content, regdate, hit, parent, sort, tab)

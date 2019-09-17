@@ -13,7 +13,7 @@ import lib.employee.facility.model.FacilitiesDAO;
 import lib.employee.facility.model.FacilitiesDTO;
 
 @Controller
-public class EmployeeController {
+public class EmployeeController2 {
 	@Autowired
 	FacilitiesDAO facilitiesDAO; 
 	

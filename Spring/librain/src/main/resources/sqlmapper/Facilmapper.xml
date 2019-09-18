@@ -7,4 +7,8 @@
   <select id="facSelect" resultType="lib.employee.facility.model.FacilitiesDTO">
     select * from Facilities
   </select>
+  
+  <insert id="facinsert" parameterType="lib.employee.facility.model.FacilitiesDTO">
+   insert into Facilities values(#{Fac_serialnum},#{Fac_name},#{Fac_address })
+  </insert>
 </mapper>

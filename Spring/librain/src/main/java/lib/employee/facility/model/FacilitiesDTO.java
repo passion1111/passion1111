@@ -3,43 +3,44 @@ package lib.employee.facility.model;
 import java.security.Timestamp;
 
 public class FacilitiesDTO {
-	private int facSerialnum;
-	private String facName;
-	private String facAddress;
-	private Timestamp facInInspectionDate;
-	private int facInSerialnum;
+	private int Fac_serialnum;
+	private String Fac_name;
+	private String Fac_address;
+	private String Fac_status;
+	private String Fac_category;
 	
+	public int getFac_serialnum() {
+		return Fac_serialnum;
+	}
+	public void setFac_serialnum(int fac_serialnum) {
+		Fac_serialnum = fac_serialnum;
+	}
+	public String getFac_name() {
+		return Fac_name;
+	}
+	public void setFac_name(String fac_name) {
+		Fac_name = fac_name;
+	}
+	public String getFac_address() {
+		return Fac_address;
+	}
+	public void setFac_address(String fac_address) {
+		Fac_address = fac_address;
+	}
 	
-	public int getFacSerialnum() {
-		return facSerialnum;
+	public String getFac_status() {
+		return Fac_status;
 	}
-	public void setFacSerialnum(int facSerialnum) {
-		this.facSerialnum = facSerialnum;
+	public void setFac_status(String fac_status) {
+		Fac_status = fac_status;
 	}
-	public String getFacName() {
-		return facName;
+	public String getFac_category() {
+		return Fac_category;
 	}
-	public void setFacName(String facName) {
-		this.facName = facName;
+	public void setFac_category(String fac_category) {
+		Fac_category = fac_category;
 	}
-	public String getFacAddress() {
-		return facAddress;
-	}
-	public void setFacAddress(String facAddress) {
-		this.facAddress = facAddress;
-	}
-	public Timestamp getFacInInspectionDate() {
-		return facInInspectionDate;
-	}
-	public void setFacInInspectionDate(Timestamp facInInspectionDate) {
-		this.facInInspectionDate = facInInspectionDate;
-	}
-	public int getFacInSerialnum() {
-		return facInSerialnum;
-	}
-	public void setFacInSerialnum(int facInSerialnum) {
-		this.facInSerialnum = facInSerialnum;
-	} 
+
 	
 	
 }

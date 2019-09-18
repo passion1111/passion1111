@@ -1,21 +1,109 @@
-<link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
-<script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    sad
-
+<input type="button" value="적용" onclick='modifiedgrid()'/>
+<a href='./aa.do'>가자</a>
 
 
     <div id="grid"></div>
+<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.js"></script>
+<script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
+<script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
+<link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
+<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
 <script>
+const dataSource = {
+		  initialRequest: true,
+		  api: {
+		    readData: { url: 'http://localhost:8080/mvc/dd', method: 'GET' }
+		  }
+		};
+		
+const grid = new tui.Grid({
+	el: document.getElementById('grid'),
+	data:dataSource,
+	scrollX: false,
+	scrollY: false,
+	minBodyHeight: 30,
+	rowHeaders: ['checkbox'],
+	editingEvent:"click",
+	pageOptions: {
+	    perPage: 7
+	  },
+	columns: [
+		{
+			header: '일련번호',
+			name: 'fac_serialnum',
+			sortingType: 'desc',
+	        sortable: true,
+	        width:90
+	     
+		},
+		{
+			header: '시설물이름',
+			name: 'fac_name'
+		},
+		{
+			header: '장소',
+			name: 'fac_address',
+		},
+		{
+			header: '시설물 상태',
+			name: 'fac_status',
+			editor:{
+				type:"select",
+				options:{
+					listItems: [
+				          { text: '고장', value: '고장' },
+				          { text: '정상', value: '정상' },
+				          { text: '수리신청', value: '수리신청' },
+				          { text: '비가동', value: '비가동' }
+				        ]
+				}
+			},
+			 onAfterChange: function(ev) {
+		            console.log(ev.rowKey);
+		            grid.check(ev.rowKey);
+		          }
+		
+		},
+		{
+			header: '카테고리',
+			name: 'fac_category',
+		}
+	],
+	 columnOptions: {
+	      resizable: true
+	    }
+});
+
+
+grid.on('mouseout',(ev)=>{
+	
+	
+	console.log(grid.getModifiedRows())
+
+})
+function modifiedgrid(){
+	console.log('dd')
+}
+/* const dataSource = {
+		  initialRequest: true,
+		  api: {
+		    readData: { url: 'http://localhost:8080/mvc/4234', method: 'GET' }
+		  }
+		};
+		
+		console.log(dataSource)
+				console.log(dataSource)
+
+		
 const gridData = [
     {
       c1: '100013',
@@ -139,21 +227,16 @@ const gridData = [
         name: 'c3',
       }
     ],
-    data: gridData
+    data: dataSource 
   });
 
 
-  document.querySelectorAll('.btn-theme').forEach((el) => {
-    el.addEventListener('click', (ev) => {
-      const preset = ev.target.getAttribute('data-preset');
-      tui.Grid.applyTheme(preset);
-    })
-  });
 
-  document.querySelector('.btn-custom').addEventListener('click', () => {
-    const options = eval('(' + document.getElementById('custom-text').value + ')');
-    tui.Grid.applyTheme('default', options);
-  });
+   */
+  
+  
+  
+  
   
   
   /* const grid = new tui.Grid({

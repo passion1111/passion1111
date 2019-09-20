@@ -10,8 +10,12 @@
 
 부트스트랩으로 바꿀것.
 <br>
-<input type="button" value="추가" onclick='gridmodifiedgrid()'/>
+<input type="button" value="추가" onclick='gridaddgrid()'/>
 <input type="button" value="삭제" onclick='griddelete()'/>
+<input type="button" value="카테고리형식으로  몇개씩보기지원" onclick='aa()'/>
+<input type="button" value="수정" onclick='aa()'/>
+
+
 check
 <a href='./aa.do'>가자</a>
 
@@ -28,6 +32,11 @@ check
 <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+var a=10;
+function aa(){
+	a=3;
+	grid.setPerPage(a);
+}
 const dataSource = {
 		  initialRequest: true,
 		  api: {
@@ -38,7 +47,7 @@ const dataSource = {
 		    deleteData: { url: '/api/deleteData', method: 'DELETE' }
 		  }
 		};
-		
+
 const grid = new tui.Grid({
 	el: document.getElementById('grid'),
 	data:dataSource,
@@ -48,7 +57,7 @@ const grid = new tui.Grid({
 	rowHeaders: ['checkbox'],
 	editingEvent:"click",
 	pageOptions: {
-	    perPage: 7
+	    perPage: a
 	  },
 	columns: [
 		{
@@ -104,7 +113,6 @@ const grid = new tui.Grid({
 
 
 const dataSource2 = [];
-
 const grid2 = new tui.Grid({
 	el: document.getElementById('grid2'),
 	data:dataSource2,
@@ -180,7 +188,7 @@ const grid2 = new tui.Grid({
 });
 
 grid.on('click',(ev)=>{
-	console.log(grid.getModifiedRows().createdRows)
+	console.log(grid.getModifiedRows())
 	
 })
 
@@ -190,7 +198,7 @@ grid2.on('click',(ev)=>{
 	
 })
 
-function gridmodifiedgrid(){
+function gridaddgrid(){
 	console.log('dd')
 		grid.blur()
 	setTimeout(()=>console.log(grid.getCheckedRows()),100)
@@ -203,7 +211,7 @@ function gridmodifiedgrid(){
 }
 function griddelete(){
 	console.log(grid.getCheckedRows())
-	grid.removeCheckedRows(true)
+	//grid.removeCheckedRows(true)
 }
 
 

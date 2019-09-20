@@ -20,7 +20,7 @@ public class EmployeeController {
 	
 public String check(Model model) {
 	System.out.println("확인");
-	List<FacilitiesDTO> list=facilitiesDAO.facSelect();
+	List<FacilitiesDTO> list=facilitiesDAO.facSelect(1,1);
 	model.addAttribute("list",list);
 	return "employee/erp/facility/example";
 }

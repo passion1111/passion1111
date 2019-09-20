@@ -29,13 +29,17 @@ public class EmployeeController2 {
 	FacilitiesDAO facilitiesDAO; 
 	
 @RequestMapping(value = "/readData",method = RequestMethod.GET)
-public HashMap check(@RequestParam String perPage,@RequestParam String page ) {
-	System.out.println(perPage+page);
-	List list=facilitiesDAO.facSelect();
+public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
+	
+	
+	List list=facilitiesDAO.facSelect(perPage,page);
+	
+	
+	// 변수명 고칠 필요성 높음. 
 	HashMap aa=new HashMap();
-	LinkedHashMap aa2=new LinkedHashMap();
+	HashMap aa2=new HashMap();
 	HashMap aa3=new HashMap();
-	aa3.put("page",2);
+	aa3.put("page",page);
 	aa3.put("totalCount",100);
 	
 	aa2.put("contents",list);
@@ -50,10 +54,21 @@ public HashMap check(@RequestParam String perPage,@RequestParam String page ) {
 
 
 @RequestMapping(value="/createData",method = RequestMethod.POST )
-public void insert(@RequestBody List<FacilitiesDTO> hash) {
-
+public void insert(@RequestBody List<FacilitiesDTO> dto) {
+	System.out.println("확인");
+	for (FacilitiesDTO facilitiesDTO : dto) {
+	facilitiesDAO.facinsert(facilitiesDTO);
+	}
+}
 	
-			System.out.println(hash.size());
+@RequestMapping(value="/updateData",method = RequestMethod.PUT )
+	public void facupdate(@RequestBody List<FacilitiesDTO> dto) {
+		System.out.println("확인");
+		for (FacilitiesDTO facilitiesDTO : dto) {
+		facilitiesDAO.facinsert(facilitiesDTO);
+		}	
+	
+			
 }
 	
 	

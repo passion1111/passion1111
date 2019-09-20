@@ -13,11 +13,19 @@ public class FacilitiesDAOImp implements FacilitiesDAO {
 	SqlSession sqlsession;
 	
 	@Override
-	public List<FacilitiesDTO> facSelect() {
-		System.out.println("확인");
-		System.out.println("여기는2222"+sqlsession.selectList("facSelect222").get(0));
-		
-		return sqlsession.getMapper(FacilitiesDAO.class).facSelect();
+	public List<FacilitiesDTO> facSelect(int Perpage,int page) {
+		int startrownum=Perpage*page-Perpage;
+		System.out.println(startrownum+"여기는 스타트넘");
+		int endrownum=Perpage*page;
+		System.out.println(endrownum+"여기는 엔드넘");
+
+		System.out.println("여기찍냐");
+		return sqlsession.getMapper(FacilitiesDAO.class).facSelect(startrownum,endrownum);
+	}
+
+	@Override
+	public void facinsert(FacilitiesDTO dto) {
+		sqlsession.getMapper(FacilitiesDAO.class).facinsert(dto);
 	}
 
 }

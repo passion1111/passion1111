@@ -7,7 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+1.해야할것 조건검색
 
+2. data picker와 데이터베이스 연동해서 동적쿼리짤것
+
+3.통계커리 프로시저를 공부해서 연결시킬것 
+
+예상: 1~3끝나고 스케쥴러나 배치로 일정시간마다 프로그램실행코드를 만들것.
 부트스트랩으로 바꿀것.
 <br>
 <input type="button" value="추가" onclick='gridaddgrid()'/>

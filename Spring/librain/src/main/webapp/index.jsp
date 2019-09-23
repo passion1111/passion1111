@@ -220,6 +220,8 @@ function grdi2checked(){//데이터 보내기용
 	console.log(grid2.getModifiedRows().createdRows)
 	console.log(JSON.stringify(grid2.getModifiedRows().createdRows))
 	console.log(grid2.validate().length);
+	confirm()
+	
 	$.ajax({
 	url:'http://localhost:8080/mvc/facility/createData',
 	data:JSON.stringify(grid2.getModifiedRows().createdRows),

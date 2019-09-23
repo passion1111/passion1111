@@ -15,6 +15,10 @@
 
 예상: 1~3끝나고 스케쥴러나 배치로 일정시간마다 프로그램실행코드를 만들것.
 부트스트랩으로 바꿀것.
+
+고려할것 엑셀다운로드 기능 구현 공통단으로 쓸려면 어떻게해야할지생각하면서 구현하기 
+
+유연성없는 프로그램으로 만들면 나만 쓸수있으므로 개발속도에 도움이 되지 않음
 <br>
 <input type="button" value="추가" onclick='gridaddgrid()'/>
 <input type="button" value="삭제" onclick='griddelete()'/>

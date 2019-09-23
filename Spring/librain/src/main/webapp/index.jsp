@@ -27,6 +27,7 @@ select 문을 case when문으로 해결하고 insert할떄 특정한 카테고�
 이것을 코딩단에서해결말고 데이터베이스단에서 해결할 방법을 생각해볼것. 테이블이 2개로 나뉘어져있어도 카테고리에따라 다르게 설정해야하니 
 
 바로 trigger사용하기에도 에러사항이 있음 
+
 <br>
 <input type="button" value="추가" onclick='gridaddgrid()'/>
 <input type="button" value="삭제" onclick='griddelete()'/>

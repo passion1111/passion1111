@@ -29,3 +29,6 @@ insert into Facilities values((select count(Fac_serialnum)+1 from Facilities),'�
 insert into Facilities values((select count(Fac_serialnum)+1 from Facilities),'소화기','1층계단','정상','소방');
   
 update Facilities set FAC_NAME='소화기',FAC_ADDRESS='1층화단',FAC_STATUS='정상',FAC_CATEGORY='소방' where Fac_serialnum=1;
+
+
+

@@ -18,6 +18,9 @@ select * from
 				  
   ]]>
    </select>
+   <select id="factotalcount" resultType="int">
+   	select count(*) from Facilities
+   </select>
   
   <insert id="facinsert" parameterType="lib.employee.facility.model.FacilitiesDTO">
    insert into Facilities values((select count(Fac_serialnum)+1 from Facilities),#{fac_name},#{fac_address },#{fac_status},#{fac_category})

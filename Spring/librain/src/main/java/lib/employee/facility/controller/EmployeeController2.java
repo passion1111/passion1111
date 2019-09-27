@@ -40,7 +40,7 @@ public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
 	HashMap aa2=new HashMap();
 	HashMap aa3=new HashMap();
 	aa3.put("page",page);
-	aa3.put("totalCount",100);
+	aa3.put("totalCount",facilitiesDAO.factotalcount());
 	
 	aa2.put("contents",list);
 	

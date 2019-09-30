@@ -31,4 +31,9 @@ public class FacilitiesDAOImp implements FacilitiesDAO {
 		return sqlsession.getMapper(FacilitiesDAO.class).factotalcount();
 	}
 
+	@Override
+	public void facupdate(FacilitiesDTO dto) {
+		sqlsession.getMapper(FacilitiesDAO.class).facupdate(dto);
+	}
+
 }

@@ -32,7 +32,7 @@ select 문을 case when문으로 해결하고 insert할떄 특정한 카테고�
 <input type="button" value="추가" onclick='gridaddgrid()'/>
 <input type="button" value="삭제" onclick='griddelete()'/>
 <input type="button" value="카테고리형식으로  몇개씩보기지원" onclick='aa()'/>
-<input type="button" value="수정" onclick='aa()'/>
+<input type="button" value="수정" onclick='gridmodify()'/>
 
 
 check<br>
@@ -57,9 +57,19 @@ check<br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 var a=10;
-function aa(){
-	a=3;
-	grid.setPerPage(a);
+function gridmodify(){
+	/* a=3;
+	grid.setPerPage(a); */
+	console.log(grid.getModifiedRows().updatedRows)
+	$.ajax({
+		url:"/mvc/facility/modifyData",
+		data: JSON.stringify(grid.getModifiedRows().updatedRows),
+		type:"PUT",
+		contentType: 'application/json',
+		success:function(date){
+			alter("수정완료")
+		}
+	})
 }
 const dataSource = {
 		  initialRequest: true,

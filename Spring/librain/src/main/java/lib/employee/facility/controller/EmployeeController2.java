@@ -41,7 +41,6 @@ public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
 	HashMap aa3=new HashMap();
 	aa3.put("page",page);
 	aa3.put("totalCount",facilitiesDAO.factotalcount());
-	
 	aa2.put("contents",list);
 	
 	
@@ -61,11 +60,13 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 	}
 }
 	
-@RequestMapping(value="/updateData",method = RequestMethod.PUT )
+@RequestMapping(value="/modifyData",method = RequestMethod.PUT )
 	public void facupdate(@RequestBody List<FacilitiesDTO> dto) {
 		System.out.println("확인");
 		for (FacilitiesDTO facilitiesDTO : dto) {
-		facilitiesDAO.facinsert(facilitiesDTO);
+		//facilitiesDAO.facinsert(facilitiesDTO);
+		System.out.println(facilitiesDTO.toString());
+		facilitiesDAO.facupdate(facilitiesDTO);
 		}	
 	
 			

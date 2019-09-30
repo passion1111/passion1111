@@ -40,6 +40,11 @@ public class FacilitiesDTO {
 	public void setFac_category(String fac_category) {
 		Fac_category = fac_category;
 	}
+	@Override
+	public String toString() {
+		return "FacilitiesDTO [Fac_serialnum=" + Fac_serialnum + ", Fac_name=" + Fac_name + ", Fac_address="
+				+ Fac_address + ", Fac_status=" + Fac_status + ", Fac_category=" + Fac_category + "]";
+	}
 
 	
 	

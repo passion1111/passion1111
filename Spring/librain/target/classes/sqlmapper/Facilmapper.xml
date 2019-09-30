@@ -27,7 +27,7 @@ select * from
   </insert>
   
   <update id="facupdate" parameterType="lib.employee.facility.model.FacilitiesDTO" >
-  update Facilities set FAC_NAME=#{fac_name},FAC_ADDRESS=#{fac_address},FAC_STATUS=#{fac_status},FAC_CATEGORY=#{fac_category} where Fac_serialnum=#{fac_serialnum};
+  update Facilities set FAC_NAME=#{fac_name},FAC_ADDRESS=#{fac_address},FAC_STATUS=#{fac_status},FAC_CATEGORY=#{fac_category} where Fac_serialnum=#{fac_serialnum}
   </update>
   
 </mapper>

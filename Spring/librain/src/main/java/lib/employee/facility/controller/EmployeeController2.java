@@ -71,6 +71,10 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 	
 			
 }
+
+@RequestMapping(value = "/deleteData",method = RequestMethod.DELETE)
+	public void facdelete(@RequestBody List<FacilitiesDTO> dto) {
 	
+}
 	
 }

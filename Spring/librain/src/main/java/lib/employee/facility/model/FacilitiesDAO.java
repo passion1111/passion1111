@@ -9,5 +9,5 @@ public interface FacilitiesDAO {
 	public int factotalcount();
 	public void facupdate(FacilitiesDTO dto);
 	public void facinsert(FacilitiesDTO dto);
-
+	public void facdelete(FacilitiesDTO facserialnumb);
 }

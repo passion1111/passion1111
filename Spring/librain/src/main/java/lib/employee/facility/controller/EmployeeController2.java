@@ -75,6 +75,7 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 @RequestMapping(value = "/deleteData",method = RequestMethod.DELETE)
 	public void facdelete(@RequestBody List<FacilitiesDTO> dto) {	
 	for (FacilitiesDTO facilitiesDTO : dto) {
+		facilitiesDAO.facupdate(facilitiesDTO);
 	//	facilitiesDAO.facdelete(facilitiesDTO) 
 	// 해야할것들 정리.
 	

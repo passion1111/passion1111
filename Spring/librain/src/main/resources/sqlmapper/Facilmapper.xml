@@ -30,4 +30,8 @@ select * from
   update Facilities set FAC_NAME=#{fac_name},FAC_ADDRESS=#{fac_address},FAC_STATUS=#{fac_status},FAC_CATEGORY=#{fac_category} where Fac_serialnum=#{fac_serialnum}
   </update>
   
+  <delete id="facdelete" parameterType="int">
+  deletefrom Facilities where Fac_serialnum=#{Fac_serialnum}
+  </delete>
+  
 </mapper>

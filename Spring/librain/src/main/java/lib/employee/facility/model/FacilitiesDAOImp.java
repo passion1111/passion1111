@@ -38,8 +38,7 @@ public class FacilitiesDAOImp implements FacilitiesDAO {
 
 	@Override
 	public void facdelete(FacilitiesDTO facserialnumb) {
-		// TODO Auto-generated method stub
-		
+		sqlsession.getMapper(FacilitiesDAO.class).facdelete(facserialnumb);
 	}
 
 }

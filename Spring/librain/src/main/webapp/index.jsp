@@ -49,9 +49,9 @@ check<br>
     <input type="button" value="그리드2체크확인" onclick='grdi2checked()'/>
     
     
-<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.js"></script>
+<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
 <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
-<script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
+<script src="https://uicdn.toast.com/tui-grid/v4.5.2/tui-grid.js"></script>
 <link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
 <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -163,9 +163,9 @@ const grid2 = new tui.Grid({
 		{
 			header: '시설물이름',
 			name: 'fac_name',
-			editor:{
+		/* 	editor:{
 				type:'text'
-			},
+			}, */
 			validation:{
 				required:true
 			}
@@ -239,14 +239,24 @@ function gridaddgrid(){
 	setTimeout(()=>console.log(grid.getCheckedRows()),100)
 	
 	console.log(grid.getCheckedRows())
-	 grid2.appendRow({"fac_name":"","fac_address":"","fac_status":"","fac_category":""},{extendPrevRowSpan:true})
+	 grid2.appendRow({"fac_name":"<input type='button' value='눌러' onclick='griddelete()'/>","fac_address":"","fac_status":"","fac_category":""},{extendPrevRowSpan:true})
 	/* dataSou	rce2.push({"fac_name":"","fac_address":"","fac_status":"","fac_category":""})
 	grid2.resetData(dataSource2) */
 
 }
 function griddelete(){
 	console.log(grid.getCheckedRows())
-	//grid.removeCheckedRows(true)
+	grid.removeCheckedRows();
+	$.ajax({
+		url:'http://localhost:8080/mvc/facility/deleteData',
+		data:JSON.stringify(grid.getCheckedRows()),
+		contentType: 'application/json',
+		type:"DELETE",
+		success : function(data) {
+	        alert("success!");
+	    }
+		});
+
 }
 
 

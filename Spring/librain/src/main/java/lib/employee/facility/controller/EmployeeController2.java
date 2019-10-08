@@ -36,19 +36,19 @@ public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
 	
 	
 	// 변수명 고칠 필요성 높음. 
-	HashMap aa=new HashMap();
-	HashMap aa2=new HashMap();
-	HashMap aa3=new HashMap();
-	aa3.put("page",page);
-	aa3.put("totalCount",facilitiesDAO.factotalcount());
-	aa2.put("contents",list);
+	HashMap total=new HashMap();
+	HashMap data=new HashMap();
+	HashMap pagenation=new HashMap();
+	pagenation.put("page",page);
+	pagenation.put("totalCount",facilitiesDAO.factotalcount());
+	data.put("contents",list);
 	
 	
-	aa2.put("pagination",aa3);
-	aa.put("result", true);
-	aa.put("data", aa2);
+	data.put("pagination",pagenation);
+	total.put("result", true);
+	total.put("data", data);
 	
-	return aa;
+	return total;
 }
 
 
@@ -75,8 +75,8 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 @RequestMapping(value = "/deleteData",method = RequestMethod.DELETE)
 	public void facdelete(@RequestBody List<FacilitiesDTO> dto) {	
 	for (FacilitiesDTO facilitiesDTO : dto) {
-		facilitiesDAO.facupdate(facilitiesDTO);
-	//	facilitiesDAO.facdelete(facilitiesDTO) 
+	
+		facilitiesDAO.facdelete(facilitiesDTO);
 	// 해야할것들 정리.
 	
 	}

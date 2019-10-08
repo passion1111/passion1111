@@ -31,7 +31,7 @@ select * from
   </update>
   
   <delete id="facdelete" parameterType="int">
-  deletefrom Facilities where Fac_serialnum=#{Fac_serialnum}
+  delete from Facilities where Fac_serialnum=#{Fac_serialnum}
   </delete>
   
 </mapper>

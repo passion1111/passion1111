@@ -282,5 +282,90 @@ function grdi2checked(){//데이터 보내기용
 
  tui.Grid.applyTheme('clean',{})
 </script>
+
+
+<br><br><Br>
+
+안전점검 탭 
+
+ <div id="grid3"></div>
+ 
+ 
+ 
+ <script>
+ const dataSource3 = {
+		  initialRequest: true,
+		  api: {
+		    readData: { url: 'http://localhost:8080/mvc/facility/readData', method: 'GET' },
+		    createData: { url: 'http://localhost:8080/mvc/facility/createData', method: 'POST' },
+		    updateData: { url: '/api/updateData', method: 'PUT' },
+		    modifyData: { url: '/api/modifyData', method: 'PUT' },
+		    deleteData: { url: '/api/deleteData', method: 'DELETE' }
+		  }
+		};
+const grid3 = new tui.Grid({
+	el: document.getElementById('grid3'),
+	data:dataSource,
+	scrollX: false,
+	scrollY: false,
+	minBodyHeight: 30,
+	rowHeaders: ['checkbox'],
+	editingEvent:"click",
+	pageOptions: {
+	    perPage: a
+	  },
+	columns: [
+		{
+			header: '일련번호',
+			name: 'fac_serialnum',
+			sortingType: 'desc',
+	        sortable: true,
+	        width:90
+	     
+		},
+		{
+			header: '시설물이름',
+			name: 'fac_name'
+		},
+		{
+			header: '장소',
+			name: 'fac_address',
+			editor:{
+				type:"text"
+			}
+		},
+		{
+			header: '시설물 상태',
+			name: 'fac_status',
+			editor:{
+				type:"select",
+				options:{
+					listItems: [
+				          { text: '고장', value: '고장' },
+				          { text: '정상', value: '정상' },
+				          { text: '수리신청', value: '수리신청' },
+				          { text: '비가동', value: '비가동' }
+				        ]
+				}
+			},
+			 onAfterChange: function(ev) {
+		             console.log(ev.rowKey);
+		            grid.check(ev.rowKey);
+		          }
+		
+		},
+		{
+			header: '카테고리',
+			name: 'fac_category',
+		}
+	],
+	 columnOptions: {
+	      resizable: true
+	    }
+});
+
+
+ 
+ </script>
 </body>
 </html>

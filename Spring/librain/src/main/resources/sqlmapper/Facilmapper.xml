@@ -34,4 +34,6 @@ select * from
   delete from Facilities where Fac_serialnum=#{Fac_serialnum}
   </delete>
   
+  <select id="" statementType="CALLABLE" parameterType="">  </select>
+  
 </mapper>

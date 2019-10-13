@@ -7,7 +7,7 @@
  
 
 <mapper namespace="test.test2.model.TestDao">
-
+<resultMap type="java.util.HashMap" id="procResultMap1"></resultMap>
  
 
 <select id="TestList" resultType="Map">
@@ -16,6 +16,17 @@ select * from test
 
 </select>
 
+ <select id="selectprocedure" statementType="CALLABLE" resultType="Map">
+ {
+ CALL TEST_SELECTPROC(#{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT})
+ }
+ </select>
+ 
+ <!--  <select id="selectprocedure2" statementType="CALLABLE" resultType="Map">
+ {
+ CALL TEST_SELECTPROC()
+ }
+ </select> 안됨-->
  
 
 </mapper>

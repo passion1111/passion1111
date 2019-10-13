@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import test.test2.model.TestDao;
 
@@ -42,9 +43,15 @@ TestDao dao;
 		
 		return dao.TestList();
 	}
-	public String testC() {
-		return "test";
-	}
+	@PostMapping(value="/checkpro")
+	@ResponseBody
+	public List<HashMap<String, String>> testC() {
+		HashMap aa=new HashMap();
+		dao.selectprocedure(aa);
+		return (List<HashMap<String, String>>) aa.get("result");
+	} // result와 매개변수 둘다 값이 담김.
+	
+
 
 }
 

@@ -83,7 +83,7 @@ public class HomeTest {
 			System.out.println(arr.toString());
 			
 			System.out.println(arr.toString());
-		  RequestBuilder req = MockMvcRequestBuilders.put("/facility/modifyDataRepair22222").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE
+		  RequestBuilder req = MockMvcRequestBuilders.put("/facility/modifyDataRepair").contentType(MediaType.APPLICATION_JSON_UTF8
 				  ).content(mapper.writeValueAsString(dto)); 
 		  try { 
 			mock.perform(req).andDo(print());

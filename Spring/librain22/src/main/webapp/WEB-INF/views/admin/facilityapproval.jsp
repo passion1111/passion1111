@@ -45,6 +45,7 @@ function gridmodify(row){
 		contentType: 'application/json',
 		success:function(date){
 			alert("수정완료");
+			grid.reloadData()
 		}
 	})
 }
@@ -107,11 +108,15 @@ const grid = new tui.Grid({
 grid.on('click',(ev)=>{
 	console.log(grid.getModifiedRows())
 	console.log(ev)
+		console.log(grid.getValue(ev.rowKey,ev.columnName))
+	
 	if(ev.columnName=='fac_status'){
-	var aa=confirm("접수하시겠습니까?")
-	if(aa==true){
+
+			if(grid.getValue(ev.rowKey,ev.columnName)=="접수완료") 	{var preconfirm=confirm("수리완료하시겠습니까?")}
+			else{ var preconfirm=confirm("접수하시겠습니까?")} 
+	if(preconfirm==true){
 		gridmodify(ev.rowKey)
-		aa=false
+		preconfirm=false
 		}
 		
 		}

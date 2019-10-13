@@ -53,4 +53,9 @@ public class FacilitiesDAOImp implements FacilitiesDAO {
 		sqlsession.getMapper(FacilitiesDAO.class).facupdaterepair(dto);
 	}
 
+	@Override
+	public void facupdaterepaircomplete(FacilitiesDTO dto) {
+		sqlsession.getMapper(FacilitiesDAO.class).facupdaterepaircomplete(dto);		
+	}
+
 }

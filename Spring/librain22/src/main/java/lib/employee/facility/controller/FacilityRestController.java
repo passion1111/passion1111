@@ -96,27 +96,17 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 }
 
 @RequestMapping(value="/modifyDataRepair",method = RequestMethod.PUT )
-public FacilitiesDTO facupdaterepair(@RequestBody FacilitiesDTO dto) {
-
-//	for (FacilitiesDTO facilitiesDTO : dto) {
-//	//facilitiesDAO.facinsert(facilitiesDTO);
-//	System.out.println(facilitiesDTO.toString());
-//	facilitiesDAO.facupdaterepair(facilitiesDTO);
-//	}	
-return dto;
+public void facupdaterepair(@RequestBody FacilitiesDTO dto) {
+	
+	
+	if(dto.getFac_status().equals("접수완료")) { //삼항으로할지 고민해볼것.
+		facilitiesDAO.facupdaterepaircomplete(dto);
+	}else {
+		facilitiesDAO.facupdaterepair(dto);
+	}
 		
 }
-@RequestMapping(value="/modifyDataRepair22222",method = RequestMethod.PUT )
-public FacilitiesDTO Test22222(@RequestBody FacilitiesDTO dto) {
 
-//	for (FacilitiesDTO facilitiesDTO : dto) {
-//	//facilitiesDAO.facinsert(facilitiesDTO);
-//	System.out.println(facilitiesDTO.toString());
-//	facilitiesDAO.facupdaterepair(facilitiesDTO);
-//	}	
-return dto;
-		
-}
 
 
 @RequestMapping(value = "/deleteData",method = RequestMethod.DELETE)

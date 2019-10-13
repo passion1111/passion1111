@@ -11,6 +11,8 @@ public interface FacilitiesDAO {
 	public int factotalcount();
 	public void facupdate(FacilitiesDTO dto);
 	public void facupdaterepair(FacilitiesDTO dto);
+	public void facupdaterepaircomplete(FacilitiesDTO dto);
+
 	public void facinsert(FacilitiesDTO dto);
 	public void facdelete(FacilitiesDTO dto);
 }

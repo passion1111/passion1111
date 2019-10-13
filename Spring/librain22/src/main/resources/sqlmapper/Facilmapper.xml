@@ -32,7 +32,7 @@ select * from
 				FAC_NAME,FAC_ADDRESS,
 				FAC_STATUS,
 				FAC_CATEGORY from Facilities ) 
-				where r>#{startrownum} and r<=#{endrownum} and fac_status='수리신청'
+				where r>#{startrownum} and r<=#{endrownum} and fac_status='수리신청' or fac_status='접수완료'
 				  
   ]]>
    </select>
@@ -48,6 +48,10 @@ select * from
     <update id="facupdaterepair" parameterType="lib.employee.facility.model.FacilitiesDTO" >
   update Facilities set FAC_STATUS='접수완료' where Fac_serialnum=#{fac_serialnum}
   </update>
+  <update id="facupdaterepaircomplete" parameterType="lib.employee.facility.model.FacilitiesDTO" >
+  update Facilities set FAC_STATUS='정상' where Fac_serialnum=#{fac_serialnum}
+  </update>
+  
   
   <delete id="facdelete" parameterType="int">
   delete from Facilities where Fac_serialnum=#{Fac_serialnum}

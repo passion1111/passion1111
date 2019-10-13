@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+dsa
 1.해야할것 조건검색 <br>
 
 2. data picker와 데이터베이스 연동해서 동적쿼리짤것 <br>
@@ -67,7 +68,7 @@ function gridmodify(){
 		type:"PUT",
 		contentType: 'application/json',
 		success:function(date){
-			alter("수정완료")
+			alert("수정완료");
 		}
 	})
 }
@@ -163,9 +164,9 @@ const grid2 = new tui.Grid({
 		{
 			header: '시설물이름',
 			name: 'fac_name',
-		/* 	editor:{
+		 	editor:{
 				type:'text'
-			}, */
+			}, 
 			validation:{
 				required:true
 			}
@@ -239,7 +240,7 @@ function gridaddgrid(){
 	setTimeout(()=>console.log(grid.getCheckedRows()),100)
 	
 	console.log(grid.getCheckedRows())
-	 grid2.appendRow({"fac_name":"<input type='button' value='눌러' onclick='griddelete()'/>","fac_address":"","fac_status":"","fac_category":""},{extendPrevRowSpan:true})
+	 grid2.appendRow({"fac_name":"","fac_address":"","fac_status":"","fac_category":""},{extendPrevRowSpan:true})
 	/* dataSou	rce2.push({"fac_name":"","fac_address":"","fac_status":"","fac_category":""})
 	grid2.resetData(dataSource2) */
 

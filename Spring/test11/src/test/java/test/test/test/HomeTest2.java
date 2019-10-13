@@ -37,7 +37,6 @@ import test.test2.model.TestDao;
 @WebAppConfiguration
 public class HomeTest2 {
 
-
 	 private static final Logger logger = (Logger) LoggerFactory.getLogger(HomeTest.class);
 
 	    @Autowired // Dependency Injection(의존성 주입)

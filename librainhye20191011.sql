@@ -28,6 +28,20 @@ from
             on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id  );
       
 select * from member;
+--  
+-- 
+
+ -- 
+select * from book;
+
+
+select * from
+ (select rownum rnum, b.book_num, book_author, book_pub_house, book_name, book_pub_date, book_ISBN, book_apdx_status, book_rsrv_status, book_ctgr_num, 
+            decode(rent_enddate,'o','대여중','대여가능') rent ,r.mem_id  ,c.mem_rank rank  ,count(*) OVER(PARTITION BY r.mem_id) bookcount
+            from  (select * from book order by book_num desc) b
+            join (select book_num, nvl(to_char(rent_enddate),'o' ) rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) 
+                     and rental.rent_enddate is null)  r  
+            on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id  );
             
  declare           
 cursor b_bookstatus is
@@ -52,6 +66,9 @@ begin
   end loop;
   end;
   /
+-- 회원등급에따라서  컬럼 7 
+
+
   
   
   select* from rental;

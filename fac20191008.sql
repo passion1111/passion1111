@@ -80,6 +80,10 @@ select * from test333;
 select * from test333 where e_date <sysdate;
 
 
+ select count(*) from Facilities ;
+select count(*) from Facilities;
+ commit;
+
 select trunc(sysdate-e_date,0) as 연체일, (sysdate+trunc(sysdate-e_date,0)) 대여불가일 from test333;
 
 select * from 

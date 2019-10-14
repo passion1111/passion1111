@@ -87,5 +87,40 @@ begin
     end loop;
     close hoho;
  end;
-
+/
+---open안시키고 cursorprocedure만들기
+ create or replace procedure proc_testtable2(
+    ha out sys_refcursor)
+    is
+    
+ cursor  haha is select * from testtable;
+ begin
+   open haha;
+   open ha for haha;
+   close haha;
+  DBMS_OUTPUT.PUT_LINE('1');
+   
+ 
+   
+     end;
+ /   
+ 
+ select case when ha='a1' then 3
+             when ha='a2' then 7
+    else 5
+    end 대출횟수,ha from testtable;
+ insert into testtable values('33333');
+ 
+ declare
+ checkvalue number;
+ begin
+ delete from testtable where ha='1';
+  checkvalue:=sql%rowcount;
+    DBMS_OUTPUT.PUT_LINE('3'||sql%rowcount);
+    select count(*) into checkvalue from testtable;
+     DBMS_OUTPUT.PUT_LINE('3'||checkvalue);
+ end;
+ /
+ set serveroutput on;
+ from testtable;
   

@@ -1,46 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Document</title>
 </head>
 <body>
-ddㅇㄴㅁㅇ
-<br>
-<input type="button" value="추가" onclick='gridaddgrid()'/>
-<input type="button" value="삭제" onclick='griddelete()'/>
-<input type="button" value="카테고리형식으로  몇개씩보기지원" onclick='aa()'/>
-<input type="button" value="수정" onclick='gridmodify()'/>
+	ddㅇㄴㅁㅇ
+	<br>
+	<input type="button" value="체크확인" onclick='gridcheck()' /> ㅇㅇ
+	<div id="grid"></div>
+
+	<br>
+	<br>
+	<input type="button" value="그리드2체크확인" onclick='grdi2checked()' />
 
 
-ㅇㅇ
-    <div id="grid"></div>
-    
-    <br>
-    <br>
-    <input type="button" value="그리드2체크확인" onclick='grdi2checked()'/>
-    
-    
-<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
-<script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
-<script src="https://uicdn.toast.com/tui-grid/v4.5.2/tui-grid.js"></script>
-<link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+	<script type="text/javascript"
+		src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+	<script
+		src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
+	<script src="https://uicdn.toast.com/tui-grid/v4.5.2/tui-grid.js"></script>
+	<link rel="stylesheet"
+		href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	sdswqdqwdq
+	<script>
 var a=10;
+function gridcheck(){
+	console.log(grid.getCheckedRows())
+}
 function gridmodify(row){
 	/* a=3;
 	grid.setPerPage(a); */
 	grid.blur()
 	setTimeout(()=>console.log(grid.getCheckedRows()),100)
+	var modidata=[grid.getRow(row)];
+	
+	console.log("여기는 ii2"+modidata)
 	console.log(	grid.getRow(row))
 	console.log(grid.getModifiedRows().updatedRows)
 	$.ajax({
 		url:"/mvc/facility/modifyDataRepair",
-		data: JSON.stringify(grid.getRow(row)),
+		data: JSON.stringify(modidata),
 		type:"PUT",
 		contentType: 'application/json',
 		success:function(date){
@@ -112,8 +118,10 @@ grid.on('click',(ev)=>{
 	
 	if(ev.columnName=='fac_status'){
 
-			if(grid.getValue(ev.rowKey,ev.columnName)=="접수완료") 	{var preconfirm=confirm("수리완료하시겠습니까?")}
-			else{ var preconfirm=confirm("접수하시겠습니까?")} 
+		/* 	if(grid.getValue(ev.rowKey,ev.columnName)=="접수완료") 	{var preconfirm=confirm("수리완료하시겠습니까?")}
+			else{ var preconfirm=confirm("접수하시겠습니까?")}  */
+			var preconfirm= grid.getValue(ev.rowKey,ev.columnName)=="접수완료"? confirm("수리완료하시겠습니까?"):confirm("접수하시겠습니까?");
+			
 	if(preconfirm==true){
 		gridmodify(ev.rowKey)
 		preconfirm=false
@@ -134,8 +142,8 @@ grid.on('click',(ev)=>{
 </script>
 
 
-<br><br><Br>
-
-ㅁㄴㅇㅁㄴㅇ
+	<br>
+	<br>
+	<Br> ㅁㄴㅇㅁㄴㅇ
 </body>
 </html>

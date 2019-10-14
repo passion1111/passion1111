@@ -96,14 +96,17 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 }
 
 @RequestMapping(value="/modifyDataRepair",method = RequestMethod.PUT )
-public void facupdaterepair(@RequestBody FacilitiesDTO dto) {
-	
-	
-	if(dto.getFac_status().equals("접수완료")) { //삼항으로할지 고민해볼것.
-		facilitiesDAO.facupdaterepaircomplete(dto);
+public void facupdaterepair(@RequestBody List<FacilitiesDTO> dto) {
+	for (FacilitiesDTO facilitiesDTO : dto) {
+		
+	if(facilitiesDTO.getFac_status().equals("접수완료")) { //삼항으로할지 고민해볼것.
+		facilitiesDAO.facupdaterepaircomplete(facilitiesDTO);
 	}else {
-		facilitiesDAO.facupdaterepair(dto);
+		facilitiesDAO.facupdaterepair(facilitiesDTO);
 	}
+
+	}
+	
 		
 }
 

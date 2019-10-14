@@ -18,7 +18,8 @@
     
     <br>
     <br>
-    입력폼 모달로 만들지 생각해볼것sss
+    d
+    입력폼 모달로 만들지 생각해볼것sssdd
     <div id="grid2"></div>
     <input type="button" value="그리드2체크확인" onclick='grdi2checked()'/>
     
@@ -37,7 +38,6 @@ function gridmodify(){
 	console.log(grid.getModifiedRows().updatedRows +"마지막전")
 	
 	setTimeout(()=>
-
 	$.ajax({
 		url:"/mvc/facility/modifyData",
 		data: JSON.stringify(grid.getModifiedRows().updatedRows),
@@ -48,6 +48,7 @@ function gridmodify(){
 			grid.reloadData();
 		}
 	}) 
+	
 			,100)
 	
  	
@@ -236,7 +237,7 @@ function griddelete(){
 		success : function(data) {
 	        alert("success!");
 	    }
-		});
+		})
 
 	,100)
 	
@@ -263,7 +264,7 @@ function grdi2checked(){//데이터 보내기용
 		success : function(data) {
 	        alert("success!");
 	    }
-		});
+		})
 	
 		,100)
 	

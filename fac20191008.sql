@@ -5,6 +5,10 @@ dd2 number(30)
 );
 
 select * from Facilities_inspection;
+
+select * from Facilities_inspection;
+
+
 alter table test2 add dd2 number(30);
 drop table test;
 insert into test2(dd,dd2) values('dd',(select count(*)+1 from test2));

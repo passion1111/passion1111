@@ -1,4 +1,20 @@
 select * from rental;
+select * from book;
+select * from member;
+select * from rental;
+
+select * from member;
+                 --대출정지기한 필요
+                 --대출가능상태
+
+
+
+desc member;
+select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank, case when mem_rank=2 then 7 
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end LOANABLE_NUMBER , 대출가능상태  ,대출정지기한 from member;
+ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(10));
 
 create table temp_member_book as select * from 
 

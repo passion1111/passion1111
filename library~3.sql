@@ -13,7 +13,10 @@ FacIn_INSPECTION_DATE date default sysdate,    -- 점검일
 FacIn_INSPECTION_DUE_DATE date
 );
 select * from Facilities_inspection;
+select * from Facilities;
 
+commit;
+update Facilities set fac_status='접수완료' ;
 create or replace procedure facin_insert( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
                                           f_cycle   in number :=0)

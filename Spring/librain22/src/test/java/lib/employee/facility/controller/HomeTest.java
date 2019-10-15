@@ -70,29 +70,30 @@ public class HomeTest {
 //		  logger.error("수행 실패: " +e.getMessage()); 
 //		  } 
 //	  }
-	  @Test 
-		 public void doTestupdate() throws JSONException, JsonProcessingException{ 
-			 logger.info("===== doTest() =====");
-			 JSONArray arr=new JSONArray();
-			 FacilitiesDTO dto=new FacilitiesDTO();
-			dto.setFac_serialnum(1);
-			dto.setFac_category("전기");
-			arr.put(dto);
-			mapper=new ObjectMapper();
-			
-			System.out.println(arr.toString());
-			
-			System.out.println(arr.toString());
-		  RequestBuilder req = MockMvcRequestBuilders.put("/facility/modifyDataRepair").contentType(MediaType.APPLICATION_JSON_UTF8
-				  ).content(mapper.writeValueAsString(dto)); 
-		  try { 
-			mock.perform(req).andDo(print());
-		  logger.info("수행 성공");
-		  } 
-		  catch (Exception e) { 
-			  logger.error("수행 실패: " +e.getMessage()); 
-			  } 
-		  }
+//	  @Test 
+//		 public void doTestupdate() throws JSONException, JsonProcessingException{ 
+//			 logger.info("===== doTest() =====");
+//			 JSONArray arr=new JSONArray();
+//			 FacilitiesDTO dto=new FacilitiesDTO();
+//			dto.setFac_serialnum(1);
+//			dto.setFac_category("전기");
+//			dto.setFac_status("접수완료");
+//			arr.put(dto);
+//			mapper=new ObjectMapper();
+//			
+//			System.out.println(arr.toString());
+//			
+//			System.out.println(arr.toString());
+//		  RequestBuilder req = MockMvcRequestBuilders.put("/facility/modifyDataRepair").contentType(MediaType.APPLICATION_JSON_UTF8
+//				  ).content(mapper.writeValueAsString(dto)); 
+//		  try { 
+//			mock.perform(req).andDo(print());
+//		  logger.info("수행 성공");
+//		  } 
+//		  catch (Exception e) { 
+//			  logger.error("수행 실패: " +e.getMessage()); 
+//			  } 
+//		  }
 	  
 //	  @Test 
 //		 public void doTestindex(){ 
@@ -131,7 +132,35 @@ public class HomeTest {
 //	    	dto.setFac_serialnum(222);
 //	    dao.facupdaterepair(dto);
 //	    }
-
+	  @Test 
+		 public void doTestupdateC() throws JSONException, JsonProcessingException{ 
+			 logger.info("===== doTest() =====");
+			 JSONObject arr=new JSONObject();
+			 FacilitiesDTO dto=new FacilitiesDTO();
+			dto.setFac_serialnum(1);
+			dto.setFac_category("전기");
+			dto.setFac_status("접수완료");
+			
+			List<FacilitiesDTO> list=new ArrayList<FacilitiesDTO>();
+			list.add(dto);
+			list.add(dto);
+			
+			mapper=new ObjectMapper();
+			
+			
+		  RequestBuilder req = MockMvcRequestBuilders.put("/facility/modifyDataRepair").contentType(MediaType.APPLICATION_JSON_UTF8
+				  ).content(mapper.writeValueAsString(list));  
+		  try { 
+			mock.perform(req).andDo(print());
+		  logger.info("수행 성공");
+		  } 
+		  catch (Exception e) { 
+			  logger.error("수행 실패: " +e.getMessage()); 
+			  } 
+		  }
+	  
+	  
+	  
 //@Autowired
 //Home home;
 //	 @Test

@@ -30,9 +30,52 @@ insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)
 values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),null);
 
                                                                                 --또는 예약할떄 값이 0<5 이면 예약가능하게.
-select distinct book.book_num , case when count(reservation.rsrv_num) over(partition by book.book_num)<5 then '예약가능' end from book join reservation on book.book_num=reservation.book_num where book.book_num=100001;
-select count(rsrv_num) from reservation where book_num=100001;
+select distinct book.book_num , case when count(reservation.rsrv_num) over(partition by book.book_num)<5 then '예약가능' 
+                                                                                                         else '예약불가'end 
+from book join reservation on book.book_num=reservation.book_num where book.book_num=100001;
 
+
+--예약자구하는쿼리
+select count(rsrv_num) from reservation where book_num=100001;
+select * from reservation where book_num=100001;
+
+
+select count(*) from reservation where book_num=100000000000;
+
+--분기  count<1
+insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)       
+values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),sysdate);
+-- 분기 count>1 and count<=5
+insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)       
+values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),null);
+
+
+--else 쓸것
+
+
+--매일 일정시간에  검색해서 리스트들 fetch로 돌면서 loop돌기   for check in 아래 쿼리후에 
+select * from reservation where rsrv_enddate<sysdate and rsrv_num=1;
+
+
+
+
+
+
+
+insert into values(
+--book_num 값 입력받아서 output으로 떙길것.
+declare 
+checkrsrv_num number;
+begin
+select count(rsrv_num) into checkrsrv_num  from reservation where book_num=100001;
+if checkrsrv_num>0 then 
+    dbms_output.put_line('결과는? 0보다큼'||checkrsrv_num);
+else dbms_output.put_line('결과는? 0보다 작음'||checkrsrv_num);
+end if;
+
+dbms_output.put_line('결과는? '||checkrsrv_num);
+end;
+/
 
 
 
@@ -122,6 +165,14 @@ begin
     end loop;
     close hoho;
     
+end;
+/
+select *from test333;
+declare
+soo number;
+begin
+    select count(*) into soo from test333;
+    dbms_output.put_line('카운팅='||soo);
 end;
 /
 set serveroutput on;

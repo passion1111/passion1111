@@ -99,3 +99,29 @@ select  distinct mem.mem_id,mem.mem_name,mem.mem_phone,mem.mem_address,mem.mem_e
                                                                       
 
 update member set DEADLINE_RENT_STOP=sysdate-10,book_loanable='대출가능';
+
+
+select ha,(select count(*)+1 from testtable where  ha<b.ha) g from testtable  b order by g;
+select count(*) over(partition by ha) from testtable;
+select distinct a.ha,b.dd from testtable a join (select ha,count(*) dd from testtable group by ha) b on a.ha=b.ha;
+select rank() over(order by ha) h,ha from testtable;
+
+select * from testtable where ha>'a';
+
+declare 
+check33 varchar2(30);
+cursor hoho is select * from  testtable;
+begin
+  open hoho;
+  
+  loop
+  fetch hoho into check33;
+  DBMS_OUTPUT.PUT_line('423424');
+  exit when hoho%notfound;   
+  
+    end loop;
+    close hoho;
+    
+end;
+/
+set serveroutput on;

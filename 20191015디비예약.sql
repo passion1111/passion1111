@@ -30,17 +30,26 @@ insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)
 values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),null);
 
                                                                                 --또는 예약할떄 값이 0<5 이면 예약가능하게.
-select distinct book.book_num , case when count(reservation.rsrv_num) over(partition by book.book_num)<5 then '예약가능' 
-                                                                                                         else '예약불가'end 
-from book join reservation on book.book_num=reservation.book_num where book.book_num=100001;
+                                                                                
+                                                                                
+select distinct book.book_num , case when count(reservation.rsrv_num)  over(partition by book.book_num)<5 then '예약가능' 
+                                                                                                         else '예약불가'end  예약체크 ,reservation.rsrv_num 예약자수
+from book join reservation on book.book_num=reservation.book_num where book.book_num=100001 and rsrv_num>0;
+
+select * from reservation where rsrv_enddate<sysdate and rsrv_num=1;
+select * from reservation where book_num=100001;
+-- 
+--예약.
 
 
 --예약자구하는쿼리
-select count(rsrv_num) from reservation where book_num=100001;
+
+select count(rsrv_num) from reservation where book_num=100001 and rsrv_num>0;
 select * from reservation where book_num=100001;
 
 
 select count(*) from reservation where book_num=100000000000;
+select * from reservation;
 
 --분기  count<1
 insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)       

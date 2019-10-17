@@ -643,3 +643,11 @@ select * from reservation;
  is null = 0 
 --select
 select * from rental order by rent_num desc;
+
+
+
+
+
+select * from new_book ;
+
+select * from salary_management;

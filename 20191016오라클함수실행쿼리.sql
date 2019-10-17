@@ -59,7 +59,7 @@ end loop;
 end;
 /
 
---예약 로직 조금 짜보기.
+--예약 로직 조금 짜보기. 미완성시
 declare 
     hoho number;
 
@@ -78,21 +78,21 @@ end;
 /
 --커서로 예약로직 짜기.
 
---반납 처리 또는 
+--예약순번1인데 대여안한사람들 목록.
 declare 
     hoho number;
     ho sys_refcursor;
     ho2 test3%rowtype;
 begin
     
-   open ho for select  * from test3 where varc in('not') and val=1; --반납 안한 사람들 목록   out값으로 뿌리기.
+   open ho for select  * from test3 where varc in('not') and val=1; --대여 안한 사람들 목록   out값으로 뿌리기.
 loop
  fetch ho into ho2;  -- 그냥 변수할당해도 괜찮을듯.  ho2.grou로 
   exit when ho%notfound;
   
    -- 새로운 프로시저 하나로 묶을수 있을듯.
     select  count(*) into hoho  from test3 where grou=ho2.grou;   --순번 떙길 사람들
-    update test3 set val=0 where val=1 and varc in('not'); 
+    update test3 set val=0 where val=1 and varc in('not');   -- varc는 enddate<sysdate인 사람들  
    DBMS_OUTPUT.put_line('3  val '||ho2.val  || 'ho프로시저 행 수' || hoho);    --예약했는데 안빌린 사람들.
 
    
@@ -100,13 +100,67 @@ loop
         update test3 set val=i where val=i+1  and varc in('not');
         DBMS_OUTPUT.put_line('결과는 = '||i ||'그리고 ho2의 val= '||ho2.val );
       -- 확인  insert into test3(val) values(i+1);
-        end loop;
+        end loop;  --foreach end loop
     
     
-end loop;
+end loop;-- ho loop
+
+--반납시
+--book상태 대여로 바꾼후에
+
+--reservation 해당 책 count 값이 0보다 클경우에 
+
+
+declare
+hoho number;
+begin
+    
+
+
+
+end;
+
+
+
+
 close ho;
 end;
 /
+-- 위에거는 시간마다 예약자 떙기는거
+
+-- 아래는  예약자에 따라서 예약시간 구현          그루는 책번호   soo가 5이상일시 insert X 
+declare 
+soo number;
+begin
+ select count(*) into soo from test3 where grou=4 ;
+    if soo<1 then 
+                    DBMS_OUTPUT.PUT_LINE(sql%rowcount);
+                    --end date sysdate+2정도로 입력
+     insert into test3 values(soo+1, 'b',4);
+    elsif  soo<5 then
+        DBMS_OUTPUT.PUT_LINE(sql%rowcount);
+
+                                    -- end date null 입력
+    insert into test3 values(soo+1, 'b',4);
+    
+       
+    end if;
+    DBMS_OUTPUT.PUT_LINE(sql%rowcount);
+    
+    -- 만약 실패메세지 띄울거면 if문 실행하는것에따라 out parameter값을 다르게 구현해서 실패했다는것을 알려줄것.
+end;
+/
+
+select * from test3;
+
+set serveroutput on;
+
+insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)       
+values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),sysdate);
+-- 분기 count>1 and count<=5
+insert into reservation(book_num,mem_id,rsrv_num,rsrv_enddate)       
+values(100001,'1',(select count(rsrv_num)+1 from reservation where book_num=100001),null);
+
 
 
 select * from test2;

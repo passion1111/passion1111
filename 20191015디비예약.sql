@@ -125,3 +125,12 @@ begin
 end;
 /
 set serveroutput on;
+/
+
+declare
+test3 number;
+begin
+select count(*) into test3 from testtable;
+dbms_output.put_line('1 =' ||test3);
+end;
+/

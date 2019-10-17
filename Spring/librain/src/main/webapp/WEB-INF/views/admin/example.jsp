@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-ÀüºÎ jsp·Î ÇØÁÖ½Ê½Ã¿À
+ï¿½ï¿½ï¿½ï¿½ jspï¿½ï¿½ ï¿½ï¿½ï¿½Ö½Ê½Ã¿ï¿½
 </body>
 </html>

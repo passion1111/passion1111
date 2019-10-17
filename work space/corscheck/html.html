@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+
+
+
+<input type="button" value="눌러" onclick="ho()"/>
+<script>
+function ho(){
+    var form = {
+    id: "123",
+    name: "123",
+    testTags: [{id: "1111", tag: "2222"}]
+}
+console.log('2')
+
+    $.ajax({
+        method: "get", 
+        type: "text",
+    url: "http://localhost:8080/test/hwai",
+    data: "data",
+    dataType: "text",
+    success: function (response) {
+        console.log(response)
+    
+    }
+   , error:function(response){
+        console.log(response)
+    }
+});
+}
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import test.test2.model.TestDao;
 
 @Controller
+@CrossOrigin	(origins = {"http://127.0.0.1:5501"} )
 public class Home {
 	
 @Autowired
@@ -51,7 +53,11 @@ TestDao dao;
 		return (List<HashMap<String, String>>) aa.get("result");
 	} // result와 매개변수 둘다 값이 담김.
 	
-
+	@GetMapping(value="/hwai")
+	@ResponseBody
+	public String hwai() {
+		return 		"{hi:'dd'}";
+	}
 
 }
 

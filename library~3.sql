@@ -5,14 +5,28 @@ Fac_address varchar2(30) ,   --위치
 Fac_status varchar2(30),
 Fac_category varchar2(30)
 );
-
 create table Facilities_inspection(   --시설물 점검
 FacIn_serialnum  number ,                           --점검한것 Facilities의 fk
 FacIn_name varchar2(30), 
 FacIn_address varchar2(30),
-FacIn_INSPECTION_DATE date default sysdate,    -- 점검일 
-FacIn_INSPECTION_DUE_DATE date
+FacIn_status varchar2(30),
+FacIn_Inspection_Date date default sysdate,    -- 점검일 
+FacIn_Inspection_Due_Date date
 );
+commit;
+drop table  Facilities_inspection;
+desc Facilities_inspection;
+insert into Facilities_inspection values(1,'엘레베이터','1관','정상',sysdate,sysdate+90);
+insert into Facilities_inspection values(2,'에스컬레이터','1관','정상',sysdate,sysdate+30);
+insert into Facilities_inspection values(3,'에스컬레이터','2관','정상',sysdate,sysdate+30);
+
+select * from (select (rank() over(order by FacIn_serialnum))r , FacIn_serialnum, FacIn_name,FacIn_address, FacIn_status, FacIn_Inspection_Date,FacIn_Inspection_Due_Date,
+(FacIn_Inspection_Due_Date-FacIn_Inspection_Date) RemainingTime
+from Facilities_inspection ) where r>0 and r<=10;
+ select * from (select (rank() over(order by FacIn_serialnum))r , FacIn_serialnum, FacIn_name,FacIn_address, FacIn_status, FacIn_Inspection_Date,FacIn_Inspection_Due_Date,
+(FacIn_Inspection_Due_Date-FacIn_Inspection_Date) RemainingTime
+from Facilities_inspection ) where r>0 and r<=10;
+
 drop table Facilities_inspection;
 select * from Facilities_inspection;
 select * from Facilities;
@@ -39,6 +53,7 @@ begin
  end case;
 end;
 /
+select FacIn_serialnum from Facilities_inspection;
 select * from facilities_inspection;
 desc facilities_inspection;
 --insert into 하기위해
@@ -66,7 +81,7 @@ end;
 
 
 
-
+select 
 
 
         select * from Facilities_inspection;

@@ -1,5 +1,7 @@
 package test.test.test;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -107,9 +111,16 @@ public class HomeTest2 {
 //	}//테스트완료
 	    @Test
 	    public void testinsert() {
-	    	
+			  RequestBuilder req = MockMvcRequestBuilders.get("/hohoho423#dwqdqw");
+			  try { 
+				mock.perform(req).andDo(print());
+			  logger.info("수행 성공");
+			  } 
+			  catch (Exception e) { 
+				  logger.error("수행 실패: " +e.getMessage()); 
+				  } 
+		  }
 //	    	dao.insert("201801",1);
-	    }
 //	    @Test
 //	    public void testsplit() {
 //	    	String hash ="aaadd";
@@ -130,25 +141,51 @@ public class HomeTest2 {
 	    	List<HashMap<String, String>> List=new ArrayList<HashMap<String,String>>();
 	    	List=dao.callable(map);
 	    	String hoho=List.toString();
-	    	System.out.println(hoho);
-	    	hoho.split(",}");
-//	    	for (String s : hoho.replace("[","").replace("]","").split("},")   ) {
-//					System.out.println(s+"ddd");
-//			}
-	    	for (String s : hoho.replace("[","").replace("]","").split("}") ) {
-				for (String sd : s.replace(",", "").replace("{", "").replace("[","").replace("]","").split("}")) {
-					System.out.println(sd.trim().lastIndexOf(" "));
-//					for (String total: sd.split()) {
-//						System.out.println();
-//					}
-				}
-		}
+	    	System.out.println(map.get("SQL_CODE_OUT"));
+//	    	ArrayList<HashMap> List2=new ArrayList();
+//
+//	    	//	    	for (String s : hoho.replace("[","").replace("]","").split("},")   ) {
+////					System.out.println(s+"ddd");
+////			}
+//	    	for (String s : hoho.replace("[","").replace("]","").replace("{", "").replace(",", "").split("}") ) {
+//				//System.out.println(s.trim());
+//				HashMap hash=new HashMap();
+//				List2.add(hash);
+////					System.out.println(sd.trim());
+//				//	System.out.println(s);
+//					for (String total: s.trim().split(" ")) {
+//						System.out.println(total);
+//						String[] total2 = total.split("=");
+//							hash.put(total2[0], total2[1]);
+//					}	
+////							String[] howparsing=total.split("=");
+////									hash.put(howparsing[0], howparsing[1]);
+////							
+//////							for (int j = 0; j < howparsing.length; j++) {
+//////								
+//////								if((j+1)%2==0) {
+//////								}
+//////							}
+////						
+//			
+//				
+//				
+//				}
+//	    //}
+//	    		for (HashMap hashcheck : List2) {
+//	    			System.out.println("리스트당");
+//	    			for (Object ha : hashcheck.keySet()) {
+//							System.out.println("키 = "+ha+",밸류="+hashcheck.get(ha)   );
+//						}
+//				}
+	    		
 	    }
-
 	    @After
 	    public void afterTest(){
 	        logger.info("===== afterTest() =====");
 	    }
+	    
+	    
 	    
 }
 	

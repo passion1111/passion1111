@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -106,6 +109,10 @@ TestDao dao;
 	    public void findAll(@RequestBody List<HashMap<String, String>> hi,String request) {
 		 System.out.println(request);
 		 
+	 }
+	 @RequestMapping("/hohoho{aa:[a-zA-Z0-9#]*}")
+	public void hoho(@PathVariable String aa) {
+		 System.out.println(aa);
 	 }
 }
 

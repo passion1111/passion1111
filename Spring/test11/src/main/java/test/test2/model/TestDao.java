@@ -11,5 +11,5 @@ public List<HashMap<String, String>> TestList();
 public List<HashMap<String, String>> selectprocedure(Map map);
 public void insert(@Param("date") String date ,@Param("date2")int date2);	
 public List<HashMap<String, String>> callable(Map map);
-
+public int integercheck(int checkvalues);
 }

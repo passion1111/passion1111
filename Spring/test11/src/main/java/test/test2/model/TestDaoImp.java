@@ -40,5 +40,10 @@ public class TestDaoImp implements TestDao {
 		return (List<HashMap<String, String>>) map.get("result");
 	}
 
+	@Override
+	public int integercheck(int checkvalues) {
+		return sqlsession.getMapper(TestDao.class).integercheck(checkvalues);
+	}
+
 
 }

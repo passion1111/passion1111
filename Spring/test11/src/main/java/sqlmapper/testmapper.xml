@@ -27,6 +27,14 @@ select * from test
  CALL TEST_SELECTPROC()
  }
  </select> 안됨-->
- 
-
+	<insert id="insert" parameterType="map">
+	insert into how values(to_date(#{date} , 'yyyymm' ))
+	</insert> 
+ <select id="callable" statementType="CALLABLE" resultType="map">
+{
+CALL howhow(#{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT}
+		<!-- 	,#{result2, jdbcType=INTEGER, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT} -->
+			)
+}
+</select> 
 </mapper>

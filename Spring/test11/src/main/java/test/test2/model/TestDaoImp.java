@@ -27,5 +27,18 @@ public class TestDaoImp implements TestDao {
 		return sqlsession.getMapper(TestDao.class).selectprocedure(map);
 	}
 
+	@Override
+	public void insert(String date,int date2) {
+		sqlsession.getMapper(TestDao.class).insert(date,date2);
+		
+		
+	}
+
+	@Override
+	public List<HashMap<String, String>> callable(Map map) {
+		sqlsession.getMapper(TestDao.class).callable(map);
+		return (List<HashMap<String, String>>) map.get("result");
+	}
+
 
 }

@@ -1,20 +1,13 @@
 package test.test.test;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite.SuiteClasses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.tags.Param;
 
 import test.test2.model.TestDao;
 
@@ -108,16 +98,52 @@ public class HomeTest2 {
 //
 //	}//테스트완료
 	
-	@Test
-	public void testDoC() throws Exception {
-
-		mock.perform(MockMvcRequestBuilders.post("/checkpro")).andDo(print());
-		
-
-	}//테스트완료
-	
-
-	 
+//	@Test
+//	public void testDoC() throws Exception {
+//
+//		mock.perform(MockMvcRequestBuilders.post("/checkpro")).andDo(print());
+//		
+//
+//	}//테스트완료
+	    @Test
+	    public void testinsert() {
+	    	
+//	    	dao.insert("201801",1);
+	    }
+//	    @Test
+//	    public void testsplit() {
+//	    	String hash ="aaadd";
+//	    	System.out.println(hash.split("#").length);
+//	    	System.out.println(hash.indexOf("#") );
+//	    	HashMap<String, HashMap<String, String>> hashhash=new HashMap<String, HashMap<String,String>>();
+//	    	HashMap<String,String> hashin=new HashMap<String,String>();
+//	    	hashin.put("hi","di");
+//	    	hashhash.put("hi", hashin);
+//	    	System.out.println(hashhash.get("hi").get("hi"));
+//	    	
+//	    	//System.out.println(ha.length+i);
+//	    }
+//	 
+	    @Test
+	    public void callabletest() {
+	    	HashMap map=new HashMap();
+	    	List<HashMap<String, String>> List=new ArrayList<HashMap<String,String>>();
+	    	List=dao.callable(map);
+	    	String hoho=List.toString();
+	    	System.out.println(hoho);
+	    	hoho.split(",}");
+//	    	for (String s : hoho.replace("[","").replace("]","").split("},")   ) {
+//					System.out.println(s+"ddd");
+//			}
+	    	for (String s : hoho.replace("[","").replace("]","").split("}") ) {
+				for (String sd : s.replace(",", "").replace("{", "").replace("[","").replace("]","").split("}")) {
+					System.out.println(sd.trim().lastIndexOf(" "));
+//					for (String total: sd.split()) {
+//						System.out.println();
+//					}
+				}
+		}
+	    }
 
 	    @After
 	    public void afterTest(){

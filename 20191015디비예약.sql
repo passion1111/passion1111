@@ -176,7 +176,6 @@ begin
     
 end;
 /
-<<<<<<< HEAD
 set serveroutput on;
 /
 
@@ -197,4 +196,6 @@ begin
 end;
 /
 set serveroutput on;
->>>>>>> 3d50b1ea2291074a1264d849c549eaf704c3b7e0
+
+
+select add_months(trunc(sysdate,'mm'),-3) a ,Last_day(sysdate) from dual;

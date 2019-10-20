@@ -42,7 +42,7 @@ TestDao dao;
 
 	@PostMapping(value="/login")
 	public void doA(@RequestParam String userid,@RequestParam String pwd){
-		System.out.println(userid+"À¯Àú¾ÆÀÌµğ"+pwd+"ÆĞ½º¿öµå");
+		System.out.println(userid+"ìœ ì €ì•„ì´ë””"+pwd+"íŒ¨ìŠ¤ì›Œë“œ");
 		logger.info("doA called ...");
 		
 	}
@@ -64,12 +64,12 @@ TestDao dao;
 		HashMap aa=new HashMap();
 		dao.selectprocedure(aa);
 		return (List<HashMap<String, String>>) aa.get("result");
-	} // result¿Í ¸Å°³º¯¼ö µÑ´Ù °ªÀÌ ´ã±è.
+	} // resultì™€ ë§¤ê°œë³€ìˆ˜ ë‘˜ë‹¤ ê°’ì´ ë‹´ê¹€.
 	
 	@GetMapping(value="/hwai",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public List hwai(HttpServletRequest request) {
-		//È®ÀÎ
+		//í™•ì¸
 		String ip = request.getHeader("X-Forwarded-For");
 		 
         logger.info(">>>> X-FORWARDED-FOR : " + ip);
@@ -79,7 +79,7 @@ TestDao dao;
             logger.info(">>>> Proxy-Client-IP : " + ip);
         }
         if (ip == null) {
-            ip = request.getHeader("WL-Proxy-Client-IP"); // À¥·ÎÁ÷
+            ip = request.getHeader("WL-Proxy-Client-IP"); // ì›¹ë¡œì§
             logger.info(">>>> WL-Proxy-Client-IP : " + ip);
         }
         if (ip == null) {
@@ -110,9 +110,37 @@ TestDao dao;
 		 System.out.println(request);
 		 
 	 }
-	 @RequestMapping("/hohoho{aa:[a-zA-Z0-9#]*}")
-	public void hoho(@PathVariable String aa) {
-		 System.out.println(aa);
+//	 @RequestMapping("/hohoho{aa}")
+//	public void hoho(@PathVariable String aa) {
+//		 System.out.println(aa);
+//	 }
+	 @RequestMapping("/test22")
+	 @ResponseBody
+	 public HashMap  test22(){
+		 List list=dao.test22();
+			
+			
+			// è¹‚ï¿½ï¿½ë‹”ï§ï¿½ æ€¨ì¢íŠŒ ï¿½ë¸˜ï¿½ìŠ‚ï¿½ê½¦ ï¿½ë„‚ï¿½ì“¬. 
+			HashMap total=new HashMap();
+			HashMap data=new HashMap();
+			HashMap pagenation=new HashMap();
+			pagenation.put("page","1");
+			pagenation.put("totalCount","3000000");
+			data.put("contents",list);
+			
+			
+			data.put("pagination",pagenation);
+			total.put("result", true);
+			total.put("data", data);
+			
+		 
+		 return total;
+	 }
+	 
+	 @RequestMapping("selectcheck")
+	 public void selectcheck(@RequestParam List<String> aa ) {
+		 System.out.println(aa.size());
+		 
 	 }
 }
 

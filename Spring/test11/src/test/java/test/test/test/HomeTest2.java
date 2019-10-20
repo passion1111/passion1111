@@ -1,6 +1,7 @@
 package test.test.test;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,25 +103,25 @@ public class HomeTest2 {
 //
 //	}//테스트완료
 	
-//	@Test
-//	public void testDoC() throws Exception {
-//
-//		mock.perform(MockMvcRequestBuilders.post("/checkpro")).andDo(print());
-//		
-//
-//	}//테스트완료
-	    @Test
-	    public void testinsert() {
-			  RequestBuilder req = MockMvcRequestBuilders.get("/hohoho423#dwqdqw");
-			  try { 
-				mock.perform(req).andDo(print());
-			  logger.info("수행 성공");
-			  } 
-			  catch (Exception e) { 
-				  logger.error("수행 실패: " +e.getMessage()); 
-				  } 
-		  }
-//	    	dao.insert("201801",1);
+	@Test
+	public void testDoC() throws Exception {
+
+		mock.perform(MockMvcRequestBuilders.get("/test22")).andDo(print()).andExpect(status().isOk());
+		
+
+	}//테스트완료
+//	    @Test
+//	    public void testinsert() {
+//			  RequestBuilder req = MockMvcRequestBuilders.get("/hohoho423d#wqdqw");
+//			  try { 
+//				mock.perform(req).andDo(print());
+//			  logger.info("수행 성공");
+//			  } 
+//			  catch (Exception e) { 
+//				  logger.error("수행 실패: " +e.getMessage()); 
+//				  } 
+//		  }
+////	    	dao.insert("201801",1);
 //	    @Test
 //	    public void testsplit() {
 //	    	String hash ="aaadd";
@@ -139,9 +140,12 @@ public class HomeTest2 {
 	    public void callabletest() {
 	    	HashMap map=new HashMap();
 	    	List<HashMap<String, String>> List=new ArrayList<HashMap<String,String>>();
-	    	List=dao.callable(map);
+	    	HashMap hash=new HashMap();
+	    	dao.callable(map);
+	    	hash=map;
+	    	List=(java.util.List<HashMap<String, String>>) hash.get("result");
 	    	String hoho=List.toString();
-	    	System.out.println(map.get("SQL_CODE_OUT"));
+	    	System.out.println(List.get(0));
 //	    	ArrayList<HashMap> List2=new ArrayList();
 //
 //	    	//	    	for (String s : hoho.replace("[","").replace("]","").split("},")   ) {

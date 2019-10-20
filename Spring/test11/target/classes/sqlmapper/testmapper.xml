@@ -33,8 +33,13 @@ select * from test
  <select id="callable" statementType="CALLABLE" resultType="map">
 {
 CALL howhow(  #{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT}
-			 , #{SQL_CODE_OUT,javaType=Integer, jdbcType=INTEGER, resultMap=procResultMap1,mode=OUT}
+			 , #{result2,javaType=Integer, jdbcType=INTEGER, resultMap=procResultMap1,mode=OUT}
 			)
 }
 </select> 
+
+
+<select id="test22" resultType="map">
+select * from test22
+</select>
 </mapper>

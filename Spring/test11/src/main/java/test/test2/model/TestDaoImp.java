@@ -20,11 +20,17 @@ public class TestDaoImp implements TestDao {
 		return sqlsession.getMapper(TestDao.class).TestList();
 	}
 
+//	@Override
+//	public List<HashMap<String, String>> selectprocedure(Map map) {
+//		sqlsession.getMapper(TestDao.class).selectprocedure(map);
+//		System.out.println(map.get("result"));
+//		return sqlsession.getMapper(TestDao.class).selectprocedure(map);
+//	}
 	@Override
-	public List<HashMap<String, String>> selectprocedure(Map map) {
+	public HashMap<?, ?> selectprocedure(HashMap map) {
 		sqlsession.getMapper(TestDao.class).selectprocedure(map);
 		System.out.println(map.get("result"));
-		return sqlsession.getMapper(TestDao.class).selectprocedure(map);
+		return map;
 	}
 
 	@Override
@@ -43,6 +49,12 @@ public class TestDaoImp implements TestDao {
 	@Override
 	public int integercheck(int checkvalues) {
 		return sqlsession.getMapper(TestDao.class).integercheck(checkvalues);
+	}
+
+	@Override
+	public List<HashMap<String, String>> test22() {
+		// TODO Auto-generated method stub
+		return sqlsession.getMapper(TestDao.class).test22();
 	}
 
 

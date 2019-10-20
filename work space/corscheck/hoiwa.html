@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<form action="http://localhost:8080/test/selectcheck">
+
+    <p id="hohoho">
+        <select name="aa" id="ho">
+            <option value="맞아">맞낭
+            </option>
+        </p>
+            
+    <input type="button" name="qdow" value="추가하기" onclick="addselect()">
+
+ </select>
+
+<input type="submit">
+</form>
+<input type="button" value="제거하기" onclick="removeselect()">
+<br><br><Br>
+
+안전점검 탭 
+<script>
+function addselect() {
+    daySelect = document.getElementById('hohoho');
+    myselectbox=document.createElement("select");
+    myOption = document.createElement("option");
+myOption.text = "Hello World";
+myOption.value = "Hello World";
+myselectbox.append(myOption);
+daySelect.append(myselectbox);
+
+}
+function removeselect() {
+    console.log( $('select[name=aa]:last').remove())
+    console.log( $('#hohoho input[type=text]:last-child').remove())
+}
+
+
+    
+    $("#ho").click(function() {
+$("#hohoho").append('<select name="aa">'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'<option value-"Home">Home</option>'
++'</select><input type="text" name="textvalue">');
+console.log('dd')
+    });
+
+
+</script>
+</body>
+</html>

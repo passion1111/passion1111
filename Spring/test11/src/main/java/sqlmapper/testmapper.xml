@@ -42,4 +42,5 @@ CALL howhow(  #{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=
 <select id="test22" resultType="map">
 select * from test22
 </select>
+
 </mapper>

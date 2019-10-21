@@ -53,11 +53,13 @@ begin
  end case;
 end;
 /
+
 select FacIn_serialnum from Facilities_inspection;
 select * from facilities_inspection;
 desc facilities_inspection;
 --insert into 하기위해
 desc Facilities_inspection;
+
 create or replace procedure facin_insert( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
                                            f_address in facilities_inspection.facin_address%type,
@@ -89,11 +91,25 @@ exec facin_insert(3,'프로시저테스트');
 desc Facilities_inspection;
 insert into Facilities_inspection values(3,'프로시저테스트',sysdate,sysdate+5);
 
+
+
+-- 보여줄것.
 select FacIn_serialnum ,                           --점검한것 Facilities의 fk
 FacIn_name ,    
 FacIn_INSPECTION_DATE ,    -- 점검일 
 FacIn_INSPECTION_DUE_DATE  , trunc((FacIn_INSPECTION_DUE_DATE-FacIn_INSPECTION_DATE),0) 남은일 from Facilities_inspection;
 
+
+
+
+
+
+
 select * from Facilities_inspection;
 
-select * from (select (rank() over(order by Fac_serialnum))r , FAC_serialnum, FAC_NAME,FAC_ADDRESS, FAC_STATUS, FAC_CATEGORY from Facilities ) where r>0 and r<=10 and fac_status='수리신청' 
+select * from (select (rank() over(order by Fac_serialnum))r , FAC_serialnum, FAC_NAME,FAC_ADDRESS, FAC_STATUS, FAC_CATEGORY from Facilities ) where r>0 and r<=10 and fac_status='수리신청' ;
+
+
+
+select * from Facilities_inspection;
+select * from Facilities_inspection where facin_inspection_due_date>sysdate;

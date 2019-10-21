@@ -6,19 +6,163 @@ select * from rental;
 select * from member;
                  --대출정지기한 필요
                  --대출가능상태
+drop table book;
 
+create table book ( --도서
+    book_num number, --도서번호
+    book_author varchar2(150), --저자
+    book_name varchar2(200), --도서명
+    book_pub_house varchar2(50), --출판사
+    book_pub_date date, --발행일
+    book_ISBN varchar2(50), --ISBN
+    book_apdx_status varchar2(10), --부록여부
+    book_ctgr_num varchar2(100), --분류기호
+    book_rsrv_status varchar2(50), --예약여부
+    book_rent_cnt number, --대출 횟수
+    book_input_date date, --입력일
+    book_ctgr_num_db varchar2(100) --도서 분류에 넣을 분류기호 값
+    --constraint book_num_pk PRIMARY KEY (book_num) ,
+    --constraint book_category_num_fk FOREIGN KEY (category_num)  
+    --references book_category (category_num) 
+);
+desc book;
+select * from book;
+select * from rental;
 
-
+select * from rental;
 desc member;
-select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank, case when mem_rank=2 then 7 
+
+update member set deadline_rent_stop=null where mem_id=1;
+
+
+--매일 자정 해당 사람들  
+select * from member;
+declare
+begin
+
+for rentupdate in  (select * from rental where rent_enddate<sysdate)
+loop
+     update member set deadline_rent_stop=sysdate+ceil(sysdate-rentupdate.rent_enddate) where mem_id=rentupdate.mem_id;
+     
+     
+    end loop;
+    end;
+    /
+    update member set deadline_rent_stop=sysdate+ceil(sysdate-sysdate) where mem_id=1;
+    select * from rental;
+    select * from member;
+    select sysdate+ceil(sysdate-rent_enddate) from rental;
+    select sysdate+sysdate from dual;
+    select * from member;
+select * from rental where rent_enddate<sysdate;
+select * from book;
+select * from member where deadline_rent_stop<sysdate;
+-- 만약 연체했을시에 mem_rank 
+select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, deadline_rent_stop ,
+                                                                case when deadline_rent_stop>sysdate then 0
+                                                                else
+                                                                      case when mem_rank=2 then 7  -- 대출불가 판단
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
-                                                                      else 0 end LOANABLE_NUMBER , 대출가능상태  ,대출정지기한 from member;
+                                                                      else 0 end
+                                                                end      LOANABLE_NUMBER ,
+                                                                case when deadline_rent_stop>sysdate then 0
+                                                                else       
+                                                                      case when mem_rank=2 then 7 
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end -(select count(*) from rental where mem_id=1 and rent_status='대여중')
+                                                                end     현재대여가능권수 from member;
+                                    
+                                    
+                                    select * from member;
+                                    
+                                    
+                                                                      
+ 
+                  --방법 
+                    select distinct rental.book_num,
+                        case when rent_status='대여중' then '대여중'
+                             when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
+                                                            else '예약중'  end
+                             end 대출여부                               
+                   ,book_name,book_author,book_pub_house
+                    ,case when rent_extension='X' then '연장가능'
+                        else '연장불가능' end 연장여부,
+                        --book_rsrv_status중에 내가 예약한 
+                       case when  book_rsrv_status ='예약가능' then 
+                                                                                    --왜 기본값이 1?
+                                                                    case when rsrv_num>0 then '예약중입니다'
+                                                                                        else '예약가능' end 
+                       end 예약여부,
+                        book_rsrv_status
+                    from rental join book on book.book_num=rental.book_num left  outer join (select * from reservation  ) reservation on reservation.book_num=book.book_num where rental.mem_id=1 ;
+                                    
+                                    
+                                    
+                                    
+                                                        select * from    rental join book on book.book_num=rental.book_num   join  reservation on reservation.book_num=book.book_num where rental.mem_id=1;         
+                                                            select * from reservation;
+                                                        select count(*) over(partition by book_num) from reservation;
+                                                        select * from rental  where mem_id=1;
+                                                        select * from reservation;
+                                                        select * from reservation;
+                                                        select * from book;
+                                                        
+                                                        select * from reservation where mem_id;
+                                                        select * from rental;
+                                                        
+                                                       select case when dd2=1 then 2
+                                                                   when dd='11' then 1 end from test2;
+                                                       desc test2;
+                                                       select * from member;
+                                                       delete from rental;
+                                                       select * from reservation;
+                                                       select * from rental;
+                                                   
+                                                       select * from member;
+                                                       select * from  rental where book_num=100001 and rent_num=(select max(rent_num) from rental where book_num=100001)  ;
+                                                       select * from member join rental on;
+                                                       select  * from rental;
+                                                       select  b.book_num,r.*,rental.* from book b 
+                                                   join rental on  b.book_num=rental.book_num left outer join (select * from reservation where reservation.rsrv_num=1) r on r.book_num=rental.book_num;                                                                     
+                                                 select * from rental;
+                                                 -- 반납시 
+                                                 
+                                                 
+                                                    --해당회원 빌린책반납.  rent_enddate not null 
+                                                    select * from rental;
+                                                 --1. 해당 회원이 빌린 책  반납시  rent_enddate    null  rent_status 반납 
+                                                 select * from reservation;
+                                                 select * from member join rental on member.mem_id=rental.mem_id  where member.mem_id=1 and rent_status='대여중' or rent_status='예약중'  ;
+                                               
+                                               select * from reservation;
+                                               delete * from 
+                                               
+                                                    
+                                                    --mem_id
+                                                       select * from test2;
+                                                       select * from rental;
+                                                       select * from reservation;
+                                                      select * from book;
+                                                                      select * from member;
+                                                                      select count(*) from rental where mem_id=1 and rent_status='대여중';
 ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(10));
 
-create table temp_member_book as select * from 
+select * from member;
 
 
+
+create table temp_member_book as select * from ;
+
+select * from member;
+desc rental;
+desc member;
+desc book;
+
+select * from reservation;
+select * from book;
+select * from rental;
 select * from member inner join rental on member.mem_id=rental.mem_id ;
 
 
@@ -42,15 +186,25 @@ from
             join (select book_num, nvl(to_char(rent_enddate),'o' ) rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) 
                      and rental.rent_enddate is null)  r  
             on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id  );
-      
+select * from book;
+select * 
+select * from rental;
 select * from member;
+select * from member;
+
+
 --  
 -- 
 
  -- 
 select * from book;
 
+desc rental;
+desc reservation;
+select  * from reservation;
+select * from rental;
 
+-- 
 select * from
  (select rownum rnum, b.book_num, book_author, book_pub_house, book_name, book_pub_date, book_ISBN, book_apdx_status, book_rsrv_status, book_ctgr_num, 
             decode(rent_enddate,'o','대여중','대여가능') rent ,r.mem_id  ,c.mem_rank rank  ,count(*) OVER(PARTITION BY r.mem_id) bookcount
@@ -58,6 +212,8 @@ select * from
             join (select book_num, nvl(to_char(rent_enddate),'o' ) rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) 
                      and rental.rent_enddate is null)  r  
             on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id  );
+       
+       
             
  declare           
 cursor b_bookstatus is
@@ -116,8 +272,11 @@ from
             join (select book_num, nvl(to_char(rent_enddate),'o' ) rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) 
                   and rental.mem_id = '12'   and rental.rent_enddate is null)  r  
             on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id  )  ;
+            
+select      
+            
     
-    
+    select * from member;
 
 --대여 판단 테이블 
 select * from
@@ -201,7 +360,7 @@ from
             join (select book_num, nvl(to_char(rent_enddate),'o' ) rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) 
                     and  rental.rent_enddate is null)  r  
             on (b.book_num = r.book_num)  inner join (select mem_id,mem_rank from member) c on r.mem_id=c.mem_id)   ;
-            
+            select * from member;
             select * from member ;
     
   -- 예약o   -> rent 대여불가능 
@@ -630,6 +789,7 @@ create table reservation (
     rent_num varchar(30), -- 대여번호
     mem_id varchar2(20), --회원번호
     rsrv_num number(20)   --예약번호
+    
     --constraint reservation_rent_num_fk FOREIGN KEY (rent_num)
     --REFERENCES rental (rent_num),
     --constraint reservation_mem_id_fk FOREIGN KEY (mem_id)
@@ -639,7 +799,6 @@ drop table reservation;
 select * from reservation;
 
 
-어제 반납된책.
  is null = 0 
 --select
 select * from rental order by rent_num desc;

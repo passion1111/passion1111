@@ -11,7 +11,7 @@
 <body>
 <form action="http://localhost:8080/test/selectcheck">
 
-    <p id="hohoho">
+    <!-- <p id="hohoho">
         <select name="bb" id="ho">
             <option value="맞아">맞낭
             </option>
@@ -19,15 +19,37 @@
             
     <input type="button" name="qdow" value="추가하기" onclick="addselect()">
 
- </select>
+ </select> -->
+ <select name="arrays[0].select"><option value="fac_name">check2</option></select>
+
+ <select name="arrays[0].select2"><option value="check2">check1</option></select>
+<input type="text" name="arrays[0].text">
+
+<input type="text" name="list[0].name" value="이름1"/>
+<input type="text" name="list[1].name" value="이름2"/>
+<input type="text" name="list[0].phone" value="010"/>
+<input type="text" name="list[1].phone" value="011"/>
 
 <input type="submit">
 </form>
 <input type="button" value="제거하기" onclick="removeselect()">
+<input type="button" value="값체크하기" onclick="hohoho()">
+
 <br><br><Br>
 
 안전점검 탭 
 <script>
+    var url='';
+    function hohoho() {
+        console.log('dd')
+    $("input[name^='list']").each(function(){
+        url+="&"+this.name+"="+this.value
+        console.log(url);
+    }
+        
+    )
+      console.log( $("input[name^='list']").val())  
+    }
 function addselect() {
     daySelect = document.getElementById('hohoho');
     myselectbox=document.createElement("select");

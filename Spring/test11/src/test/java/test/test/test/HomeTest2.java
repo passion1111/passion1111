@@ -103,13 +103,13 @@ public class HomeTest2 {
 //
 //	}//테스트완료
 	
-	@Test
-	public void testDoC() throws Exception {
-
-		mock.perform(MockMvcRequestBuilders.get("/test22")).andDo(print()).andExpect(status().isOk());
-		
-
-	}//테스트완료
+//	@Test
+//	public void testDoC() throws Exception {
+//
+//		mock.perform(MockMvcRequestBuilders.get("/test22")).andDo(print()).andExpect(status().isOk());
+//		
+//
+//	}//테스트완료
 //	    @Test
 //	    public void testinsert() {
 //			  RequestBuilder req = MockMvcRequestBuilders.get("/hohoho423d#wqdqw");
@@ -136,16 +136,16 @@ public class HomeTest2 {
 //	    	//System.out.println(ha.length+i);
 //	    }
 //	 
-	    @Test
-	    public void callabletest() {
-	    	HashMap map=new HashMap();
-	    	List<HashMap<String, String>> List=new ArrayList<HashMap<String,String>>();
-	    	HashMap hash=new HashMap();
-	    	dao.callable(map);
-	    	hash=map;
-	    	List=(java.util.List<HashMap<String, String>>) hash.get("result");
-	    	String hoho=List.toString();
-	    	System.out.println(List.get(0));
+//	    @Test
+//	    public void callabletest() {
+//	    	HashMap map=new HashMap();
+//	    	List<HashMap<String, String>> List=new ArrayList<HashMap<String,String>>();
+//	    	HashMap hash=new HashMap();
+//	    	dao.callable(map);
+//	    	hash=map;
+//	    	List=(java.util.List<HashMap<String, String>>) hash.get("result");
+//	    	String hoho=List.toString();
+//	    	System.out.println(List.get(0));
 //	    	ArrayList<HashMap> List2=new ArrayList();
 //
 //	    	//	    	for (String s : hoho.replace("[","").replace("]","").split("},")   ) {
@@ -183,7 +183,28 @@ public class HomeTest2 {
 //						}
 //				}
 	    		
-	    }
+	    //}
+	
+	
+	@Test
+	public void Testarray() {
+		List<HashMap<String, String>>list =new ArrayList<HashMap<String,String>>();
+		HashMap<String, String> hash=new HashMap<String, String>();
+		HashMap<String, String> hash2=new HashMap<String, String>();
+
+		hash.put("select2","or");
+		hash.put("select","nono");
+		hash.put("text","976");
+		
+		hash2.put("select2","or");
+		hash2.put("select","nono");
+		hash2.put("text","976");
+
+		list.add(hash);
+		list.add(hash2);
+
+		logger.info("ddd"+dao.test22(list));
+	}
 	    @After
 	    public void afterTest(){
 	        logger.info("===== afterTest() =====");

@@ -19,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import test.test2.model.Arrtoto;
 import test.test2.model.TestDao;
+import test.test2.model.TestDto;
 
 @Controller
 @CrossOrigin	(origins = {"*"} )
@@ -138,10 +141,8 @@ TestDao dao;
 	 }
 	 
 	 @RequestMapping("selectcheck")
-	 public void selectcheck(@RequestParam List<String> aa,@RequestParam List<String> textvalue) {
-		 System.out.println(aa.size());
-		 System.out.println(textvalue.size());
-		 HashMap<List<String>, List<String>>
+	 public void selectcheck(@ModelAttribute TestDto dto) {
+		 System.out.println(dto.getList().size());
 	 }
 }
 

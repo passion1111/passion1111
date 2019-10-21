@@ -10,7 +10,7 @@ public interface TestDao {
 public List<HashMap<String, String>> TestList();
 //public List<HashMap<String, String>> selectprocedure(Map map);
 public HashMap<?, ?> selectprocedure(HashMap map);
-public List<HashMap<String, String>> test22();
+public List<HashMap<String, String>> test22(List<HashMap<String, String>> ho);
 
 public void insert(@Param("date") String date ,@Param("date2")int date2);	
 public List<HashMap<String, String>> callable(Map map);

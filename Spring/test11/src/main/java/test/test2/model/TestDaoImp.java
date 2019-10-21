@@ -52,9 +52,9 @@ public class TestDaoImp implements TestDao {
 	}
 
 	@Override
-	public List<HashMap<String, String>> test22() {
+	public List<HashMap<String, String>> test22(List<HashMap<String, String>> map) {
 		// TODO Auto-generated method stub
-		return sqlsession.getMapper(TestDao.class).test22();
+		return sqlsession.getMapper(TestDao.class).test22(map);
 	}
 
 

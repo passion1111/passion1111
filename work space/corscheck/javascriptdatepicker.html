@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    
+
+        <span id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 40%;">
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>  <i class="fa fa-calendar"></i>
+                <span class="value"></span> <i class="fa fa-caret-down"></i>
+            </span>
+           
+            <script type="text/javascript">
+
+                
+
+            $(function() {
+            
+                var start = moment().subtract(29, 'days');
+                var end = moment();
+            
+                function cb(start, end) {
+                    $('#reportrange .value').html(start.format('YYYY년MM월D일') + '-' + end.format('YYYY년MM월D일'));
+                }
+            
+                $('#reportrange').daterangepicker({
+                    startDate: start,
+                    endDate: end,
+                    locale: {
+    "customRangeLabel": "기간검색",
+  },
+                    ranges: {
+                       '오늘': [moment(), moment()],
+                       '어제': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                       '지난 7일': [moment().subtract(6, 'days'), moment()],
+                       '지난 30일': [moment().subtract(29, 'days'), moment()],
+                       '이번달': [moment().startOf('month'), moment().endOf('month')],
+                       '지난달': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    }
+                }, cb);
+            
+                cb(start, end);
+            
+            });
+            $('#reportrange').on('click',function () {
+                    console.log( $('#reportrange .value').text().split('-'));  
+                    })
+            </script>
+</html>

@@ -138,9 +138,10 @@ TestDao dao;
 	 }
 	 
 	 @RequestMapping("selectcheck")
-	 public void selectcheck(@RequestParam List<String> aa ) {
+	 public void selectcheck(@RequestParam List<String> aa,@RequestParam List<String> textvalue) {
 		 System.out.println(aa.size());
-		 
+		 System.out.println(textvalue.size());
+		 HashMap<List<String>, List<String>>
 	 }
 }
 

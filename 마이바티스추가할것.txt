@@ -1,0 +1,37 @@
+
+
+
+dto 으로 and or , 검색할것,검색명  판단
+
+
+
+뒷단에서    결과내 재검색으로 할경우와
+	그냥 검색을 할경우가있으니 
+
+그냥 검색을 했을경우는 
+
+
+
+	if문을 2개를 사용  
+foreach 
+where 
+
+
+	<trim prefix='where' prefixoverride='and|or'>
+	<if != 검색명>
+	<choose >	
+	<when test = andor컬럼==null>
+		안전하게 and적어줄것
+	</when>
+	<otherwiese>
+		<choose>	
+	<when if= '날짜처리해야하는경우' >
+		#{컬럼명} between to_char(${시작날짜} ,'YYYYMMDD') and to_char(#{끝날짜},'YYYYMMDD')
+		<otherwise>
+
+		</otherwise>
+		</choose>
+	</otherwise>
+	</choose>
+	</if> 
+ 		</trim>

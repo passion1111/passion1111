@@ -145,10 +145,9 @@ FacilitiesInspectionDAO dao2;
 	 
 	 @RequestMapping(value="selectcheck",method = {RequestMethod.GET,RequestMethod.POST} )
 	 @ResponseBody
-	 public void selectcheck(@RequestBody List<TestDto> dto,@RequestParam(value="hoi",defaultValue = "none")  String hoi) {
+	 public void selectcheck(@RequestBody List<TestDto> dto,@RequestParam(value="hoi",defaultValue = "page")  String page) {
 //		 System.out.println(dto.size());
 		 System.out.println(dto.toString());
-		 System.out.println(hoi);
 		 
 	 }
 	 @RequestMapping(value = "/ajaxtest" ,method = RequestMethod.POST)

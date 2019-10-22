@@ -35,10 +35,40 @@
 <input type="button" value="제거하기" onclick="removeselect()">
 <input type="button" value="값체크하기" onclick="hohoho()">
 <input type="checkbox">결과내 재검색  <input type="button" value="마지막조건제거" onclick="removeselect()">
-
+<br><br>
+<select name="search[0].condition">
+    <option value='111'>확인</option>
+</select>
+<input type="text" name="search[0].value" onkeyup="searchenter()"/>
 <br><br><Br>
 안전점검 탭 
 <script>
+
+function searchenter(){
+    if(window.event.keyCode==13){
+        console.log('dd')
+        var jsonsearch=new Array();
+        var jsonsearch2=new Object();
+
+        jsonsearch2.condition=$("input[name^='search["+0+"].condition']").val()
+        jsonsearch2.value=$("input[name^='search["+0+"].value']").val()
+
+
+        jsonsearch.push(jsonsearch2)
+
+        $.ajax({
+          type: "POST",
+          contentType:"application/json; charset=utf-8",
+          url: "http://localhost:8080/test/selectcheck?page=1313",
+          data: JSON.stringify(jsonsearch),
+          dataType: "json",
+          success: function (response) {
+              
+          }
+      });
+    }
+}
+
     var url='';
     var json2=new Array();
     function hohoho() {

@@ -2,8 +2,12 @@ create table testtable(
   ha varchar2(30) not null);
   drop table testtable;
   create index index_testtable on testtable(ha);
+  alter table facilities_inspection add(facin_address varchar2(30));
   
-  
+  select facin_serialnum,facin_name,facin_inspection_date,facilities_inspection.facin_inspection_due_date
+        ,trunc(facilities_inspection.facin_inspection_due_date-sysdate,0) REMAINING_DAYS from facilities_inspection;
+  select * from facilities_inspection;
+select * from test22 where 'a'='a';  
 SELECT A.TABLE_NAME
      , A.INDEX_NAME
      , A.COLUMN_NAME

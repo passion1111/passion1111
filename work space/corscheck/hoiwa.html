@@ -11,7 +11,7 @@
 <body>
 <form action="http://localhost:8080/test/selectcheck">
 
-    <!-- <p id="hohoho">
+     <p id="hohoho">
         <select name="bb" id="ho">
             <option value="맞아">맞낭
             </option>
@@ -19,7 +19,7 @@
             
     <input type="button" name="qdow" value="추가하기" onclick="addselect()">
 
- </select> -->
+ </select> 
  <select name="arrays[0].select"><option value="fac_name">check2</option></select>
 
  <select name="arrays[0].select2"><option value="check2">check1</option></select>
@@ -29,26 +29,55 @@
 <input type="text" name="list[1].name" value="이름2"/>
 <input type="text" name="list[0].phone" value="010"/>
 <input type="text" name="list[1].phone" value="011"/>
-
+<input type="text" name="hoi" value="111">
 <input type="submit">
 </form>
 <input type="button" value="제거하기" onclick="removeselect()">
 <input type="button" value="값체크하기" onclick="hohoho()">
+<input type="checkbox">결과내 재검색  <input type="button" value="마지막조건제거" onclick="removeselect()">
 
 <br><br><Br>
-
 안전점검 탭 
 <script>
     var url='';
+    var json2=new Array();
     function hohoho() {
         console.log('dd')
-    $("input[name^='list']").each(function(){
-        url+="&"+this.name+"="+this.value
-        console.log(url);
+
+     var hohoho=   $("input[name^='list']").length/2
+     console.log($("input[name^='list[0].name']").val())
+    for (let index = 0; index < hohoho; index++) {
+    var json=new Object();
+        json.name=$("input[name^='list["+index+"].name']").val()
+        json.phone=$("input[name^='list["+index+"].phone']").val()
+
+        json2.push(json)
     }
+    // $("input[name^='list']").each(function(){
+
+    //     json.value=this.value;
+
+    //     url+="&"+this.name+"="+this.value
+    //     console.log(url);
+    //     console.log(json2)
+    // }
         
-    )
-      console.log( $("input[name^='list']").val())  
+    //)
+      console.log(json2)  
+
+
+
+
+      $.ajax({
+          type: "POST",
+          contentType:"application/json; charset=utf-8",
+          url: "http://localhost:8080/test/selectcheck?page=1313",
+          data: JSON.stringify(json2),
+          dataType: "json",
+          success: function (response) {
+              
+          }
+      });
     }
 function addselect() {
     daySelect = document.getElementById('hohoho');
@@ -61,22 +90,34 @@ daySelect.append(myselectbox);
 
 }
 function removeselect() {
-    console.log( $('select[name=aa]:last').remove())
-    console.log( $('#hohoho input[type=text]:last-child').remove())
+    var removecheck=$('.checkcheck').length;
+    console.log(removecheck)
+//유효성 체크없이
+$('.checkcheck:last').remove()
+    //유효성 체크하기위해
+    // console.log($('select[name="list[' +(removecheck-1)+'].andorcondtion"]').remove())
+    // console.log($('select[name="list[' +(removecheck-1)+'].condition"]').remove())
+    // console.log($('input[name="list[' +(removecheck-1)+'].value"]').remove())
+
+  //  console.log( $('select[name=list[' +removecheck+'].andorcondtion]'))
+    //console.log( $('#hohoho input[type=text]:last-child').remove())
 }
 
 
     
     $("#ho").click(function() {
-$("#hohoho").append('<select name="aa">'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'<option value-"Home">Home</option>'
-+'</select><input type="text" name="textvalue">');
+        
+        console.log($('select[name=aa]').length)
+        var removecheck=$('.checkcheck').length;
+
+        var lengthcheck=$('.checkcheck').length;
+$("#hohoho").append('<div class="checkcheck"><select name="list['+lengthcheck+ '].andorcondtion">'
++'<option value="and">그리고</option>'
++'<option value="or">또는</option> <select>'
++'<select name="list['+lengthcheck+ '].condition">'
++'<option value'
++'</select><input type="text" name="list['+lengthcheck+ '].value"></div>'
++'');
 console.log('dd')
     });
 

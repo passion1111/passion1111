@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import test.test2.model.Arrtoto;
+import test.test2.model.FacilitiesInspectionDAO;
 import test.test2.model.TestDao;
 import test.test2.model.TestDto;
 
@@ -38,6 +39,8 @@ public class Home {
 	
 @Autowired
 TestDao dao;
+@Autowired
+FacilitiesInspectionDAO dao2;
 
 	private static final Logger logger = LoggerFactory.getLogger(Home.class);
 
@@ -117,17 +120,17 @@ TestDao dao;
 //	public void hoho(@PathVariable String aa) {
 //		 System.out.println(aa);
 //	 }
-	 @RequestMapping("/test22")
+	 @RequestMapping("/readData")
 	 @ResponseBody
 	 public HashMap  test22(){
-		 List list=dao.test22();
+		 List list=dao2.facinselect(0, 10);
 			
 			
 			// 蹂��닔紐� 怨좎튌 �븘�슂�꽦 �넂�쓬. 
 			HashMap total=new HashMap();
 			HashMap data=new HashMap();
 			HashMap pagenation=new HashMap();
-			pagenation.put("page","1");
+			pagenation.put("page","999");
 			pagenation.put("totalCount","3000000");
 			data.put("contents",list);
 			
@@ -140,9 +143,18 @@ TestDao dao;
 		 return total;
 	 }
 	 
-	 @RequestMapping("selectcheck")
-	 public void selectcheck(@ModelAttribute TestDto dto) {
-		 System.out.println(dto.getList().size());
+	 @RequestMapping(value="selectcheck",method = {RequestMethod.GET,RequestMethod.POST} )
+	 @ResponseBody
+	 public void selectcheck(@RequestBody List<TestDto> dto,@RequestParam(value="hoi",defaultValue = "none")  String hoi) {
+//		 System.out.println(dto.size());
+		 System.out.println(dto.toString());
+		 System.out.println(hoi);
+		 
+	 }
+	 @RequestMapping(value = "/ajaxtest" ,method = RequestMethod.POST)
+	 @ResponseBody
+	 public void ajaxtest(@RequestBody String aa) {
+		 System.out.println(aa.toString());
 	 }
 }
 

@@ -58,6 +58,11 @@ public class HomeTest {
 			mock.perform(MockMvcRequestBuilders.get("/login")).andDo(print());
 
 		}
+	    @Test
+	    public void testReadData() throws Exception {
+			mock.perform(MockMvcRequestBuilders.get("/readData")).andDo(print());
+
+	    }
 
 
 //@Autowired

@@ -7,28 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-           <link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
+  
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/v1.5.0/tui-time-picker.css" />
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/v3.2.1/tui-date-picker.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    
+    <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+    <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
+    <script src="https://uicdn.toast.com/tui-grid/v4.5.2/tui-grid.js"></script>
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-     <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.js"></script>
-     <script type="text/javascript" src="https://uicdn.toast.com/tui.time-picker/v1.5.0/tui-time-picker.js"></script>
-     <script type="text/javascript" src="https://uicdn.toast.com/tui.date-picker/v3.2.1/tui-date-picker.js"></script>
- <script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script> 
         <style>
           #form-wrapper{
             display: flex;
+            margin-left:9px ;
+          }
+          .tui-grid-cell-has-input.red{
+            background-color: red;
           }
         
         </style>
+        <br>
         <div id="form-wrapper">
 
             <select class="browser-default custom-select" id="selectsearchcondition">
@@ -37,7 +44,7 @@
                 <option value="2">검사예정일</option>
               </select>
               
-          <span id="reportrange" style="background: #fff; cursor: pointer; padding:10px 10px 5px 10px; border: 1px solid #ccc; width: 40%;">
+          <span id="reportrange" style="background: #fff; cursor: pointer; padding:10px 10px 5px 10px; border: 1px solid #ccc; width: 25%; ">
                <i class="fa fa-calendar"></i>
               <span class="value"></span> <i class="fa fa-caret-down"></i>
             </span>
@@ -47,9 +54,10 @@
             <input type="button" class="btn-primary sm-1" value="검색" id="searchbutton" >
             
           </div>
-
+<br><br>
             <div id="grid"></div>
             <script type="text/javascript">
+
 
                 
 // $('document').load(function(){
@@ -59,10 +67,15 @@
 // 	  grid.addCellClassName(element.rowKey,'')
 // })}
 // )
+
+
+
+
+
 $('#searchbutton').on('click',function () {
     var dayarrays=$('#reportrange .value').text().split('-');
     console.log(dayarrays)
-    var date_pattern = /^(19|20)\d{2}년(0[1-9]|1[012])월(0[1-9]|[12][0-9]|3[0-1])일$/; 
+    var date_pattern = /^(19|20)\d{2}년(0[1-9]|1[012])월([1-9]|[12][0-9]|3[0-1])일$/; 
     var resultcheckfomat=true;
 
     dayarrays.some( (element)=>{
@@ -132,10 +145,10 @@ $('#searchbutton').on('click',function () {
 
 
 
-             const dataSource = {
+      const dataSource = {
 		  initialRequest: true,
 		  api: {
-		    readData: { url: 'http://localhost:8080/mvc/facility/readData', method: 'GET' },
+		    readData: { url: 'http://localhost:8080/test/readData', method: 'GET' },
 		    createData: { url: 'http://localhost:8080/mvc/facility/createData', method: 'POST' },
 		    updateData: { url: '/api/updateData', method: 'PUT' },
 		    modifyData: { url: '/api/modifyData', method: 'PUT' },
@@ -152,12 +165,12 @@ const grid = new tui.Grid({
 	rowHeaders: ['checkbox'],
 	editingEvent:"click",
 	pageOptions: {
-	    perPage: 100
+	    perPage: 1
 	  },
 	columns: [
 		{
 			header: '일련번호',
-			name: 'facin_serialnum',
+			name: 'FacIn_serialnum',
 			sortingType: 'desc',
 	        sortable: true,
 	        width:90
@@ -165,7 +178,7 @@ const grid = new tui.Grid({
 		},
 		{
 			header: '시설물이름',
-			name: 'facin_name'
+			name: 'FacIn_name'
 		},
 		{
 			header: '장소',
@@ -175,21 +188,19 @@ const grid = new tui.Grid({
 			}
 		},
     {
-			header: '검사예정일',
-				name: 'facin_inspection_due_date',
-				editor: 'datePicker'
+			header: '이전검사날',
+				name: 'FacIn_Inspection_Date'
 			},
 		{
 			header: '검사예정일',
-				name: 'facin_inspection_due_date',
-				editor: 'datePicker'
+				name: 'FacIn_Inspection_Due_Date'
 			}
 			
 		
 		,
 		{
-			header: '남은날',
-			name: 'REMAINING_DAYS'
+			header: '검사까지남은날',
+			name: 'RemainingTime'
 		}
 	],
 	 columnOptions: {
@@ -200,8 +211,42 @@ const grid = new tui.Grid({
 
 
 
+var ho
+$('.tui-page-btn').on('click',function(params) {
+    console.log(params)
+})
 
+var check=false
+window.onload = function() {
+  grid.findRows((row)=>{
+    return row.RemainingTime<7;
+  }).forEach(element => {
+	  grid.addCellClassName(element.rowKey,'RemainingTime','red')
+    if(check==false) check=true
+   });
+   if(check){
+     alert('검사예정일이 얼마 남지않은 시설이 있습니다.')
+   }
+  
+   }
+   grid.on('successResponse',(xhr,instance)=>{
+     setTimeout(() => {
+     ho=xhr.instance.store.data.__storage__.pageOptions.totalCount;
+     console.log(ho)
+     var pagination = new tui.Pagination(document.getElementById('tui-pagination-container'), {
+        totalItems: ho,
+        itemsPerPage: 10,
+        visiblePages: 10,
+        centerAlign: true
+    })
+     }, 10);
+  
+   })
+
+
+  
 
             </script>
-            
+            <div id="tui-pagination-container" class="tui-pagination"></div>
+
 </html>

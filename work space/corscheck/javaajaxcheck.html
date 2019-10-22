@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="button" id="ajaxtest" value="test">
+    <script>
+        $('#ajaxtest').on('click',function (param) {
+var a={
+data:"data"
+
+        }
+
+        console.log(JSON.stringify(a))
+
+
+$.ajax({
+    type: "POST",
+    contentType: 'application/json',
+    url: "http://localhost:8080/test/ajaxtest",
+    data: JSON.stringify(a),
+    success: function (response) {
+        
+    }
+});
+          })
+
+</script>    
+</body>
+</html>

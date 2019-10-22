@@ -7,12 +7,13 @@ Fac_category varchar2(30)
 );
 create table Facilities_inspection(   --시설물 점검
 FacIn_serialnum  number ,                           --점검한것 Facilities의 fk
-FacIn_name varchar2(30), 
-FacIn_address varchar2(30),
-FacIn_status varchar2(30),
+FacIn_name varchar2(30),                --시설물 이름
+FacIn_address varchar2(30),               --시설물 장소
+FacIn_status varchar2(30),                 --시설물 상태
 FacIn_Inspection_Date date default sysdate,    -- 점검일 
-FacIn_Inspection_Due_Date date
+FacIn_Inspection_Due_Date date                 --점검예정일 
 );
+drop table Facilities_inspection;
 commit;
 drop table  Facilities_inspection;
 desc Facilities_inspection;
@@ -33,11 +34,11 @@ select * from Facilities;
 commit;
 update Facilities set fac_status='접수완료' ;
 
---시리얼넘버  대부분 시리얼 넘버로 가능한데  시설이름 주기 추가한 이유는 나중에 목록에 없는것을 추가했을시에 처리할려고. ,시설이름 ,주기  
+--update 처리 시리얼넘버  대부분 시리얼 넘버로 가능한데  시설이름 주기 추가한 이유는 나중에 목록에 없는것을 추가했을시에 처리할려고. ,시설이름 ,주기  
 create or replace procedure facin_update( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
                                           f_address in facilities_inspection.facin_address%type,
-                                          f_cycle   in number :=0)
+                                          f_cycle   in number :=0) --점검주기.
 is
 begin
  case when f_name='엘레베이터' then 
@@ -45,6 +46,7 @@ begin
       when f_name='계량기' then
          update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+30,facin_address=f_address where FacIn_serialnum=f_number;
       else
+      --temp_update변수여러개를 사용하기위해서
       for  temp_update in (select * from Facilities_inspection where FacIn_serialnum=f_number) --보기안좋으면 into로 대체
       loop
       update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+(temp_update.FacIn_INSPECTION_DUE_DATE-sysdate),facin_address=f_address where FacIn_serialnum=f_number;
@@ -59,7 +61,7 @@ select * from facilities_inspection;
 desc facilities_inspection;
 --insert into 하기위해
 desc Facilities_inspection;
-
+--  
 create or replace procedure facin_insert( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
                                            f_address in facilities_inspection.facin_address%type,

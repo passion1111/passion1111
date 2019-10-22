@@ -4,6 +4,7 @@ select * from member;
 select * from rental;
 
 select * from member;
+select * from rental;
                  --대출정지기한 필요
                  --대출가능상태
 drop table book;
@@ -59,28 +60,35 @@ select * from book;
 select * from member where deadline_rent_stop<sysdate;
 -- 만약 연체했을시에 mem_rank 
 select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, deadline_rent_stop ,
-                                                                case when deadline_rent_stop>sysdate then 0
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
                                                                 else
                                                                       case when mem_rank=2 then 7  -- 대출불가 판단
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end
                                                                 end      LOANABLE_NUMBER ,
-                                                                case when deadline_rent_stop>sysdate then 0
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
                                                                 else       
                                                                       case when mem_rank=2 then 7 
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end -(select count(*) from rental where mem_id=1 and rent_status='대여중')
                                                                 end     현재대여가능권수 from member;
+                                                                
+ 
+ 
+ 
+ 
+                        update member set book_loanable='대출가능';                                    
                                     
-                                    
-                                    select * from member;
-                                    
+ select * from member;
+ select * from reservation;
+ select  * from reservation;
                                     
                                                                       
  
                   --방법 
+                  select * from rental;
                     select distinct rental.book_num,
                         case when rent_status='대여중' then '대여중'
                              when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
@@ -96,7 +104,7 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
                                                                                         else '예약가능' end 
                        end 예약여부,
                         book_rsrv_status
-                    from rental join book on book.book_num=rental.book_num left  outer join (select * from reservation  ) reservation on reservation.book_num=book.book_num where rental.mem_id=1 ;
+                    from rental join book on book.book_num=rental.book_num left  outer join (select * from reservation  ) reservation on reservation.book_num=book.book_num ;
                                     
                                     
                                     
@@ -147,7 +155,7 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
                                                       select * from book;
                                                                       select * from member;
                                                                       select count(*) from rental where mem_id=1 and rent_status='대여중';
-ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(10));
+ALTER table member modify(DEADLINE_RENT_STOP date,book_loanable varchar2(20));
 
 select * from member;
 
@@ -526,10 +534,12 @@ drop table rental;
 select * from rental;
 delete rental where rent_num=2;
 commit;
+drop table reservation;
 create table reservation (
     rent_num varchar(30), -- 대여번호
     mem_id varchar2(20), --회원번호
-    rsrv_num number(20)   --예약번호
+    rsrv_num number(20),   --예약번호
+    book_num  number(20)
     --constraint reservation_rent_num_fk FOREIGN KEY (rent_num)
     --REFERENCES rental (rent_num),
     --constraint reservation_mem_id_fk FOREIGN KEY (mem_id)

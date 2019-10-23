@@ -1,6 +1,7 @@
 package test.test2.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,20 @@ public class FacilitiesInspectionDAOImp implements FacilitiesInspectionDAO {
 	SqlSession sqlsession;
 
 	@Override
-	public List<FacilitiesInspectionDTO> facinselect(int startrownum, int endrownum) {
-		// TODO Auto-generated method stub
-		return sqlsession.getMapper(FacilitiesInspectionDAO.class).facinselect(startrownum, endrownum);
+	public List<FacilitiesInspectionDTO> facinselect() {
+		// TODO Auto-generated method stub9
+		return sqlsession.getMapper(FacilitiesInspectionDAO.class).facinselect();
 	}
 
 	@Override
 	public int facintotalcount() {
 		return sqlsession.getMapper(FacilitiesInspectionDAO.class).facintotalcount();
+	}
+
+	@Override
+	public void facininsertprocedure(Map map) {
+		sqlsession.getMapper(FacilitiesInspectionDAO.class).facininsertprocedure(map);
+		
 	}
 
 

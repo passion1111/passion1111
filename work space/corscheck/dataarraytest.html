@@ -29,7 +29,9 @@
     <script type="text/javascript" src="https://uicdn.toast.com/tui.time-picker/v1.5.0/tui-time-picker.js"></script>
     <script type="text/javascript" src="https://uicdn.toast.com/tui.date-picker/v3.2.1/tui-date-picker.js"></script>
     <script src="https://uicdn.toast.com/tui.pagination/latest/tui-pagination.js"></script>
-  <script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
+ 
+    <a class="btn btn-online-primary">dd</a>
+    <script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
         <style>
           #form-wrapper{
             display: flex;
@@ -61,7 +63,9 @@
           </div> -->
 <br><br>
             <div id="grid"></div>
-            <script type="text/javascript">
+          <br>
+          <div id="grid2"></div>
+<script type="text/javascript">
 
 
                 
@@ -167,7 +171,6 @@
 		type:"POST",
 		contentType: 'application/json',
 		success:function(date){
-        
    
 
 const grid = new tui.Grid({
@@ -261,7 +264,7 @@ grid.findRows((row) => {
     return (row.RemainingTime < 7)
       }  ).forEach((row2)=>{
           console.log(row2.rowKey)
-          grid.addCellClassName(row2.rowKey, 'RemainingTime', 'red')
+          grid.addCellClassName(row2.rowKey, 'RemainingTime', 'glyphicon glyphicon-exclamation-sign red')
 
           alerttextvalues+=row2.FacIn_serialnum +'번\n'
       })
@@ -314,9 +317,110 @@ grid.findRows((row) => {
 //    })
 
    
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+const grid2 = new tui.Grid({
+	el: document.getElementById('grid2'),
+	data:"dd",
+	scrollX: false,
+	scrollY: false,
+	minBodyHeight: 30,
+	rowHeaders: ['checkbox'],
+	editingEvent:"click",
+	pageOptions: {
+    useClient: true,
+  perPage: 5
+	  },
+	columns: [
+		{
+			header: '일련번호',
+			name: 'FacIn_serialnum',
+			sortingType: 'desc',
+	        sortable: true,
+	        width:100,
+      filter: {
+        type: 'select',
+        showApplyBtn: true,
+        showClearBtn: true
+      }
+	     
+		},
+		{
+			header: '시설물이름',
+			name: 'FacIn_name',
+      filter: {
+        type: 'select',
+        showApplyBtn: true,
+        showClearBtn: true
+      }
+		},
+		{
+			header: '장소',
+			name: 'facin_address',
+			editor:{
+				type:"text"
+			} ,
+      validation: {
+        dataType: 'string'},
+      filter: {
+        type: 'text',
+        showApplyBtn: true,
+        showClearBtn: true
+      }
+		},
+    {
+			header: '이전검사날',
+				name: 'FacIn_Inspection_Date',
+      filter: {
+        type: 'date',
+        showApplyBtn: true,
+        showClearBtn: true,
+        operator: 'OR'
+      }
+			},
+		{
+			header: '검사예정일',
+				name: 'FacIn_Inspection_Due_Date',
+      filter: {
+        type: 'date',
+        showApplyBtn: true,
+        showClearBtn: true,
+        operator: 'OR'
+      }
+			}
+			
+		
+		,
+		{
+			header: '검사까지남은날',
+			name: 'RemainingTime',
+            defaultValue:"점검완료",
+            className:"btn",
+      filter: {
+        type: 'text',
+        showApplyBtn: true,
+        showClearBtn: true
+      }
+		}
+	],
+	 columnOptions: {
+	      resizable: true
+	    }
+});
 
             </script>
+      
             // <div id="tui-pagination-container" class="tui-pagination"></div>
 
 </html>

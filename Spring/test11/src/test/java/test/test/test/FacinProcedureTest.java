@@ -31,7 +31,7 @@ import test.test2.model.TestDao;
 		"file:src/main/webapp/WEB-INF/spring/root-context.xml", 
 		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"})
 @WebAppConfiguration
-public class HomeTest2 {
+public class FacinProcedureTest {
 
 	 private static final Logger logger = (Logger) LoggerFactory.getLogger(HomeTest.class);
 
@@ -218,6 +218,16 @@ public class HomeTest2 {
 	    	map.put("facin_address","테스트장소");
 	    	map.put("f_cycle","66");
 	    	fao.facininsertprocedure(map);
+	    }
+	    
+	    @Test
+	    public void checkupdate() {
+	    	HashMap<String, String> map=new  HashMap<String, String>();
+	    	map.put("FacIn_name","테스트용");
+	    	map.put("facin_address","테스트장소");
+	    	fao.facininsertprocedure(map);
+	    	
+	    	
 	    }
 	    @After
 	    public void afterTest(){

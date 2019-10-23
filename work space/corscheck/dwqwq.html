@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>23. Client Pagination</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://uicdn.toast.com/tui-grid/latest/tui-grid.css" />
-
+    <i class="glyphicon glyphicon-exclamation-sign	
+    "></i>
 
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.css" />
     <style>
@@ -26,8 +28,9 @@
   <script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.5.0/tui-code-snippet.js"></script>
 	<script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.3.0/tui-pagination.js"></script>
     <script src="https://uicdn.toast.com/tui-grid/latest/tui-grid.js"></script>
-
-    <script type="text/javascript" src="./data/basic-dummy.js"></script>
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <input type="button" onclick="param()" value="d">
   <script type="text/javascript" class="code-js">
    const dataSource = {
 		  initialRequest: true,
@@ -46,6 +49,13 @@
         {
           header: 'Name',
           name: 'name'
+        },
+        {
+          header: 'Name',
+          name: 'name2',
+          defaultValue:'<i class="btn btn-primary">점검완료 <i>',
+          width:90  ,
+          heigt:20
         }
       ],
       rowHeaders: ['rowNum'],
@@ -54,23 +64,14 @@
         perPage: 5
       }
     });
-    const appendBtn = document.getElementById('appendBtn');
-    const prependBtn = document.getElementById('prependBtn');
-    const appendedData = {
-      name: 'Music',
-      artist: 'Lee',
-      type: 'Deluxe',
-      release: '2019.09.09',
-      genre: 'Pop'
-    };
-    appendBtn.addEventListener('click', () => {
-      grid.appendRow(appendedData);
-    });
-    prependBtn.addEventListener('click', () => {
-      grid.prependRow(appendedData);
-    });
-
-
     
+grid.on('click',function (ev) {
+  console.log(ev.rowKey)
+console.log(grid.getRow(ev.rowKey))
+console.log(grid.getRow(ev.rowKey))
+
+  })
+
+
   </script>
 </html>

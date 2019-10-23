@@ -124,8 +124,8 @@ FacilitiesInspectionDAO dao2;
 	 @ResponseBody
 	 public HashMap  test22(){
 		 
-		 List<HashMap<String, String>> ho = null;
-		List list=dao.test22(ho);
+		List list=dao2.facinselect();
+		int totalcount=dao2.facintotalcount();
 			
 			
 			// 蹂��닔紐� 怨좎튌 �븘�슂�꽦 �넂�쓬. 
@@ -133,7 +133,7 @@ FacilitiesInspectionDAO dao2;
 			HashMap data=new HashMap();
 			HashMap pagenation=new HashMap();
 			pagenation.put("page","1");
-			pagenation.put("totalCount","3000000");
+			pagenation.put("totalCount",totalcount);
 			data.put("contents",list);
 			
 			
@@ -157,6 +157,13 @@ FacilitiesInspectionDAO dao2;
 	 public void ajaxtest(@RequestBody String aa) {
 		 System.out.println(aa.toString());
 	 }
+	 
+	 @RequestMapping(value = "/testonetwo" ,method = RequestMethod.POST)
+	 @ResponseBody
+	 public void Listtest(@RequestBody List<HashMap<String, String>> list) {
+		 System.out.println(list.toString());
+	 }
+	 
 }
 
 

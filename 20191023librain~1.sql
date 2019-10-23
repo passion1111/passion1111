@@ -44,6 +44,13 @@ create table employee_management(
 insert into employee_management
 values(1000001,'강수아','01068618619','서울시,이문동','02451','000','9501072222222','F',sysdate-3000,null,'koongmom@librain.org','관장',10000000,'하나','111111111111','950107');
 
+--이미 이책을 예약하셨습니다
 
-
+-- 
+select* from 
 select * from employee_management;
+
+
+
+
+select * from Facilities_inspection;

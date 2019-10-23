@@ -1,10 +1,10 @@
 package test.test2.model;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
+import java.util.Map;
 
 public interface FacilitiesInspectionDAO {
-	public List<FacilitiesInspectionDTO> facinselect(@Param(value = "startrownum") int startrownum,@Param(value = "endrownum") int endrownum);
+	public List<FacilitiesInspectionDTO> facinselect();
 	public int facintotalcount();
+	public void facininsertprocedure(Map map);
 }

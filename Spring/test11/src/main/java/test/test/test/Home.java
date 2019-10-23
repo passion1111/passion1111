@@ -120,17 +120,19 @@ FacilitiesInspectionDAO dao2;
 //	public void hoho(@PathVariable String aa) {
 //		 System.out.println(aa);
 //	 }
-	 @RequestMapping("/readData")
+	 @RequestMapping(value = "/readData",method = {RequestMethod.GET,RequestMethod.POST})
 	 @ResponseBody
 	 public HashMap  test22(){
-		 List list=dao2.facinselect(0, 10);
+		 
+		 List<HashMap<String, String>> ho = null;
+		List list=dao.test22(ho);
 			
 			
 			// 蹂��닔紐� 怨좎튌 �븘�슂�꽦 �넂�쓬. 
 			HashMap total=new HashMap();
 			HashMap data=new HashMap();
 			HashMap pagenation=new HashMap();
-			pagenation.put("page","999");
+			pagenation.put("page","1");
 			pagenation.put("totalCount","3000000");
 			data.put("contents",list);
 			

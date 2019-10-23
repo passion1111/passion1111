@@ -30,9 +30,10 @@ desc book;
 select * from book;
 select * from rental;
 
-select * from rental;
+select * from reservation;
 desc member;
-
+ALTER table member modify(DEADLINE_RENT_STOP date,book_loanable varchar2(20) default '대출가능');
+select * from member;
 update member set deadline_rent_stop=null where mem_id=1;
 
 
@@ -58,7 +59,12 @@ loop
 select * from rental where rent_enddate<sysdate;
 select * from book;
 select * from member where deadline_rent_stop<sysdate;
+
+
 -- 만약 연체했을시에 mem_rank 
+
+
+--회원검색했을시 67
 select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, deadline_rent_stop ,
                                                                 case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
                                                                 else
@@ -72,9 +78,16 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
                                                                       case when mem_rank=2 then 7 
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
-                                                                      else 0 end -(select count(*) from rental where mem_id=1 and rent_status='대여중')
+                                                                      else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='대여중')
                                                                 end     현재대여가능권수 from member;
                                                                 
+                                                                          select * from reservation;
+                                                                
+                                                                desc member;
+                                                                
+ 
+ 
+ select * from rental;
  
  
  
@@ -85,28 +98,87 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
  select * from reservation;
  select  * from reservation;
                                     
-                                                                      
+select * from member;                                   
  
                   --방법 
-                  select * from rental;
-                    select distinct rental.book_num,
+                
+                
+                   --부르는것 다르게 할것.   book/rent.do에서 회원검색했을떄 같이 불러올것.  -- 예약순번 1번일떄 insert into rental 에 1번 예약중으로 구현.
+                    select  distinct rental.book_num,
                         case when rent_status='대여중' then '대여중'
                              when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
                                                             else '예약중'  end
-                             end 대출여부                               
+                             end 대출여부      --예약자이면 대여가능이라고 변함.                            
                    ,book_name,book_author,book_pub_house
                     ,case when rent_extension='X' then '연장가능'
-                        else '연장불가능' end 연장여부,
+                        else '연장불가능' end 연장여부
                         --book_rsrv_status중에 내가 예약한 
-                       case when  book_rsrv_status ='예약가능' then 
-                                                                                    --왜 기본값이 1?
-                                                                    case when rsrv_num>0 then '예약중입니다'
-                                                                                        else '예약가능' end 
-                       end 예약여부,
-                        book_rsrv_status
-                    from rental join book on book.book_num=rental.book_num left  outer join (select * from reservation  ) reservation on reservation.book_num=book.book_num ;
-                                    
-                                    
+--                       case when  book_rsrv_status ='예약가능'  then 
+--                                                                                    --왜 기본값이 1?
+--                                                                    case when   then '예약중입니다'
+--                                                                                                    else  case when    (  case when rent_status='대여중' then '대여중'
+--                                                                                                                             when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
+--                                                                                                                                                            else '예약중'  end
+--                                                                                                                             end)='대여중' then '이미대여중입니다' else '예약가능' end  end
+--                           end 예약여부
+            ,to_char(rent_enddate,'yyyymmdd') rent_enddate       from book join rental on book.book_num=rental.book_num left  outer join  reservation on reservation.mem_id=rental.mem_id ;
+                    -- 앞단에서 extension이 o이면 연장불가능 
+                    
+                    --이미 예약중이면 ajax로 예약값 체크 
+                    
+                    
+                    
+                    --반납 
+                    
+                    
+                    --예약하기 연장하기는 버튼하나로만 판단. 
+                    
+                    
+                    
+                    --
+                    select * from reservation;
+                    
+                    select * from rental;
+                    select 
+                    select * from reservation;
+                    
+                    select count(*) over(partition by book_num) from reservation;
+                    select * from reservation;
+        
+                    select * from rental;
+                    
+                    
+                    
+                    select * from book join rental on book.book_num=rental.book_num ;
+                    
+                    
+                    --reservation에 추가된애들만 확인.
+                  select * from reservation;
+                  select * from rental;
+                  
+                  select * from rental full join reservation on reservation.mem_id=rental.mem_id;
+                  select * from book;
+                                                        100002
+                  insert into reservation values(3,'nmj',1,100003);
+                insert into rental values(3,100003,'nmj',null,null,'X','X','예약중');
+                  select * from rental;
+                  select * from rental;
+                  
+                  select * from book;  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                    
+                    select * from rental;
+                    select * from reservation;
+                    
+                                        --예약 완료됐을시에
+                                    select * from rental;
+                                    rental_status 예약중 =mem_id == 
                                     
                                     
                                                         select * from    rental join book on book.book_num=rental.book_num   join  reservation on reservation.book_num=book.book_num where rental.mem_id=1;         

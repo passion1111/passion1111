@@ -44,6 +44,7 @@ CALL howhow(  #{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=
 select * from test22
 
 <trim prefix="where" prefixOverrides="and|or">
+<if test="list!=null">
 <foreach item="check" index="index" collection="list">
 
 
@@ -52,6 +53,7 @@ ${check.select2}
 #{check.select}=#{check.text}
 
 </foreach>
+</if>
 </trim>
 
 </select>

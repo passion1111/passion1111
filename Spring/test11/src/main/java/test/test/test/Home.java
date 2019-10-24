@@ -154,7 +154,7 @@ FacilitiesInspectionDAO dao2;
 	 
 		 @RequestMapping(value = "/insertData",method = {RequestMethod.POST})
 		 @ResponseBody
-		 public void  facininsertData(@RequestBody List<FacinVO> inputdata){
+		 public HashMap  facininsertData(@RequestBody List<FacinVO> inputdata){
 			 
 			 System.out.println(inputdata.size());
 			 
@@ -164,30 +164,30 @@ FacilitiesInspectionDAO dao2;
 			 }	 
 		 
 			
-			
+			 return Facinselect();
 		 
 	 }
 	 	
-	 
-	 @RequestMapping(value="selectcheck",method = {RequestMethod.GET,RequestMethod.POST} )
-	 @ResponseBody
-	 public void selectcheck(@RequestBody List<TestDto> dto,@RequestParam(value="hoi",defaultValue = "page")  String page) {
-//		 System.out.println(dto.size());
-		 System.out.println(dto.toString());
-		 
-	 }
-	 @RequestMapping(value = "/ajaxtest" ,method = RequestMethod.POST)
-	 @ResponseBody
-	 public void ajaxtest(@RequestBody String aa) {
-		 System.out.println(aa.toString());
-	 }
-	 
-	 @RequestMapping(value = "/testonetwo" ,method = RequestMethod.POST)
-	 @ResponseBody
-	 public void Listtest(@RequestBody List<HashMap<String, String>> list) {
-		 System.out.println(list.toString());
-	 }
-	 
+//	 
+//	 @RequestMapping(value="selectcheck",method = {RequestMethod.GET,RequestMethod.POST} )
+//	 @ResponseBody
+//	 public void selectcheck(@RequestBody List<TestDto> dto,@RequestParam(value="hoi",defaultValue = "page")  String page) {
+////		 System.out.println(dto.size());
+//		 System.out.println(dto.toString());
+//		 
+//	 }
+//	 @RequestMapping(value = "/ajaxtest" ,method = RequestMethod.POST)
+//	 @ResponseBody
+//	 public void ajaxtest(@RequestBody String aa) {
+//		 System.out.println(aa.toString());
+//	 }
+//	 
+//	 @RequestMapping(value = "/testonetwo" ,method = RequestMethod.POST)
+//	 @ResponseBody
+//	 public void Listtest(@RequestBody List<HashMap<String, String>> list) {
+//		 System.out.println(list.toString());
+//	 }
+//	 
 }
 
 

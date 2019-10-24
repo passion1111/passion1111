@@ -99,17 +99,17 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
  select  * from reservation;
                                     
 select * from member;                                   
- 
+ select * from rental;
                   --방법 
-                
-                
+                select * from rental;
+                select * from
                    --부르는것 다르게 할것.   book/rent.do에서 회원검색했을떄 같이 불러올것.  -- 예약순번 1번일떄 insert into rental 에 1번 예약중으로 구현.
-                    select  distinct rental.book_num,
+                    select  distinct rental.book_num,rental.mem_id,
                         case when rent_status='대여중' then '대여중'
                              when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
                                                             else '예약중'  end
                              end 대출여부      --예약자이면 대여가능이라고 변함.                            
-                   ,book_name,book_author,book_pub_house
+                   ,book_author,book_pub_house
                     ,case when rent_extension='X' then '연장가능'
                         else '연장불가능' end 연장여부
                         --book_rsrv_status중에 내가 예약한 
@@ -121,9 +121,9 @@ select * from member;
 --                                                                                                                                                            else '예약중'  end
 --                                                                                                                             end)='대여중' then '이미대여중입니다' else '예약가능' end  end
 --                           end 예약여부
-            ,to_char(rent_enddate,'yyyymmdd') rent_enddate       from book join rental on book.book_num=rental.book_num left  outer join  reservation on reservation.mem_id=rental.mem_id ;
+            ,to_char(rent_enddate,'yyyymmdd') rent_enddate       from book join rental on book.book_num=rental.book_num left  outer join  reservation on reservation.mem_id=rental.mem_id where book.book_num=100001 ;
                     -- 앞단에서 extension이 o이면 연장불가능 
-                    
+                    select * from reservation;
                     --이미 예약중이면 ajax로 예약값 체크 
                     
                     

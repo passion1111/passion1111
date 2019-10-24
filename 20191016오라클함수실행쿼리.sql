@@ -38,26 +38,56 @@ begin
 end;
 /
 
-
+set serveroutput on;
 declare
+create or replace test33331231232131232131
+is
  cursor ho is select * from test3;
-   ho2 test3%rowtype;
+   ho2 ho%rowtype;
 begin
     open ho;
     loop
     fetch ho into ho2;
  exit when  ho%notfound;
 
-   DBMS_OUTPUT.put_line('로우 카운트 : '||ho%rowcount );
+   DBMS_OUTPUT.put_line('로우 카운트 : '||ho2.grou );
 --    
 --    end loop;
  
 end loop;
-   DBMS_OUTPUT.put_line('마지막로우 : '||ho%rowcount );
+   DBMS_OUTPUT.put_line('마지막로우 : '||ho2%rowcount );
 
  close ho;   
 end;
 /
+
+create or replace hohohohohohohohohohohho
+    hoho number;
+    ho sys_refcursor;
+    ho2 test3%rowtype;
+begin
+    
+   open ho for select  * from test3 where varc in('not') and val=1; --대여 안한 사람들 목록   out값으로 뿌리기.
+loop
+ fetch ho into ho2;  -- 그냥 변수할당해도 괜찮을듯.  ho2.grou로 
+  exit when ho%notfound;
+  
+   -- 새로운 프로시저 하나로 묶을수 있을듯.
+    select  count(*) into hoho  from test3 where grou=ho2.grou;   --순번 ?? 사람들
+    update test3 set val=0 where val=1 and varc in('not');   -- varc는 enddate<sysdate인 사람들  
+   DBMS_OUTPUT.put_line('3  val '||ho2.val  || 'ho프로시저 행 수' || hoho);    --예약했는데 안빌린 사람들.
+
+   
+        for i in 1..hoho  loop
+        update test3 set val=i where val=i+1  and varc in('not');
+        DBMS_OUTPUT.put_line('결과는 = '||i ||'그리고 ho2의 val= '||ho2.val );
+      -- 확인  insert into test3(val) values(i+1);
+        end loop;  --foreach end loop
+    
+    
+end loop;-- ho loop
+close ho;
+end;
 
 --예약 로직 조금 짜보기. 미완성시
 declare 

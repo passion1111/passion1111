@@ -6,5 +6,6 @@ import java.util.Map;
 public interface FacilitiesInspectionDAO {
 	public List<FacilitiesInspectionDTO> facinselect();
 	public int facintotalcount();
-	public void facininsertprocedure(Map map);
+	public void facininsertprocedure(FacinVO vo);
+	public void facinupdateprocedure(FacilitiesInspectionDTO dto);
 }

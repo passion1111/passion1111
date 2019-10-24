@@ -57,5 +57,11 @@ public class TestDaoImp implements TestDao {
 		return sqlsession.getMapper(TestDao.class).test22(map);
 	}
 
+	@Override
+	public void procproc() {
+		sqlsession.getMapper(TestDao.class).procproc();
+		
+	}
+
 
 }

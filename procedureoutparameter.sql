@@ -1,5 +1,8 @@
 create table testtable(
   ha varchar2(30) not null);
+  insert into testtable values('2');
+  commit;
+  select * from testtable;
   drop table testtable;
   create index index_testtable on testtable(ha);
   alter table facilities_inspection add(facin_address varchar2(30));
@@ -34,6 +37,10 @@ SELECT A.TABLE_NAME
 select  * from testtable;
    select /*+ index_ffs(testtable index_testtable)  */* from testtable;
    
+   
+   
+   
+   
    create or replace procedure proc_testtable(
     ha out sys_refcursor)
     is
@@ -56,11 +63,35 @@ BEGIN
     FETCH l_cursor
     INTO  l_ename;
     EXIT WHEN l_cursor%NOTFOUND;
+    --DBMS_OUTPUT.PUT_LINE(l_ename);
+    insert into testtable  values(l_ename);
+  END LOOP;
+  CLOSE l_cursor;
+END;
+/
+
+desc testtable;
+--위 완성본
+
+ create or replace test2929292929292929292929
+ is
+  l_cursor  testtable%type;
+  l_ename   testtable.ha%TYPE;
+ 
+BEGIN
+  proc_testtable (l_cursor);
+            
+  LOOP 
+    FETCH l_cursor
+    INTO  l_ename;
+    EXIT WHEN l_cursor%NOTFOUND;
     DBMS_OUTPUT.PUT_LINE(l_ename);
   END LOOP;
   CLOSE l_cursor;
 END;
 /
+
+
 --fetch안쓰고 사용
 
 DECLARE

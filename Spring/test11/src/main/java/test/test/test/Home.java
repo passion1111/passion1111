@@ -3,12 +3,7 @@ package test.test.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,8 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import test.test2.model.Arrtoto;
+import lib.employee.facility.model.FacilitiesDTO;
 import test.test2.model.FacilitiesInspectionDAO;
+import test.test2.model.FacilitiesInspectionDTO;
+import test.test2.model.FacinVO;
 import test.test2.model.TestDao;
 import test.test2.model.TestDto;
 
@@ -122,7 +117,7 @@ FacilitiesInspectionDAO dao2;
 //	 }
 	 @RequestMapping(value = "/readData",method = {RequestMethod.GET,RequestMethod.POST})
 	 @ResponseBody
-	 public HashMap  test22(){
+	 public HashMap  Facinselect(){
 		 
 		List list=dao2.facinselect();
 		int totalcount=dao2.facintotalcount();
@@ -144,6 +139,35 @@ FacilitiesInspectionDAO dao2;
 		 
 		 return total;
 	 }
+	 
+	 @RequestMapping(value = "/updateData",method = {RequestMethod.PUT})
+	 @ResponseBody
+	 public HashMap  facinupdateData(@RequestBody List<FacilitiesInspectionDTO> updatetate){
+		 
+		 for (FacilitiesInspectionDTO facilitiesInspectionDTO : updatetate) {
+			dao2.facinupdateprocedure(facilitiesInspectionDTO);
+		}
+		return  Facinselect();
+	 }
+	 
+	 
+	 
+		 @RequestMapping(value = "/insertData",method = {RequestMethod.POST})
+		 @ResponseBody
+		 public void  facininsertData(@RequestBody List<FacinVO> inputdata){
+			 
+			 System.out.println(inputdata.size());
+			 
+			 for (FacinVO facinVO : inputdata) {
+				 dao2.facininsertprocedure(facinVO);
+				 System.out.println(facinVO.toString());
+			 }	 
+		 
+			
+			
+		 
+	 }
+	 	
 	 
 	 @RequestMapping(value="selectcheck",method = {RequestMethod.GET,RequestMethod.POST} )
 	 @ResponseBody

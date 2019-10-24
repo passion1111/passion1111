@@ -26,8 +26,14 @@ public class FacilitiesInspectionDAOImp implements FacilitiesInspectionDAO {
 	}
 
 	@Override
-	public void facininsertprocedure(Map map) {
-		sqlsession.getMapper(FacilitiesInspectionDAO.class).facininsertprocedure(map);
+	public void facininsertprocedure(FacinVO vo) {
+		sqlsession.getMapper(FacilitiesInspectionDAO.class).facininsertprocedure(vo);
+		
+	}
+
+	@Override
+	public void facinupdateprocedure(FacilitiesInspectionDTO dto) {
+		sqlsession.getMapper(FacilitiesInspectionDAO.class).facinupdateprocedure(dto);
 		
 	}
 

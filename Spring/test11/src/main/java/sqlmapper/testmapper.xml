@@ -60,4 +60,30 @@ ${check.select2}
 
 
 
+<insert id="procproc" statementType="CALLABLE">
+   <![CDATA[
+   {
+  CALL
+  DECLARE
+  l_cursor  SYS_REFCURSOR;
+  l_ename   testtable.ha%TYPE;
+ 
+BEGIN
+  proc_testtable (
+              l_cursor);
+            
+  LOOP 
+    FETCH l_cursor
+    INTO  l_ename;
+    EXIT WHEN l_cursor%NOTFOUND;
+    
+    insert into testtable  values(l_ename);
+  END LOOP;
+  CLOSE l_cursor;
+END
+}
+
+]]>
+  </insert>
+
 </mapper>

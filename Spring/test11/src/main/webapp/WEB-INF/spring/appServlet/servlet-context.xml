@@ -23,6 +23,9 @@
 	
 	<context:component-scan base-package="test.test.test" />
 	<context:component-scan base-package="test.test2.model" />
+		<context:component-scan base-package="lib.employee.facility" />
+		<context:component-scan base-package="lib.employee.facilityinspection" />
+	
 	
 	
 </beans:beans>

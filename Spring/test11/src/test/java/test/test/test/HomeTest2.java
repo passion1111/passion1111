@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import lib.employee.facility.model.FacilitiesDAO;
 import test.test2.model.FacilitiesInspectionDAO;
 import test.test2.model.TestDao;
 
@@ -35,13 +36,15 @@ public class HomeTest2 {
 
 	 private static final Logger logger = (Logger) LoggerFactory.getLogger(HomeTest.class);
 
-	    @Autowired // Dependency Injection(ÀÇÁ¸¼º ÁÖÀÔ)
+	    @Autowired // Dependency Injection(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	    private WebApplicationContext wac;
 	    private MockMvc mock;
 	    @Autowired
 	    TestDao dao;
 	    @Autowired
 	    FacilitiesInspectionDAO fao;
+	    @Autowired
+	    FacilitiesDAO fa;
 	    
 	    @Before
 	    public void beforeTest(){
@@ -65,10 +68,10 @@ public class HomeTest2 {
 		// System.out.println(dao.TestList().get(0).size());
 		 	//  Assert.assertThat(list, type);
 		//  Assert.assertTrue(list is List<E>);
-//		  logger.info("¼öÇà ¼º°ø");
+//		  logger.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //	  } 
 //	  catch (Exception e) { 
-//		  logger.error("¼öÇà ½ÇÆĞ: " +e.getMessage()); 
+//		  logger.error("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " +e.getMessage()); 
 //		  } 
 //	  }
 	  
@@ -78,10 +81,10 @@ public class HomeTest2 {
 //		  RequestBuilder req = MockMvcRequestBuilders.post("/login").param("userid","admin"). param("pwd","!@#$"); 
 //		  try { 
 //			mock.perform(req).andExpect(status().isOk()).andDo(print());
-//		  logger.info("¼öÇà ¼º°ø");
+//		  logger.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //		  } 
 //		  catch (Exception e) { 
-//			  logger.error("¼öÇà ½ÇÆĞ: " +e.getMessage()); 
+//			  logger.error("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " +e.getMessage()); 
 //			  } 
 //	  }
 //	    @Test
@@ -104,7 +107,7 @@ public class HomeTest2 {
 //		list=(List<HashMap<String, String>>) aa.get("result");
 //		System.out.println(list.get(0).get("TESTSTRING"));
 //
-//	}//Å×½ºÆ®¿Ï·á
+//	}//ï¿½×½ï¿½Æ®ï¿½Ï·ï¿½
 	
 //	@Test
 //	public void testDoC() throws Exception {
@@ -112,16 +115,16 @@ public class HomeTest2 {
 //		mock.perform(MockMvcRequestBuilders.get("/test22")).andDo(print()).andExpect(status().isOk());
 //		
 //
-//	}//Å×½ºÆ®¿Ï·á
+//	}//ï¿½×½ï¿½Æ®ï¿½Ï·ï¿½
 //	    @Test
 //	    public void testinsert() {
 //			  RequestBuilder req = MockMvcRequestBuilders.get("/hohoho423d#wqdqw");
 //			  try { 
 //				mock.perform(req).andDo(print());
-//			  logger.info("¼öÇà ¼º°ø");
+//			  logger.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //			  } 
 //			  catch (Exception e) { 
-//				  logger.error("¼öÇà ½ÇÆĞ: " +e.getMessage()); 
+//				  logger.error("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " +e.getMessage()); 
 //				  } 
 //		  }
 ////	    	dao.insert("201801",1);
@@ -180,9 +183,9 @@ public class HomeTest2 {
 //				}
 //	    //}
 //	    		for (HashMap hashcheck : List2) {
-//	    			System.out.println("¸®½ºÆ®´ç");
+//	    			System.out.println("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½");
 //	    			for (Object ha : hashcheck.keySet()) {
-//							System.out.println("Å° = "+ha+",¹ë·ù="+hashcheck.get(ha)   );
+//							System.out.println("Å° = "+ha+",ï¿½ï¿½ï¿½="+hashcheck.get(ha)   );
 //						}
 //				}
 	    		
@@ -209,16 +212,27 @@ public class HomeTest2 {
 //		logger.info("ddd"+dao.test22(list));
 //	}
 	    
+	    // ì ê²€ í…ŒìŠ¤íŠ¸.
+//	    @Test
+//	    public void checjtest() {
+//	    	
+//	    //	logger.info(fao.facinselect().toString().toString());
+//	    	HashMap<String, String> map=new  HashMap<String, String>();
+//	    	map.put("FacIn_name","ï¿½×½ï¿½Æ®ï¿½ï¿½");
+//	    	map.put("facin_address","ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½");
+//	    	map.put("f_cycle","66");
+//	    	fao.facininsertprocedure(map);
+//	    }
+//	    
 	    @Test
-	    public void checjtest() {
+	    public void facselecttest() {
 	    	
-	    //	logger.info(fao.facinselect().toString().toString());
-	    	HashMap<String, String> map=new  HashMap<String, String>();
-	    	map.put("FacIn_name","Å×½ºÆ®¿ë");
-	    	map.put("facin_address","Å×½ºÆ®Àå¼Ò");
-	    	map.put("f_cycle","66");
-	    	fao.facininsertprocedure(map);
+	    	
+	    	//fa.facSelect(5, 1);
+	    	dao.procproc();
 	    }
+	    
+	    
 	    @After
 	    public void afterTest(){
 	        logger.info("===== afterTest() =====");

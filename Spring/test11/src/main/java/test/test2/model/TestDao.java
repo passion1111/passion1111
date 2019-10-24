@@ -15,4 +15,5 @@ public List<HashMap<String, String>> test22(List<HashMap<String, String>> ho);
 public void insert(@Param("date") String date ,@Param("date2")int date2);	
 public List<HashMap<String, String>> callable(Map map);
 public int integercheck(int checkvalues);
+public void procproc();
 }

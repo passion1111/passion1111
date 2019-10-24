@@ -25,9 +25,9 @@ to_char(FacIn_INSPECTION_DUE_DATE,'yyyy"/"MM"/"DD""') FacIn_INSPECTION_DUE_DATE 
   </select>
   
   
-  <insert id="facininsertprocedure" statementType="CALLABLE" parameterType="map">
+  <insert id="facininsertprocedure" statementType="CALLABLE" parameterType="test.test2.model.FacinVO">
     {
- CALL facin_insert(#{FacIn_name} , #{facin_address}
+ CALL facin_insert(#{facfacin_name} , #{facin_address}
  	<if test="f_cycle != null">
  	,#{f_cycle}
  	</if>
@@ -39,9 +39,9 @@ to_char(FacIn_INSPECTION_DUE_DATE,'yyyy"/"MM"/"DD""') FacIn_INSPECTION_DUE_DATE 
   <update id="facinupdateprocedure" statementType="CALLABLE" parameterType="map">
   {
   CALL facin_update(
-  	#{f_number},
-  	#{f_name},
-  	#{f_address}
+  	#{FacIn_serialnum},
+  	#{FacIn_name},
+  	#{facin_address}
   )
   }
   </update>

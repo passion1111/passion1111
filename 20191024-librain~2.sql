@@ -33,6 +33,8 @@ END;
 
 
 
+select * from reservation;
+select * from rental;
 
  
 
@@ -48,34 +50,35 @@ create or replace procedure proc_rentalupdate(
     is
     
     begin
-     open ha for select * from rental where rent_enddate<sysdate ;
+     open ha for select * from rental where rent_enddate<sysdate and rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ; -- ï¿½ï¿½ï¿½ï¿½ï¿½ß´Âµï¿½ ï¿½Èºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+   
      end;
+     
      /
-
 declare 
     bbbook_num rental.book_num%type;
     mem_id   rental.mem_id%type;
     ho sys_refcursor;
     countvalues  rental%rowtype;
     hoho number;
+    onecheck number;
 begin
-    proc_rentalupdate(ho);
-    --´ë¿© ¾ÈÇÑ »ç¶÷µé ¸ñ·Ï   out°ªÀ¸·Î »Ñ¸®±â.
+    proc_reservationdelayed(ho); 
+    --ï¿½ë¿© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½   outï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½.
 loop
- fetch ho into countvalues;  -- ±×³É º¯¼öÇÒ´çÇØµµ ±¦ÂúÀ»µí.  ho2.grou·Î 
+ fetch ho into countvalues;  -- 
   exit when ho%notfound;
-   -- »õ·Î¿î ÇÁ·Î½ÃÀú ÇÏ³ª·Î ¹­À»¼ö ÀÖÀ»µí.
-    select  count(*) into hoho  from reservation where book_num=countvalues.book_num;   --¼ø¹ø ‹¯±æ »ç¶÷µé
+   -- ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+    select  count(*) into hoho  from reservation where book_num=countvalues.book_num;   --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
-     --Ã¥ ¾Èºô¸°»ç¶÷ÀÌ¶ó¼­ ±×³É Áö¿ö¹ö¸².
-    delete from rental where book_num=countvalues.book_num;
-    --¿¹¾à ¿Ï·áµÇ¸é ¼ø¹ø1¿¡¼­ Áö¿ö¹ö¸².
+     --Ã¥ ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+     --reservation ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ rentalï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ç´ï¿½ rentalï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
     delete from reservation where book_num=countvalues.book_num and rsrv_num=1;
-        for i in 1..hoho  loop
-        update reservation set rsrv_num=i where rsrv_num=i+1; 
-      
-            --Ã¹ ¿¹¾àÀÚ ºô¸®°Ô¸¸µé±â
-        if i=1 then  insert into rental(RENT_NUM ,       
+   delete from reservation where book_num=countvalues.book_num;
+   --1ï¿½ï¿½ï¿½Î»ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï±ï¿½
+   
+    if 1=onecheck then
+         insert into rental(RENT_NUM ,       
 BOOK_NUM              ,
 MEM_ID               ,
 RENT_STARTDATE        ,      
@@ -84,19 +87,29 @@ RENT_APPENDIX_STATUS   ,
 RENT_EXTENSION          ,
 RENT_STATUS    )
 
-        values( (select max(rent_num)from rental) , countvalues.book_num
+        values( (select max(rent_num)+1 from rental) , countvalues.book_num
         ,  (select mem_id from reservation where rsrv_num=1 and  book_num =countvalues.book_num)
         ,sysdate
         ,sysdate+2
         ,'X'
         ,'X'
-        ,'¿¹¾àÁß'); 
-        --¾Æ·¡ À§Çè
+        ,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'); 
+        --ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½
         delete from reservation where book_num=countvalues.book_num and rsrv_num=1;
         end if;
     
+  
+    
+    --ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+        for i in 1..hoho  loop
+        update reservation set rsrv_num=i where rsrv_num=i+1; 
+      
+            --Ã¹ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½
+       
+       
+    
         
-       DBMS_OUTPUT.put_line('°á°ú´Â = '||i ||'±×¸®°í ho2ÀÇ val= ' );
+       DBMS_OUTPUT.put_line('ï¿½ï¿½ï¿½ï¿½ï¿½ = '||i ||'ï¿½×¸ï¿½ï¿½ï¿½ ho2ï¿½ï¿½ val= ' );
 --     
        end loop;  --foreach end loop
     end loop;
@@ -123,18 +136,20 @@ RENT_APPENDIX_STATUS   ,
 RENT_EXTENSION          ,
 RENT_STATUS    )
 
-        values( (select max(rent_num)+1 from rental) ,tempchar
-        ,  (select mem_id from reservation where rsrv_num=1 and  book_num =countvalues.book_num)
+        values( (select max(rent_num)+1 from rental) 
+        ,(select mem_id from reservation where rsrv_num=1 and  book_num =countvalues.book_num)
+        ,tempchar
+    
         ,sysdate
         ,sysdate+2
         ,'X'
         ,'X'
-        ,'¿¹¾àÁß'); 
+        ,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'); 
     
     end if;
         for temp in (select * from reservation where book_num=rental_book_num) loop
         
-     DBMS_OUTPUT.put_line('°á°ú´Â = '||tempchar ||'±×¸®°í ho2ÀÇ val= '||cnt );
+     DBMS_OUTPUT.put_line('ï¿½ï¿½ï¿½ï¿½ï¿½ = '||tempchar ||'ï¿½×¸ï¿½ï¿½ï¿½ ho2ï¿½ï¿½ val= '||cnt );
         end loop;
     end;
     /
@@ -160,14 +175,16 @@ RENT_STATUS          )
 values(  (select max(rent_num)from rental)  ,  
 book_num=1
         (select mem_id from reservation where rsrv_num=1 and  book_num=100001,
-    --reservation mem_id°ª ¾ò¾î¿Í¾ßÇÔ. 
+    --reservation mem_idï¿½ï¿½ ï¿½ï¿½ï¿½Í¾ï¿½ï¿½ï¿½. 
     select * from rental;
-    insert into reservation values(4,'nmj',2,100001);
+    insert into reservation values(4,'nmj',1 , sysdate+30,100054);
     select * from reservation;
     select * from rental;
+    update rental set  rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ,rent_enddate=sysdate-30 where  book_num=100001;
+    update 
     select * from testtable;
     insert into testtable values(3);
-   
+   desc reservation;
 end loop;-- ho loop
 
 

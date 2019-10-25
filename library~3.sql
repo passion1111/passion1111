@@ -137,18 +137,19 @@ begin
         else
       for  temp_update in (select * from Facilities_inspection where FacIn_serialnum=f_number)
       loop
-      update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+(temp_update.FacIn_INSPECTION_DUE_DATE-sysdate),facin_address=f_address where FacIn_serialnum=f_number;
+      update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+(temp_update.FacIn_INSPECTION_DUE_DATE-FACIN_INSPECTION_DATE),facin_address=f_address where FacIn_serialnum=f_number;
       end loop;
  
  end case;
 end;
 /
-
-
+desc Facilities_inspection;
+select * from Facilities_inspection;
+commit;
 
 
 select FacIn_serialnum from Facilities_inspection;
-select * from facilities_inspection;
+select * from facilities;
 desc facilities_inspection;
 --insert into 하기위해
 desc Facilities_inspection;

@@ -60,7 +60,6 @@ select * from rental where rent_enddate<sysdate;
 select * from book;
 select * from member where deadline_rent_stop<sysdate;
 
-
 -- 만약 연체했을시에 mem_rank 
 
 
@@ -79,10 +78,11 @@ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, d
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='대여중')
-                                                                end     현재대여가능권수 from member;
-                                                                
+                                                                end     현재대여가능권수 from member where mem_id like '%nmj';
+                                                                select * from rental;
                                                                           select * from reservation;
-                                                                
+                                                                select * from rental;
+                                                                select * from rental;
                                                                 desc member;
                                                                 
  
@@ -102,31 +102,30 @@ select * from member;
  select * from rental;
                   --방법 
                 select * from rental;
-                select * from
+             
                    --부르는것 다르게 할것.   book/rent.do에서 회원검색했을떄 같이 불러올것.  -- 예약순번 1번일떄 insert into rental 에 1번 예약중으로 구현.
-                    select  distinct rental.book_num,rental.mem_id,
+                    select  distinct book.book_num,rental.mem_id,book_name,
                         case when rent_status='대여중' then '대여중'
+                             when rent_status is null then '대여가능'
                              when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
                                                             else '예약중'  end
+                           
                              end 대출여부      --예약자이면 대여가능이라고 변함.                            
                    ,book_author,book_pub_house
                     ,case when rent_extension='X' then '연장가능'
+                        when rent_extension is null then '연장가능'
                         else '연장불가능' end 연장여부
-                        --book_rsrv_status중에 내가 예약한 
---                       case when  book_rsrv_status ='예약가능'  then 
---                                                                                    --왜 기본값이 1?
---                                                                    case when   then '예약중입니다'
---                                                                                                    else  case when    (  case when rent_status='대여중' then '대여중'
---                                                                                                                             when rent_status='예약중' then case when reservation.mem_id=rental.mem_id then '대여가능'
---                                                                                                                                                            else '예약중'  end
---                                                                                                                             end)='대여중' then '이미대여중입니다' else '예약가능' end  end
---                           end 예약여부
-            ,to_char(rent_enddate,'yyyymmdd') rent_enddate       from book join rental on book.book_num=rental.book_num left  outer join  reservation on reservation.mem_id=rental.mem_id where book.book_num=100001 ;
+            ,to_char(rent_enddate,'yyyymmdd') rent_enddate       from book left outer join rental on book.book_num=rental.book_num left  outer join  reservation on reservation.mem_id=rental.mem_id where book.book_num=100023;
                     -- 앞단에서 extension이 o이면 연장불가능 
+                 select * from rental;
+                    select * from reservation;
+                    insert into rental(book_num,mem_id) values(100023,'nmj');
+                 
+                 --만약 고친다면 reservasion과 rental이 같은상태로
                     select * from reservation;
                     --이미 예약중이면 ajax로 예약값 체크 
                     
-                    
+                    select * from rental;
                     
                     --반납 
                     
@@ -554,6 +553,7 @@ create table appendix ( --부록
 );
 drop table appendix;
 select * from appendix;
+select * from member;
 insert into member values('12', '123', '문혜수수','1111111-2222222', '서울', '010-1234-5678', 'aa@aa.com', 2);
 create table member( -- 회원
     mem_id varchar2(20), --회원번호
@@ -563,7 +563,9 @@ create table member( -- 회원
     mem_address varchar2(200), --회원주소
     mem_phone varchar2(30), --회원폰번호
     mem_email varchar2(30), --회원이메일
-    mem_rank number --회원 등급
+    mem_rank number, --회원 등급
+    DEADLINE_RENT_STOP date,
+    book_loanable varchar2(20) default '대출가능'
    --constraint member_pk primary key (m_id)
 );
 drop table member;

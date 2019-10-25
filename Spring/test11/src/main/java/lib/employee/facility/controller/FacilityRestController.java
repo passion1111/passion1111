@@ -38,7 +38,7 @@ public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
 	List list=facilitiesDAO.facSelect(perPage,page);
 	
 	
-	// �??���? 고칠 ?��?��?�� ?��?��. 
+	// 占�??占쏙옙占�? 怨좎튌 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙. 
 	HashMap total=new HashMap();
 	HashMap data=new HashMap();
 	HashMap pagenation=new HashMap();
@@ -53,14 +53,14 @@ public HashMap check(@RequestParam int perPage,@RequestParam int page ) {
 	
 	return total;
 }
-@RequestMapping(value = "/readDataRepair",method = RequestMethod.GET)
+@RequestMapping(value = "/readDataRepair",method = {RequestMethod.GET,RequestMethod.POST},produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 public HashMap repareselect(@RequestParam int perPage,@RequestParam int page ) {
 	
 	
 	List list=facilitiesDAO.facRepareSelect(perPage,page);
 	
 	
-	// �??���? 고칠 ?��?��?�� ?��?��. 
+	// 占�??占쏙옙占�? 怨좎튌 ?占쏙옙?占쏙옙?占쏙옙 ?占쏙옙?占쏙옙. 
 	HashMap total=new HashMap();
 	HashMap data=new HashMap();
 	HashMap pagenation=new HashMap();
@@ -78,17 +78,17 @@ public HashMap repareselect(@RequestParam int perPage,@RequestParam int page ) {
 
 
 
-@RequestMapping(value="/createData",method = RequestMethod.POST )
+@RequestMapping(value="/createData",method = RequestMethod.POST,produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 public void insert(@RequestBody List<FacilitiesDTO> dto) {
-	System.out.println("?��?��");
+	System.out.println("?占쏙옙?占쏙옙");
 	for (FacilitiesDTO facilitiesDTO : dto) {
 	facilitiesDAO.facinsert(facilitiesDTO);
 	}
 }
 	
-@RequestMapping(value="/modifyData",method = RequestMethod.PUT )
+@RequestMapping(value="/modifyData",method = RequestMethod.PUT ,produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public void facupdate(@RequestBody List<FacilitiesDTO> dto) {
-		System.out.println("?��?��");
+		System.out.println("?占쏙옙?占쏙옙");
 		for (FacilitiesDTO facilitiesDTO : dto) {
 		//facilitiesDAO.facinsert(facilitiesDTO);
 		System.out.println(facilitiesDTO.toString());
@@ -98,11 +98,11 @@ public void insert(@RequestBody List<FacilitiesDTO> dto) {
 			
 }
 
-@RequestMapping(value="/modifyDataRepair",method = RequestMethod.PUT )
+@RequestMapping(value="/modifyDataRepair",method = RequestMethod.PUT,produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 public void facupdaterepair(@RequestBody FacilitiesDTO dto) {
 	
 	
-	if(dto.getFac_status().equals("�����Ϸ�")) { //������������ ����غ���.
+	if(dto.getFac_status().equals("占쏙옙占쏙옙占싹뤄옙")) { //占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙曼占쏙옙占�.
 		facilitiesDAO.facupdaterepaircomplete(dto);
 	}else {
 		facilitiesDAO.facupdaterepair(dto);
@@ -112,12 +112,12 @@ public void facupdaterepair(@RequestBody FacilitiesDTO dto) {
 
 
 
-@RequestMapping(value = "/deleteData",method = RequestMethod.DELETE)
+@RequestMapping(value = "/deleteData",method = RequestMethod.DELETE,produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public void facdelete(@RequestBody List<FacilitiesDTO> dto) {	
 	for (FacilitiesDTO facilitiesDTO : dto) {
 	
 		facilitiesDAO.facdelete(facilitiesDTO);
-	// ?��?��?��것들 ?���?.
+	// ?占쏙옙?占쏙옙?占쏙옙寃껊뱾 ?占쏙옙占�?.
 	
 	}
 	

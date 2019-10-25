@@ -12,15 +12,96 @@ FacIn_address varchar2(30),               --시설물 장소                 --시설물
 FacIn_Inspection_Date date default sysdate,    -- 점검일 
 FacIn_Inspection_Due_Date date                 --점검예정일 
 );
+
+drop table Facilities;
 drop table Facilities_inspection;
 commit;
-drop table  Facilities_inspection;
-desc Facilities_inspection;
+
+
+insert into  Facilities values(1,'책상','1층열람실','고장','목재');
+insert into  Facilities values(2 ,'책상','1층열람실','정상 ','목재');
+insert into  Facilities values(3,'책상','1층열람실','정상 ','목재');
+insert into  Facilities values(4,'팩스','1층열람실','정상 ','가전제품');
+insert into  Facilities values(5,'프린터','1층열람실','정상 ','가전제품');
+insert into  Facilities values(6,'컴퓨터','2관시설팀','고장 ','가전제품');
+insert into  Facilities values(7,'컴퓨터','3관2층','정상 ','가전제품');
+insert into  Facilities values(8,'컴퓨터','1층열람실','정상 ','가전제품');
+insert into  Facilities values(9,'의자','1층열람실','정상 ','목재');
+insert into  Facilities values(9,'','1층열람실','정상 ','목재');
+
+
+
+--시설더미 
 insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(1,'엘레베이터','1관',sysdate,sysdate+90);
 insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(2,'에스컬레이터','1관',sysdate,sysdate+30);
 insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'에스컬레이터','2관',sysdate,sysdate+30);
 insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'에스컬레이터','3관',sysdate,sysdate+30);
 insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(4,'엘레베이터','2관',sysdate,sysdate+90);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(5,'소화기','2관',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(6,'소화기','2관1층',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(7,'소화기','2관2층',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(8,'소화기','2관3층',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(9,'소화기','2관4층',sysdate,sysdate+3);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(10,'소화기','2관5층',sysdate,sysdate+5);
+
+
+commit;
+
+
+create or replace procedure facin_update( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
+                                          f_name   in facilities_inspection.facin_name%type,
+                                          f_address in facilities_inspection.facin_address%type) 
+is
+begin
+ case when f_name='엘레베이터' then 
+         update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+90,facin_address=f_address where FacIn_serialnum=f_number;
+      when f_name='계량기' then
+         update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+30,facin_address=f_address where FacIn_serialnum=f_number;
+        
+      when f_name='소화기' then
+                 update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+20,facin_address=f_address where FacIn_serialnum=f_number;
+        when f_name='분전함' then
+                 update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+180,facin_address=f_address where FacIn_serialnum=f_number;
+      
+        else
+      for  temp_update in (select * from Facilities_inspection where FacIn_serialnum=f_number)
+      loop
+      update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+(temp_update.FacIn_INSPECTION_DUE_DATE-sysdate),facin_address=f_address where FacIn_serialnum=f_number;
+      end loop;
+ 
+ end case;
+end;
+/
+
+create or replace procedure facin_insert( f_name   in facilities_inspection.facin_name%type,
+                                           f_address in facilities_inspection.facin_address%type,
+                                          f_cycle   in number :=0
+                                          )
+is
+begin
+ case when f_name='엘레베이터' then 
+         insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date,facin_address) 
+         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), '엘레베이터',sysdate,sysdate+180 ,f_address);
+      when f_name='계량기' then
+         insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date,facin_address) 
+         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), '계량기',sysdate,sysdate+30 ,f_address);
+      else
+     insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date ,facin_address) 
+         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), f_name,sysdate,sysdate+f_cycle,f_address);
+ 
+ end case;
+end;
+/
+
+commit;
+
+select * fro msal 
+
+
+
+
+
+
 desc Facilities_inspection;
 commit;
 select * from Facilities_inspection;
@@ -40,16 +121,21 @@ select * from Facilities_inspection;
 exec facin_update(1,'엘레베이터','1관');
 create or replace procedure facin_update( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
-                                          f_address in facilities_inspection.facin_address%type) --점검주기.
+                                          f_address in facilities_inspection.facin_address%type) 
 is
 begin
  case when f_name='엘레베이터' then 
          update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+90,facin_address=f_address where FacIn_serialnum=f_number;
       when f_name='계량기' then
          update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+30,facin_address=f_address where FacIn_serialnum=f_number;
-      else
-      --temp_update변수여러개를 사용하기위해서
-      for  temp_update in (select * from Facilities_inspection where FacIn_serialnum=f_number) --보기안좋으면 into로 대체
+        
+      when f_name='소화기' then
+                 update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+20,facin_address=f_address where FacIn_serialnum=f_number;
+        when f_name='분전함' then
+                 update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+180,facin_address=f_address where FacIn_serialnum=f_number;
+      
+        else
+      for  temp_update in (select * from Facilities_inspection where FacIn_serialnum=f_number)
       loop
       update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+(temp_update.FacIn_INSPECTION_DUE_DATE-sysdate),facin_address=f_address where FacIn_serialnum=f_number;
       end loop;

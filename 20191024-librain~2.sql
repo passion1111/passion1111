@@ -34,7 +34,16 @@ END;
 
 
 
- create or replace procedure proc_rentalupdate(
+ 
+
+
+
+select * from rental;
+select * from rental;
+select * from rental where rent_enddate ;
+update rental set rent_enddate=sysdate-20;
+insert into values
+create or replace procedure proc_rentalupdate(
     ha out sys_refcursor)
     is
     
@@ -42,11 +51,7 @@ END;
      open ha for select * from rental where rent_enddate<sysdate ;
      end;
      /
-select * from rental;
 
-
-
-select * from rental;
 declare 
     bbbook_num rental.book_num%type;
     mem_id   rental.mem_id%type;
@@ -59,12 +64,8 @@ begin
 loop
  fetch ho into countvalues;  -- 그냥 변수할당해도 괜찮을듯.  ho2.grou로 
   exit when ho%notfound;
-  
-
    -- 새로운 프로시저 하나로 묶을수 있을듯.
     select  count(*) into hoho  from reservation where book_num=countvalues.book_num;   --순번 떙길 사람들
-    --update test3 set val=0 where val=1 and varc in('not');   -- varc는 enddate<sysdate인 사람들  
-   DBMS_OUTPUT.put_line('3  val '||   'ho프로시저 행 수'||hoho );    --예약했는데 안빌린 사람들.
 
      --책 안빌린사람이라서 그냥 지워버림.
     delete from rental where book_num=countvalues.book_num;
@@ -102,7 +103,8 @@ RENT_STATUS    )
     close ho;
     end;
     /
-    --반납하면 한명씩 떙기게만들기.
+    
+    
     create or replace procedure temp_temp_temp( rental_book_num in number)
     is
     cnt number;
@@ -136,6 +138,8 @@ RENT_STATUS    )
         end loop;
     end;
     /
+    
+    
     exec temp_temp_temp(100003);
     select * from rental;
     

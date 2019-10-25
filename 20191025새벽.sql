@@ -7,7 +7,17 @@ drop table rental;
 drop table new_book;
 drop table discard_book;
 drop table reservation;
+select * from tbl_account_data;
+CREATE TABLE tbl_account_data(
+  ta_idx number NOT NULL,
+  ta_id varchar(60) ,
+  ta_pw varchar(300),
+  ta_create_date timestamp ,
+  ta_secret_key varchar(300) 
 
+);
+/
+commit;
 create table book_category ( --도서분류
     book_ctgr_num_db varchar2(100) , --분류기호
     book_ctgr_name varchar2(200)  --분류명

@@ -842,7 +842,7 @@ select * from Facilities;
      /
      
      
-     
+     select * from wqodqwopdkqwo;
     ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(20) default '대출가능');
      select * from member;
     update member set deadline_rent_stop=deadline_rent_stop+1 where mem_id='nmj';

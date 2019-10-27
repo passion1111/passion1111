@@ -10,10 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT INTO tbl_account_data (ta_id, ta_pw, ta_create_date, ta_secret_key,ta_idx)
 	VALUES(#{ta_id}, #{ta_pw}, sysdate, #{ta_secret_key} ,(SELECT count(ta_idx)+1 from tbl_account_data) )
 	
-	<!-- Insert 이후 저장된 idx를 가져오는 MyBatis 문법 3.x의 Mysql 용 -->
-	<selectKey keyProperty="ta_idx" resultType="java.lang.Integer" order="AFTER">
-  	SELECT count(ta_idx) as ta_idx from tbl_account_data
-	</selectKey>  
+	
 </insert>
 
 

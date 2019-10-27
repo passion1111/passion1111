@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 
+
+<mapper namespace="test.test2.model.TestDao">
+<resultMap type="java.util.HashMap" id="procResultMap1"></resultMap>
+ 
+
+<select id="TestList" resultType="Map">
+
+select * from test
+
+</select>
+
+ <select id="selectprocedure" statementType="CALLABLE" resultType="Map">
+ {
+ CALL TEST_SELECTPROC(#{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT})
+ }
+ </select>
+ 
+ <!--  <select id="selectprocedure2" statementType="CALLABLE" resultType="Map">
+ {
+ CALL TEST_SELECTPROC()
+ }
+ </select> 안됨-->
+	<insert id="insert" parameterType="map">
+	insert into how values(to_date(#{date} , 'yyyymm' ))
+	</insert> 
+ <select id="callable" statementType="CALLABLE" resultType="map">
+{
+CALL howhow(  #{result, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=procResultMap1, mode=OUT}
+			 , #{result2,javaType=Integer, jdbcType=INTEGER, resultMap=procResultMap1,mode=OUT}
+			)
+}
+</select> 
+
+
+<select id="test22" resultType="map" parameterType="java.util.List">
+
+select * from test22
+
+<trim prefix="where" prefixOverrides="and|or">
+<if test="list!=null">
+<foreach item="check" index="index" collection="list">
+
+
+${check.select2}  
+
+#{check.select}=#{check.text}
+
+</foreach>
+</if>
+</trim>
+
+</select>
+
+
+
+<insert id="procproc" statementType="CALLABLE">
+   <![CDATA[
+   {
+  CALL
+  DECLARE
+  l_cursor  SYS_REFCURSOR;
+  l_ename   testtable.ha%TYPE;
+ 
+BEGIN
+  proc_testtable (
+              l_cursor);
+            
+  LOOP 
+    FETCH l_cursor
+    INTO  l_ename;
+    EXIT WHEN l_cursor%NOTFOUND;
+    
+    insert into testtable  values(l_ename);
+  END LOOP;
+  CLOSE l_cursor;
+END
+}
+
+]]>
+  </insert>
+
+</mapper>

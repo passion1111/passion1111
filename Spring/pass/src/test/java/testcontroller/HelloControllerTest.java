@@ -1,14 +1,13 @@
 package testcontroller;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-class HelloControllerTest {
-
+public class HelloControllerTest {
 
     @Test
     public void Testbb(){
+
         System.out.println("ddd");
     }
 }

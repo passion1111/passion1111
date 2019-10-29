@@ -64,21 +64,25 @@ select * from member where deadline_rent_stop<sysdate;
 
 
 --회원검색했을시 67
-select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, deadline_rent_stop ,
+select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, to_char(deadline_rent_stop,'yyyymmdd')  deadline_rent_stop  ,
                                                                 case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
                                                                 else
                                                                       case when mem_rank=2 then 7  -- 대출불가 판단
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end
-                                                                end      LOANABLE_NUMBER ,
+                                                                end      TotalLoanable_Number,
                                                                 case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
                                                                 else       
                                                                       case when mem_rank=2 then 7 
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='대여중')
-                                                                end     현재대여가능권수 from member where mem_id like '%nmj';
+                                                                end     CurrentLoanable_Number from member where mem_id like '%nmj';
+                                                               
+                                                               
+                                                               
+                                                               
                                                                 select * from rental;
                                                                           select * from reservation;
                                                                 select * from rental;

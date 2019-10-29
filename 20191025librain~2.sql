@@ -381,7 +381,7 @@ insert into discard_book values(2, '100267', TO_DATE('2019/10/24','YYYY-MM-DD'),
 insert into discard_book values(1, '100266', TO_DATE('2019/10/24','YYYY-MM-DD'), '신청 완료');
 commit;
 create table reservation (
-    rent_num varchar2(30), -- 대여번호
+    book_num varchar2(30), -- 책번호
     mem_id varchar2(20), --회원번호
     rsrv_num number(20),   --예약번호
     rsrv_enddate date --예약 끝날짜
@@ -989,6 +989,7 @@ select * from ( select rownum rnum, b.*,(case when r.rent_status='반납' then '대
 select * from member;
 select * from (select b.*, nvl(r.rent_status,'대여가능') rent ,rent_num  from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or rent_status='예약중') r on (b.book_num = r.book_num)) ;
 commit;
+select * from
 select * from rental;
 select * from rental;
 select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or rent_status='예약중') r on (b.book_num = r.book_num)) ;
@@ -998,4 +999,207 @@ select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * fro
  select * from reservation,rental;
  select count(*) from reservation where book_num =100001;
  
- select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and  rental.mem_id ='nmj') ) r on (b.book_num = r.book_num))
+ 
+ 
+ select * from (select b.*, nvl(r.rent_status,'대여가능') rent,mem_id from (select * from book order by book_num desc) b join (select book_num, rent_status,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and  rental.mem_id ='nmj') ) r on (b.book_num = r.book_num))
+; 
+ select * from reservation;
+ select * from rental;
+ 
+ 
+ --예약중구현
+ desc reservation;
+ insert into reservation values(#{book_num}, #{mem_id},(select count(*) from reservation where book_num=#{book_num})+1 );
+ select * from rental,(select count(*) from test22)  ;
+ select b.*,aa from book b  inner join (select count(*) over(partition by(rental.book_num)) aa,book_num from rental )rental on b.book_num=rental.book_num;
+ select * from reservation where book_num=100001;
+ --대여중 or 예약중  --예약한사람이 자신이면 대출가능으로 체크 
+ 
+ -- 만약 예약하는사람이 5명이 넘거나 예약했는데 또 예약할려고하면 이미 예약중입니다.라고 하기 
+ 
+ --예약취소도 나중에 구현.
+ 
+
+ --예약순번1번에서 빌릴수있는차례가되면 rental로 넘어옴. 예약순번1번은 지워짐.
+ 
+ --insert into reservation values(book_num,mem_id,(select count(*) from reservation where book_num=#{book_num{);
+ 
+ 
+ select * from test22;
+ select * from reservation;
+ 
+ --selectkey를 이용해서 값이 before로 값을 알아낸후 결과값이 0 이면 업데이트안됐다는의미니까 예약불가.
+ commit;
+ rent_num, mem_id, rsrv_num=1
+ select * from test22;
+ select * from( select *  from rental r,test22);
+ select * from reservation;
+ insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+2, 'X', 'X', '예약중');
+ 
+ 
+ 
+ insert into test22 values(3333333333333333);
+ select * from test22;
+ 
+ 
+ 
+ 
+ CREATE OR REPLACE TRIGGER triger_test_test_test_test_test_test_test
+       after
+       insert ON rental
+       FOR EACH ROW
+	   
+	   BEGIN
+       if :new.namename=3 then 
+       DBMS_OUTPUT.PUT_LINE('변경 후 컬럼 값 : ' || : new.namename);
+       else
+        DBMS_OUTPUT.PUT_LINE('변경 전 컬럼 값 : ' || : old.namename);
+        DBMS_OUTPUT.PUT_LINE('변경 후 컬럼 값 : ' || : new.namename);
+        end if;
+     END;
+     /
+     select * from dept;
+     select * from test22;
+     
+     create table test22(
+     namename number );
+     /
+     set serveroutput on;
+     insert into test22 values(1);
+     
+     update test22 set namename=1;
+     
+  select * from
+         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id
+                 from  (select * from book order by book_num desc) b
+                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
+                   on (b.book_num = r.book_num))  ;
+     
+     
+select * from member;
+select * from reservation;
+
+select * from rental;
+
+;
+drop table reservation;
+select * from test22;
+
+
+
+commit;
+select * from reservation;
+  select * from
+          ( select rownum rnum, b.*, (case when r.rent_status='반납' then '대여가능'
+                                                     when r.rent_status is null then '대여가능'
+                                                     when r.rent_status ='예약중' then '예약중' 
+                            else '대여중' end) rent, nvl(rscount,0) reservationcount
+                  from  (select * from book where book_num =100001) b
+                  left outer join (select book_num, rent_status from rental
+                                  where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
+                                  and rent_num in (select max(rent_num) from rental  group by book_num) ) r  
+                  on (b.book_num = r.book_num) left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num    );
+ 
+ 
+                  
+                  select * from reservation;
+--책 반납 예약1번 렌탈로 값 넘김 이떄 렌탈에 남겨둘것인가? 
+
+select * from rental join reservation on rental.mem_id=reservation.mem_id where rental.mem_id='nmj';
+
+select a.*,count(b.book_num) over() from member a join  reservation b on a.mem_id=b.mem_id     where a.mem_id='nmj';
+select a.*,ct from member a join  (select count(*) ct,mem_id from reservation where mem_id='nmj' group by mem_id) b on a.mem_id=b.mem_id     where a.mem_id='nmj';
+  select * from
+         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id ,rscount
+                 from  (select * from book order by book_num desc) b
+                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
+                   on (b.book_num = r.book_num) 
+                   left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       
+  
+  
+ --회원검색쿼리
+ select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, to_char(deadline_rent_stop,'yyyymmdd')  deadline_rent_stop  ,
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
+                                                                else
+                                                                      case when mem_rank=2 then 7  -- 대출불가 판단
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end
+                                                                end      TotalLoanable_Number,
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
+                                                                else       
+                                                                      case when mem_rank=2 then 7 
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='대여중')
+                                                                end     CurrentLoanable_Number from member where mem_id like '%nmj';
+                                                               
+
+
+
+select * from ( select rownum rnum, b.*, 
+(case when r.rent_status='반납' then '대여가능' when r.rent_status is null then '대여가능' when r.rent_status ='예약중' then '예약중' else '대여중' end) rent,
+nvl(rscount,0) reservationcount from (select * from book where book_num =100001) b 
+left outer join (select book_num, rent_status from rental where rent_startdate in 
+(select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on 
+(b.book_num = r.book_num) 
+left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num ) ;                               
+select * from rental;
+
+create or replace trigger test_test_test_test_test
+after update on rental
+for each row 
+when ( new.rent_status = '반납')
+declare
+counting number;
+
+begin
+    select count(*) into counting from reservation where book_num=:new.book_num and rsrv_num=1;
+    if counting=1 then 
+    insert into rental values(
+    
+            DBMS_OUTPUT.PUT_LINE('d');
+         
+   
+end;
+/
+select * from rental;
+ 
+ select * from rental;
+ 
+ select * from test22;
+ 
+ 
+ 
+ update test22 set namename=2 where namename=2;
+ drop trigger test_test_test_test_test333;
+ create or replace trigger test_test_test_test_test333
+after update on test22
+for each row 
+when ( new.namename = 2)
+declare
+counting number;
+
+begin
+   -- select count(*) into counting from reservation where book_num=:new.book_num and rsrv_num=1;
+        insert into test222 values(3);
+        insert into test222 values(4);
+            DBMS_OUTPUT.PUT_LINE('d');
+         
+   
+end;
+/
+create or replace trigger tri_testtri_testtri_testtri_testtri_testtri_testtri_testtri_test
+after insert on test222
+for each row
+when (new.name222=3)
+begin
+
+    insert into test22 values(878787);
+end;
+/
+/
+select * from dual;
+select * from test222;
+create table test222(
+name222 number);

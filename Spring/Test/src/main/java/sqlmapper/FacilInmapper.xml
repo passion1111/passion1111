@@ -12,8 +12,19 @@
   
   <insert id="insertAA">
    insert into test22 values(2)
-   <selectKey resultType="int" keyProperty="count" order="AFTER">
+   <selectKey resultType="int" keyProperty="count" order="BEFORE">
         SELECT count(*) from test22
-    </selectKey>  
+    </selectKey> 
+    
+     
+	<if test="count lt 3">
+	insert into test22 values(3333333333333333)
+	</if>
+
+	<if test="count gte 3">
+	insert into test22 values(22222222222222)
+	</if>
+
+
   </insert>
 </mapper>

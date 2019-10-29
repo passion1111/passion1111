@@ -883,8 +883,119 @@ select * from Facilities;
     
     end;
     /
-    
+    commit;
    exec  proc_pipa_proc();
    exec proc_proc_proc();
     set serveroutput on;
     select count(*) from test2 ;
+    
+    
+    select * from test2;
+    drop table test2;
+    
+    
+    create table test2(
+    namename varchar2(30) not null
+   ,namename2 number 
+    );
+    drop table test2;    
+    insert into test2 values('a',1);
+    insert into test2 values('b',2);
+    insert into test2 values('c',3);
+    
+    select * from test2 order by namename desc;
+
+drop index index_test2test2;
+drop table test2;
+CREATE INDEX index_test2test2 ON test2 (namename desc);
+select * from test2;
+
+-- not null이거나 , index 컬럼을 pk로 설정시  where이 없어도  index를 탄다.
+
+
+select /*+INDEX_desc(test2 index_test2test2)  */ namename,namename2 from test2;
+select /*+INDEX_asc(test2 index_test2test2)  */ namename,namename2 from test2;
+select * from test2;
+
+
+select /*+INDEX_asc(test2 index_test2test2)  */ * from test2 where 'a'<namename;
+select * from test2;
+
+
+select * from test2;
+
+
+select * from reservation;
+--예약한 기록은 0 으로 바꿈 
+select * from reservation;
+select * from rental;
+-- rental 기록은 예약안함으로 바꿈 
+
+-- 
+select * from rental;
+select * from book;
+
+
+select * from (select b.*, nvl(r.rent_status,'대여가능') rent from 
+(select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in 
+(select max(rent_startdate) 
+from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중') r on (b.book_num = r.book_num));
+
+select * from ( select rownum rnum, b.*, nvl2(rent_status,'대여가능','대여가능') rent from 
+(select * from book where book_num = 100001) b left outer join 
+(select book_num, rent_status from rental where   rent_startdate in 
+(select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
+(b.book_num = r.book_num)) ;
+select * from rental;
+
+
+
+
+
+select * from ( select rownum rnum, b.*, nvl2(rent_status,'대여가능','대여가능') rent from 
+(select * from book where book_num = 100001) b left outer join 
+(select book_num, rent_status from rental where   rent_startdate in 
+(select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
+(b.book_num = r.book_num)) ;
+
+select * from ( select rownum rnum, b.*,(case when r.rent_status='반납' then '대여가능'
+                                                     when r.rent_status is null then '대여가능'
+                            else '대여중' end)  rent from 
+													(select * from book where book_num = 100001) b left outer join 
+																							(select book_num, rent_status from rental where   rent_startdate in 
+																							(select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
+																							(b.book_num = r.book_num)) ;l
+       
+        select * from
+          ( select rownum rnum, b.*, nvl(rent_status,'대여가능') rent
+                  from  (select * from book where book_num = #{ book_num }) b
+                  left outer join (select book_num, rent_status from rental
+                                  where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
+                                  and rent_num in (select max(rent_num) from rental  group by book_num) ) r  
+                  on (b.book_num = r.book_num));
+                  
+       
+ select * from
+          ( select rownum rnum, b.*, (case when r.rent_status='반납' then '대여가능'
+                                                     when r.rent_status is null then '대여가능'
+                                                     when r.rent_status ='예약중' then '예약중' 
+                            else '대여중' end) rent
+                  from  (select * from book where book_num = 100001) b
+                  left outer join (select book_num, rent_status from rental
+                                  where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
+                                  and rent_num in (select max(rent_num) from rental  group by book_num) ) r  
+                  on (b.book_num = r.book_num))
+;
+select * from member;
+select * from (select b.*, nvl(r.rent_status,'대여가능') rent ,rent_num  from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or rent_status='예약중') r on (b.book_num = r.book_num)) ;
+commit;
+select * from rental;
+select * from rental;
+select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or rent_status='예약중') r on (b.book_num = r.book_num)) ;
+ insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+7, 'X', 'X', '예약중');
+ select * from rental
+ select * from reservation;
+ select * from reservation,rental;
+ select count(*) from reservation where book_num =100001;
+ 
+ select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and  rental.mem_id ='nmj') ) r on (b.book_num = r.book_num))

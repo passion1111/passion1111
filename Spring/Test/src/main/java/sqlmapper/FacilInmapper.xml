@@ -10,4 +10,10 @@
   	select * from test2
   </select>
   
+  <insert id="insertAA">
+   insert into test22 values(2)
+   <selectKey resultType="int" keyProperty="count" order="AFTER">
+        SELECT count(*) from test22
+    </selectKey>  
+  </insert>
 </mapper>

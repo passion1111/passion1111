@@ -30,7 +30,8 @@ public void TestBB() throws SQLException {
 	
 	@Test
 public void TestAB() {
-		dao.AA();
+		int a=0;
+		System.out.println(dao.insertAA(a));
 	}
 
 	

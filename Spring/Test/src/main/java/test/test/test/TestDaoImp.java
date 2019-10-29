@@ -15,5 +15,11 @@ public class TestDaoImp implements TestDao {
 		
 			session.getMapper(TestDao.class).AA();
 	}
+	@Override
+	public int insertAA(int a) {
+		
+		return session.getMapper(TestDao.class).insertAA(a);
+		
+	}
 
 }

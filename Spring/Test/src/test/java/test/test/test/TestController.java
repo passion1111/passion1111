@@ -31,6 +31,8 @@ public void TestBB() throws SQLException {
 	@Test
 public void TestAB() {
 		int a=0;
+		
+		//쿼리오류 이유 찾아보기
 		System.out.println(dao.insertAA());
 	}
 

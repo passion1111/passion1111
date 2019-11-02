@@ -1,6 +1,9 @@
 package test.test.test;
 
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 import javax.sql.DataSource;
 
@@ -33,9 +36,25 @@ public void TestAB() {
 		int a=0;
 		
 		//쿼리오류 이유 찾아보기
-		System.out.println(dao.insertAA());
+		//System.out.println(dao.insertAA());
+		
 	}
+	@Test
+	public void TestStream() {
+		List<String> names = Arrays.asList("jeong", "pro", "jdk", "java");
+		names.stream(); //Collection에서 스트림 생성
+		 
+		Double[] dArray = {3.1, 3.2, 3.3};
+		Arrays.stream(dArray);//배열로 스트림 생성
+		 
+		Stream<Integer> str = Stream.of(1,2); // 스트림 직접 생성
+		Stream<String> a = names.stream().filter(x -> x.contains("o"));
+		names.stream().filter(x -> x.contains("o")).forEach(x->System.out.println(x));
 
+
+
+		
+	}
 	
 	
 }

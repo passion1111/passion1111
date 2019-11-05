@@ -19,7 +19,7 @@ public class TestImp implements Test {
 	@Override
 	public List<HashMap<String, String>> TestAA() {
 		
-		
+		char ch="A";
 		return sqlsession.getMapper(Test.class).TestAA();
 	}
 

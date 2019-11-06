@@ -1,0 +1,15 @@
+redis 설치순서 
+sudo yum install epel-release 
+sudo yum update
+후에 redis 다운로드 왜냐하면 redis에서 make하더라도 jemalloc설치를 하라고 함. 
+의존성문제떄문에 centos7버전에서는 위와같이 먼저 다운로드해주는것이 좋음 
+
+그후 redisstable인스톨후에 make해줌 그떄 hint its good idea~~ 로뜬다면 빌드성공
+
+그후에 cd ./utils로 들어간후 ./install.sh로 실행해서 포트및 로그 설정파일들을 만지고난후에 
+
+redis-cli ping을 해보면 pong이라는 대답이 올것이다.
+
+그후에 간단한 key value는 set {key} {value}형태로 쓰고 기타 
+
+리스트 해쉬등은 명령어에 맞는것을 쓴다.

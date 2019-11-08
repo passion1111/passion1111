@@ -390,7 +390,7 @@ create table reservation (
     --constraint reservation_mem_id_fk FOREIGN KEY (mem_id)
     --REFERENCES member (mem_id)
 );
-
+drop table reservation;
 --정보입력 날짜 랜덤 커리
 update book set book_input_date = to_date(round(dbms_random.value(20170101, 20170131),0),'yyyymmdd')
 where (book_num between round(dbms_random.value(100001, 100268),0) and round(dbms_random.value(100001, 100268),0));
@@ -1203,3 +1203,118 @@ select * from dual;
 select * from test222;
 create table test222(
 name222 number);
+
+
+
+
+commit;
+select * from rental;
+select * from reservation;
+insert into rental values(1,100002,'nmj',null,null,'X','X','예약중');
+insert into reservation values(100002,'nmj',1,sysdate+2); --예약순번1번일떄 reservation과 rental 동시에 남기기 1.   rental에만 남기기2. 선택해야할것. reservation에 안남길거면 enddate테이블 필요없음
+
+--간단한것부터 끝내기  연장  -- 값이 X일떄 O로 바꾸고 sysdate + 7 해줄것.
+--,예약기능              --  예약자수가 5명이상일시 더이상 예약못하게할것. 
+                       --현재 rsrvcount라는 가상 컬럼으로 예약자수를 새고있음. 
+ select * from reservation;
+ --예약할려는책을 이미 예약하고있는것은 아닌지.
+ select count(*) from reservation where rsrv_num >0 and book_num=100001;
+ --값이 0을 초과하면 이미 예약했다는 뜻이니 예약불가 
+ 
+ 
+ --반납했을시 예약1번-> insert into 예약중 and update 
+ 
+ --
+ 
+ --
+ 
+ 
+ 
+ --예약한책
+ insert  into reservation(book_num,mem_id,rsrv_num) values(100001,'nmj',(select count(rsrv_num)+1 from reservation where book_num=100001));
+--반납할떄 예약한사람 insert시키고 해당책 1번 delete할것. 
+--해당책 예약자수구할것.
+ select count(*) from reservation where rsrv_num >0 and book_num=100001; --이값이 0을 초과하면 
+ --selectkey로 rsrv_num=1가져오고 
+ --rsrv_num=1 reservation 삭제
+ --rsrv_num +2부터 1로 떙길것.
+ 
+ 
+ select * from reservation;
+ declare
+ hohohoho varchar2(30);
+ begin
+    select mem_id into hohohoho from reservation where book_num=100002 and rsrv_num=1;
+  DBMS_OUTPUT.PUT_LINE('dd'||hohohoho);
+ 
+ end;
+ /
+ set serveroutput on;
+ --notnull 확인
+ create or replace procedure proc_reservation(p_book_num in number)
+ is
+ updatecount number;
+ reservationcount number;
+ reservationmem_id varchar2(50);
+ begin
+ updatecount:=0;
+
+    update rental set rent_enddate = sysdate, rent_status = '반납' where book_num =  p_book_num;
+    
+    select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
+    if reservationcount>0 then 
+    
+    for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0)
+    loop
+        if updatecount=0 then 
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
+        update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
+        else
+        --첫번쨰는 카운트 0이니 윗조건 실행 그다음 1부터는 밑 쿼리 실행
+        update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
+        end if;
+    
+    updatecount:=updatecount+1;
+    end loop;
+    end if;
+ 
+ end;
+ /
+ 
+ -- 반납할떄 아래를 업데이트문으로 바꾸기.
+ select * from rental where book_num=100003 and rent_num=(select max(rent_num) from rental where book_num=100003);
+ 
+ 
+ select * from rental;
+ desc rental;
+                       
+--고칠것 rentbookcheck와 rentmembookcheck이 있음.
+
+
+select rent_extension from rental;    
+  select * from
+         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension
+                 from  (select * from book order by book_num desc) b
+                join  (select book_num, rent_status ,rent_num,mem_id,rent_extension from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
+                   on (b.book_num = r.book_num) 
+                   left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )  ;
+                   
+select * from member;  
+select * from rental;
+
+
+
+   update rental set rent_enddate=rent_enddate+7 where rent_num=(select max(rent_num) from rental where book_num=100003); 
+update rental set rent_enddate=rent_enddate+7 where rent_num=(select max(rent_num) from rental where book_num=100003); 
+update rental set rent_enddate=rent_enddate+7 where rent_num=(select max(rent_num) from rental where book_num=100003);
+
+
+
+select to_char(rent_enddate) rent_enddate from rental;
+select * from
+         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate
+                 from  (select * from book order by book_num desc) b
+                join  (select book_num, rent_status ,rent_num,mem_id , case when rent_extension='X' then '연장가능'
+                                                                            else '연장불가' end rent_extension ,rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
+                   on (b.book_num = r.book_num) 
+                   left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       

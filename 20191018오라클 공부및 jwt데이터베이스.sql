@@ -298,3 +298,7 @@ create table pay_management(
 
 
 select nvl(sum(book_price),0) from new_book where new_status='승인';
+ select * from          (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount   
+ from  (select * from book order by book_num desc) b       
+ join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id =? and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id =?) ) r            
+ on (b.book_num = r.book_num)  

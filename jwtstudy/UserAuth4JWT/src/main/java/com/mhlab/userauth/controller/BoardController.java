@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,20 +23,24 @@ public class BoardController {
 	private SecretService secretService;
 	
 	/**
-	 * 토큰 정보를 가져와서 페이지에서 보여준다. 
-	 * @param request HttpServletRequest 객 
-	 * @param model Model 객체
-	 * @return 화면 페이지 
+	 * �넗�겙 �젙蹂대�� 媛��졇���꽌 �럹�씠吏��뿉�꽌 蹂댁뿬以��떎. 
+	 * @param request HttpServletRequest 媛� 
+	 * @param model Model 媛앹껜
+	 * @return �솕硫� �럹�씠吏� 
 	 */
 	@RequestMapping(value="main", method=RequestMethod.GET)
-	public String getBoardMain(HttpServletRequest request,  Model model){
-		//세션에서 값을 가져온다.
+	public String getBoardMain(HttpServletRequest request,  Model model,HttpSession session){
+		session.setAttribute("dd", 213);
+		session.removeAttribute("dd");
+		session.
+		System.out.println(session.getAttribute("dd"));
+		//�꽭�뀡�뿉�꽌 媛믪쓣 媛��졇�삩�떎.
 		String loginId = (String)request.getSession().getAttribute("loginId");
 		String tokenStr = (String)request.getSession().getAttribute("tokenStr");
 		
 		if(tokenStr!= null && loginId != null){
 			String tokenValidMsg = secretService.validToken(tokenStr, loginId);
-			if(tokenValidMsg.equals("Pass")){ //토큰 검증을 마친 경우에만 토큰 정보를 출력한다.
+			if(tokenValidMsg.equals("Pass")){ //�넗�겙 寃�利앹쓣 留덉튇 寃쎌슦�뿉留� �넗�겙 �젙蹂대�� 異쒕젰�븳�떎.
 				Map<String, Object> tokenPayload = secretService.getTokenPayload(tokenStr);
 				model.addAttribute("tokenSub", tokenPayload.get("sub"));
 				model.addAttribute("tokenAud", tokenPayload.get("aud"));
@@ -47,7 +52,7 @@ public class BoardController {
 			model.addAttribute("loginId", loginId);
 			model.addAttribute("tokenValue", tokenStr);
 		}
-		else{model.addAttribute("loginId", "no-login");} //로그인 되어 있지 않은 경우
+		else{model.addAttribute("loginId", "no-login");} //濡쒓렇�씤 �릺�뼱 �엳吏� �븡�� 寃쎌슦
 		return "/board/main";
 	}
 	

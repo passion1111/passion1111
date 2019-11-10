@@ -1,5 +1,7 @@
 package test;
 
+import java.lang.annotation.Retention;
+
 import org.junit.Test;
 
 public class LinkedList2 {
@@ -17,7 +19,6 @@ public class LinkedList2 {
 //		a+=10;
 //	}
 
-	 
 	 
 	 
 	 

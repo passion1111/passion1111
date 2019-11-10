@@ -1,7 +1,7 @@
 package test;
 
-public class TestImple2 extends TestImple {
-
+public abstract class TestImple2{
+  public abstract void hohoho();
 	
 	public void sleep() {
 		

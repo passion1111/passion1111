@@ -40,8 +40,8 @@ public class LinkedList2 {
 	        System.out.println(Car.ho);
 	        
 	        
-	        TestImple test=new TestImple2();
-	        test.eat();
+	      //  TestImple test=new TestImple2();
+	      //  test.eat();
 	        //Integer로 값을 넘기면 안바뀜
 	        //근데 t.value형태로 넘기면 값이바뀜. 
 	    }

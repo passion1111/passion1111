@@ -1229,7 +1229,7 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --예약순번1번일떄 rese
  --
  
  
- 
+ select * from rental;
  --예약한책
  insert  into reservation(book_num,mem_id,rsrv_num) values(100001,'nmj',(select count(rsrv_num)+1 from reservation where book_num=100001));
 --반납할떄 예약한사람 insert시키고 해당책 1번 delete할것. 
@@ -1257,12 +1257,23 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --예약순번1번일떄 rese
  desc reservation;
  insert into reservation values(100001,'byw',2,null);
  
- 
- exec proc_reservation(100001);
+ select * from rental;
+ exec proc_returnbook(100001);
  
  --반납했을시 예약자를 rental 테이블에 insert한후에 reservation사람들을 순번하나씩 떙기게만들기 예약한자가 없을시 그냥 반납만 되게 만들기.
- --매일 일정시간 예약한자가 예약안했을시에 커서로 목록 뽑아놓고 아래의 procedure만 실행시키면 됨. 
- create or replace procedure proc_reservation(p_book_num in number)
+ --매일 일정시간 예약한자가 예약안했을시에 커서로 목록 뽑아놓고 아래의 procedure만 실행시키면 됨.
+ declare
+ 
+ begin 
+  if 5<6 and 7<8 then   DBMS_OUTPUT.PUT_LINE('부서명 : ');
+  end if;
+ 
+ end ;
+ /
+ set serveroutput on;
+ 
+select * from reservation where book_num=100002 and rsrv_num>0 order by rsrv_num;
+ create or replace procedure proc_returnbook(p_book_num in number)
  is
  updatecount number;
  reservationcount number;
@@ -1303,13 +1314,14 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --예약순번1번일떄 rese
 
 
 desc rental;
+select * from rental;
   insert into rental values((select nvl(max(rent_num)+1,1) from rental),  100010, 'nmj', sysdate-4, sysdate-2, 'X', 'X', '예약중');
 --매일 일정시간에 예약했는데 안빌려간사람들 반납처리한후에 예약자있으면 예약처리하기.
-create or replace procedure proc_rentservationautoreturn
+create or replace procedure proc_rentservation_auto_return
 is
 
 begin
-  for returnlist in (select * from rental where rent_status='예약중')
+  for returnlist in (select * from rental where rent_status='예약중' and rent_enddate<sysdate)
   loop
   proc_reservation(returnlist.book_num);
   
@@ -1319,7 +1331,56 @@ end;
 exec proc_rentservationautoreturn();
 select * from rental;
 
---대출정지기한 늘리기 ,대출정지기한 풀어주기 쿼리 짜기  그후에 내용채워넣기 
+--대출정지기한 늘리기 ,대출정지기한 풀어주기 쿼리 짜기  그후에 내용채워넣기
+
+select * from member;
+select * from rental;
+create or replace procedure proc_rentstop
+is
+
+begin
+ -- 반납안한사람 체크후 다시 아이디로 검색할것인가  아니면 프로시저 따로 실행안하고 처리할것인가. 그냥 아이디 상관안하고 추가시키자.
+    for temp_cursor in (select * from rental where rent_status='대여중' and rent_enddate<sysdate)
+    loop
+  update  member set deadline_rent_stop=case when deadline_rent_stop is null then sysdate+1 
+                                when deadline_rent_stop<sysdate then sysdate+1
+                                else deadline_rent_stop+1
+                                end,book_loanable='대출불가',mem_rank=0 where mem_id=temp_cursor.mem_id;
+ 
+    end loop;
+end;
+/
+
+create table testdate(
+testdate date,
+hohoho number
+);
+drop table testdate;
+insert into testdate values(null,1);
+update testdate set testdate=case when testdate is null then sysdate+1 
+                                when testdate<sysdate then sysdate+1
+                                else testdate+1
+                                end,hohoho=3;
+select * from testdate;
+update testdate set testdate= sysdate-100;
+
+
+--대출정지기한 풀린사람들 목록 
+
+select * from member;
+create or replace  procedure proc_rent_available
+is
+
+begin
+    for temp_cursor in (select * from member where deadline_rent_stop<sysdate and book_loanable='대출불가')
+    loop
+    update member set book_loanable='대출가능' where mem_id=temp_cursor.mem_id;
+    
+    end loop;
+
+
+end;
+/
 
 
 

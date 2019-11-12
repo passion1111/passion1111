@@ -1403,12 +1403,74 @@ update rental set rent_enddate=rent_enddate+7 where rent_num=(select max(rent_nu
 update rental set rent_enddate=rent_enddate+7 where rent_num=(select max(rent_num) from rental where book_num=100003);
 
 
+select * from reservation;
 
-select to_char(rent_enddate) rent_enddate from rental;
-select * from
-         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate
-                 from  (select * from book order by book_num desc) b
-                join  (select book_num, rent_status ,rent_num,mem_id , case when rent_extension='X' then '연장가능'
-                                                                            else '연장불가' end rent_extension ,rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
-                   on (b.book_num = r.book_num) 
-                   left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       
+delete from reservation;
+commit;
+
+ select count(*) from (select * from rental where rent_status='대여중' and mem_id='nmj' and book_num=100004) rental
+ 
+ 
+        left outer join (select * from reservation where book_num=100004 and rsrv_num>0 and mem_id='nmj')reservation on rental.mem_id=reservation.mem_id;
+   													
+                                                select * from reservation;
+select * from reservation inner join (select mem_id,book_num from rental where rent_status='대여중')rental on rental.mem_id=reservation.mem_id where rental.book_num=100002 and rsrv_num>0 and rental.mem_id='nmj' ;
+select count(*) from reservation where book_num=100002 and rsrv_num>0;
+select count(*) from reservation where book_num=100002 and rsrv_num>0;
+select * from  rental;
+--예약한책을 
+select * from (select b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate 
+from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then '연장가능' else '연장불가' end rent_extension ,
+case when rent_status='대여중' or rent_status='예약중' then 
+            to_char(rent_enddate) 
+     else null
+end rent_enddate 
+
+
+from rental where rent_startdate in 
+(select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num ) 
+;
+
+select * from ( select rownum rnum, b.*, (case when r.rent_status='반납' then '대여가능' when r.rent_status is null then '대여가능' 
+                                               when r.rent_status ='예약중' then '예약중' else '대여중' end) rent, nvl(rscount,0) reservationcount,
+                                                (case when r.rent_status='반납' then null 
+                                               when r.rent_status='예약중'or r.rent_status='대여중' then to_char(r.rent_enddate)
+                                               end) rent_enddate from 
+                                                                     (select * from book where book_num =100001) b 
+left outer join (select book_num, rent_status,rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
+
+select * from member;
+select * from (select b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then '연장가능' else '연장불가' end rent_extension ,to_char(rent_enddate) rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
+
+
+--예약할떄 예약자가 없으면 바로 예약중으로 바꾸고 아니면 insert into 예약으로 바꿀것.
+select rent_status from ( select r.*
+                                from (select * from book where book_num =100001) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
+create or replace procedure proc_reservationbook(p_mem_id in varchar2,
+                                                 p_book_num in number)
+is
+check_rentstatus varchar2(20);
+
+begin
+--책의 상태가 반납이면 insert into 예약중~~~ 
+select rent_status into check_rentstatus from ( select r.*
+                                from (select * from book where book_num =p_book_num) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
+    if check_rentstatus='반납' then
+            insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, p_mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
+   else
+             insert  into reservation(book_num,mem_id,rsrv_num) values(p_book_num,p_mem_id,(select count(rsrv_num)+1 from reservation where book_num=p_mem_id));
+    end if;
+--반납이 아니면 insert into reservation+1
+   
+    --에러발생시 롤백
+    exception when others then
+    
+    rollback;
+end;
+/
+exec proc_reservationbook('nmj',11);
+set serveroutput on;
+
+ select * from rental;  
+ select * from reservation;
+ select * from ( select rownum rnum, b.*, (case when r.rent_status='반납' then '대여가능' when r.rent_status is null then '대여가능' when r.rent_status ='예약중' then '예약중' else '대여중' end) rent, nvl(rscount,0) reservationcount, (case when r.rent_status='반납' then null when r.rent_status='예약중'or r.rent_status='대여중' then to_char(r.rent_enddate) end) rent_enddate,mem_id from (select * from book where book_num =100002) b left outer join (select book_num, rent_status,rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );

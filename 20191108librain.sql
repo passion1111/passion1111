@@ -1,5 +1,5 @@
----- Çý¼ö 20191024  ¼öÁ¤ 
----- ¾Æ¿¹ Ã³À½ µðºñ ³Ö´Â ºÐµéÀº drop Á¦¿ÜÇÏ°í ÇÏ¸éµË´Ï´Ù!
+---- ï¿½ï¿½ï¿½ï¿½ 20191024  ï¿½ï¿½ï¿½ï¿½ 
+---- ï¿½Æ¿ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ðµï¿½ï¿½ï¿½ drop ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï¸ï¿½Ë´Ï´ï¿½!
 drop table book_category;
 drop table book;
 drop table appendix;
@@ -8,326 +8,326 @@ drop table new_book;
 drop table discard_book;
 drop table reservation;
 
-create table book_category ( --µµ¼­ºÐ·ù
-    book_ctgr_num_db varchar2(100) , --ºÐ·ù±âÈ£
-    book_ctgr_name varchar2(200)  --ºÐ·ù¸í
+create table book_category ( --ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½
+    book_ctgr_num_db varchar2(100) , --ï¿½Ð·ï¿½ï¿½ï¿½È£
+    book_ctgr_name varchar2(200)  --ï¿½Ð·ï¿½ï¿½ï¿½
     --constraint book_category_num_pk PRIMARY KEY (category_num)
 );
-insert into book_category  values('000', 'ÃÑ·ù');
-insert into book_category  values('100', 'Ã¶ÇÐ');
-insert into book_category  values('200', 'Á¾±³');
-insert into book_category  values('300', '»çÈ¸ÇÐ');
-insert into book_category  values('400', '¾ð¾î');
-insert into book_category  values('500', 'ÀÚ¿¬°úÇÐ');
-insert into book_category  values('600', '±â¼ú°úÇÐ');
-insert into book_category  values('700', '¿¹¼ú');
-insert into book_category  values('800', '¹®ÇÐ');
-insert into book_category  values('900', '¿ª»ç');
+insert into book_category  values('000', 'ï¿½Ñ·ï¿½');
+insert into book_category  values('100', 'Ã¶ï¿½ï¿½');
+insert into book_category  values('200', 'ï¿½ï¿½ï¿½ï¿½');
+insert into book_category  values('300', 'ï¿½ï¿½È¸ï¿½ï¿½');
+insert into book_category  values('400', 'ï¿½ï¿½ï¿½');
+insert into book_category  values('500', 'ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into book_category  values('600', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into book_category  values('700', 'ï¿½ï¿½ï¿½ï¿½');
+insert into book_category  values('800', 'ï¿½ï¿½ï¿½ï¿½');
+insert into book_category  values('900', 'ï¿½ï¿½ï¿½ï¿½');
 
-create table book ( --µµ¼­
-    book_num number, --µµ¼­¹øÈ£
-    book_author varchar2(150), --ÀúÀÚ
-    book_name varchar2(200), --µµ¼­¸í
-    book_pub_house varchar2(50), --ÃâÆÇ»ç
-    book_pub_date date, --¹ßÇàÀÏ
+create table book ( --ï¿½ï¿½ï¿½ï¿½
+    book_num number, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    book_author varchar2(150), --ï¿½ï¿½ï¿½ï¿½
+    book_name varchar2(200), --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    book_pub_house varchar2(50), --ï¿½ï¿½ï¿½Ç»ï¿½
+    book_pub_date date, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     book_ISBN varchar2(50), --ISBN
-    book_apdx_status varchar2(10), --ºÎ·Ï¿©ºÎ
-    book_ctgr_num varchar2(100), --ºÐ·ù±âÈ£
-    book_rsrv_status varchar2(50), --¿¹¾à¿©ºÎ
-    book_rent_cnt number, --´ëÃâ È½¼ö
-    book_input_date date, --ÀÔ·ÂÀÏ
-    book_ctgr_num_db varchar2(100) --µµ¼­ ºÐ·ù¿¡ ³ÖÀ» ºÐ·ù±âÈ£ °ª
+    book_apdx_status varchar2(10), --ï¿½Î·Ï¿ï¿½ï¿½ï¿½
+    book_ctgr_num varchar2(100), --ï¿½Ð·ï¿½ï¿½ï¿½È£
+    book_rsrv_status varchar2(50), --ï¿½ï¿½ï¿½à¿©ï¿½ï¿½
+    book_rent_cnt number, --ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½
+    book_input_date date, --ï¿½Ô·ï¿½ï¿½ï¿½
+    book_ctgr_num_db varchar2(100) --ï¿½ï¿½ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð·ï¿½ï¿½ï¿½È£ ï¿½ï¿½
     --constraint book_num_pk PRIMARY KEY (book_num) ,
     --constraint book_category_num_fk FOREIGN KEY (category_num)  
     --references book_category (category_num) 
 );
 
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¹Ý ÀÏ¸®Ä¡ ÁöÀ½ ; Á¤¿µ¸ñ ¿Å±è','ÅØ½ºÆ®ÀÇ Æ÷µµ¹ç','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788932318042 ','X',1,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°­À±ÆÈ Àú','UFOÀÇ ±¸µ¿¿ø¸®','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788968560323 ','X',1.442,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¹®±Ù Àú','Á¤Çü±â¹ý','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791187892502 ','X',3.3,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÑ¼¼Èñ ±Û ; ¹Ú¼±ÇÏ ±×¸²','¾î¸°ÀÌ¸¦ À§ÇÑ µðÁöÅÐ °úÇÐ ¿ë¾î »çÀü','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791170261735 ','X',4.03,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'´ÖÄÉÀÌ ºòµ¥ÀÌÅÍ Àú ; ¼­Àç¿ø ¿ª','±¸±Û¿¡¼­ ¹è¿ì´Â µö·¯´× = Learning from Google deep learning','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788931456639 ','X',4.73,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓ¹éÁØ, Á¤µµÇö, ±èÈ£±¤ [°ø] ÁöÀ½','(ÆÌÄ³½ºÆ®) ³ª´Â ÇÁ·Î±×·¡¸Ó´Ù  : ¾Ë¸ÍÀÌ¸¸ ½ï½ï ¹æ¼Ûº¸´Ù ´õ ¹Ðµµ ³ô°Ô ´õ À¯¿ëÇÏ°Ô. 2Åº','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788968482908 ','X',5.04,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶¿¤ ±×·ç½º ÁöÀ½ ; ¹ÚÀºÁ¤ ; ±èÇÑ°á ; ÇÏ¼ºÁÖ [°ø]¿Å±è','(¹Ø¹Ù´ÚºÎÅÍ ½ÃÀÛÇÏ´Â) µ¥ÀÌÅÍ °úÇÐ : µ¥ÀÌÅÍ ºÐ¼®À» À§ÇÑ ÆÄÀÌ½ã ÇÁ·Î±×·¡¹Ö°ú ¼öÇÐ¡¤Åë°è ±âÃÊ','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788966261819 ','X',5.7,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸¶½ºÀÌ Åä½Ã°¡Ã÷ ÁöÀ½ ; ¼ÕÁ¤µµ ¿Å??','(¼ÕÀ¸·Î ÀÍÈ÷¸ç ¹è¿ì´Â)»ýÈ° º¸¾È Ã¹°ÉÀ½','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788968482861 ','X',5.8,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³²ÇüµÎ ÁöÀ½','Ç¥Àý·Ð  : Ç¥Àý¿¡¼­ ÀÚÀ¯·Î¿î Á¤Á÷ÇÑ ±Û¾²±â','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788932317328 ','X',11.2,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ»ó¼ø ÁöÀ½','³ª´Â Ã¥¸¸µå´Â ¿©ÀÚÀÔ´Ï´Ù  : bookart£¦bookbinding','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788964391310 ','X',12.4,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ³ªÀÌÁî¹Ì ·» ÁöÀ½ ; ÃÖ¹ÌÇý ¿Å±è','ÀÌ·¸°Ô Ã¥À¸·Î »ì°í ÀÖ½À´Ï´Ù','¶óÀÌºê·¹ÀÎ',to_date('2018','YYYY'),'9791186639689 ','X',13.04,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Àå¼øÈÖ ÁöÀ½ ; ¼º±Õ°ü´ë ÀÏ¹Ý´ëÇÐ¿ø ÇÑ¹®°íÀü¹ø¿ªÇùµ¿°úÁ¤ ¿Å±è','»ç°íÀü¼­ ÀÌÇØÀÇ Ã¹°ÉÀ½','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791155501757 ','X',15.12,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'2017 °æ±âµµ »ç¼­¼­Æò´Ü ÁöÀ½','»ç¼­µéÀÇ Ã¥ÀÌ¾ß±â(2017)','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788993395662 ','X',18.3,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÑ±¹¹®ÇåÁ¤º¸ÇÐÈ¸ ÆíÂùÀ§¿øÈ¸ ÆíÁýºÎ ¿«À½','(ÃÖ½Å) ¹®ÇåÁ¤º¸ÇÐÀÇ ÀÌÇØ','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788976781659 ','X',20.1,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹Ú¿µÈñ, È«±âÃ¶ °øÀú','µµ¼­°ü °æ¿µ·Ð','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788993419474 ','X',23,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸Ë ¾÷½¼, C. ¸¶ÀÌÅ¬ È¦, ÄÉºó Ä³³Í [°ø]ÁöÀ½ ; ³ë???¿µ ¿Å±è','(Now) ¾î¸ÞÀÌÂ¡ ÀÎÆ÷¸ÞÀÌ¼Ç : ¸¸È­·Î ¹è¿ì´Â Á¤º¸¿Í °Ë»öÀÇ ¸ðµç °Í','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788958204626 ','X',25.25,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³ë¿µÈñ ÁöÀ½','Â÷¼¼´ë µðÁöÅÐ µµ¼­°üÀÇ ÀÌÇØ  = Understanding the next generation digital library','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788959725328 ','X',26.9,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'´Ï³ª »óÄÚºñÄ¡ ÁöÀ½  ; ±èº´È­ ¿Å±è','È¥ÀÚ Ã¥ ÀÐ´Â ½Ã°£ : ¹«¾ùÀ¸·Îµµ À§·Î¹ÞÁö ¸øÇÒ ¶§','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788901142616 ','X',29.85,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓ¿ì¿µ ±Û ; Á¤ÀºÁ¤ ±×¸²','ÄíÅ°·± º°º° ´ë¹é°ú. 2-2, ÄÚµù ¿ùµå¿Í ¹ö±×´ë¼Òµ¿','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788926384251 ','X',30,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Jon Richards ; Ed Simkins','Space','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9780750278454 ','X',31,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸®¸µ ÁöÀ½  ; ¹Ú¿µ¼ø ¿Å±è','È£¶ûÀÌ¸¦ »êÀ¸·Î µ¹·Áº¸³»´Ù  : ÇÐÀÚÀÇ ¿ïÅ¸¸®¸¦ ³Ñ¾î ½ÇÁúÀ» ³íÇÏ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788967351816 ','X',42,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'½ÉÀç¼® ±Û','(¹Ì¸® °¡ º») ±¹¸³¹Î¼Ó¹Ú¹°°ü','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788970943671 ','X',69,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌº¸¾Æ ÁöÀ½','(¹Ú¹°°üÇÐ ¹®È­¿¹¼ú°æ¿µ ÀÔ¹®ÀÚ¸¦ À§ÇÑ) ¹Ú¹°°ü °æ¿µ°ú ¸¶ÄÉÆÃ','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788934969761 ','X',69.068,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹Ú¼ºÁ¦ ÁöÀ½','±Ç·Â°ú ¾ð·Ð : ±â·¹±â Àú³Î¸®ÁòÀÇ ½Ã´ë','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788936486174 ','X',70.4,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓÁ¾±Ç ÁöÀ½','ÇÁ¶û½º Áö½ÄÀÎÀÇ ¼¼°è  : ¹®ÇÐ/Á¤Ä¡/Àú³Î¸®Áò','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791187254034 ','X',72.6,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤Á¦±¤ ±Û ; ±¹¹ÎÁö ±×¸²','ÇÞºû¸¶À» ¾ÆÆÄÆ® µ¿¹°¿ø : Á¤Á¦±¤ ÀåÆíµ¿È­','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788936442880 ','X',80,'¿¹¾à°¡´É',0,sysdate,'000');
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³ªÄ«Áö¸¶ ¿ä½Ã¹ÌÄ¡ ÁöÀ½  ; ±èÀ±Èñ ¿Å±è','Ã¶ÇÐÀÇ ±³°ú¼­  : ´ç½ÅÀÌ ¸ô¶ú´ø ÁøÂ¥ Ã¶ÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788920012921 ','X',100,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀúºÎÁ¦ ÁöÀ½ ; ÇãÀ¯¿µ ¿Å±è','°í·Î, Ã¶ÇÐÇÑ´Ù : ÂîÁúÇÑ Ã¶ÇÐÀÚµéÀÇ À§´ëÇÑ »ý°¢ ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788959406517 ','X',109.9,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÄøÅÊ ¸ÞÀÌ¾ß¼ö ÁöÀ½ ; ¾öÅÂ¿¬ ¿Å±è','ÇüÀÌ»óÇÐ°ú °úÇÐ ¹Û ¼Ò¼³','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788961473026 ','X',110,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·çÆ®°Å ·òÆ®ÄÉÇÏ¿ì½º ÁöÀ½  ; °øº´Çý  ; ÀÌ¼± [°ø] ¿Å±è','Åº»ý Ã¶ÇÐ  : Á×À½ÀÇ Ã¶ÇÐÀ» ³Ñ¾î¼­','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788961472647 ','X',112,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'´Ò½º J. ´Ò½¼ ÁöÀ½ ; ¹Ú»ïÁÖ ¿Å±è','¹ÏÀ½ ÇØÃ¼ÇÏ±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788946063235 ','X',121.6,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Atul Gawande','Being mortal : medicine and what matters in the end','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9781250081247 ','X',126.5,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'òçûË øº ; Á¤º´¼· ¿ª:','(æ»ñÉ)çßÑÀó¢àãÓÞîï. [3], ÓÞùÊ : Ý¾ ïáëù¡¤ó¢ñÉ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788960716650 ','X',144.3,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÑÇüÁ¶ ÁöÀ½','¿Ö Á¶¼± À¯ÇÐÀÎ°¡','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9788954606684 ','X',151.5,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³²È¸±Ù ÁöÀ½ ; ¼³¼ø³² ¿Å±è','¸ÍÀÚ¿Í Áø½É','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788960515895 ','X',152.216,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾²·ç¹Ì ?½ºÄÉ ¿Ü ÁöÀ½  ; À±¿©ÀÏ ¿Å±è','»ç»óÀ¸·Î¼­ÀÇ 3¡¤11','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788976823748 ','X',153.5,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·Î¹öÆ® ³ëÁ÷ ÁöÀ½  ; ±èÇÑ¿µ ¿Å±è','¹«¾ùÀÌ °¡Ä¡ ÀÖ´Â »îÀÎ°¡  : ¼ÒÅ©¶óÅ×½ºÀÇ ¸¶Áö¸· Áú¹®','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788934968559 ','X',162.5,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·òµð°Å ÀÚÇÁ¶õ½ºÅ° ÁöÀ½ ; ¿ÀÀ±Èñ, À°Çý¿ø [°ø]¿Å±è','´ÏÃ¼ : ±×ÀÇ »ç»óÀÇ Àü±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791188260201 ','X',165.77099,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤½Â¿ø ÁöÀ½','Ã»¿Í´ë´Â °Ç¹° ÀÌ¸§ÀÌ ¾Æ´Ï´Ù  : ±âÈ£ÇÐÀ¸·Î ¼¼»ó ÀÐ±â','¶óÀÌºê???ÀÎ',to_date('2017','YYYY'),'9791159252488 ','X',174,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¦ÀÌ¹Ì ¿öµå ÁöÀ½  ; ±è¼ºÈÆ ¿Å±è','¼Ò¸®°¡ º¸ÀÌ´Â »ç¶÷µé  : ³ú°úÇÐÀÌ Ç®¾î³½ °ø°¨°¢ÀÇ ºñ¹Ð','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788965961734 ','X',181.29,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼±¾È³² ÁöÀ½','È¥ÀÚ ÀÖ°í ½ÍÀº ³²ÀÚ  : ¸» ¸ø ÇÑ »óÃ³¿Í ¼û°ÜµÐ º»½É¿¡ °üÇÑ ½É¸®ÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788952782458 ','X',182.232,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¾ð ½ºÆ©¾îÆ®-ÇØ¹ÐÅÏ ÁöÀ½ ; ÀÌµ¿¿µ, ¼­ÀºÇö, ¿ìÁ¾ÀÎ [°ø] ¿Å±è','³ëÈ­ÀÇ ½É¸®ÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788952118875 ','X',183.7,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÚÅ©-¾Ë·À ¹Ð·¹ ÁöÀ½  ; ¸ÍÁ¤Çö, ÀÌ¼ö·Ã [°ø] ¿Å±è','ÀÚÅ© ¶óÄ² ¼¼¹Ì³ª. 11, Á¤½ÅºÐ¼®ÀÇ ³× °¡Áö ±Ùº»°³³ä','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9788955591828 ','X',188.5,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Mo Gawdat','Solve for happy NY','¶óÀÌºê·¹ÀÎ',to_date('','YYYY'),'9781501154638 ','X',191.6,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸Þ¸® C. Á¨Æ¿·¯ ÁöÀ½ ; Àü¿µ¹Î, ÀÌÁßÇÐ [°ø] ¿Å±è','Áö±Ý, »ó»ç°¡ ºÎ´çÇÑ ÀÏÀ» Áö½ÃÇß½À´Ï±î?','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791186269435 ','X',195,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌÈÆ ±Û ; ±è¹Î¼± ±×¸²','365 ¸ÅÀÏ ÀÐ´Â Ã¥ ¼ÓÀÇ ÇÑ ÁÙ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788914019806 ','X',199.8,'¿¹¾à°¡´É',0,sysdate,100);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿Ã´õ½º Çä½½¸® ÁöÀ½ ; Á¶¿Á°æ ¿Å±è','¿µ¿øÀÇ Ã¶ÇÐ : ¸ðµç À§´ëÇÑ °¡¸£Ä§ÀÇ ÇÙ½É','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788934968627 ','X',201,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÀç¿µ ÁöÀ½','Á¾±³½É¸®ÇÐÀÇ ÀÌÇØ : Á×À½ÀÎ½ÄÀÇ ³íÀÇ¸¦ Áß½ÉÀ¸·Î','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788930317573 ','X',201.8,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼­°ø¼® [¿Ü] ±Û','°íÅëÀÇ ½Ã´ë, ÀÚºñ¸¦ »ý°¢ÇÑ´Ù  : ÀÚºñ¿¡ °üÇÑ ÅëÇÕÀû ¼ºÂû','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788941916093 ','X',202,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'µ¥ÀÌºñµå ¹Ð½º ÁöÀ½  ; ±ÇÇõ ¿Å±è','¿ìÁÖ¿¡´Â ½ÅÀÌ ¾ø´Ù','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788961670517 ','X',204.21,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸Þ¸® ´õ±Û·¯½º ÁöÀ½  ; ¹æ¿øÀÏ ¿Å±è','ÀÚ¿¬ »óÂ¡  : ¿ìÁÖ·Ð Å½±¸','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788961471947 ','X',204.3,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ÆÀÌ¸° È£¿Ó ÁöÀ½ ; ¼Õ´öÈ£ ¿Å±è','(°í¾ÆµéÀÇ ¿µ¿õ)Á¶Áö ¹Ä·¯','¶óÀÌºê·¹ÀÎ',to_date('2009','YYYY'),'9788984750111 ','X',208,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¶óÀÌÇÁ»çÀÌ¾ð½º ÁöÀ½  ; ³ë°æ¾Æ ¿Å±è','Áöµµ·Î ÀÐ´Â´Ù ¼¼°è 5´ë Á¾±³ ¿ª»çµµ°¨','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788994597690 ','X',209,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÑ±¹°¶·´Á¶»ç¿¬±¸¼Ò ÆíÁýºÎ ¿«À½','ÇÑ±¹ÀÎÀÇ Á¾±³  : 1984-2014 ¿©·ÐÁ¶»ç·Î »ý»ýÇÏ°Ô ¹àÈù ÇÑ±¹ À¯ÀÏÀÇ Á¾±³ Å½±¸¼­','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788993516111 ','X',209.11,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¿øº¹ ±Û.±×¸²','½ÅÀÇ ³ª¶ó ÀÎ°£ ³ª¶ó. 1, ¼¼°èÀÇ Á¾±³Æí','¶óÀÌºê·¹ÀÎ',to_date('2002','YYYY'),'9788900118667 ','X',219,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°­Á¤½Ä [¿Ü] ÁöÀ½','¾Æ½Ã¾Æ½ÅÈ­¿©Çà  : ½ÅÈ­, ³¡¾ø´Â ÀÌ¾ß±â¸¦ Ã¢Á¶ÇÏ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788939207554 ','X',219.1,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼Û¾ð ±Û  ; Á¤º¸¿µ ±×¸²','Àú½Â»çÀÚ°¡ µÈ °­¸²µµ·É','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9788970945460 ','X',219.11,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¼ºÃ¶ ÁöÀ½','(µ¿¾Æ½Ã¾Æ ´ë½ÂºÒ±³ ÁßÈïÁ¶) ½Â¶û  : ±× »ý¾Ö¿Í »ç»óÀÇ ºÐ¼®Àû Å½±¸','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788942363087 ','X',220.99,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ºÒ±³±³ÀçÆíÂùÀ§¿øÈ¸ ÁöÀ½','ºÒ±³¿ÍÀÇ Ã¹ ¸¸³²  : ºÒ±³ÀÇ ¿ª»ç, ±³¸®, ¹®È­¸¦ ¾Æ¿ì¸¥ ÃÊ½ÉÀÚ¸¦ À§ÇÑ ºÒ±³ ÀÔ¹®¼­','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788974790967 ','X',221,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿ø¿µ ÁöÀ½','°èÀ², ²É°ú °¡½Ã','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788998946036 ','X',223.7,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÚÇö ±Û  ; ¼®°ø, ºÒ±³½Å¹®»ç [°ø] »çÁø','½º´ÔÀÇ ºñ¹Ð  : 2,600³âÀÇ ¿ª»ç¿Í ¹®È­ ±×¸®°í ¶§·Ð ¿ÀÇØ¿Í ½Ç¼ö°¡ ¸¸µé¾î³½ ½º´ÔµéÀÇ ¼öÇà°ú ÀÏ»ó ÀÌ¾ß±â','???ÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791155800751 ','X',226.4,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼Û±¤ÅÃ ÁöÀ½','±âµ¶±³ÀÎÀÌ¶ó¸é ¹Ýµå½Ã ÀÐ¾î¾ß ÇÒ Ã¥ 100','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791186404690 ','X',230.26,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾È¼¿¸§ ±×·ô ÁöÀ½  ; ÃÖ¿ëÈ£ ¿Å±è','´ç½ÅÀº ³ªÀÇ Ãµ»ç  : ¸Å ¼ø°£¸¶´Ù ÇÏ´À´ÔÀÌ ¿ì¸®¿¡°Ô º¸³» ÁÖ½Ã´Â ¼±¹°!','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788932113913 ','X',231.22,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·ÎÀÌ½º ·Ï ±Û  ; ÄÉÀÌ À§´õ½¼ ±×¸²  ; ±è°æÀº ¿Å±è','(¿ì¸® Ä£±¸ ¿¹¼ö´ÔÀÌ) ºÎÈ°ÇÏ¼Ì¾î¿ä!','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788932114378 ','X',232,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±â¹Î¼® ÁöÀ½','±¸¾àÀÇ ¹ÎÁÖÁÖÀÇ Ç³°æ  : °í´ë ÀÌ½º¶ó¿¤ ÀÇÈ¸Á¦µµ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788936503451 ','X',233.109,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Áü ¿ÍÀÏ´õ ¿Ü ÁöÀ½  ; ¼ÕÁ¤ÈÆ, ¾ÈÀ±°æ [°ø] ¿Å±è','(´õ ±íÀº ¼º¼÷À¸·Î ÀÎµµÇÏ´Â) ¿¹¼ö´Ô ¸¶À½´ã±â','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788977823358 ','X',235.36,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Åè ¶óÀÌÆ® ÁöÀ½  ; ¹éÁöÀ± ¿Å±è','ÀÌ°ÍÀÌ º¹À½ÀÌ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788932814735 ','X',235.4,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¸ ÇÁ¸®Ã³µå ÁöÀ½  ; ÇÑ¹®´ö ¿Å±è.ÇØ¼³','±³È¸  : ¿Ö ±³È¸¿¡ °¡¾ß ÇÏ´Â°¡? ±³È¸´Â ¹«¾ùÀ» À§ÇØ Á¸ÀçÇÏ´Â°¡?','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788928638000 ','X',236,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¹ÎÁ¤ [ÁöÀ½]','ÇÏ³ª´ÔÀÌ µµ¿ì½Ã´Â Ä¡À¯ÀÇ ½Ã°£  : º´»ó¿¡¼­ µå¸®´Â ±âµµ¹®','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788904165933 ','X',237.2,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸¶Å© Ã¤ÇÁ¸Õ ÁöÀ½ ; ³ëÃ¶·¡ ¿Å±è','¼º°øÈ¸ ½ÅÇÐ : ¼º°øÈ¸ ½ÅÇÐÀÇ Çü¼º°ú ¹ßÀü','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788928638291 ','X',238.31,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÜ½ºÃÕ ÁöÀ½  ; ¾Èµ¿ÁØ, ·±»þ¿À¸® [°ø] µÚÄ§','µµ±³¹®È­ 15°­  : ´ç½ÅÀÌ ±Ã±ÝÇØ ÇÏ´Â µµ±³¿¡ °üÇÑ ¸ðµç °Í','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788994963570 ','X',240,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«¸¦ ±¸½ºÅ¸ÇÁ À¶, ¸®ÇÏ¸£Æ® ºôÇï¸§ [°ø] ÁöÀ½  ; ÀÌÀ¯°æ ¿Å±è','È²±Ý²ÉÀÇ ºñ¹Ð','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788954624022 ','X',244,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Ç¥¿µ»ï ÁöÀ½','Ç¥¿µ»ïÀÇ µ¿ÇÐ ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788997472826 ','X',250,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹Ú¼öÇö ±Û ; À±Á¤ÁÖ ±×¸²','½Ã°ñÁýÀÌ »ì¾Æ³µ¾î¿ä','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788993242287 ','X',251,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±ÇÅÂÈÆ ÁöÀ½','ºÀ¿ì ¼±»ýÀÇ à¹ ÀÌ¾ß±â . 1','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791185134406 ','X',259,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'½º¿Í¹Ì ¹Ù½ºÄ«¶ó³­´Ù ÁöÀ½  ; ÀÌÇö¼÷ ¿Å±è','ÈùµÎÀÌÁò ÀÌÇØÇÏ±â','¶ó??ºê·¹ÀÎ',to_date('2016','YYYY'),'9788926874622 ','X',270,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±Çº´±â ÁöÀ½','²Ù¶õÀº ¹«¾ùÀ» ¸»ÇÏ´Â°¡? : ÁÖÁ¦º°, ÀÎ¹°º°·Î ¾Ë¾Æº¸´Â ²Ù¶õ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791159877230 ','X',283,'¿¹¾à°¡´É',0,sysdate,200);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÎµð°í ¿¬±¸¼Ò ÁöÀ½','°¡´É¼ºÀÇ Áß½É  = Interview with Kojin Karatani  : °¡¶óÅ¸´Ï °íÁø ÀÎÅÍºä','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788958202981 ','X',301,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'G.D.H. ÄÝ ÁöÀ½ ; È«±âºó ¿Å±è','·Î¹öÆ® ¿À¾ð : »ê¾÷Çõ¸í±â, Çùµ¿ÀÇ °øµ¿Ã¼¸¦ °Ç¼³ÇÑ »çÈ¸Çõ½Å°¡','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791195567812 ','X',301.4,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ÈÅä´Ï¿À ±×¶÷½Ã ÁöÀ½  ; ÀÌ»óÈÆ ¿Å±è.','±×¶÷½ÃÀÇ ¿ÁÁß¼ö°í. 1 :, Á¤Ä¡Æí','¶óÀÌºê·¹ÀÎ',to_date('1999','YYYY'),'9788934001553 ','X',301.52,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹é¿µ¼­ ÁöÀ½','(ÇÙ½ÉÇöÀå¿¡¼­) µ¿¾Æ½Ã¾Æ¸¦ ´Ù½Ã ¹¯´Ù  : °ø»ý»çÈ¸¸¦ À§ÇÑ ½ÇÃµ°úÁ¦','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788936482688 ','X',309.11,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Åä¸¶ ÇÇÄÉÆ¼ ÁöÀ½  ; Àå°æ´ö, À¯¿£Á¦ÀÌ[°ø] ¿Å±è','21¼¼±â ÀÚº»','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788967351274 ','X',321.2,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Àç´Ö Àª·», ¸¶Á¶¸® °£ [°ø]ÁöÀ½ ; ±èÀÎ°æ ¿Å±è','(³ë¿¹Á¦µµ¿¡ ¹Ý´ëÇÑ ¿©¼ºµé)ÀÚÀ¯¸¦ ¸»ÇÏ´Ù','¶ó???ºê·¹ÀÎ',to_date('2016','YYYY'),'9791195718702 ','X',321.542,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌÀ¯Àç ÁöÀ½','¼­ºñ½º¸¶ÄÉÆÃ','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788958533641 ','X',323.16,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ·¡Ç³ ÁöÀ½','ÁÖ½ÄÈ¸»çÁ¦µµ','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788956614083 ','X',324.47,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ÈÃá¼ö ÁöÀ½','ºÒ¹ýÇàÀ§ ºÎ´çÀÌµæ »ç¹«°ü¸®','¶óÀÌºê·¹ÀÎ',to_date('2018','YYYY'),'9791186456637 ','X',325.4,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤µ¿°ï ÁöÀ½','½º¸¶Æ®ÆÑÅä¸® = Smart factory : Á¦4Â÷ »ê¾÷Çõ¸íÀÇ Ãâ¹ßÁ¡','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788946070202 ','X',325.6,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Àü±¹»çÈ¸±³»ç¸ðÀÓ ÁöÀ½','»çÈ¸ ¼±»ý´ÔÀÌ µé·ÁÁÖ´Â °øÁ¤¹«¿ª ÀÌ¾ß±â : »çÈ¸Àû °¨¼ö¼ºÀ» Å°¿ì´Â ½Ã¹Î±³°ú¼­','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788952235763 ','X',326,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾È¼¼¿µ ÁöÀ½','µµ³Îµå Æ®·³ÇÁ¿Í ¾î¶»°Ô Çù»óÇÒ °ÍÀÎ°¡  : ´Ù°¡¿À´Â ¹«¿ª ÀüÀï Å¸°í³­ Çù»ó°¡¿Í »ó´ëÇÏ´Â ºñÁî´Ï½º Çù»ó Àü·«','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788947541695 ','X',326.2,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÃÖ¿µ¼ö ÁöÀ½','¸é¼¼Á¡ ÀÌ¾ß±â  : ¼îÇÎ, °ü±¤, ÇÑ·ùÀÇ ÃÖÀü¼±','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788959892389 ','X',326.39,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾«ÈËºù ÁöÀ½  ; Â÷ÇýÁ¤ ¿Å±è','È­ÆóÀüÀï  = Currency wars. 1, È­ÆóÀüÀï','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9788925521190 ','X',327.2,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾î¸Ç´Ù ½ºÅ¸ÀÎ¹ö±× ÁöÀ½ ; ÃÖÀÌÇö ¿Å±è','¿©ÀÚµé¿¡°Ô, ¹®Á¦´Â µ·ÀÌ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791195445653 ','X',327.8,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶³ª´Ü ±×·ç¹ö ÁöÀ½ ; ±èÈ«±Õ [¿Ü]ÁöÀ½','ÀçÁ¤ÇÐ°ú °ø°øÁ¤Ã¥','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788968669613 ','X',329.01,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÀ¶Èñ ¿Ü ÁöÀ½','´«, »õ·Î¿î ¹ß°ß  : ³ª´Â ¾î¶² ´«À¸·Î ¼¼»óÀ» º¼±î?','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788958204701 ','X',330,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌµµÈì ÁöÀ½','(ÀÎ·ùÀÇ À§±â¿¡ ´ëÇÑ) ¿øÈ¿¿Í ¸¶¸£Å©½ºÀÇ ´ëÈ­','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788954431972 ','X',330.4,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓÃ¤¿ø ÁöÀ½','½Ã¹ÎÀû °øÈ­ÁÖÀÇ = Civic Republicanism: : ½Ã¹Î´ëÁýÈ¸¿Í ±¤È­¹® ÀÏ±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788946063426 ','X',331.2,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·ùº¸¼± [¿Ü] ÁöÀ½','¼­¿ïÀÇ ÀÎ¹®ÇÐ  : µµ½Ã¸¦ ÀÐ´Â 12°¡Áö ½Ã¼±','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788936472818 ','X',331.47,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Jean Clandinin Àú ; ¿°Áö¼÷ [¿Ü] °ø¿ª','³»·¯Æ¼ºê Å½±¸ÀÇ ÀÌÇØ¿Í ½ÇÃµ','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788925408972 ','X',331.9,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÇÏ´Ã ±Û  ; ¹Ú¿µÂù ±×¸²','(¼¼»ó¿¡¼­ °¡Àå ½¬¿î ÀÏ,) ÀÚ¿øºÀ»ç','¶ó??ºê·¹ÀÎ',to_date('2011','YYYY'),'9788964960493 ','X',334.14,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÈÄÁöÅ¸ ´ÙÄ«³ë¸® ÁöÀ½ ; È«¼º¹Î ¿Å±è','°ú·Î³ëÀÎ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788935211869 ','X',334.6,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Roxane Gay','Bad Feminist','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9780062282712 ','X',337.2,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Ryan Holiday','Summary of the obstacle is the way','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9781545060612 ','X',338.3,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹ÚÁ¤ÈÆ ÁöÀ½','¿ª¼³°ú ¹ÝÀüÀÇ ´ë·ú : ¶óÆ¾¾Æ¸Þ¸®Ä« Á¤Ä¡»çÈ¸ÀÇ ÇöÀå¿¡¼­ Ä³³½ 10°¡Áö Å×¸¶','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788957694282 ','X',340.95,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓµ¿±Ù, ±èÁ¾¹è [°ø] ÁöÀ½','¸ÞÆ®·ÎÆú¸®½º ¼­¿ïÀÇ Åº»ý  : ¼­¿ïÀÇ »îÀ» ¸¸µé¾î³½ ±Ç·Â, ÀÚº», Á¦µµ, ±×¸®°í ¿å¸Áµé','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788983717252 ','X',340.98,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Åäµå ºÎÅ©È¦Ã÷ ÁöÀ½ ; ¹Ú¼¼¿¬ ¿Å±è','´Ù½Ã, ±¹°¡¸¦ »ý°¢ÇÏ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788950963576 ','X',341,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶³Ê¼± ¸¶Å©½º ÁöÀ½ ; °íÇö¼® ¿Å±è','ÀÎÁ¾ÁÖÀÇ¿¡ ¹°µç °úÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788993166781 ','X',342.3,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸ð¸®Ä¡¿À ºñ·Ñ¸® ÁöÀ½  ; ±èÀçÁß ¿Å±è','´©±¸¸¦ »Ì¾Æ¾ß ÇÏ´Â°¡?  : ¹ÎÁÖ°øÈ­±¹À» À§ÇÑ ¸¶Å°¾Æº§¸®?? ÅõÇ¥ °­·É','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791195824960 ','X',344.1,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'[´õÈÞ¸Õ] ÆíÁýºÎ ¿«À½','ÇÊ¸®¹ö½ºÅÍ = Filibuster  : ¹ÎÁÖÁÖÀÇÀÇ ÃÖÀü¼±','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791159031243 ','X',345.08,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾çÀ±¼±, ÀÌ¼Ò¿µ [°ø] ÁöÀ½','³ª¸¦ À§ÇÑ ÃÖ¼ÒÇÑÀÇ Á¤Ä¡ »ó½Ä','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788952770851 ','X',345.11,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À±È«±Ù ÁöÀ½','ÀÌÀÍÁý´ÜÀÇ Á¤Ä¡ÇÐ  : ÇÑ±¹, ½º¿þµ§, ¹Ì±¹ °æÁ¦´ÜÃ¼ÀÇ Á¤Ä¡Àû È°µ¿°ú ÃÖ±Ù º¯È­','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788974183431 ','X',346.8,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¸ º£ÀÏ¸®½º, ½ºÆ¼ºê ½º¹Ì½º, ÆÛÆ®¸®»þ ¿À¾ð½º [°ø] ÆíÀú  ; ÇÏ¿µ¼± ...[µî] ¿Å±è','¼¼°èÁ¤Ä¡·Ð','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788932472898 ','X',349,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¦ÇÁ¸® D. »è½º ÁöÀ½  ; ÀÌÁ¾ÀÎ ¿Å±è','(Á¸ F. ÄÉ³×µðÀÇ) À§´ëÇÑ Çù»ó','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788950952938 ','X',349.09,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸®¿µÈñ ÁöÀ½','ÀüÈ¯½Ã´ëÀÇ ³í¸®  : ¸®¿µÈñ Æò·ÐÁý','¶óÀÌºê·¹ÀÎ',to_date('1990','YYYY'),'9788936410049 ','X',349.1,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÃÖ¿µÁø ÁöÀ½','ãæÁ¶¼±Ã¥·«  : ¾î¶»°Ô ¿ª»ç´Â ¿ªÀüµÇ´Â°¡?','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788934965695 ','X',349.11,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸ñ¿µ¸¸ ÁöÀ½','½Å·ÚÀÇ ¹ß°ß  : 30³â ÇàÁ¤Àü¹®°¡°¡ ¹àÈ÷´Â 68°¡Áö ºñ¹Ð','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788925558134 ','X',351.1,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÓÐñ½äÒ  îÊ','Ûöö½ÏÐÊ«Ëï?×âÖåæ¨ãùôÂæÚÏ¼','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9787520303545 ','X',360.1,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶ÀÎ¿ø ÇÔ²² Æì³¿','³»¾ÈÀÇ ¹Ì·¡  : ÇÐ»ý°ú ÃÑÀåÀÌ ÇÔ²² ¹¯´Â ¹®¸í Á¤Ä¡ ´ëÇÐÀÇ ±æ  : ¿ì¸®´Â ¾î¶»°Ô ¿ª»çÀÇ ¹Ì·¡°¡ µÉ ¼ö ÀÖÀ»±î','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788935663002 ','X',370.4,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¸ ¶ó¸Ó, Á¸ ¸Ó°Õ´Þ·¯, ¼öÁö º¸½º [°ø] ÁöÀ½  ; ÃÖ¼±°æ, Àå¹àÀº, ±èº´½Ä [°ø] ¿Å±è','ÇÁ·ÎÁ§Æ® ¼ö¾÷ ¾î¶»°Ô ÇÒ °ÍÀÎ°¡?  : Ã¶ÇÐ¿¡¼­ ½ÇÃµ±îÁö, ±³»çµéÀ» À§ÇÑ PBLÀÇ ¸ðµç °Í!','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788994655543 ','X',373.25,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èµ¿Âù ±Û  ; ÃÖÀ±¼±, ÀåÁ¤¿À [°ø] ±×¸²','Áú¹®À» ²Ü²© »ïÅ² »çÈ¸ ±³°ú¼­, ¿ª»ç Æí','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788927800620 ','X',375.43,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌÀ±¿ì ÁöÀ½','4³â ¸ÕÀú  : ¼­¿ï¿©»ó, ±× ³î¶ó¿î ¼º°øÀÇ ºñ¹Ð','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788952216380 ','X',376.7,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤µ¿¿µ [¿Ü]ÁöÀ½','(¿¹ºñ±³»ç¸¦ À§ÇÑ)Æ¯¼ö±³À°ÇÐ = Introduction to special education for preservice teachers','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788925408774 ','X',379,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°íÀÌÁî¹Ì ´ÙÄÉ¿À ÁöÀ½ ; ¹ÚÇö¼® ¿Å±è','»ç³É²ÛÀÇ °í±â´Â ½âÁö ¾Ê´Â´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788967260248 ','X',381.7,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À±¼ÒÈñ ±Û  ; À¯°æ·¡ ±×¸²','(½´ÆÛ È÷¾î·Î º¸´Ù Àç¹ÌÀÖ´Â) ¿ì¸® ½Å ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788967493806 ','X',388,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ß¸¶¸ðÅä ½ÃÄ¡ÇìÀÌ ÁöÀ½ ; ÃÖ¿ë¿ì ¿Å±è','¾î´À ÇÏ±ÞÀå±³°¡ ¹Ù¶óº» ÀÏº»Á¦±¹ÀÇ À°±º','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788967353544 ','X',390.913,'¿¹¾à°¡´É',0,sysdate,300);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Shin Takahashi ±Û ; Iroha Inoue ±×¸² ; ±è¼ºÈÆ ¿Å±è','(¸¸È­·Î ½±°Ô ¹è¿ì´Â)¼±Çü´ë¼ö','¶óÀÌºê·¹ÀÎ',to_date('2009','YYYY'),'9788931579819 ','X',412.85,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÂùÁß ÁöÀ½','ÃÊÀüµµ °úÇÐ±³½Ç : ´«À¸·Î º¸´Â ¾çÀÚ¿ªÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791195369959 ','X',427.62,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÁ·¹µå º¼Ã÷ ÁöÀ½ ; ÇÑ±¹¿©¼º°úÃÑ ±³À°È«º¸ÃâÆÇÀ§¿øÈ¸ ¿Å±è','¸ñ¼º ³Ê¸Ó : Çà¼º Ãµ¹®ÇÐÀÚ ÇÏÀÌµð ÇØ¸Ö','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788956057811 ','X',440.99,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Æú ¸¶¸£ÅÊ ÁöÀ½ ; Å°ÄÚ ±×¸² ; ¹Ú´ëÁø ¿Å±è','¶Èµü¶Èµü Áö±¸´Â 24½Ã°£','¶óÀÌ??·¹ÀÎ',to_date('2017','YYYY'),'9788943310912 ','X',448.75,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Charlotte Guillain, illustrated by Yuval Zommer','(The)Street beneath my feet','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9781682971369 ','X',455,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¿ë±Ô, ÇÑ»óÈ£ [°ø] ±Û  ; ¿Ã¸®ºê ½ºÆ©µð¿À, µå¸²½áÄ¡ CC [°ø] ±×¸²','(¾î¸°ÀÌµ¿È­) Á¡¹ÚÀÌ  : ÇÑ¹ÝµµÀÇ °ø·æ','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788901140629 ','X',457,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Áü ¾ËÄ®¸±¸®, Á¸Á¶ ¸ÆÆÐµç [°ø]ÁöÀ½ ; ±èÁ¤Àº ¿Å±è','»ý¸í, °æ°è¿¡ ¼­´Ù : ¾çÀÚ»ý¹°ÇÐÀÇ ½Ã´ë°¡ ´Ù°¡¿Â´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788967354589 ','X',472.19,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸®Ã³µå µµÅ²½º ¿Ü ÁöÀ½  ; Á¸ ºê·Ï¸¸ ¿«À½  ; ÀÌÇÑÀ½ ¿Å±è','±Ã±ØÀÇ »ý¸í  : À§´ëÇÑ ¼®ÇÐ 21ÀÎÀÌ ¸»ÇÏ´Â »ý¸íÀÇ ±â¿ø°ú ÁøÈ­, ±×¸®°í ÃÖÃ·´Ü »ý¸í°úÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788937889257 ','X',473,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¦·²µå Æú¶ô ÁöÀ½ ; ±èÈ«Ç¥ ¿Å±è','ÁøÈ­ÇÏ´Â ¹°','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791128820045 ','X',474,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'»ýÅÂÁöÆò¿¬±¸¼Ò ÁöÀ½  ; ÀÌ¸í¾Ö ±×¸²','DMZ ¿øÁ¤´ë','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788991871878 ','X',477,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼­¹Î ±Û ; ÀÌ¿ìÀÏ ÀÏ·¯½ºÆ®','³ëºó¼Õ°ú À§ÇèÇÑ ±â»ýÃæ ??±¸¼Ò','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788958075790 ','X',493,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÃµ¾Æ [¿Ü] ÁöÀ½','¹ú·¹ÀÇ ¸¶À½  : ¿¹»Û²¿¸¶¼±Ãæ¿¡°Ô ¹è¿ì´Â »ý¸íÀÇ ÀÎ¹®ÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788955619072 ','X',493.73,'¿¹¾à°¡´É',0,sysdate,400);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Çö¿µ¼® ¿øÀÛ  ; ÀÌÇÑ¿ï ±Û  ; ¼­¼®±Ù ±×¸²','(¸ðÇèÀ¸·Î ¸¸³ª´Â) ¹Ì·¡°úÇÐ  : ¹Ì·¡ÀÚµ¿Â÷ Æ¯±Þ·¹ÀÌ½Ì','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788934936909 ','X',500,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Dorling Kindersley Æí  ; UJ ¹ø¿ª','¼¼»óÀ» ¹Ù²Ù´Â ÃÖ°íÀÇ °úÇÐ ±â¼ú','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788930270687 ','X',504,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶ Áö¹«¼î ¿«À½  ; °í¿øÁø ¿Å±è','(30°¡Áö ¹ß¸íÇ°À¸·Î ÀÐ´Â) ¼¼°è»ç  : ¼ú, ¹ÙÄû, ½Ã°è¿¡¼­ ÇÃ¶ó½ºÆ½, ¹ÝµµÃ¼, ÄÄÇ»ÅÍ¿¡ ÀÌ¸£±â±îÁö','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788984458512 ','X',507,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÁ¶û¼ö¾ÆÁî ¶ó½ºÅõ¾Þ-Æ÷ÁÖ·Õ ±Û  ; º¬ÀÚ¸Í ¼î ±×¸²  ; ÀÌÈ¿¼÷ ¿Å±è','ÁÖ»ç´Â ¿Ö ¸ÂÀ»±î','¶óÀÌºê·¹ÀÎ',to_date('2006','YYYY'),'9788909122726 ','X',508,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Çî¸® ÆäÆ®·Î½ºÅ° ÁöÀ½  ; ¹éÀÌÈ£ ¿Å±è','Æ÷Å©´Â ¿Ö ³× °¥Äû¸¦ ´Þ°Ô µÇ¾ú³ª','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788934966500 ','X',509,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Å×µå ¾Ë·», ½Ãµå´Ï °íµç [°ø] ÁöÀ½  ; ÃµÈñ»ó ¿Å±è','´ÚÅÍ ³ë¸Õ º£¾§','¶óÀÌºê·¹ÀÎ',to_date('2001','YYYY'),'9788939204140 ','X',510.99,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Jennie Maizels, William Petty','My pop-up body book','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9781406317923 ','X',511.1,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿äÇÏ³×½º Æù º¸¸£½ºÅÚ ÁöÀ½  ; ¹è¸íÀÚ ¿Å±è','¸Å·ÂÀûÀÎ ½ÉÀå ¿©Çà  : »ý¸íÀÇ ¿£Áø, ½ÉÀå¿¡ °üÇÑ ³î¶ó¿î Áö½Ä ÇÁ·ÎÁ§Æ®','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788937838743 ','X',511.116,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇãÁØ ÁöÀ½','(³úÇ÷°ü Àü¹®ÀÇ»ç ÇãÁØÀÇ) ³úÁ¹Áß ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791186692080 ','X',513.811,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼öÀÜ ºí·ë, ¹Ì¼Ð º¥´õ [°ø] ÁöÀ½ ; ÃÖ¼¼È¯, Áö¿µ¹Ì [°ø] ¿Å±è','¸é¿ªÀÇ ¹è½Å','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791159430657 ','X',513.92,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¿µ¹ü ÁöÀ½','¸ñ, Çã¸® °Ç°­ÀÇ ºñ¹Ð : ¸ñ, Çã¸® °Ç°­À» À§ÇÑ ÇÊµ¶¼­','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788964897485 ','X',514.325,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇØ·²µå M. ÆäÆÛµå ÁöÀ½  ; ÃÖÈ«±Ô ¿Å±è','´ç½ÅÀÇ ´«µµ 1.2°¡ µÉ ¼ö ÀÖ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788973434930 ','X',515.73,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿À»ó¹Î ÁöÀ½','(¶È¶È!) ´ÚÅÍ¿À ¾Æ±â Áø·á½Ç  : ¼Ò¾ÆÃ»¼Ò³â°ú ÀÇ»ç ¾ÆºüÀÇ À°¾ÆÀÏ±â','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788997195862 ','X',516.9,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Alisa Vitti','Womancode','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9780062130792 ','X',517.36,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶±æÈ£ ÁöÀ½','¾àÀÌ µÇ´Â ¾à ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788974836429 ','X',518,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤¿¬È£ ÁöÀ½','³Î¶Ù´Â °¨Á¤ ³¯¶Ù´Â »ý°¢  : ÇÑÀÇ»ç°¡ µ¿¾ç ½É¸®ÇÐÀ¸·Î Ä¡À¯¸¦ ¸»ÇÏ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788965022596 ','X',519.38914,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÈÆ±â ±Û ; ±è¼­¿µ ±×¸²','GMO','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791161720319 ','X',521,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'KBS½ºÆä¼È <Á¾ÀÚ, ¼¼°è¸¦ Áö¹èÇÏ´Ù> Á¦ÀÛÆÀ ÁöÀ½','(KBS ½ºÆä¼È) Á¾ÀÚ, ¼¼°è¸¦ Áö¹èÇÏ´Ù  : Á¾ÀÚ´Â ´©°¡ ¼ÒÀ¯ÇÏ´Â°¡','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788959402908 ','X',523.22,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«Áî Èúµåºê¶õµå ÁöÀ½ ; Â÷À¯Áø ¿Å±è','Çãºê : ¸ö°ú ¸¶À½À» Ä¡À¯ÇÏ´Â Çâ±ßÇÑ ½Ä¹° 100°¡Áö','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788998690274 ','X',525.48,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¿ø¿µ ÁöÀ½  ; ºÀÇö ±×¸²','µ¿¹°À» »ç¶ûÇÏ¸é Ã¶ÇÐÀÚ°¡ µÈ´Ù  : ¸¸³²ºÎÅÍ ÀÌº°±îÁö, ¹Ý·Áµ¿¹°°ú ÇÔ²²ÇÑ´Ù´Â °Í','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788932029627 ','X',527.386,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿¡¸¯ µå·º½½·¯ ÁöÀ½ ; ÀÓÁö¿ø ¿Å±è ; ÀÌÀÎ½Ä ÇØÁ¦','±ÞÁøÀû ??¿ä : ³ª³ë±â¼úÀÌ ÀÌ²ô´Â ¿ì¸® »îÀÇ º¯È­','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788934978954 ','X',530,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¼öÈñ ±Û ; ÀÌ°æ±¹ ±×¸²','Á×À½ÀÇ ¸ÕÁö°¡ ³»·Á¿Í¿ä','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788983947833 ','X',533.9,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'»çÀÌÅä °¡¾²È÷·Î ÁöÀ½  ; ÀåÀºÁ¤ ¿Å±è','À¯ÇØ¹°Áú ÀÇ¹® 100 : »ýÈ°¼¼Á¦, ÀÇ·áÇ°, È­ÀåÇ°, ³ó¼ö»ê¹°, °ø»êÇ°Àº ¾ó¸¶³ª ¾ÈÀüÇÑ°¡','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788964942703 ','X',539.979,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿À½ÂÁÖ [¿Ü] ÁöÀ½','°ÇÃà°èÈ¹·Ð = Rchitectural planing  design theory','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788970938332 ','X',540.1,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÏ¶ó±¸Ä¡ È÷µ¥¾ÆÅ° Àú  ; È«Á¤¼® ¿ª','(±âÃÊºÎÅÍ ¹è¿ì´Â) °ÇÃà½Ã°ø','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788962255911 ','X',542.8,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èµ¿¿í ÁöÀ½','¼­¿ïÀÇ ´Ù¼¸ ±Ã±È°ú ±× ¾Õ±æ : À¯±³µµ½Ã ÇÑ¾çÀÇ Çà»ç °ø°£','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791195233489 ','X',549.1,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by David Macaulay, Neil Ardley','(The) Way things work now','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9780544824386 ','X',550,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'µ¥ÀÌºñµå ¸ÆÄÃ·¹ÀÌ ±Û¡¤±×¸² ; ´Ò ¾Æµé¸® ±Û ; ¹Ú¿µÀç, ±èÃ¢È£ [°ø]¿Å±è','µµ±¸¿Í ±â°èÀÇ ¿ø¸® Now : ±×¸²À¸·Î º¸´Â Àç¹ÌÀÖ´Â °úÇÐ ¿ø¸®','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791195748013 ','X',551,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±ÛÅÍ ¹Ýµ÷ºÒ ÁöÀ½  ; Àå°æ¼· ±×¸²','¹ÙÄûÀÇ ¿ª»ç°¡ ±Ã±ÝÇØ : ¸ÚÁø ÀÚµ¿Â÷¸¦ ÁÁ¾ÆÇÏ´Â ¿ì¸® ¾ÆÀÌ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788931381238 ','X',556.38,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼Ûº´Èì , À¯º´¼± , ÃÖÁø±¹ [°ø]Æí¿ª','(2014) Ç×°ø¿îÇ×Á¤º¸ ¹× ÀýÂ÷  = Aeronautical information manual','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788972870784 ','X',558.3,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÃÖ¼±¿í ÆíÀú','PLC ±âÃÊ¿Í ÀÀ¿ë  : ÃÊº¸¿¡¼­ ½Ç¹«±îÁö','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788942914036 ','X',559.98,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'½Å´ë¼· ÁöÀ½','(ÃÊº¸ÀÚ°¡ ¸¸µå´Â) AVR ¸¶ÀÌÅ©·Î ÇÁ·Î¼¼¼­ µû¶óÇÏ±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788931708936 ','X',559.99,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'äÛÜâ åÇ îÊ  ; ÚÓùÓðó æ»','(ÃÊº¸ÀÚ¸¦ À§ÇÑ) Àü±â±âÃÊ ÀÔ¹®','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788931525618 ','X',560,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'µ¥¸¯ Ã»  ; ¿¡¸¯ ºê·¢ [°ø] ÁöÀ½  ; È«¼º¿Ï ¿Å±è','ÀüÀÚÁ¤º¹  : »ó»óÀÌ Çö½ÇÀÌ µÇ±â±îÁö ÃµÀç°úÇÐÀÚµéÀÌ ½á ³»·Á°£ Ã¢Á¶ÀÇ ¿ª»ç','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788920930720 ','X',560.9,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ÈÀÚÀÌ Å×¾² ÁöÀ½  ; ¹ÚÀºÁö ¿Å±è','°ø°£À» ½±°Ô ¹Ù²Ù´Â Á¶¸í','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791186000304 ','X',565,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Saito Masanori ÁöÀ½ ; ÀÌ¿µ¶õ ¿Å±è','(±×¸² ÇÑ ÀåÀ¸·Î º¸´Â)ÃÖ½Å IT Æ®·»µå','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788956747354 ','X',567,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌÀç±¤ ÆíÀú','µ¥ÀÌÅÍ Åë½Å','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791132100942 ','X',567.01,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌÁØ ; À±Á¤ÇÑ ; ÀÌ±â¿ø °øÀú','¸ÀÀÖ´Â À½½Ä¿¡´Â °úÇÐÀÌ ÀÖ´Ù = Amazing Science in Delicious Foods','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788970938691 ','X',570,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÈÆ±â ÁöÀ½','¹ÙÀÌ¿ÀÇØÄ¿°¡ ¿Â´Ù = Bio hacker : »ý¸í°øÇÐÀ» ÇØÅ·ÇÏ´Â ½ÅÀÎ·ù¿¡ °üÇÑ º¸°í¼­','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788967352127 ','X',570.6,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿ìÁ¾¿í ±Û  ; ±è¹ÌÁ¤ ±×¸²','(¾Æºü¿Í ÇÔ²²ÇÏ´Â) ¸ñ°øÀº Áñ°Ì´Ù','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788984318342 ','X',584,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'È²³ÕÇª, Ãµ??[°ø] ÁöÀ½  ; ÀÌÈñ¿µ ¿Å±è','Áß±¹ÀÇ ºñ´Ü¿ª»ç Ä¥Ãµ ³â  : ¿ª´ë Á÷Á¶¿Í ÀÚ¼öÇ° ¿¬±¸  = China silk 7000 years : crystal of art science and technology','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788926871508 ','X',587.39,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿¡¸° ÇìÀÌ°Å ÁöÀ½ ; ÆäÀÌÁö °³¸®½¼ ±×¸² ; È²Ã¢¿ø ¿Å±è','·¹°í´Â ¾î¶»°Ô ÅÂ¾î³µÀ»±î : ¾ÆÀÌµð¾î·Î ¼¼»óÀ» ¹Ù²Ù´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788991550841 ','X',589,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿·Áý»õ´ì Á¶¹Î°æ ÁöÀ½','¿·Áý»õ´ì »ì¸²ÀÏ±â  : »ì¸²°í¼öº¸´Ù ¼¾½º ÀÖ´Â ¾î¸° »õ´ìÀÇ »ì¸² ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788925558561 ','X',591,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Emi ÁöÀ½  ; ±èÇö¿µ ¿Å±è','(Ourhome) ³»°¡ ÆíÇØÁö´Â ¹°°Ç °í¸£±â','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788959759743 ','X',591.1,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÈ£Á¤ [¿Ü] ÁöÀ½','Â¡±Û¸ÂÀº ¿¬¾Ö¿Í ±× ÈÄÀÇ ÀÏ»ó  : ¿¬¾Ö, ±× °ßµô ¼ö ¾ø´Â Àû³ª¶óÇÑ Áø½Ç¿¡ ´ëÇÏ¿©','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788927808688 ','X',591.7,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼ÒÀ×ÆÑÅä¸®¾ÆÄ«µ¥¹Ì ÁöÀ½','Dressmaking : ¿©¼ºº¹ ¼ÒÀ× ·¹½ÃÇÇ 10','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788996899853 ','X',592.2,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°¡¶û½º µµ·¹ ÁöÀ½ ; ÀÌ»ó¹Ì ¿Å±è','·¯ºê ¡¿ ½ºÅ¸ÀÏ ¡¿ ¶óÀÌÇÁ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791196001827 ','X',593,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·¡´Ï Å·½ºÅÏ ÁöÀ½ ; ½Å¼ÒÈñ ¿Å±è','¿Ïº®ÇÑ Ä¿ÇÇ ÇÑ ÀÜ : ¿øµÎÀÇ °úÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791156757061 ','X',594.3463,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À¯ÇÏ¿µ ÁöÀ½','¸¶ÀÌ À§½Ã ÇÃ¶ó¿öÄÉÀÌÅ©','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791158461676 ','X',594.516,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'½ÅÀ¯¹Ì, ½Ãµµ´Ï º¥Ä¢ [°ø] ÁöÀ½','ÇÁ¶û½º ¾ÆÀÌ´Â ¸»º¸´Ù ±×¸²À» ¸ÕÀú ¹è¿î´Ù  : »ý°¢ÇÏ´Â ¾ÆÀÌ¸¦ ¸¸µå´Â ÇÁ¶û½º ±³À°ÀÇ ºñ¹Ð','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788952773456 ','X',598.6,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·¯½Ã¿ö½º Å°´õ ÁöÀ½  ; ±è¾Æ¿µ ¿Å±è','(³» ¾ÆÀÌ¿¡°Ô °¡¸£ÃÄÁÖ´Â) Ã¹ Á¤ÀÇ ¼ö¾÷  : ÂøÇÑ ¾ÆÀÌ·Î Å°¿ö¾ß À§´ëÇÑ ¾î¸¥À¸·Î ÀÚ¶õ´Ù','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788925544496 ','X',598.7,'¿¹¾à°¡´É',0,sysdate,500);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'·Î¹öÆ® S. ³Ú½¼, ¸®Â÷µå ½ÃÇÁ [°ø] ÁöÀ½  ; Á¤¿¬½É ¿Ü ¿Å±è','²À ÀÐ¾î¾ß ÇÒ ¿¹¼ú ºñÆò¿ë¾î 31¼±  = Critical Terms for Art History','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788940805077 ','X',600.3,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'½ºÆ¼ºì Å· ÁöÀ½  ; Á¶ÀçÇü ¿Å±è','Á×À½ÀÇ ¹«µµ   : ¿Ö ¿ì¸®´Â È£·¯ ¹®È­¿¡ ¿­±¤ÇÏ´Â°¡','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788994210490 ','X',600.4,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¸®¿¡ ¸¶»çÀ¯Å° ÁöÀ½ ; ±èÁø¾Æ ¿Å±è','¾ÈÅä´Ï¿À °¡¿ìµð = Antoni Gaudi : ÁöÁßÇØ°¡ ³ºÀº ÃµÀç °ÇÃà°¡','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791127405823 ','X',610.99,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÁ¤½Å ÁöÀ½','ºûÀÇ Âù¹Ì  : ¸¶¸£Å© ¼ö»çÀÇ »î°ú ¿¹¼ú  = Eloge ¦¨ la lumi¦ªre : la vie et lart du Fr. Marc','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791155220962 ','X',631.9,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸®¾Ø´õ Ä«´Ï [Àú] ; ¾ÈÁøÈ¯ ¿Å±è','Á¶³Ê¼± ¾ÆÀÌºê : À§´ëÇÑ µðÀÚÀÎ ±â¾÷ ¾ÖÇÃÀ» ¸¸µç ¶Ç ÇÑ¸íÀÇ ÃµÀç','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788937489020 ','X',639.5099,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶ÀÌÇÑ, ÁøÁß±Ç [°ø] ÁöÀ½','(Á¶ÀÌÇÑ.ÁøÁß±ÇÀÇ) ÃµÃµÈ÷ ±×¸² ÀÐ±â  : ÀÒ¾î¹ö¸° °¨¼ºÀ» ±ú¿ì´Â »õ·Î¿î ±×¸²°¨»ó','¶óÀÌºê·¹ÀÎ',to_date('2003','YYYY'),'9788901028224 ','X',650.4,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À±¿­¼ö ÁöÀ½','²Þ²Ù´Â ¿ì¸® ¹ÎÈ­','¶óÀÌºê·¹ÀÎ',to_date('2005','YYYY'),'9788943305727 ','X',654,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Å©¸®½ºÅäÇÁ µå·Ú¼­ ÁöÀ½  ; Àü´ëÈ£ ¿Å±è','À½¾Ç º»´É  : ¿ì¸®´Â ¿Ö À½¾Ç¿¡ ºüÁ®µé±î?','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788956054162 ','X',671.18,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤°­Çö ÁöÀ½','´ç½ÅÀÌ µé¸®´Â ¼ø°£  : ÀÎµð À½¾ÇÀÇ Ç³°æµé','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788957077702 ','X',673.5,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¦·¯¹Ì ½ÃÇÁ¸Õ ÁöÀ½  ; ±èº´È­ ¿Å±è','½Ç³»¾Ç°úÀÇ ¸¸³²  : °¡Àå Ä£¹ÐÇÑ À½¾ÇÀû ´ëÈ­','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788993818567 ','X',675.6,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿¡¸®Ä« ÇÇ¼Å-¸®È÷Å× ÁöÀ½ ; ±èÁ¤¼÷ ¿Å±è','¼öÇà¼ºÀÇ ¹ÌÇÐ : Çö´ë???¼úÀÇ Çõ¸íÀû ÀüÈ¯°ú »õ·Î¿î ÆÛÆ÷¸Õ½º ¹ÌÇÐ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788932029870 ','X',680.1,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³ª°æ¾Æ ÁöÀ½','¹«¿ë°ú °Ç°­  = Dance  wellness','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791155165805 ','X',685.1,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¾ö»óºó','¶Ç ÇÏ³ªÀÇ °æ°è = Another Border Line : ºÐ´Ü½Ã´ëÀÇ µ¿ÇØ¾È : ¾ö»óºó »çÁøÁý','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788974093914 ','X',688.4,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼­Àçº¹ ; ÀÌ´Þ¿ø, ±èÇö¿ì Àú','½ºÆ÷Ã÷±³À°ÇÐ °­ÀÇ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788956765891 ','X',692.07,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À±ÅÂÈÆ ¿Ü ÁöÀ½','(´©±¸³ª ½±°Ô ¹è¿ì´Â) ½ºÄõ½Ã','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788956765303 ','X',695.5,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'[¿ÂÀÌÆÛºê]ÆíÁýºÎ [Æí]','¿ì¸®³ª¶óÀÇ ÀüÅë¹«¿¹','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788969101440 ','X',698,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Çö´ë·¹Àú¿¬±¸È¸ ÁöÀ½','Á¤Åë ¹Ù´Ù³¬½Ã  : ±âÃÊ ÀÌ·Ð¿¡¼­ ºÎÅÍ ½Ç±â¿Ï¼º±îÁö','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788949304946 ','X',699.7,'¿¹¾à°¡´É',0,sysdate,600);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇØ¸® G. ÇÁ·©Å©ÆÛÆ® ÁöÀ½  ; ÀÌÀ± ¿Å±è','°³¼Ò¸®¿¡ ´ëÇÏ¿©','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791157830572 ','X',701.2,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ¼­Çö ±Û ; ¼­Á¤Àº ±×¸²','ÄíÅ°·± ¸ÂÃã¹ýÀÌ Çò°¥·Á?!. 1, ¼Ò¸®Æí','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788926398098 ','X',711.25,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÅÂ°æ Àú','»ó°íÁß±¹¾î À½¿îÃ¼°è¿Í ÇÑ±¹¾î ¾îÈÖÀÇ ¾î¿ø','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788960716377 ','X',721.1,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Otgontsetseg Damdinsuren ÁöÀ½','¸ù°ñ¾î : ±âÃÊ ¸ù°ñ¾î ÇÐ½À ºñ¹ý¼­. 1','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791159011924 ','X',739.3,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Stanton H. Procter, Melanie Ann Procter [°ø] ±Û  ; È«¼ºÁö ±×¸²','±âÃÊ100% ÃÊµî¿µ¾î¹®¹ý','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9788901079233 ','X',745,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÃæ½Ä ÆíÀú','(¿§¼¾½º) ÇÑ¼­»çÀü  = Essence diccionario Coreano-Espa ol  : ÇÑ±¹¾î-½ºÆäÀÎ¾î »çÀü','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788938707031 ','X',773.1,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Áö¼ºÈ¯ ÁöÀ½','(¿µ¾î¸¦ ¾Ë¸é º¸ÀÌ´Â)½ºÆäÀÎ¾î ´Ü¾î','¶óÀÌºê·¹ÀÎ',to_date('2018','YYYY'),'9788947542791 ','X',774,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¼±ÀÌ ÁöÀ½','¿ì¸®µéÀÇ ¸ÞÅ¸ ½ºÆäÀÎ¾î Ã¹°ÉÀ½','¶óÀÌºê·¹ÀÎ',to_date('2018','YYYY'),'9788997343270 ','X',775,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Isabel Lee ÁöÀ½','¿©ÇàÀÚÀÇ ½ºÆäÀÎ¾î Must Carry','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788960496415 ','X',777,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓÁÖÀÎ ÁöÀ½','±¹°¡´ëÇ¥ ½ºÆäÀÎ¾î È¸È­´É·ÂÀÚ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788997343232 ','X',777.5,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À¯¹ÎÁ¤ Àú','(The ¹Ù¸¥)ºê¶óÁú Æ÷¸£Åõ°¥¾î = Portugues Brasileiro. Step 1','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788992281485 ','X',779,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÃÖº¸¼± Àú','Âø! ºÙ´Â ÀÌÅ»¸®¾Æ¾î µ¶ÇÐ Ã¹°ÉÀ½','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788955187915 ','X',780,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'È²Á¤Àº ÁöÀ½','(ÃÊº¸ÀÚ¸¦ À§ÇÑ ÄÄÆÑÆ®) ÀÌÅ»¸®¾Æ¾î ´Ü¾î','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788992683821 ','X',784,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¹Ì¾Ö ÁöÀ½.','Ç¥ÁØ ÀÌÅ»¸®¾Æ¾î ¹®¹ý  = Grammatica Italiana  : Ç°»ç·Ð. 2','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788946063013 ','X',785,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Mr. Sun ¾îÇÐ¿¬±¸¼Ò ; ±è¿µ¸° ; Margherita Besuschio [°ø]ÁöÀ½','(ÇÑ´«¿¡ º¸ÀÎ´Ù)ÀÌÅ»¸®¾Æ¾î Ã¹°ÉÀ½ : È¸È­  ¹®¹ý','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788997221554 ','X',787,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹ÚÇü´ë ÁöÀ½','³ª¸§ Ä£ÀýÇÑ Çï¶ó¾î ¹®¹ýÃ¥  : Çï¶ó¾î ½Å¾à¼º°æ Á÷µ¶Á÷ÇØ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788957993958 ','X',792.15,'¿¹¾à°¡´É',0,sysdate,700);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÇÅÍ ºê·è½º ÁöÀ½  ; ¹ÚÀÎ¼º ¿Å±è','Á¤½ÅºÐ¼®°ú ÀÌ¾ß±â ÇàÀ§','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788932030043 ','X',801,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶Á¤·¡ ÁöÀ½','½ºÅä¸®ÅÚ¸µ À°ÇÏ¿øÄ¢ : ½Å¹®À» È°¿ëÇÑ ½ºÅä¸®ÅÚ¸µ Ã¢ÀÛ¹ý','¶óÀÌºê·¹ÀÎ',to_date('2010','YYYY'),'9788920004032 ','X',802,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÈÖºó ÁöÀ½','À¥¼Ò¼³ ÀÛ°¡ ¼­¹ÙÀÌ¹ú °¡ÀÌµå','??ÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791186940266 ','X',802.02,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤¼÷¿µ ÁöÀ½','¿©ÇàÀÚÀÇ ±Û¾²±â  = Travel writing  : º£Å×¶û ¿©ÇàÀÛ°¡ÀÇ ºñ¹Ð³ëÆ®','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788959130016 ','X',802.6,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'È¥´Ù ¾Æ¸®¾ÆÄÉ ±Û ; ±èÁö¿¬ ¿Å±è','¼Ò¿øÀÌ ÀÌ·ç¾îÁö´Â ½Å±âÇÑ ÀÏ±â','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791186490709 ','X',803.8,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Àå¿µÈñ ÁöÀ½','¾î¶»°Ô »ç¶ûÇÒ °ÍÀÎ°¡  : Àå¿µÈñ ±³¼öÀÇ Ã»ÃáµéÀ» À§ÇÑ ¹®ÇÐ°ú ÀÎ»ý °­ÀÇ','¶óÀÌºê·¹ÀÎ',to_date('2012','YYYY'),'9788959136803 ','X',804,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸£ Å¬·¹Áö¿À, °¡¿À½ÌÁ¨, ±è¿ìÃ¢ ¿Ü ÁöÀ½','¼¼°èÈ­ ¼ÓÀÇ »î°ú ±Û¾²±â  = (The) globalization world and the human community  : ¡´2011³â Á¦3È¸ ¼­¿ï±¹Á¦¹®ÇÐÆ÷·³¡µ ³í¹®Áý','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788937484285 ','X',805,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±¸ÀÎÈ¯ [¿Ü]Àú','¹®ÇÐ±³À°·Ð','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788974900236 ','X',807,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'À¯Áø ¿À´Ò ÁöÀ½  ; ¿ÀÈ­¼· ¿Å±è','ÁöÆò¼± ³Ê¸Ó','¶óÀÌºê·¹ÀÎ',to_date('2009','YYYY'),'9788963650180 ','X',808.2,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¡ºAxt¡» ÆíÁýºÎ ÁöÀ½','ÀÌ°ÍÀÌ ³ªÀÇ µµ³¢´Ù  : ¼Ò¼³°¡µéÀÌ ¼Ò¼³°¡¸¦ ÀÎÅÍºäÇÏ´Ù!','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788956601366 ','X',809.3,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±èÁöÀº ÁöÀ½','¾î¸°ÀÌ, ¼¼ ¹øÂ° »ç¶÷  : ±èÁöÀº Æò·ÐÁý','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788936463465 ','X',809.9,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¤¾à¿ë ÁöÀ½  ; ¼ÛÀç¼Ò ¿Å±è','´Ù»ê½Ã¼±','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788936472320 ','X',811.35,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÁöÀºÀÌ: ±è»ó·Ä','Çê°³³ª¹« Áý  : ±è»ó·Ä ¿¬ÀÛ¡¤¼Ò¼³Áý','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788930006330 ','X',813.62,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è¼±¿ì ÁöÀ½','¾îµð ¾ÆÇÂ µ¥ ¾ø³Ä°í ´ç½ÅÀÌ ¹°¾ú´Ù  : ½ÃÀÎ ±è¼±¿ì°¡ ¿À·Îºô¿¡¼­ º¸³½ Çàº¹ ÆíÁö','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788935208814 ','X',816.6,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Â÷¿À¿ø½¬¿£ ±Û  ; ±è¼ÛÀÌ ±×¸²  ; Àü¼öÁ¤ ¿Å±è','»ê ³Ñ¾î »ê','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788925560229 ','X',823.8,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'È÷¶ó³ë °ÔÀÌÄ¡·Î ÁöÀ½  ; ¾çÀ±¿Á ¿Å±è','(È÷¶ó³ë °ÔÀÌÄ¡·ÎÀÇ)¼Ò¼³(á³àã)ÀÐ´Â ¹æ¹ý','¶óÀÌºê·¹ÀÎ',to_date('2011','YYYY'),'9788954616027 ','X',833.09,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹Ú¼±¹Ì ; ÀÌ¼­Çö [°ø]ÁöÀ½ ; ¹Ú¼±¹Ì ; ¹Ú»ó¿ì [°ø]±×¸²','¹ÝÂí¹ÝÂ¥ÀÌ = s? tich banh ch?ng banh giay','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791186908235 ','X',839.82,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Bill Bryson','(A) Walk in the Woods','¶óÀÌºê·¹ÀÎ',to_date('2006','YYYY'),'9780307279460 ','X',844,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä¿Æ® º¸´Ï°Í Áö??  ; ±è¿ë¿í ¿Å±è','±×·¡, ÀÌ ¸À¿¡ »ç´Â °ÅÁö  : Á¹¾÷À» ¾ÕµÐ ³Ê¿¡°Ô','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788954644174 ','X',845,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿äÇÑ º¼ÇÁ°­ Æù ±«Å× ÁöÀ½  ; °ûº¹·Ï ¿Å±è','ÀÌÅ»¸®¾Æ ±âÇà','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788949715209 ','X',856,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«Æ®¸° ÁöÅ¸ ÁöÀ½  ; ¹Ú¼º¿ø ¿Å±è','³»°¡ È¥ÀÚ ¿©ÇàÇÏ´Â ÀÌÀ¯  : 7³â µ¿¾È 50°³±¹À» È¦·Î ¿©ÇàÇÏ¸ç ±ú´ÞÀº °Íµé','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788901204772 ','X',858,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Çì¸£¸¸ Çì¼¼ ÁöÀ½ ; Á¤Çö±Ô ¿Å±è','»ç¶ûÇÏ´Â »ç¶÷Àº Çàº¹ÇÏ´Ù : »ç¶û¿¡ °üÇÏ¿©','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791188047031 ','X',859,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÁ¶û¼ö¾Æ ºñ¿ë ÁöÀ½ ; ±èÁØÇö ¿Å±è','À¯¾ðÀÇ ³ë·¡','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788937475047 ','X',861,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÆÄºí·Î ³×·ç´Ù ÁöÀ½  ; °íÇý¼± ¿Å±è','¸ðµÎÀÇ ³ë·¡','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788932028866 ','X',871,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'È£¶óÆ¼¿ì½º ÁöÀ½ ; ±è³²¿ì ¿Å±è','Ä«¸£Æä µð¿¥','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788937475016 ','X',892.2,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'µð¿Â ¸ÞÀÌ¾î ÁöÀ½ ; ¼Û¼¶º° ¿Å±è','13½Ã°£ : µð¿Â ¸ÞÀÌ¾î ÀåÆí¼Ò¼³','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788950965754 ','X',893,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹ß·¹¸®¾Æ ·çÀÌ??¸® ÁöÀ½  ; ¾öÁö¿µ ¿Å±è','¹«Áß·ÂÀÇ »ç¶÷µé  : ¹ß·¹¸®¾Æ ·çÀÌ¼¿¸® ÀåÆí¼Ò¼³','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788972758075 ','X',894,'¿¹¾à°¡´É',0,sysdate,800);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°­ÀÎ¿í ÁöÀ½','Áø½ÇÀº À¯¹°¿¡ ÀÖ´Ù : °í°íÇÐÀÚ, ½Ã°øÀ» ³Ñ¾î ÀÎ¿¬À» ¹ß±¼ÇÏ´Â »ç¶÷µé','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788946420779 ','X',902.5,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼­¿ï´ëÇÐ±³ ¿ª»ç¿¬±¸¼Ò Æí','¿ª»ç¿ë¾î»çÀü  = Discovery of historical terms','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788952115119 ','X',903,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÌ±ÙÁ÷ ÁöÀ½','»ï±¹À¯»ç ¿ä¸ðÁ¶¸ð','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788955083729 ','X',911.85,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'±è°æÇÑ ÁöÀ½','(Æò¼³) ÀÎ¹° »ï±¹Áö','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9788967990411 ','X',912.033,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿ÕÁîÈË ¿Ü ÁöÀ½ ; °û±ÔÈ¯, ÇÑÃ¶¹Î ¿Ü ¿Å±è','ÀúÇ×ÀÇ µµ½Ã, Å¸ÀÌº£ÀÌ¸¦ °È´Ù','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788965454458 ','X',912.4,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'°­½Â¹® ÁöÀ½','½Ì°¡Æ÷¸£¿ª»ç ´ÙÀÌÁ¦½ºÆ® 100','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788984354166 ','X',914.69,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¦Ä«¸®¾Æ ½ÃÄ£ ÁöÀ½  ; ÀÌ±Ù¿µ ¿Å±è','¼ö¸Þ¸£, È¤Àº ½ÅµéÀÇ °íÇâ','¶óÀÌºê·¹ÀÎ',to_date('2009','YYYY'),'9788996244950 ','X',919.1,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÃ·Î¸®¾È ÀÏ¸®½º ÁöÀ½  ; ÇÑ°æÈñ ¿Å±è','1913³â ¼¼±â??? ¿©¸§','¶óÀÌºê·¹ÀÎ',to_date('2013','YYYY'),'9788954622608 ','X',920.5,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Dan Jones','(The)Wars of the Roses : The Fall of the plantagenets and the rise of the Tudors','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9780143127888 ','X',924.041,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'³ë½Ã³» ÁöÀ½','½ºÀ§½º ¹æ¸í·Ï  : ´ÏÃ¼, Çì¼¼, ¹Ù±×³Ê, ±×¸®°í¡¦','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9791186000168 ','X',925.9,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¹ÌÇÏÀÏ·Î Èå·ç¼Á½ºÅ° Àú ; Çã½ÂÃ¶ ¿Å±è','ÄÚÀÚÅ©¿Í ¿ìÅ©¶óÀÌ³ªÀÇ ¿ª»ç','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788974828851 ','X',929.8,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸²¼öÁø ¿«À½','21¼¼±â Áß¾Ó¾Æ¸Þ¸®Ä«ÀÇ ´Ü¸éµé  = Live from central America  : ³»Àü°ú µ¶ÀçÀÇ »óÈç','¶óÀÌºê·¹ÀÎ',to_date('2015','YYYY'),'9788946057685 ','X',944,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÓÈ£ÁØ ÁöÀ½','Áñ°Å¿î ½ÄÀÎ : ¼­±¸ÀÇ ¾ß¸¸ ½ÅÈ­¿¡ ´ëÇÑ ¶óÆ¾¾Æ¸Þ¸®Ä«ÀÇ À¯ÄèÇÑ ÀÀ¼ö','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788937485084 ','X',950,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'by Kim MacQuarrie','(The) Last days of the Incas','¶óÀÌºê·¹ÀÎ',to_date('2008','YYYY'),'9780743260503 ','X',955,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÀÏ»ç »þÇÁ ÁöÀ½  ; ±èÀºÁö ¿Å±è','(¼¼°è¸¦ ÀÐ´Ù) È£ÁÖ','¶óÀÌºê·¹ÀÎ',to_date('2014','YYYY'),'9791195201662 ','X',962,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÑ¾ç´ëÇÐ±³ ¾ÆÅÂÁö¿ª¿¬±¸¼¾ÅÍ ·¯½Ã¾Æ¡¤À¯¶ó½Ã¾Æ ¿¬±¸»ç¾÷´Ü ¿«À½','À¯¶ó½Ã¾ÆÁÖÀÇÀÇ ÀçÇØ¼® : »õ·Î¿î ÀÎ¹®Áö¸®·Î¼­ÀÇ À¯¶ó½Ã¾Æ','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9788928509232 ','X',980.1,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¸®Ã³µå ºÎ½Ã ÁöÀ½  ; Á¤Àç°â ¿ªÁÖ','(¼ø·Ï°ú ÇÔ²²ÇÑ) ½Ãº£¸®¾Æ Å½Çè ÀÏÁö  : Èæ·æ°­, Ä¯Â÷Ä«, ÃàÄ¡ ¹Ýµµ Å½»ç ±â·Ï 1865, 1866, 1867','¶óÀÌºê·¹ÀÎ',to_date('2016','YYYY'),'9791185614038 ','X',981.7,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¼¨³Í Á¸½º ÁöÀ½ ; ÄÉÀÌ½Ã ¿ìÇì¸£½ºÅ° ±×¸² ; À±¿µ ¿Å±è','Å°Å°ÀÇ ¼¼°è¿©Çà','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9788991223707 ','X',982.6,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'ÇÖÅä¸® ¸¶»çÅ¸Ä« ¿«À½ ; ¿ìÁ¤¹Ì ¿Å±è ; Â÷Ã¶¿í ¿ªÁÖ ¹× ÇØÁ¦','½Ä¹ÎÁö Á¶¼±ÀÇ ÀÌÁÖÀÏº»ÀÎ°ú Åë¿µ : ÇÖÅä¸® °ÕÁö·Î','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791187488460 ','X',991.3,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'¿¡ÀÌ¹Ì ³ëºê½ºÅ° ±Û ; ÀÌÀÚº§ ¾Æ¸£½º³ë ±×¸² ; ±æ»óÈ¿ ¿Å±è','°Å¹Ì ¾ö¸¶, ¸¶¸Á : ·çÀÌ½º ºÎ¸£ÁÖ¾Æ','¶óÀÌºê·¹ÀÎ',to_date('2017','YYYY'),'9791160510676 ','X',992.6,'¿¹¾à°¡´É',0,sysdate,900);
-insert into book values((select nvl(max(book_num)+1,100001) from book),'Á¶¿ëÇö ÁöÀ½','(5¹é³â ³»·ÂÀÇ) ¸í¹®°¡ ÀÌ¾ß±â','¶óÀÌºê·¹ÀÎ',to_date('2002','YYYY'),'9788987787404 ','X',999.9,'¿¹¾à°¡´É',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¹ï¿½ ï¿½Ï¸ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788932318042 ','X',1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','UFOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788968560323 ','X',1.442,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791187892502 ','X',3.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ñ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½î¸°ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791170261735 ','X',4.03,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Learning from Google deep learning','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788931456639 ','X',4.73,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ó¹ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½È£ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½Ä³ï¿½ï¿½Æ®) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ó´ï¿½  : ï¿½Ë¸ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ûºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ðµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½. 2Åº','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788968482908 ','X',5.04,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½×·ç½º ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½Ñ°ï¿½ ; ï¿½Ï¼ï¿½ï¿½ï¿½ [ï¿½ï¿½]ï¿½Å±ï¿½','(ï¿½Ø¹Ù´Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788966261819 ','X',5.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½??','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788968482861 ','X',5.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','Ç¥ï¿½ï¿½ï¿½ï¿½  : Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788932317328 ','X',11.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½  : bookartï¿½ï¿½bookbinding','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788964391310 ','X',12.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ì·ï¿½ï¿½ï¿½ Ã¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2018','YYYY'),'9791186639689 ','X',13.04,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½Õ°ï¿½ï¿½ï¿½ ï¿½Ï¹Ý´ï¿½ï¿½Ð¿ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791155501757 ','X',15.12,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'2017 ï¿½ï¿½âµµ ï¿½ç¼­ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ç¼­ï¿½ï¿½ï¿½ï¿½ Ã¥ï¿½Ì¾ß±ï¿½(2017)','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788993395662 ','X',18.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½Ö½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788976781659 ','X',20.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ú¿ï¿½ï¿½ï¿½, È«ï¿½ï¿½Ã¶ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æ¿µï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788993419474 ','X',23,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, C. ï¿½ï¿½ï¿½ï¿½Å¬ È¦, ï¿½Éºï¿½ Ä³ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½???ï¿½ï¿½ ï¿½Å±ï¿½','(Now) ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ : ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788958204626 ','X',25.25,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ë¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  = Understanding the next generation digital library','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788959725328 ','X',26.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½Úºï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½  ; ï¿½èº´È­ ï¿½Å±ï¿½','È¥ï¿½ï¿½ Ã¥ ï¿½Ð´ï¿½ ï¿½Ã°ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788901142616 ','X',29.85,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ó¿ì¿µ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 2-2, ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×´ï¿½Òµï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788926384251 ','X',30,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Jon Richards ; Ed Simkins','Space','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9780750278454 ','X',31,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','È£ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788967351816 ','X',42,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ç¼® ï¿½ï¿½','(ï¿½Ì¸ï¿½ ï¿½ï¿½ ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Î¼Ó¹Ú¹ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788970943671 ','X',69,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ï¿½æ¿µ ï¿½Ô¹ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½Ú¹ï¿½ï¿½ï¿½ ï¿½æ¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788934969761 ','X',69.068,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ç·Â°ï¿½ ï¿½ï¿½ï¿½ : ï¿½â·¹ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788936486174 ','X',70.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Ä¡/ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791187254034 ','X',72.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788936442880 ','X',80,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,'000');
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¹ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','Ã¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ Ã¶ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788920012921 ','X',100,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½, Ã¶ï¿½ï¿½ï¿½Ñ´ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¶ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788959406517 ','X',109.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ß¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ì»ï¿½ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò¼ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788961473026 ','X',110,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½Ï¿ì½º ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ì¼ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','Åºï¿½ï¿½ Ã¶ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¶ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î¼­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788961472647 ','X',112,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ò½ï¿½ J. ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ï±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788946063235 ','X',121.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Atul Gawande','Being mortal : medicine and what matters in the end','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9781250081247 ','X',126.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½:','(ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. [3], ï¿½ï¿½ï¿½ï¿½ : Ý¾ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788960716650 ','X',144.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9788954606684 ','X',151.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788960515895 ','X',152.216,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ?ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ 3ï¿½ï¿½11','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788976823748 ','X',153.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Î¹ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½Ñ¿ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Î°ï¿½  : ï¿½ï¿½Å©ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788934968559 ','X',162.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½]ï¿½Å±ï¿½','ï¿½ï¿½Ã¼ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791188260201 ','X',165.77099,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½','Ã»ï¿½Í´ï¿½ï¿½ ï¿½Ç¹ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½  : ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½','ï¿½ï¿½ï¿½Ìºï¿½???ï¿½ï¿½',to_date('2017','YYYY'),'9791159252488 ','X',174,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½è¼ºï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½î³½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788965961734 ','X',181.29,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½È³ï¿½ ï¿½ï¿½ï¿½ï¿½','È¥ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788952782458 ','X',182.232,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¾ï¿½ ï¿½ï¿½Æ©ï¿½ï¿½Æ®-ï¿½Ø¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ìµï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½ï¿½È­ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788952118875 ','X',183.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Å©-ï¿½Ë·ï¿½ ï¿½Ð·ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½ï¿½Å© ï¿½ï¿½Ä² ï¿½ï¿½ï¿½Ì³ï¿½. 11, ï¿½ï¿½ï¿½ÅºÐ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ùºï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9788955591828 ','X',188.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Mo Gawdat','Solve for happy NY','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('','YYYY'),'9781501154638 ','X',191.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Þ¸ï¿½ C. ï¿½ï¿½Æ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ç°¡ ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï±ï¿½?','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791186269435 ','X',195,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½Î¼ï¿½ ï¿½×¸ï¿½','365 ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´ï¿½ Ã¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788914019806 ','X',199.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,100);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ã´ï¿½ï¿½ï¿½ ï¿½ä½½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¶ï¿½ï¿½ : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä§ï¿½ï¿½ ï¿½Ù½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788934968627 ','X',201,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ç¿µ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788930317573 ','X',201.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã´ï¿½, ï¿½Úºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½  : ï¿½Úºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788941916093 ','X',202,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ìºï¿½ï¿½ ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788961670517 ','X',204.21,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ú¿ï¿½ ï¿½ï¿½Â¡  : ï¿½ï¿½ï¿½Ö·ï¿½ Å½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788961471947 ','X',204.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ì¸ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Õ´ï¿½È£ ï¿½Å±ï¿½','(ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½Ä·ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2009','YYYY'),'9788984750111 ','X',208,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½çµµï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788994597690 ','X',209,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç¿¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : 1984-2014 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788993516111 ','X',209.11,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½.ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½. 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2002','YYYY'),'9788900118667 ','X',219,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½Æ½Ã¾Æ½ï¿½È­ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½È­, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±â¸¦ Ã¢ï¿½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788939207554 ','X',219.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Û¾ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½ï¿½Â»ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9788970945460 ','X',219.11,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½è¼ºÃ¶ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½Æ½Ã¾ï¿½ ï¿½ï¿½ÂºÒ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½Â¶ï¿½  : ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¼ï¿½ï¿½ï¿½ Å½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788942363087 ','X',220.99,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½','ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¹ ï¿½ï¿½ï¿½ï¿½  : ï¿½Ò±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½È­ï¿½ï¿½ ï¿½Æ¿ì¸¥ ï¿½Ê½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò±ï¿½ ï¿½Ô¹ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788974790967 ','X',221,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½, ï¿½É°ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788998946036 ','X',223.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½, ï¿½Ò±ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  : 2,600ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î³½ ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï»ï¿½ ï¿½Ì¾ß±ï¿½','???ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791155800751 ','X',226.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Û±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½âµ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ ï¿½ï¿½ Ã¥ 100','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791186404690 ','X',230.26,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½È¼ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ö¿ï¿½È£ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ãµï¿½ï¿½  : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ì¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½!','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788932113913 ','X',231.22,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½ì¸® Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È°ï¿½Ï¼Ì¾ï¿½ï¿½!','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788932114378 ','X',232,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç³ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788936503451 ','X',233.109,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','(ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ï´ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788977823358 ','X',235.36,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788932814735 ','X',235.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Å±ï¿½.ï¿½Ø¼ï¿½','ï¿½ï¿½È¸  : ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´Â°ï¿½? ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½?','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788928638000 ','X',236,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½ï¿½ï¿½]','ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½  : ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½å¸®ï¿½ï¿½ ï¿½âµµï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788904165933 ','X',237.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Å© Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½Ã¶ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788928638291 ','X',238.31,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ü½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Èµï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½Ä§','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ 15ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788994963570 ','X',240,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½Ï¸ï¿½Æ® ï¿½ï¿½ï¿½ï¸§ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','È²ï¿½Ý²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788954624022 ','X',244,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788997472826 ','X',250,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788993242287 ','X',251,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½Ì¾ß±ï¿½ . 1','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791185134406 ','X',259,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Í¹ï¿½ ï¿½Ù½ï¿½Ä«ï¿½ó³­´ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½','ï¿½ï¿½??ï¿½ê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788926874622 ','X',270,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Çºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ù¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´Â°ï¿½? : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791159877230 ','X',283,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,200);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½  = Interview with Kojin Karatani  : ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íºï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788958202981 ','X',301,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'G.D.H. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; È«ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Î¹ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ï¿½Å°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791195567812 ','X',301.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½Å±ï¿½.','ï¿½×¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½. 1 :, ï¿½ï¿½Ä¡ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('1999','YYYY'),'9788934001553 ','X',301.52,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½é¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½Ù½ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½) ï¿½ï¿½ï¿½Æ½Ã¾Æ¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788936482688 ','X',309.11,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ä¸¶ ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½] ï¿½Å±ï¿½','21ï¿½ï¿½ï¿½ï¿½ ï¿½Úºï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788967351274 ','X',321.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½Î°ï¿½ ï¿½Å±ï¿½','(ï¿½ë¿¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½???ï¿½ê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791195718702 ','X',321.542,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ñ½º¸ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788958533641 ','X',323.16,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì·ï¿½Ç³ ï¿½ï¿½ï¿½ï¿½','ï¿½Ö½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788956614083 ','X',324.47,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½Ìµï¿½ ï¿½ç¹«ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2018','YYYY'),'9791186456637 ','X',325.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ä¸® = Smart factory : ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788946070202 ','X',325.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½ : ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ ï¿½Ã¹Î±ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788952235763 ','X',326,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½È¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Îµï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½  : ï¿½Ù°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788947541695 ','X',326.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½é¼¼ï¿½ï¿½ ï¿½Ì¾ß±ï¿½  : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788959892389 ','X',326.39,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  = Currency wars. 1, È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9788925521190 ','X',327.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Å¸ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Úµé¿¡ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791195445653 ','X',327.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½È«ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788968669613 ','X',329.01,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ß°ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788958204701 ','X',330,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½Î·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788954431972 ','X',330.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ = Civic Republicanism: : ï¿½Ã¹Î´ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ï±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788946063426 ','X',331.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½Ð´ï¿½ 12ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¼ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788936472818 ','X',331.47,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Jean Clandinin ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½Ãµ','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788925408972 ','X',331.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½  ; ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','(ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½,) ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½??ï¿½ê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788964960493 ','X',334.14,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½Å¸ ï¿½ï¿½Ä«ï¿½ë¸® ï¿½ï¿½ï¿½ï¿½ ; È«ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788935211869 ','X',334.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Roxane Gay','Bad Feminist','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9780062282712 ','X',337.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Ryan Holiday','Summary of the obstacle is the way','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9781545060612 ','X',338.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : ï¿½ï¿½Æ¾ï¿½Æ¸Þ¸ï¿½Ä« ï¿½ï¿½Ä¡ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ Ä³ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788957694282 ','X',340.95,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Óµï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Åºï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î³½ ï¿½Ç·ï¿½, ï¿½Úºï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788983717252 ','X',340.98,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ ï¿½ï¿½Å©È¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ù½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788950963576 ','X',341,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ê¼ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788993166781 ','X',342.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Ñ¸ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾Æ¾ï¿½ ï¿½Ï´Â°ï¿½?  : ï¿½ï¿½ï¿½Ö°ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½Æºï¿½ï¿½ï¿½?? ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791195824960 ','X',344.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'[ï¿½ï¿½ï¿½Þ¸ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Filibuster  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791159031243 ','X',345.08,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼Ò¿ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788952770851 ','X',345.11,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½È«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½  : ï¿½Ñ±ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ È°ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788974183431 ','X',346.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½, ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½, ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ï¿ï¿½ï¿½ï¿½ ...[ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788932472898 ','X',349,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ D. ï¿½è½º ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½ï¿½ F. ï¿½É³×µï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788950952938 ','X',349.09,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½È¯ï¿½Ã´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('1990','YYYY'),'9788936410049 ','X',349.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½  : ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´Â°ï¿½?','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788934965695 ','X',349.11,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ñ¿µ¸ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Å·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½  : 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 68ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788925558134 ','X',351.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê«ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9787520303545 ','X',360.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ô²ï¿½ ï¿½ì³¿','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½  : ï¿½Ð»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  : ï¿½ì¸®ï¿½ï¿½ ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788935663002 ','X',370.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½Ó°Õ´Þ·ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ö¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½èº´ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½?  : Ã¶ï¿½Ð¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ PBLï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½!','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788994655543 ','X',373.25,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½èµ¿ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü²ï¿½ ï¿½ï¿½Å² ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788927800620 ','X',375.43,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿©ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788952216380 ','X',376.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½ñ±³»ç¸¦ ï¿½ï¿½ï¿½ï¿½)Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Introduction to special education for preservice teachers','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788925408774 ','X',379,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½É²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788967260248 ','X',381.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½æ·¡ ï¿½×¸ï¿½','(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½) ï¿½ì¸® ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788967493806 ','X',388,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ö¿ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ï¿½å±³ï¿½ï¿½ ï¿½Ù¶ï¿½ ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788967353544 ','X',390.913,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,300);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Shin Takahashi ï¿½ï¿½ ; Iroha Inoue ï¿½×¸ï¿½ ; ï¿½è¼ºï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2009','YYYY'),'9788931579819 ','X',412.85,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791195369959 ','X',427.62,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½Å±ï¿½','ï¿½ï¿½ ï¿½Ê¸ï¿½ : ï¿½à¼º Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ø¸ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788956057811 ','X',440.99,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; Å°ï¿½ï¿½ ï¿½×¸ï¿½ ; ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Èµï¿½ï¿½Èµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 24ï¿½Ã°ï¿½','ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½ï¿½ï¿½',to_date('2017','YYYY'),'9788943310912 ','X',448.75,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Charlotte Guillain, illustrated by Yuval Zommer','(The)Street beneath my feet','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9781682971369 ','X',455,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¿ï¿½ï¿½, ï¿½Ñ»ï¿½È£ [ï¿½ï¿½] ï¿½ï¿½  ; ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½Æ©ï¿½ï¿½ï¿½, ï¿½å¸²ï¿½ï¿½Ä¡ CC [ï¿½ï¿½] ï¿½×¸ï¿½','(ï¿½î¸°ï¿½Ìµï¿½È­) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½Ñ¹Ýµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788901140629 ','X',457,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½Ä®ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ðµï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½è¿¡ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã´ë°¡ ï¿½Ù°ï¿½ï¿½Â´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788967354589 ','X',472.19,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 21ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­, ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788937889257 ','X',473,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½È«Ç¥ ï¿½Å±ï¿½','ï¿½ï¿½È­ï¿½Ï´ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791128820045 ','X',474,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¿¬±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','DMZ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788991871878 ','X',477,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½Æ®','ï¿½ï¿½ï¿½Õ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ??ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788958075790 ','X',493,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ãµï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788955619072 ','X',493.73,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,400);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½Ñ¿ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½Ì·ï¿½ï¿½Úµï¿½ï¿½ï¿½ Æ¯ï¿½Þ·ï¿½ï¿½Ì½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788934936909 ','X',500,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Dorling Kindersley ï¿½ï¿½  ; UJ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½Ö°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788930270687 ','X',504,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(30ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Ã°è¿¡ï¿½ï¿½ ï¿½Ã¶ï¿½Æ½, ï¿½Ýµï¿½Ã¼, ï¿½ï¿½Ç»ï¿½Í¿ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788984458512 ','X',507,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½Ö·ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ ï¿½×¸ï¿½  ; ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ö»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2006','YYYY'),'9788909122726 ','X',508,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½î¸® ï¿½ï¿½Æ®ï¿½Î½ï¿½Å° ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½È£ ï¿½Å±ï¿½','ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788934966500 ','X',509,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½×µï¿½ ï¿½Ë·ï¿½, ï¿½Ãµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; Ãµï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2001','YYYY'),'9788939204140 ','X',510.99,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Jennie Maizels, William Petty','My pop-up body book','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9781406317923 ','X',511.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ï³×½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788937838743 ','X',511.116,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791186692080 ','X',513.811,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ö¼ï¿½È¯, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½Å±ï¿½','ï¿½é¿ªï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791159430657 ','X',513.92,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½è¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½, ï¿½ã¸® ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : ï¿½ï¿½, ï¿½ã¸® ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788964897485 ','X',514.325,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ø·ï¿½ï¿½ï¿½ M. ï¿½ï¿½ï¿½Ûµï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½È«ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1.2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788973434930 ','X',515.73,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½È¶ï¿½!) ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½Æ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½Ò¾ï¿½Ã»ï¿½Ò³ï¿½ï¿½ ï¿½Ç»ï¿½ ï¿½Æºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788997195862 ','X',516.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Alisa Vitti','Womancode','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9780062130792 ','X',517.36,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788974836429 ','X',518,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½','ï¿½Î¶Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½Ç»ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788965022596 ','X',519.38914,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Æ±ï¿½ ï¿½ï¿½ ; ï¿½è¼­ï¿½ï¿½ ï¿½×¸ï¿½','GMO','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791161720319 ','X',521,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'KBSï¿½ï¿½ï¿½ï¿½ï¿½ <ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½è¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(KBS ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½è¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½  : ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788959402908 ','X',523.22,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¡ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¹ï¿½ 100ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788998690274 ','X',525.48,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Ã¶ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½È´ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788932029627 ','X',527.386,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½å·ºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ ; ï¿½ï¿½ï¿½Î½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ??ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì²ï¿½ï¿½ï¿½ ï¿½ì¸® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788934978954 ','X',530,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½Ì°æ±¹ ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788983947833 ','X',533.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ 100 : ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½, ï¿½Ç·ï¿½Ç°, È­ï¿½ï¿½Ç°, ï¿½ï¿½ï¿½ï¿½ê¹°, ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788964942703 ','X',539.979,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½ = Rchitectural planing  design theory','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788970938332 ','X',540.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ï¶ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½  ; È«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','(ï¿½ï¿½ï¿½Êºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½Ã°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788962255911 ','X',542.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½èµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ ï¿½Ã±È°ï¿½ ï¿½ï¿½ ï¿½Õ±ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791195233489 ','X',549.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by David Macaulay, Neil Ardley','(The) Way things work now','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9780544824386 ','X',550,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ìºï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Û¡ï¿½ï¿½×¸ï¿½ ; ï¿½ï¿½ ï¿½Æµé¸® ï¿½ï¿½ ; ï¿½Ú¿ï¿½ï¿½ï¿½, ï¿½ï¿½Ã¢È£ [ï¿½ï¿½]ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Now : ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791195748013 ','X',551,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½æ¼· ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ç°¡ ï¿½Ã±ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ì¸® ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788931381238 ','X',556.38,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ûºï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½','(2014) ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  = Aeronautical information manual','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788972870784 ','X',558.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ö¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','PLC ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½Êºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788942914036 ','X',559.98,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Å´ë¼· ï¿½ï¿½ï¿½ï¿½','(ï¿½Êºï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½) AVR ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788931708936 ','X',559.99,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½','(ï¿½Êºï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¹ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788931525618 ','X',560,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ Ã»  ; ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¢ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; È«ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788920930720 ','X',560.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791186000304 ','X',565,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Saito Masanori ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½×¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)ï¿½Ö½ï¿½ IT Æ®ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788956747354 ','X',567,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ç±¤ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791132100942 ','X',567.01,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ì±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ = Amazing Science in Delicious Foods','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788970938691 ','X',570,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Æ±ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½Â´ï¿½ = Bio hacker : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å·ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788967352127 ','X',570.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','(ï¿½Æºï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ï¿½Ï´ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ì´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788984318342 ','X',584,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'È²ï¿½ï¿½Çª, Ãµ??[ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ß±ï¿½ï¿½ï¿½ ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ Ä¥Ãµ ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¼ï¿½Ç° ï¿½ï¿½ï¿½ï¿½  = China silk 7000 years : crystal of art science and technology','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788926871508 ','X',587.39,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ; È²Ã¢ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î¶»ï¿½ï¿½ ï¿½Â¾î³µï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788991550841 ','X',589,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ì¸²ï¿½Ï±ï¿½  : ï¿½ì¸²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½î¸° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ì¸² ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788925558561 ','X',591,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Emi ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(Ourhome) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788959759743 ','X',591.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½È£ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','Â¡ï¿½Û¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï»ï¿½  : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ßµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788927808688 ','X',591.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','Dressmaking : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788996899853 ','X',592.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ì»ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791196001827 ','X',593,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ Å·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Å¼ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ïºï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791156757061 ','X',594.3463,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å©','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791158461676 ','X',594.516,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ãµï¿½ï¿½ï¿½ ï¿½ï¿½Ä¢ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788952773456 ','X',598.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½Æ¿ï¿½ ï¿½Å±ï¿½','(ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½) Ã¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î¸¥ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¶ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788925544496 ','X',598.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,500);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Î¹ï¿½Æ® S. ï¿½Ú½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 31ï¿½ï¿½  = Critical Terms for Art History','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788940805077 ','X',600.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Æ¼ï¿½ï¿½ Å· ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½   : ï¿½ï¿½ ï¿½ì¸®ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788994210490 ','X',600.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ = Antoni Gaudi : ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ãµï¿½ï¿½ ï¿½ï¿½ï¿½à°¡','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791127405823 ','X',610.99,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  = Eloge ï¿½ï¿½ la lumiï¿½ï¿½re : la vie et lart du Fr. Marc','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791155220962 ','X',631.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ø´ï¿½ Ä«ï¿½ï¿½ [ï¿½ï¿½] ; ï¿½ï¿½ï¿½ï¿½È¯ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¸ï¿½ï¿½ï¿½ Ãµï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788937489020 ','X',639.5099,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ß±ï¿½ [ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½) ÃµÃµï¿½ï¿½ ï¿½×¸ï¿½ ï¿½Ð±ï¿½  : ï¿½Ò¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2003','YYYY'),'9788901028224 ','X',650.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Þ²Ù´ï¿½ ï¿½ì¸® ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2005','YYYY'),'9788943305727 ','X',654,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½È£ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788956054162 ','X',671.18,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½é¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç³ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788957077702 ','X',673.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½èº´È­ ï¿½Å±ï¿½','ï¿½Ç³ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788993818567 ','X',675.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½Ä« ï¿½Ç¼ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½à¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½???ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788932029870 ','X',680.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½  = Dance  wellness','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791155165805 ','X',685.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ = Another Border Line : ï¿½Ð´Ü½Ã´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¾ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788974093914 ','X',688.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½çº¹ ; ï¿½Ì´Þ¿ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788956765891 ','X',692.07,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788956765303 ','X',695.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'[ï¿½ï¿½ï¿½ï¿½ï¿½Ûºï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ï¿½ï¿½]','ï¿½ì¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹«ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788969101440 ','X',698,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ë·¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½Ù´Ù³ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·Ð¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç±ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788949304946 ','X',699.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,600);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ø¸ï¿½ G. ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791157830572 ','X',701.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ò°¥·ï¿½?!. 1, ï¿½Ò¸ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788926398098 ','X',711.25,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788960716377 ','X',721.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Otgontsetseg Damdinsuren ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½. 1','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791159011924 ','X',739.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Stanton H. Procter, Melanie Ann Procter [ï¿½ï¿½] ï¿½ï¿½  ; È«ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½100% ï¿½Êµî¿µï¿½î¹®ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9788901079233 ','X',745,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½Ñ¼ï¿½ï¿½ï¿½ï¿½ï¿½  = Essence diccionario Coreano-Espa ol  : ï¿½Ñ±ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788938707031 ','X',773.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½î¸¦ ï¿½Ë¸ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ ï¿½Ü¾ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2018','YYYY'),'9788947542791 ','X',774,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½è¼±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ì¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2018','YYYY'),'9788997343270 ','X',775,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Isabel Lee ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ Must Carry','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788960496415 ','X',777,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ È¸È­ï¿½É·ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788997343232 ','X',777.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','(The ï¿½Ù¸ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = Portugues Brasileiro. Step 1','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788992281485 ','X',779,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½! ï¿½Ù´ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788955187915 ','X',780,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'È²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½Êºï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®) ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½ ï¿½Ü¾ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788992683821 ','X',784,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½.','Ç¥ï¿½ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½ ï¿½ï¿½ï¿½ï¿½  = Grammatica Italiana  : Ç°ï¿½ï¿½ï¿½. 2','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788946063013 ','X',785,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Mr. Sun ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½ ; ï¿½è¿µï¿½ï¿½ ; Margherita Besuschio [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½','(ï¿½Ñ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½)ï¿½ï¿½Å»ï¿½ï¿½ï¿½Æ¾ï¿½ Ã¹ï¿½ï¿½ï¿½ï¿½ : È¸È­  ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788997221554 ','X',787,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¥  : ï¿½ï¿½ï¿½ï¿½ ï¿½Å¾à¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788957993958 ','X',792.15,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,700);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½è½º ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½Î¼ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ÅºÐ¼ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788932030043 ','X',801,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ä¸®ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½Ä¢ : ï¿½Å¹ï¿½ï¿½ï¿½ È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä¸®ï¿½Ú¸ï¿½ Ã¢ï¿½Û¹ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2010','YYYY'),'9788920004032 ','X',802,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Öºï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ìµï¿½','??ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791186940266 ','X',802.02,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½  = Travel writing  : ï¿½ï¿½ï¿½×¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½ ï¿½ï¿½Ð³ï¿½Æ®','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788959130016 ','X',802.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'È¥ï¿½ï¿½ ï¿½Æ¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ò¿ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791186490709 ','X',803.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½å¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½î¶»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½  : ï¿½å¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð°ï¿½ ï¿½Î»ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2012','YYYY'),'9788959136803 ','X',804,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½  = (The) globalization world and the human community  : ï¿½ï¿½2011ï¿½ï¿½ ï¿½ï¿½3È¸ ï¿½ï¿½ï¿½ï±¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788937484285 ','X',805,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½È¯ [ï¿½ï¿½]ï¿½ï¿½','ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788974900236 ','X',807,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½È­ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¸ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2009','YYYY'),'9788963650180 ','X',808.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Axtï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Íºï¿½ï¿½Ï´ï¿½!','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788956601366 ','X',809.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½î¸°ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788936463465 ','X',809.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½Ù»ï¿½Ã¼ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788936472320 ','X',811.35,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½','ï¿½ê°³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¡ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788930006330 ','X',813.62,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½è¼±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ ï¿½è¼±ï¿½ì°¡ ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½àº¹ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788935208814 ','X',816.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788925560229 ','X',823.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½)ï¿½Ò¼ï¿½(ï¿½ï¿½ï¿½)ï¿½Ð´ï¿½ ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2011','YYYY'),'9788954616027 ','X',833.09,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ú¼ï¿½ï¿½ï¿½ ; ï¿½Ì¼ï¿½ï¿½ï¿½ [ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ ; ï¿½Ú¼ï¿½ï¿½ï¿½ ; ï¿½Ú»ï¿½ï¿½ [ï¿½ï¿½]ï¿½×¸ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ = s? tich banh ch?ng banh giay','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791186908235 ','X',839.82,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Bill Bryson','(A) Walk in the Woods','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2006','YYYY'),'9780307279460 ','X',844,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä¿Æ® ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½??  ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½×·ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õµï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788954644174 ','X',845,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788949715209 ','X',856,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'Ä«Æ®ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½  : 7ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 50ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¦ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Íµï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788901204772 ','X',858,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ì¸£ï¿½ï¿½ ï¿½ì¼¼ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àº¹ï¿½Ï´ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791188047031 ','X',859,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë·¡','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788937475047 ','X',861,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Äºï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë·¡','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788932028866 ','X',871,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'È£ï¿½ï¿½Æ¼ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ; ï¿½è³²ï¿½ï¿½ ï¿½Å±ï¿½','Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788937475016 ','X',892.2,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','13ï¿½Ã°ï¿½ : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788950965754 ','X',893,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788972758075 ','X',894,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,800);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788946420779 ','X',902.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ç¿¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  = Discovery of historical terms','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788952115119 ','X',903,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï±¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788955083729 ','X',911.85,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½) ï¿½Î¹ï¿½ ï¿½ï±¹ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9788967990411 ','X',912.033,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½È¯, ï¿½ï¿½Ã¶ï¿½ï¿½ ï¿½ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Å¸ï¿½Ìºï¿½ï¿½Ì¸ï¿½ ï¿½È´ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788965454458 ','X',912.4,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Â¹ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 100','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788984354166 ','X',914.69,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ì±Ù¿ï¿½ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½Þ¸ï¿½, È¤ï¿½ï¿½ ï¿½Åµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2009','YYYY'),'9788996244950 ','X',919.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ã·Î¸ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','1913ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½??? ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2013','YYYY'),'9788954622608 ','X',920.5,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Dan Jones','(The)Wars of the Roses : The Fall of the plantagenets and the rise of the Tudors','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9780143127888 ','X',924.041,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ã³ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½Ã¼, ï¿½ì¼¼, ï¿½Ù±×³ï¿½, ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9791186000168 ','X',925.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ ; ï¿½ï¿½ï¿½Ã¶ ï¿½Å±ï¿½','ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788974828851 ','X',929.8,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','21ï¿½ï¿½ï¿½ï¿½ ï¿½ß¾Ó¾Æ¸Þ¸ï¿½Ä«ï¿½ï¿½ ï¿½Ü¸ï¿½ï¿½  = Live from central America  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2015','YYYY'),'9788946057685 ','X',944,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¾ï¿½Æ¸Þ¸ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788937485084 ','X',950,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'by Kim MacQuarrie','(The) Last days of the Incas','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2008','YYYY'),'9780743260503 ','X',955,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ï»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','(ï¿½ï¿½ï¿½è¸¦ ï¿½Ð´ï¿½) È£ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2014','YYYY'),'9791195201662 ','X',962,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½Ñ¾ï¿½ï¿½ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¾Æ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9788928509232 ','X',980.1,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½Î½ï¿½ ï¿½ï¿½ï¿½ï¿½  ; ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ô²ï¿½ï¿½ï¿½) ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  : ï¿½ï¿½æ°­, Ä¯ï¿½ï¿½Ä«, ï¿½ï¿½Ä¡ ï¿½Ýµï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ 1865, 1866, 1867','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2016','YYYY'),'9791185614038 ','X',981.7,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ì¸£ï¿½ï¿½Å° ï¿½×¸ï¿½ ; ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½','Å°Å°ï¿½ï¿½ ï¿½ï¿½ï¿½è¿©ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9788991223707 ','X',982.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½Å¸Ä« ï¿½ï¿½ï¿½ï¿½ ; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ ; ï¿½ï¿½Ã¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','ï¿½Ä¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½Î°ï¿½ ï¿½ë¿µ : ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791187488460 ','X',991.3,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ê½ºÅ° ï¿½ï¿½ ; ï¿½ï¿½ï¿½Úºï¿½ ï¿½Æ¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ; ï¿½ï¿½ï¿½È¿ ï¿½Å±ï¿½','ï¿½Å¹ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Î¸ï¿½ï¿½Ö¾ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2017','YYYY'),'9791160510676 ','X',992.6,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
+insert into book values((select nvl(max(book_num)+1,100001) from book),'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½','(5ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½','ï¿½ï¿½ï¿½Ìºê·¹ï¿½ï¿½',to_date('2002','YYYY'),'9788987787404 ','X',999.9,'ï¿½ï¿½ï¿½à°¡ï¿½ï¿½',0,sysdate,900);
 
-create table appendix ( --ºÎ·Ï
-    apdx_code varchar(30),--ºÎ·ÏÄÚµå
-    apdx_book_num varchar2(30), --µµ¼­¹øÈ£
-    apdx_name varchar(50) --ºÎ·Ï¸í
+create table appendix ( --ï¿½Î·ï¿½
+    apdx_code varchar(30),--ï¿½Î·ï¿½ï¿½Úµï¿½
+    apdx_book_num varchar2(30), --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    apdx_name varchar(50) --ï¿½Î·Ï¸ï¿½
     --constraint apdx_code_pk PRIMARY KEY (apdx_code) ,
     --constraint appendix_book_name_fk foreign key (book_num)
     --REFERENCES book (book_num)
 );
 
 create table rental (
-    rent_num number, --´ë¿©¹øÈ£
-    book_num number, --µµ¼­¹øÈ£
-    mem_id varchar2(20), --È¸¿ø¹øÈ£
-    rent_startdate date, --´ë¿©ÀÏ
-    rent_enddate date, --¹Ý³³ÀÏ
-    rent_appendix_status varchar2(10), --ºÎ·Ï´ëÃâ¿©ºÎ
-    rent_extension varchar2(10), --´ë¿©¿¬Àå
+    rent_num number, --ï¿½ë¿©ï¿½ï¿½È£
+    book_num number, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mem_id varchar2(20), --È¸ï¿½ï¿½ï¿½ï¿½È£
+    rent_startdate date, --ï¿½ë¿©ï¿½ï¿½
+    rent_enddate date, --ï¿½Ý³ï¿½ï¿½ï¿½
+    rent_appendix_status varchar2(10), --ï¿½Î·Ï´ï¿½ï¿½â¿©ï¿½ï¿½
+    rent_extension varchar2(10), --ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½
     rent_status varchar2(30)
    -- constraint  rent_num_pk PRIMARY KEY (rent_num),
     --constraint rent_book_num_fk foreign key (book_num) 
@@ -336,62 +336,62 @@ create table rental (
     --references member (mem_id)
 );
 
-create table new_book ( --µµ¼­ ±¸ÀÔ ½ÅÃ» Å×ÀÌºí
-    new_book_num number, --½Å°£ ½ÅÃ» ¹øÈ£
-    new_book_num_sub number, --½Å°£ ÇÏÀ§ ¹øÈ£
-    book_author varchar2(150), --ÀúÀÚ
-    book_name varchar2(200), --µµ¼­¸í
-    book_pub_house varchar2(50), --ÃâÆÇ»ç
-    book_pub_date date, --¹ßÇàÀÏ
+create table new_book ( --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ìºï¿½
+    new_book_num number, --ï¿½Å°ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½È£
+    new_book_num_sub number, --ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    book_author varchar2(150), --ï¿½ï¿½ï¿½ï¿½
+    book_name varchar2(200), --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    book_pub_house varchar2(50), --ï¿½ï¿½ï¿½Ç»ï¿½
+    book_pub_date date, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     book_isbn varchar2(50), --isbn
-    book_price number, --µµ¼­ °¡°Ý
-    new_status varchar2(20), --½ÅÃ» ½ÂÀÎ »óÅÂ
-    new_input_date date  --½ÅÃ»ÀÏ
+    book_price number, --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    new_status varchar2(20), --ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    new_input_date date  --ï¿½ï¿½Ã»ï¿½ï¿½
 );
 
-create table hope_book ( -- Èñ¸Á µµ¼­ Å×ÀÌºí
-    hope_book_num number, --Èñ¸Á µµ¼­ ¹øÈ£
-    book_author varchar2(150), --ÀúÀÚ
-    book_name varchar2(200), --µµ¼­¸í
-    book_pub_house varchar2(50), --ÃâÆÇ»ç
-    book_pub_date date, --¹ßÇàÀÏ
+create table hope_book ( -- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+    hope_book_num number, --ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+    book_author varchar2(150), --ï¿½ï¿½ï¿½ï¿½
+    book_name varchar2(200), --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    book_pub_house varchar2(50), --ï¿½ï¿½ï¿½Ç»ï¿½
+    book_pub_date date, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     book_isbn varchar2(50), --isbn
-    book_price number, --µµ¼­ °¡°Ý
-    hope_status varchar2(20), --½ÂÀÎ »óÅÂ
-    hope_input_date date  --½ÅÃ»ÀÏ
+    book_price number, --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    hope_status varchar2(20), --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    hope_input_date date  --ï¿½ï¿½Ã»ï¿½ï¿½
 );
 
-insert into hope_book values(1,	'±Û¹è¿ì',	'ÁöÃÆ°Å³ª ÁÁ¾ÆÇÏ´Â °Ô ¾ø°Å³ª',	'°­ÇÑº°',	TO_DATE('2019/09/04','YYYY-MM-DD'),	'1196797706 9791196797706', 13500,	'½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/01','YYYY-MM-DD'));
-insert into hope_book values(2,	'Á¶³²ÁÖ',	'82³â»ý ±èÁö¿µ(¿À´ÃÀÇ ÀþÀº ÀÛ°¡ 13)(¾çÀåº» HardCover)',	'¹ÎÀ½»ç',	TO_DATE('2016/10/14','YYYY-MM-DD'),	'8937473135 9788937473135',	13000,	'½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/01','YYYY-MM-DD'));
-insert into hope_book values(3,	'ÀÓÈ«ÅÃ',	'90³â»ýÀÌ ¿Â´Ù','¿þÀÏºÏ(whalebooks)',	TO_DATE('2018/11/16','YYYY-MM-DD'),	'1188248677 9791188248674',	14000,	'½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/01','YYYY-MM-DD'));
-insert into hope_book values(4,	'À¯¹ß ÇÏ¶ó¸®',	'»çÇÇ¿£½º',	'±è¿µ»ç',	TO_DATE('2015/11/24','YYYY-MM-DD'),	'8934972467 9788934972464',	22000,'	½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/01','YYYY-MM-DD'));
-insert into hope_book values(5,	'±è¿µÇÏ',	'¿©ÇàÀÇ ÀÌÀ¯',	'¹®ÇÐµ¿³×',	TO_DATE('2019/04/17','YYYY-MM-DD'),	'8954655971 9788954655972',	13500,'	½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/24','YYYY-MM-DD'));
-insert into hope_book values(6,	'ÀÌº´·ü',	'È¥ÀÚ°¡ È¥ÀÚ¿¡°Ô',	'´Þ'	, TO_DATE('2019/09/19','YYYY-MM-DD'),	'1158161026 9791158161026',	15500,	'½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/24','YYYY-MM-DD'));
-insert into hope_book values(7,	'¹ÚÁ¾ÈÆ',	'2020 ºÎÀÇ Áö°¢º¯µ¿',	'21¼¼±âºÏ½º',	TO_DATE('2019/07/05','YYYY-MM-DD'),'	895098198X 9788950981983',	17000,	'½ÅÃ» ¿Ï·á',	TO_DATE('2019/10/24','YYYY-MM-DD'));
+insert into hope_book values(1,	'ï¿½Û¹ï¿½ï¿½',	'ï¿½ï¿½ï¿½Æ°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½',	'ï¿½ï¿½ï¿½Ñºï¿½',	TO_DATE('2019/09/04','YYYY-MM-DD'),	'1196797706 9791196797706', 13500,	'ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/01','YYYY-MM-DD'));
+insert into hope_book values(2,	'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',	'82ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ 13)(ï¿½ï¿½ï¿½åº» HardCover)',	'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',	TO_DATE('2016/10/14','YYYY-MM-DD'),	'8937473135 9788937473135',	13000,	'ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/01','YYYY-MM-DD'));
+insert into hope_book values(3,	'ï¿½ï¿½È«ï¿½ï¿½',	'90ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½','ï¿½ï¿½ï¿½Ïºï¿½(whalebooks)',	TO_DATE('2018/11/16','YYYY-MM-DD'),	'1188248677 9791188248674',	14000,	'ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/01','YYYY-MM-DD'));
+insert into hope_book values(4,	'ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½',	'ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½',	'ï¿½è¿µï¿½ï¿½',	TO_DATE('2015/11/24','YYYY-MM-DD'),	'8934972467 9788934972464',	22000,'	ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/01','YYYY-MM-DD'));
+insert into hope_book values(5,	'ï¿½è¿µï¿½ï¿½',	'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',	'ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½',	TO_DATE('2019/04/17','YYYY-MM-DD'),	'8954655971 9788954655972',	13500,'	ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/24','YYYY-MM-DD'));
+insert into hope_book values(6,	'ï¿½Ìºï¿½ï¿½ï¿½',	'È¥ï¿½Ú°ï¿½ È¥ï¿½Ú¿ï¿½ï¿½ï¿½',	'ï¿½ï¿½'	, TO_DATE('2019/09/19','YYYY-MM-DD'),	'1158161026 9791158161026',	15500,	'ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/24','YYYY-MM-DD'));
+insert into hope_book values(7,	'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',	'2020 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',	'21ï¿½ï¿½ï¿½ï¿½Ï½ï¿½',	TO_DATE('2019/07/05','YYYY-MM-DD'),'	895098198X 9788950981983',	17000,	'ï¿½ï¿½Ã» ï¿½Ï·ï¿½',	TO_DATE('2019/10/24','YYYY-MM-DD'));
 
-create table discard_book ( --µµ¼­ Æó±â ½ÅÃ» Å×ÀÌºí
-       dis_book_num number, --Æó±â ½ÅÃ» ¹øÈ£
-       book_num number, --µµ¼­¹øÈ£
-       dis_input_date date, --Æó±â ½ÅÃ»ÀÏ
-       dis_status varchar2(30) --½ÅÃ» ½ÂÀÎ »óÅÂ
+create table discard_book ( --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ìºï¿½
+       dis_book_num number, --ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½È£
+       book_num number, --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+       dis_input_date date, --ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+       dis_status varchar2(30) --ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 );
 
-insert into discard_book values(3, '100268', TO_DATE('2019/10/24','YYYY-MM-DD'), '½ÅÃ» ¿Ï·á');
-insert into discard_book values(2, '100267', TO_DATE('2019/10/24','YYYY-MM-DD'), '½ÅÃ» ¿Ï·á');
-insert into discard_book values(1, '100266', TO_DATE('2019/10/24','YYYY-MM-DD'), '½ÅÃ» ¿Ï·á');
+insert into discard_book values(3, '100268', TO_DATE('2019/10/24','YYYY-MM-DD'), 'ï¿½ï¿½Ã» ï¿½Ï·ï¿½');
+insert into discard_book values(2, '100267', TO_DATE('2019/10/24','YYYY-MM-DD'), 'ï¿½ï¿½Ã» ï¿½Ï·ï¿½');
+insert into discard_book values(1, '100266', TO_DATE('2019/10/24','YYYY-MM-DD'), 'ï¿½ï¿½Ã» ï¿½Ï·ï¿½');
 commit;
 create table reservation (
-    book_num varchar2(30), -- Ã¥¹øÈ£
-    mem_id varchar2(20), --È¸¿ø¹øÈ£
-    rsrv_num number(20),   --¿¹¾à¹øÈ£
-    rsrv_enddate date --¿¹¾à ³¡³¯Â¥
+    book_num varchar2(30), -- Ã¥ï¿½ï¿½È£
+    mem_id varchar2(20), --È¸ï¿½ï¿½ï¿½ï¿½È£
+    rsrv_num number(20),   --ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    rsrv_enddate date --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¥
     --constraint reservation_rent_num_fk FOREIGN KEY (rent_num)
     --REFERENCES rental (rent_num),
     --constraint reservation_mem_id_fk FOREIGN KEY (mem_id)
     --REFERENCES member (mem_id)
 );
 drop table reservation;
---Á¤º¸ÀÔ·Â ³¯Â¥ ·£´ý Ä¿¸®
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½
 update book set book_input_date = to_date(round(dbms_random.value(20170101, 20170131),0),'yyyymmdd')
 where (book_num between round(dbms_random.value(100001, 100268),0) and round(dbms_random.value(100001, 100268),0));
 
@@ -407,25 +407,25 @@ where (book_num between round(dbms_random.value(100001, 100268),0) and round(dbm
 update book set book_input_date = to_date(round(dbms_random.value(20191001, 20191031),0),'yyyymmdd')
 where (book_num between round(dbms_random.value(100001, 100268),0) and round(dbms_random.value(100001, 100268),0));
 
---·»ÅÐÈ½¼ö ·£´ý Ä¿¸®
+--ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½
 update book set book_rent_cnt = round(dbms_random.value(12, 50),0);
 
 select book_rent_cnt from book;
 
 commit;
-----¼ö¾Æ
+----ï¿½ï¿½ï¿½ï¿½
 drop table department;
 create table department (
     dept_code varchar2(20),
     dept_name varchar2(30),
     CONSTRAINT dept_code_pk PRIMARY KEY(dept_code)
 );
-insert into department values('000', '°üÀå');
-insert into department values('001', 'ÃÑ¹«ºÎ');
-insert into department values('002', '±³À°ºÎ');
-insert into department values('003', 'Á¤º¸ºÎ');
+insert into department values('000', 'ï¿½ï¿½ï¿½ï¿½');
+insert into department values('001', 'ï¿½Ñ¹ï¿½ï¿½ï¿½');
+insert into department values('002', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into department values('003', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
--- »èÁ¦¿¹Á¤
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 drop table sal_check;
 create table sal_check (
     sal_ck_no number,
@@ -458,25 +458,25 @@ create table employee_management(
     constraint emp_dept_fk FOREIGN KEY(emp_dept_code) REFERENCES department(dept_code)
 );
 insert into employee_management
-values(1000001,'°­¼ö¾Æ','01068618619','¼­¿ï½Ã,ÀÌ¹®µ¿','02451','000','9501072222222','F',sysdate-3000,null,'koongmom@librain.org','°üÀå',10000000,'ÇÏ³ª','111111111111','950107');
+values(1000001,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','01068618619','ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ì¹ï¿½ï¿½ï¿½','02451','000','9501072222222','F',sysdate-3000,null,'koongmom@librain.org','ï¿½ï¿½ï¿½ï¿½',10000000,'ï¿½Ï³ï¿½','111111111111','950107');
 insert into employee_management
-values(1000002,'ÀÌ¼Ò¿µ','01011111111','¼­¿ï½Ã,µ¿µ¿µ¿','02451','001','9901012222222','F',sysdate-2000,null,'soyoung@librain.org','ÆÀÀå',3000000,'ÇÏ³ª','111111111111','990101');
+values(1000002,'ï¿½Ì¼Ò¿ï¿½','01011111111','ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','02451','001','9901012222222','F',sysdate-2000,null,'soyoung@librain.org','ï¿½ï¿½ï¿½ï¿½',3000000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000003,'³²¹ÎÁö','01022222222','°íÃÌ,°íÃÌ','02451','002','9901012222222','F',sysdate-1000,null,'zzangmom@librain.org','ÆÀÀå',3000000,'ÇÏ³ª','111111111111','990101');
+values(1000003,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','01022222222','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½','02451','002','9901012222222','F',sysdate-1000,null,'zzangmom@librain.org','ï¿½ï¿½ï¿½ï¿½',3000000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000004,'¹®Çý¼ö','01033333333','¾çÁÖ,¼úÀº ¾çÁÖ°¡ ÃÖ°í','02451','002','9901012222222','F',sysdate-2400,null,'hyesudaldal@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000004,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','01033333333','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Ö°ï¿½','02451','002','9901012222222','F',sysdate-2400,null,'hyesudaldal@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000005,'¹Ú¿¹¿ø','01044444444','¿¹¿øÀÌÁý,ÁýÁý','02451','003','9901012222222','F',sysdate-1300,null,'nanyewoni@librain.org','ÆÀÀå',3000000,'ÇÏ³ª','111111111111','990101');
+values(1000005,'ï¿½Ú¿ï¿½ï¿½ï¿½','01044444444','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½','02451','003','9901012222222','F',sysdate-1300,null,'nanyewoni@librain.org','ï¿½ï¿½ï¿½ï¿½',3000000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000006,'±è½Â¼ö','01055555555','Á¾·Î,ºñÆ®Ä·ÇÁ','02451','003','9901011222222','M',sysdate-3700,null,'iamseungsu@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000006,'ï¿½ï¿½Â¼ï¿½','01055555555','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Æ®Ä·ï¿½ï¿½','02451','003','9901011222222','M',sysdate-3700,null,'iamseungsu@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000007,'ÇÑ¿¹½½','01012341234','Á¾·Î,ºñÆ®Ä·ÇÁ','02451','001','9901012222222','F',sysdate-3700,null,'asdf@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000007,'ï¿½Ñ¿ï¿½ï¿½ï¿½','01012341234','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Æ®Ä·ï¿½ï¿½','02451','001','9901012222222','F',sysdate-3700,null,'asdf@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000008,'Á¦´Ï','01034563456','Á¾·Î,ºñÆ®Ä·ÇÁ','02451','001','9901012222222','F',sysdate-3700,null,'qwer@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000008,'ï¿½ï¿½ï¿½ï¿½','01034563456','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Æ®Ä·ï¿½ï¿½','02451','001','9901012222222','F',sysdate-3700,null,'qwer@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000009,'¼Õ³ªÀº','01045674567','Á¾·Î,ºñÆ®Ä·ÇÁ','02451','002','9901012222222','F',sysdate-3700,null,'zxcv@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000009,'ï¿½Õ³ï¿½ï¿½ï¿½','01045674567','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Æ®Ä·ï¿½ï¿½','02451','002','9901012222222','F',sysdate-3700,null,'zxcv@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 insert into employee_management
-values(1000010,'Á¤¿ì¼º','01056785678','Á¾·Î,ºñÆ®Ä·ÇÁ','02451','003','9901012222222','M',sysdate-3700,null,'abab@librain.org','»ç¿ø',2500000,'ÇÏ³ª','111111111111','990101');
+values(1000010,'ï¿½ï¿½ï¿½ì¼º','01056785678','ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Æ®Ä·ï¿½ï¿½','02451','003','9901012222222','M',sysdate-3700,null,'abab@librain.org','ï¿½ï¿½ï¿½',2500000,'ï¿½Ï³ï¿½','111111111111','990101');
 commit;
 
 drop table commute_management;
@@ -530,18 +530,18 @@ drop table salary_management;
 create table salary_management(
     sal_no number,
     emp_no number,
-    sal_total number, -- ÃÑ ±Þ¿©
-    sal_real number, -- ½ÇÁ¦·Î ¹Þ´Â ±Þ¿©
-    sal_national_pension number, -- ±¹¹Î¿¬±Ý 4.5
-    sal_health_insurance number, -- °Ç°­º¸Çè 3.23
-    sal_longterm_care_insurance number, -- Àå±â¿ä¾ç °Çº¸ 8.51
-    sal_employment_insurance number, -- °í¿ëº¸Çè 0.65
-    sal_income_tax number, -- ¼Òµæ¼¼ 0.7375
-    sal_local_income_tax number, -- ¼Òµæ¼¼ 10ÆÛ
-    sal_deducted number, -- °øÁ¦¾× ÇÕ
-    sal_basic_pay number, -- ±âº»±Þ 200¸¸¿øÁ¤µµ
+    sal_total number, -- ï¿½ï¿½ ï¿½Þ¿ï¿½
+    sal_real number, -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½Þ¿ï¿½
+    sal_national_pension number, -- ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ 4.5
+    sal_health_insurance number, -- ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ 3.23
+    sal_longterm_care_insurance number, -- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½ 8.51
+    sal_employment_insurance number, -- ï¿½ï¿½ï¿½ëº¸ï¿½ï¿½ 0.65
+    sal_income_tax number, -- ï¿½Òµæ¼¼ 0.7375
+    sal_local_income_tax number, -- ï¿½Òµæ¼¼ 10ï¿½ï¿½
+    sal_deducted number, -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    sal_basic_pay number, -- ï¿½âº»ï¿½ï¿½ 200ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     sal_bonus number,
-    sal_food_pay number, -- ½Ä´ë 15¸¸¿ø
+    sal_food_pay number, -- ï¿½Ä´ï¿½ 15ï¿½ï¿½ï¿½ï¿½
     sal_year number,
     sal_month number,
     constraint pay_emp_fk FOREIGN KEY(emp_no) REFERENCES employee_management(emp_no)
@@ -557,18 +557,18 @@ Insert into SALARY_MANAGEMENT (SAL_NO,EMP_NO,SAL_TOTAL,SAL_REAL,SAL_NATIONAL_PEN
 Insert into SALARY_MANAGEMENT (SAL_NO,EMP_NO,SAL_TOTAL,SAL_REAL,SAL_NATIONAL_PENSION,SAL_HEALTH_INSURANCE,SAL_LONGTERM_CARE_INSURANCE,SAL_EMPLOYMENT_INSURANCE,SAL_INCOME_TAX,SAL_LOCAL_INCOME_TAX,SAL_DEDUCTED,SAL_BASIC_PAY,SAL_BONUS,SAL_FOOD_PAY,SAL_YEAR,SAL_MONTH) values (8,1000009,924091,828750,40909,29364,2499,5909,15145,1515,95341,909091,0,15000,2019,10);
 Insert into SALARY_MANAGEMENT (SAL_NO,EMP_NO,SAL_TOTAL,SAL_REAL,SAL_NATIONAL_PENSION,SAL_HEALTH_INSURANCE,SAL_LONGTERM_CARE_INSURANCE,SAL_EMPLOYMENT_INSURANCE,SAL_INCOME_TAX,SAL_LOCAL_INCOME_TAX,SAL_DEDUCTED,SAL_BASIC_PAY,SAL_BONUS,SAL_FOOD_PAY,SAL_YEAR,SAL_MONTH) values (9,1000010,924091,828750,40909,29364,2499,5909,15145,1515,95341,909091,0,15000,2019,10);
 commit;
------------------------¼Ò¿µ
+-----------------------ï¿½Ò¿ï¿½
 select * from table board;
 drop table board;
 
-create table board( -- °Ô½ÃÆÇ Å×ÀÌºí
-board_no number not null,      --°Ô½Ã¹° ¹øÈ£
-board_title varchar2(200) not null,   --Á¦¸ñ
-board_content varchar2(4000),      --³»¿ë
-board_writer varchar2(50) not null,   --ÀÌ¸§
-board_regdate date default sysdate,   --ÀÛ¼ºÀÏÀÚ
+create table board( -- ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+board_no number not null,      --ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È£
+board_title varchar2(200) not null,   --ï¿½ï¿½ï¿½ï¿½
+board_content varchar2(4000),      --ï¿½ï¿½ï¿½ï¿½
+board_writer varchar2(50) not null,   --ï¿½Ì¸ï¿½
+board_regdate date default sysdate,   --ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½
 board_updatedate date default sysdate
---,board_viewcnt number default 0   --Á¶È¸¼ö
+--,board_viewcnt number default 0   --ï¿½ï¿½È¸ï¿½ï¿½
 );
 
 alter table board add constraint pk_board
@@ -577,23 +577,23 @@ primary key (board_no);
 drop sequence seq_board;
 create sequence seq_board;
 --------------------------------------------------------
---´õ¹Ì ÀÔ·Â
+--ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 insert into board (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'Å×½ºÆ®Á¦¸ñ', 'Å×½ºÆ®³»¿ë', 'user00');
+values(seq_board.nextval, 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½', 'user00');
 commit;
 
 -----------------------------------
---ÆÄÀÏÃ·ºÎ Å×ÀÌºí »ý¼º
+--ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 
 select * from tbl_attach;
 drop tbl_attach;
@@ -613,12 +613,12 @@ alter table tbl_attach add constraint pk_attach primary key(uuid);
 select * from table notice;
 drop table notice;
 
-create table notice( --°øÁö°Ô½ÃÆÇ
-board_no number not null,      --°Ô½Ã¹° ¹øÈ£
-board_title varchar2(200) not null,   --Á¦¸ñ
-board_content varchar2(4000),      --³»¿ë
-board_writer varchar2(50) not null,   --ÀÌ¸§
-board_regdate date default sysdate,   --ÀÛ¼ºÀÏÀÚ
+create table notice( --ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
+board_no number not null,      --ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È£
+board_title varchar2(200) not null,   --ï¿½ï¿½ï¿½ï¿½
+board_content varchar2(4000),      --ï¿½ï¿½ï¿½ï¿½
+board_writer varchar2(50) not null,   --ï¿½Ì¸ï¿½
+board_regdate date default sysdate,   --ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½
 board_updatedate date default sysdate
 );
 
@@ -626,60 +626,60 @@ board_updatedate date default sysdate
 alter table notice add constraint pk_notice
 primary key (board_no);
 
--------------- ´õ¹Ì ÀÔ·Â
+-------------- ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 insert into notice (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, 'ÇÊµ¶', '°øÁö»çÇ×À» ²ÙÁØÈ÷ È®ÀÎÇÏ¼¼¿ä', 'admin');
+values(seq_board.nextval, 'ï¿½Êµï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½', 'admin');
 commit;
 insert into notice (board_no, board_title, board_content, board_writer) 
-values(seq_board.nextval, '°Ô½ÃÆÇ ÀÌ¿ë ±ÔÄ¢', '°øÁö»çÇ×°ú »ç³»¼Ò½Ä¸¸À» ¾÷µ¥ÀÌÆ® ÇÕ´Ï´Ù. ¾÷¹«¿Í °ü·Ã ¾ø´Â ÀÌ¾ß±â´Â »ï°¡ÇØÁÖ¼¼¿ä.', 'admin');
+values(seq_board.nextval, 'ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½ï¿½Ä¢', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ ï¿½ç³»ï¿½Ò½Ä¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¾ß±ï¿½ï¿½ ï¿½ï°¡ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.', 'admin');
 commit;
--------------------½Â¼ö 
+-------------------ï¿½Â¼ï¿½ 
 drop table Facilities;
 drop table Facilities_inspection;
-create table Facilities( --½Ã¼³¹°
-Fac_serialnum number  ,          --ÀÏ·Ã¹øÈ£ PK
-Fac_name varchar2(30),         -- ½Ã¼³¹° 
-Fac_address varchar2(30) ,   --À§Ä¡
+create table Facilities( --ï¿½Ã¼ï¿½ï¿½ï¿½
+Fac_serialnum number  ,          --ï¿½Ï·Ã¹ï¿½È£ PK
+Fac_name varchar2(30),         -- ï¿½Ã¼ï¿½ï¿½ï¿½ 
+Fac_address varchar2(30) ,   --ï¿½ï¿½Ä¡
 Fac_status varchar2(30),
 Fac_category varchar2(30)
 );
-create table Facilities_inspection(   --½Ã¼³¹° Á¡°Ë
-FacIn_serialnum  number ,                           --Á¡°ËÇÑ°Í FacilitiesÀÇ fk
-FacIn_name varchar2(30),                --½Ã¼³¹° ÀÌ¸§
-FacIn_address varchar2(30),               --½Ã¼³¹° Àå¼Ò                 --½Ã¼³¹° »óÅÂ
-FacIn_Inspection_Date date default sysdate,    -- Á¡°ËÀÏ 
-FacIn_Inspection_Due_Date date                 --Á¡°Ë¿¹Á¤ÀÏ 
+create table Facilities_inspection(   --ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+FacIn_serialnum  number ,                           --ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ Facilitiesï¿½ï¿½ fk
+FacIn_name varchar2(30),                --ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+FacIn_address varchar2(30),               --ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½                 --ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+FacIn_Inspection_Date date default sysdate,    -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+FacIn_Inspection_Due_Date date                 --ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½ 
 );
 
 
 commit;
 
 
-insert into  Facilities values(1,'Ã¥»ó','1Ãþ¿­¶÷½Ç','°íÀå','¸ñÀç');
-insert into  Facilities values(2 ,'Ã¥»ó','1Ãþ¿­¶÷½Ç','Á¤»ó ','¸ñÀç');
-insert into  Facilities values(3,'Ã¥»ó','1Ãþ¿­¶÷½Ç','Á¤»ó ','¸ñÀç');
-insert into  Facilities values(4,'ÆÑ½º','1Ãþ¿­¶÷½Ç','Á¤»ó ','°¡ÀüÁ¦Ç°');
-insert into  Facilities values(5,'ÇÁ¸°ÅÍ','1Ãþ¿­¶÷½Ç','Á¤»ó ','°¡ÀüÁ¦Ç°');
-insert into  Facilities values(6,'ÄÄÇ»ÅÍ','2°ü½Ã¼³ÆÀ','°íÀå ','°¡ÀüÁ¦Ç°');
-insert into  Facilities values(7,'ÄÄÇ»ÅÍ','3°ü2Ãþ','Á¤»ó ','°¡ÀüÁ¦Ç°');
-insert into  Facilities values(8,'ÄÄÇ»ÅÍ','1Ãþ¿­¶÷½Ç','Á¤»ó ','°¡ÀüÁ¦Ç°');
-insert into  Facilities values(9,'ÀÇÀÚ','1Ãþ¿­¶÷½Ç','Á¤»ó ','¸ñÀç');
-insert into  Facilities values(9,'','1Ãþ¿­¶÷½Ç','Á¤»ó ','¸ñÀç');
+insert into  Facilities values(1,'Ã¥ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½');
+insert into  Facilities values(2 ,'Ã¥ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½');
+insert into  Facilities values(3,'Ã¥ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½');
+insert into  Facilities values(4,'ï¿½Ñ½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°');
+insert into  Facilities values(5,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°');
+insert into  Facilities values(6,'ï¿½ï¿½Ç»ï¿½ï¿½','2ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°');
+insert into  Facilities values(7,'ï¿½ï¿½Ç»ï¿½ï¿½','3ï¿½ï¿½2ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°');
+insert into  Facilities values(8,'ï¿½ï¿½Ç»ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°');
+insert into  Facilities values(9,'ï¿½ï¿½ï¿½ï¿½','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½');
+insert into  Facilities values(9,'','1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ ','ï¿½ï¿½ï¿½ï¿½');
 
 
 
---½Ã¼³´õ¹Ì 
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(1,'¿¤·¹º£ÀÌÅÍ','1°ü',sysdate,sysdate+90);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(2,'¿¡½ºÄÃ·¹ÀÌÅÍ','1°ü',sysdate,sysdate+30);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'¿¡½ºÄÃ·¹ÀÌÅÍ','2°ü',sysdate,sysdate+30);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'¿¡½ºÄÃ·¹ÀÌÅÍ','3°ü',sysdate,sysdate+30);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(4,'¿¤·¹º£ÀÌÅÍ','2°ü',sysdate,sysdate+90);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(5,'¼ÒÈ­±â','2°ü',sysdate,sysdate+20);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(6,'¼ÒÈ­±â','2°ü1Ãþ',sysdate,sysdate+20);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(7,'¼ÒÈ­±â','2°ü2Ãþ',sysdate,sysdate+20);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(8,'¼ÒÈ­±â','2°ü3Ãþ',sysdate,sysdate+20);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(9,'¼ÒÈ­±â','2°ü4Ãþ',sysdate,sysdate+3);
-insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(10,'¼ÒÈ­±â','2°ü5Ãþ',sysdate,sysdate+5);
+--ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(1,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','1ï¿½ï¿½',sysdate,sysdate+90);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(2,'ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½','1ï¿½ï¿½',sysdate,sysdate+30);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½','2ï¿½ï¿½',sysdate,sysdate+30);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(3,'ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½','3ï¿½ï¿½',sysdate,sysdate+30);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(4,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','2ï¿½ï¿½',sysdate,sysdate+90);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(5,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(6,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½1ï¿½ï¿½',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(7,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½2ï¿½ï¿½',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(8,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½3ï¿½ï¿½',sysdate,sysdate+20);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(9,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½4ï¿½ï¿½',sysdate,sysdate+3);
+insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn_Inspection_Date,FacIn_Inspection_Due_Date) values(10,'ï¿½ï¿½È­ï¿½ï¿½','2ï¿½ï¿½5ï¿½ï¿½',sysdate,sysdate+5);
 
 
 commit;
@@ -689,14 +689,14 @@ create or replace procedure facin_update( f_number IN Facilities_inspection.Faci
                                           f_address in facilities_inspection.facin_address%type) 
 is
 begin
- case when f_name='¿¤·¹º£ÀÌÅÍ' then 
+ case when f_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 
          update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+90,facin_address=f_address where FacIn_serialnum=f_number;
-      when f_name='°è·®±â' then
+      when f_name='ï¿½è·®ï¿½ï¿½' then
          update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+30,facin_address=f_address where FacIn_serialnum=f_number;
         
-      when f_name='¼ÒÈ­±â' then
+      when f_name='ï¿½ï¿½È­ï¿½ï¿½' then
                  update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+20,facin_address=f_address where FacIn_serialnum=f_number;
-        when f_name='ºÐÀüÇÔ' then
+        when f_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then
                  update Facilities_inspection set FacIn_INSPECTION_DATE=sysdate,FacIn_INSPECTION_DUE_DATE=sysdate+180,facin_address=f_address where FacIn_serialnum=f_number;
       
         else
@@ -715,12 +715,12 @@ create or replace procedure facin_insert( f_name   in facilities_inspection.faci
                                           )
 is
 begin
- case when f_name='¿¤·¹º£ÀÌÅÍ' then 
+ case when f_name='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 
          insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date,facin_address) 
-         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), '¿¤·¹º£ÀÌÅÍ',sysdate,sysdate+180 ,f_address);
-      when f_name='°è·®±â' then
+         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate,sysdate+180 ,f_address);
+      when f_name='ï¿½è·®ï¿½ï¿½' then
          insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date,facin_address) 
-         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), '°è·®±â',sysdate,sysdate+30 ,f_address);
+         values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), 'ï¿½è·®ï¿½ï¿½',sysdate,sysdate+30 ,f_address);
       else
      insert into  Facilities_inspection(FACIN_SERIALNUM,FACIN_NAME,FACIN_INSPECTION_DATE,FacIn_Inspection_Due_Date ,facin_address) 
          values( (select max(FACIN_SERIALNUM)+1 from Facilities_inspection), f_name,sysdate,sysdate+f_cycle,f_address);
@@ -733,70 +733,70 @@ commit;
 
 drop table member;
 
-create table member( -- È¸¿ø
-    mem_id varchar2(50), --È¸¿ø¾ÆÀÌµð
-    mem_pw varchar2(50), --È¸¿øºñ¹Ð¹øÈ£
-    mem_name varchar2(30), --È¸¿øÀÌ¸§
-    mem_jumin varchar2(30), --ÁÖ¹Î¹øÈ£
-    mem_address varchar2(200), --È¸¿øÁÖ¼Ò
-    mem_address_number varchar2(20), --¿ìÆí¹øÈ£
-    mem_phone varchar2(50), --È¸¿øÆù¹øÈ£
-    mem_email varchar2(50), --È¸¿øÀÌ¸ÞÀÏ
-    mem_rank number default 2 -- ±ÇÇÑ º¯°æ(1. ºí·¢¸®½ºÆ®/ 2. ÀÏ¹ÝÈ¸¿ø/ 3. ±¹°¡À¯°øÀÚ)
+create table member( -- È¸ï¿½ï¿½
+    mem_id varchar2(50), --È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+    mem_pw varchar2(50), --È¸ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½È£
+    mem_name varchar2(30), --È¸ï¿½ï¿½ï¿½Ì¸ï¿½
+    mem_jumin varchar2(30), --ï¿½Ö¹Î¹ï¿½È£
+    mem_address varchar2(200), --È¸ï¿½ï¿½ï¿½Ö¼ï¿½
+    mem_address_number varchar2(20), --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mem_phone varchar2(50), --È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    mem_email varchar2(50), --È¸ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½
+    mem_rank number default 2 -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®/ 2. ï¿½Ï¹ï¿½È¸ï¿½ï¿½/ 3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
    --constraint member_pk primary key (mem_id)
 );
 
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('nmj', 'ming0729!123', '³²¹ÎÁö', '9307292111111', '°æ±âµµ ±èÆ÷½Ã °íÃÌÀ¾ ¼ö±â·Î 67-50, 119µ¿ 802È£', '10130', '01085340280', 'ming_0729@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pyw', '4321', '¹Ú¿¹¿ø', '9711112111111', '¼­¿ï½Ã Á¾·Î±¸ ºñÆ®Ä·ÇÁ', '11111', '01011111111', 'pyw@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('captainss', '1234', '±è½Â¼ö', '9310131111111', '¼­¿ï½Ã Á¾·Î±¸ÀÇ ¾î´À °í½Ã¿ø', '01111', '01022222222', 'kss@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('nmj', 'ming0729!123', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9307292111111', 'ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 67-50, 119ï¿½ï¿½ 802È£', '10130', '01085340280', 'ming_0729@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pyw', '4321', 'ï¿½Ú¿ï¿½ï¿½ï¿½', '9711112111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½ ï¿½ï¿½Æ®Ä·ï¿½ï¿½', '11111', '01011111111', 'pyw@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('captainss', '1234', 'ï¿½ï¿½Â¼ï¿½', '9310131111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½', '01111', '01022222222', 'kss@naver.com');
 
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lsy', '2345', 'ÀÌ¼Ò¿µ', '9707111111111', '¼­¿ï½Ã ¿µµîÆ÷±¸ ¿ÀÇÇ½ºÅÚ', '58642','01012342345', 'soso@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ksa', '5432', '°­¼ö¾Æ', '9511111111111', '¼­¿ï½Ã ¾çÃµ±¸ ', '52325', '01012673421', 'sooa@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('mhs', '3456', '¹®Çý¼ö', '9611111111111', '¼­¿ï½Ã °­³²±¸', '35473', '01011112222', 'hyesoo@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kdw', '6543', '°­µ¿¿ø', '8111111111111', '¼­¿ï½Ã °­ºÏ±¸', '34578', '01011113333', 'dongwon@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jws', '4567', 'Á¤¿ì¼º', '7311111111111', '¼­¿ï½Ã ¼ÛÆÄ±¸', '95463', '01011114444', 'sung@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jdg', '7654', 'Àåµ¿°Ç', '7211111111111', '¼­¿ï½Ã ¼ººÏ±¸', '34865', '01011115555', 'shotgun@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kth', '5678', '±èÅÂÇü', '8211111111111', '°æ±âµµ ±¤¸í½Ã', '89658', '01011116666', 'hyunbin@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('cew', '8765', 'Â÷Àº¿ì', '9711111111111', '¼­¿ï½Ã Áß±¸', '53257', '01011117777', 'dongmin@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('dks', '6789', 'µµ°æ¼ö', '9311111111111', '¼­¿ï½Ã °­µ¿±¸', '35278', '01011118888', 'kyungsoo@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jjh', '9876', 'ÁÖÁöÈÆ', '8211111111111', '¼­¿ï½Ã µµºÀ±¸', '94214', '01011119999', 'jihoon@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjk', '1122', '¼ÛÁß±â', '8511111111111', '¼­¿ï½Ã Áß¶û±¸', '73241', '01011111122', 'joongki@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hjw', '1133', 'ÇÏÁ¤¿ì', '7811111111111', '¼­¿ï½Ã °­¼­±¸', '86552', '01011111133', 'letswalk@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ljj', '1144', 'ÀÌÁ¤Àç', '7311111111111', '¼­¿ï½Ã ±¸·Î±¸', '56345', '01011111144', 'kingjae@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jjs', '1155', 'Á¶Á¤¼®', '8011111111111', '¼­¿ï½Ã °ü¾Ç±¸', '31278', '01011111155', 'yongnam@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jcw', '1166', 'ÁöÃ¢¿í', '8711111111111', '¼­¿ï½Ã ±ÝÃµ±¸', '75648', '01011111166', 'changwook@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kjh', '1177', '±èÁöÈÆ', '8111111111111', '¼­¿ï½Ã ¼ºµ¿±¸', '64245', '01011111177', 'kjihoon@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjs', '1188', '¼ÒÁö¼·', '7711111111111', '¼­¿ï½Ã ¿ë»ê±¸', '56378', '01011111188', 'cowjis@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('skj', '1199', '¼­°­ÁØ', '9311111111111', '¼­¿ï½Ã ¼­´ë¹®±¸', '35424', '01011111199', 'westliver@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('yjk', '1233', '¿©Áø±¸', '9711111111111', '¼­¿ï½Ã µ¿´ë¹®±¸', '86543', '01011112211', 'jinggu@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kms', '2546', '±è¹Î¼®', '9011111111111', '¼­¿ï½Ã ³ë¿ø±¸', '64785', '01011112233', 'minseok@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jyh', '7543', 'Á¤À±È£', '8611111111111', '¼­¿ï½Ã °­ºÏ±¸', '12576', '01011112244', 'passionjyh@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hmh', '7553', 'È²¹ÎÇö', '9511111111111', '¼­¿ï½Ã ÀºÆò±¸', '52158', '01011112255', 'hwngje@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pjh', '4676', '¹ÚÁöÈÆ', '9911111111111', '¼­¿ï½Ã µ¿ÀÛ±¸', '76355', '01011112266', 'winkjh@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pcy', '4673', '¹ÚÂù¿­', '9211111111111', '¼­¿ï½Ã ¼ººÏ±¸', '35468', '01011112277', 'real_pcy@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hsw', '3464', 'ÇÏ¼º¿î', '9411111111111', '¼­¿ï½Ã ¼ÛÆÄ±¸', '21348', '01011112288', 'hacloud@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kmj', '9774', '±è¹ÎÁÖ', '0111111111111', '¼­¿ï½Ã °­³²±¸', '18576', '01011112299', 'miguri@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kjh', '6845', '±èÁöÈ£', '9711111111111', '¼­¿ï½Ã ¼ÛÆÄ±¸', '34185', '01011113311', 'kingjiho@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ayj', '6545', '¾ÈÀ¯Áø', '0311111111111', '¼­¿ï½Ã ³ë¿ø±¸', '67523', '01011113322', 'anujin@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kty', '5415', '±èÅÂ¿¬', '8911111111111', '¼­¿ï½Ã µµºÀ±¸', '37586', '01011113355', 'tangtang@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kyr', '5638', '±ÇÀ¯¸®', '8911111111111', '¼­¿ï½Ã °­ºÏ±¸', '16854', '01011113366', 'yulyuri@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lya', '5241', 'ÀÓÀ±¾Æ', '9011111111111', '¼­¿ï½Ã Áß¶û±¸', '81385', '01011113377', 'yoona@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('csy', '5447', 'ÃÖ¼ö¿µ', '8911111111111', '¼­¿ï½Ã ±¤Áø±¸', '33153', '01011113388', 'choiswim@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khy', '2148', '±èÈ¿¿¬', '8911111111111', '¼­¿ï½Ã µ¿ÀÛ±¸', '53158', '01011113399', 'hyoyeon@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjh', '3541', '¼­ÁÖÇö', '9111111111111', '¼­¿ï½Ã ±¸·Î±¸', '56905', '01011115511', 'westjh@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lsg', '3267', 'ÀÌ¼ø±Ô', '8911111111111', '¼­¿ï½Ã °­¼­±¸', '31058', '01011115522', 'leesgu@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hmy', '1206', 'È²¹Ì¿µ', '8911111111111', '¼­¿ï½Ã ¾çÃµ±¸', '63410', '01011115533', 'stafanih@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khn', '1024', '°­ÇÏ´Ã', '8911111111111', '¼­¿ï½Ã µ¿´ë¹®±¸', '35740', '01011115544', 'kangsky@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khj', '5855', '°øÈ¿Áø', '8011111111111', '¼­¿ï½Ã Áß±¸', '50576', '01011115566', 'ballhj@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lmh', '3212', 'ÀÌ¹ÎÈ£', '8711111111111', '¼­¿ï½Ã ¼­´ë¹®±¸', '07645', '01011115577', 'leemh@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('psh', '7832', '¹Ú½ÅÇý', '9011111111111', '¼­¿ï½Ã ¼ººÏ±¸', '63205', '01011115588', 'parksh@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ljs', '8723', 'ÀÌÁ¾¼®', '8911111111111', '¼­¿ï½Ã ÀºÆò±¸', '86405', '01011115599', 'leebells@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kwb', '5436', '±è¿ìºó', '8911111111111', '¼­¿ï½Ã °­µ¿±¸', '94520', '01011116611', 'cowbean@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sma', '8652', '½Å¹Î¾Æ', '8411111111111', '¼­¿ï½Ã °ü¾Ç±¸', '34210', '01011116622', 'godma@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('bsj', '7514', '¹è¼öÁö', '9411111111111', '¼­¿ï½Ã ±ÝÃµ±¸', '67520', '01011116633', 'boatsj@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kms', '8527', '±è¸í¼ö', '9211111111111', '¼­¿ï½Ã ÀºÆò±¸', '50864', '01011116655', 'myungs@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('shs', '3748',  '½ÅÇý¼±', '8911111111111', '¼­¿ï½Ã ¿ë»ê±¸', '64105', '01011117788', 'godhs@naver.com');
-insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ppg', '4162', '¹Úº¸°Ë', '9311111111111', '¼­¿ï½Ã ¼ÛÆÄ±¸', '46876', '01011118956', 'bogummy@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lsy', '2345', 'ï¿½Ì¼Ò¿ï¿½', '9707111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½', '58642','01012342345', 'soso@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ksa', '5432', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9511111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½ ', '52325', '01012673421', 'sooa@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('mhs', '3456', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9611111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '35473', '01011112222', 'hyesoo@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kdw', '6543', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8111111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '34578', '01011113333', 'dongwon@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jws', '4567', 'ï¿½ï¿½ï¿½ì¼º', '7311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½', '95463', '01011114444', 'sung@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jdg', '7654', 'ï¿½åµ¿ï¿½ï¿½', '7211111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '34865', '01011115555', 'shotgun@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kth', '5678', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8211111111111', 'ï¿½ï¿½âµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '89658', '01011116666', 'hyunbin@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('cew', '8765', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½', '53257', '01011117777', 'dongmin@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('dks', '6789', 'ï¿½ï¿½ï¿½ï¿½ï¿½', '9311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '35278', '01011118888', 'kyungsoo@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jjh', '9876', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8211111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '94214', '01011119999', 'jihoon@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjk', '1122', 'ï¿½ï¿½ï¿½ß±ï¿½', '8511111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½', '73241', '01011111122', 'joongki@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hjw', '1133', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '7811111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '86552', '01011111133', 'letswalk@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ljj', '1144', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '7311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½', '56345', '01011111144', 'kingjae@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jjs', '1155', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8011111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±ï¿½', '31278', '01011111155', 'yongnam@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jcw', '1166', 'ï¿½ï¿½Ã¢ï¿½ï¿½', '8711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½', '75648', '01011111166', 'changwook@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kjh', '1177', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8111111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '64245', '01011111177', 'kjihoon@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjs', '1188', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '7711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ê±¸', '56378', '01011111188', 'cowjis@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('skj', '1199', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½', '35424', '01011111199', 'westliver@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('yjk', '1233', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½', '86543', '01011112211', 'jinggu@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kms', '2546', 'ï¿½ï¿½Î¼ï¿½', '9011111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½', '64785', '01011112233', 'minseok@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('jyh', '7543', 'ï¿½ï¿½ï¿½ï¿½È£', '8611111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '12576', '01011112244', 'passionjyh@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hmh', '7553', 'È²ï¿½ï¿½ï¿½ï¿½', '9511111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', '52158', '01011112255', 'hwngje@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pjh', '4676', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û±ï¿½', '76355', '01011112266', 'winkjh@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('pcy', '4673', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9211111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '35468', '01011112277', 'real_pcy@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hsw', '3464', 'ï¿½Ï¼ï¿½ï¿½ï¿½', '9411111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½', '21348', '01011112288', 'hacloud@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kmj', '9774', 'ï¿½ï¿½ï¿½ï¿½ï¿½', '0111111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '18576', '01011112299', 'miguri@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kjh', '6845', 'ï¿½ï¿½ï¿½ï¿½È£', '9711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½', '34185', '01011113311', 'kingjiho@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ayj', '6545', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '0311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½', '67523', '01011113322', 'anujin@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kty', '5415', 'ï¿½ï¿½ï¿½Â¿ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '37586', '01011113355', 'tangtang@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kyr', '5638', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '16854', '01011113366', 'yulyuri@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lya', '5241', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9011111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½', '81385', '01011113377', 'yoona@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('csy', '5447', 'ï¿½Ö¼ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '33153', '01011113388', 'choiswim@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khy', '2148', 'ï¿½ï¿½È¿ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û±ï¿½', '53158', '01011113399', 'hyoyeon@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sjh', '3541', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '9111111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½', '56905', '01011115511', 'westjh@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lsg', '3267', 'ï¿½Ì¼ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '31058', '01011115522', 'leesgu@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('hmy', '1206', 'È²ï¿½Ì¿ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½', '63410', '01011115533', 'stafanih@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khn', '1024', 'ï¿½ï¿½ï¿½Ï´ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½', '35740', '01011115544', 'kangsky@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('khj', '5855', 'ï¿½ï¿½È¿ï¿½ï¿½', '8011111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½', '50576', '01011115566', 'ballhj@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('lmh', '3212', 'ï¿½Ì¹ï¿½È£', '8711111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ë¹®ï¿½ï¿½', '07645', '01011115577', 'leemh@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('psh', '7832', 'ï¿½Ú½ï¿½ï¿½ï¿½', '9011111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½', '63205', '01011115588', 'parksh@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ljs', '8723', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', '86405', '01011115599', 'leebells@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kwb', '5436', 'ï¿½ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '94520', '01011116611', 'cowbean@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('sma', '8652', 'ï¿½Å¹Î¾ï¿½', '8411111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±ï¿½', '34210', '01011116622', 'godma@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('bsj', '7514', 'ï¿½ï¿½ï¿½ï¿½ï¿½', '9411111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ï¿½', '67520', '01011116633', 'boatsj@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('kms', '8527', 'ï¿½ï¿½ï¿½ï¿½ï¿½', '9211111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', '50864', '01011116655', 'myungs@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('shs', '3748',  'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '8911111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ê±¸', '64105', '01011117788', 'godhs@naver.com');
+insert into member(mem_id,mem_pw,mem_name,mem_jumin,mem_address,mem_address_number,mem_phone,mem_email) values('ppg', '4162', 'ï¿½Úºï¿½ï¿½ï¿½', '9311111111111', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä±ï¿½', '46876', '01011118956', 'bogummy@naver.com');
 
 commit;
 
@@ -812,7 +812,7 @@ select * from Facilities;
     
     begin
     
-     for delayedlist in (select * from rental where rent_enddate<sysdate) loop -- Ã¥ ¹Ý³³¾ÈÇÑ»ç¶÷µé
+     for delayedlist in (select * from rental where rent_enddate<sysdate) loop -- Ã¥ ï¿½Ý³ï¿½ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ï¿½ï¿½
     update member set deadline_rent_stop=nvl(deadline_rent_stop,sysdate)+1 where mem_id=delayedlist.mem_id;
     
     end loop;
@@ -825,14 +825,14 @@ select * from Facilities;
      
      commit;
      
-     --´ëÃâÁ¤Áö ÇØÁ¦
+     --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
      create or replace procedure proc_deadlinecheck
     is
     
     begin
     
-     for deadlinecheck in (select * from member where deadline_rent_stop<sysdate) loop -- Ã¥ ¹Ý³³ ¾ÈÇß´ø»ç¶÷µé
-    update member set book_loanable='´ëÃâ°¡´É' where mem_id=deadlinecheck.mem_id;
+     for deadlinecheck in (select * from member where deadline_rent_stop<sysdate) loop -- Ã¥ ï¿½Ý³ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    update member set book_loanable='ï¿½ï¿½ï¿½â°¡ï¿½ï¿½' where mem_id=deadlinecheck.mem_id;
     
     end loop;
      end; 
@@ -841,7 +841,7 @@ select * from Facilities;
      /
      
      
-    ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(20) default '´ëÃâ°¡´É');
+    ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(20) default 'ï¿½ï¿½ï¿½â°¡ï¿½ï¿½');
      select * from member;
     update member set deadline_rent_stop=deadline_rent_stop+1 where mem_id='nmj';
     
@@ -864,7 +864,7 @@ select * from Facilities;
     loop
    fetch   hoijja into hohoho;
     exit when hoijja%notfound;
-      DBMS_OUTPUT.PUT_LINE('ºÎ¼­¸í : '||hohoho.dd2 );
+      DBMS_OUTPUT.PUT_LINE('ï¿½Î¼ï¿½ï¿½ï¿½ : '||hohoho.dd2 );
      --   insert into test2(dd,dd2) values(1||hohoho.dd  ,  1||hohoho.dd2);
     end loop;
     
@@ -901,7 +901,7 @@ drop table test2;
 CREATE INDEX index_test2test2 ON test2 (namename desc);
 select * from test2;
 
--- not nullÀÌ°Å³ª , index ÄÃ·³À» pk·Î ¼³Á¤½Ã  whereÀÌ ¾ø¾îµµ  index¸¦ Åº´Ù.
+-- not nullï¿½Ì°Å³ï¿½ , index ï¿½Ã·ï¿½ï¿½ï¿½ pkï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  whereï¿½ï¿½ ï¿½ï¿½ï¿½îµµ  indexï¿½ï¿½ Åºï¿½ï¿½.
 
 
 select /*+INDEX_desc(test2 index_test2test2)  */ namename,namename2 from test2;
@@ -917,22 +917,22 @@ select * from test2;
 
 
 select * from reservation;
---¿¹¾àÇÑ ±â·ÏÀº 0 À¸·Î ¹Ù²Þ 
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ 
 select * from reservation;
 select * from rental;
--- rental ±â·ÏÀº ¿¹¾à¾ÈÇÔÀ¸·Î ¹Ù²Þ 
+-- rental ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ 
 
 -- 
 select * from rental;
 select * from book;
 
 
-select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from 
+select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent from 
 (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in 
 (select max(rent_startdate) 
-from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß') r on (b.book_num = r.book_num));
+from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½') r on (b.book_num = r.book_num));
 
-select * from ( select rownum rnum, b.*, nvl2(rent_status,'´ë¿©°¡´É','´ë¿©°¡´É') rent from 
+select * from ( select rownum rnum, b.*, nvl2(rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½','ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent from 
 (select * from book where book_num = 100001) b left outer join 
 (select book_num, rent_status from rental where   rent_startdate in 
 (select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
@@ -943,22 +943,22 @@ select * from rental;
 
 
 
-select * from ( select rownum rnum, b.*, nvl2(rent_status,'´ë¿©°¡´É','´ë¿©°¡´É') rent from 
+select * from ( select rownum rnum, b.*, nvl2(rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½','ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent from 
 (select * from book where book_num = 100001) b left outer join 
 (select book_num, rent_status from rental where   rent_startdate in 
 (select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
 (b.book_num = r.book_num)) ;
 
-select * from ( select rownum rnum, b.*,(case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É'
-                                                     when r.rent_status is null then '´ë¿©°¡´É'
-                            else '´ë¿©Áß' end)  rent from 
+select * from ( select rownum rnum, b.*,(case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                                                     when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                            else 'ï¿½ë¿©ï¿½ï¿½' end)  rent from 
 													(select * from book where book_num = 100001) b left outer join 
 																							(select book_num, rent_status from rental where   rent_startdate in 
 																							(select max(rent_startdate) from rental group by book_num)   and rent_num in (select max(rent_num) from rental group by book_num)  ) r on
 																							(b.book_num = r.book_num)) ;l
        
         select * from
-          ( select rownum rnum, b.*, nvl(rent_status,'´ë¿©°¡´É') rent
+          ( select rownum rnum, b.*, nvl(rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent
                   from  (select * from book where book_num = #{ book_num }) b
                   left outer join (select book_num, rent_status from rental
                                   where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
@@ -967,10 +967,10 @@ select * from ( select rownum rnum, b.*,(case when r.rent_status='¹Ý³³' then '´ë
                   
        
  select * from
-          ( select rownum rnum, b.*, (case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É'
-                                                     when r.rent_status is null then '´ë¿©°¡´É'
-                                                     when r.rent_status ='¿¹¾àÁß' then '¿¹¾àÁß' 
-                            else '´ë¿©Áß' end) rent
+          ( select rownum rnum, b.*, (case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                                                     when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                                                     when r.rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' 
+                            else 'ï¿½ë¿©ï¿½ï¿½' end) rent
                   from  (select * from book where book_num = 100001) b
                   left outer join (select book_num, rent_status from rental
                                   where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
@@ -978,13 +978,13 @@ select * from ( select rownum rnum, b.*,(case when r.rent_status='¹Ý³³' then '´ë
                   on (b.book_num = r.book_num))
 ;
 select * from member;
-select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent ,rent_num  from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or rent_status='¿¹¾àÁß') r on (b.book_num = r.book_num)) ;
+select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent ,rent_num  from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½') r on (b.book_num = r.book_num)) ;
 commit;
 select * from
 select * from rental;
 select * from rental;
-select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or rent_status='¿¹¾àÁß') r on (b.book_num = r.book_num)) ;
- insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+7, 'X', 'X', '¿¹¾àÁß');
+select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent from (select * from book order by book_num desc) b join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½') r on (b.book_num = r.book_num)) ;
+ insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+7, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
  select * from rental
  select * from reservation;
  select * from reservation,rental;
@@ -992,26 +992,26 @@ select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from (select * fro
  
  
  
- select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,mem_id from (select * from book order by book_num desc) b join (select book_num, rent_status,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and  rental.mem_id ='nmj') ) r on (b.book_num = r.book_num))
+ select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,mem_id from (select * from book order by book_num desc) b join (select book_num, rent_status,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and  rental.mem_id ='nmj') ) r on (b.book_num = r.book_num))
 ; 
  select * from reservation;
  select * from rental;
  
  
- --¿¹¾àÁß±¸Çö
+ --ï¿½ï¿½ï¿½ï¿½ï¿½ß±ï¿½ï¿½ï¿½
  desc reservation;
  insert into reservation values(#{book_num}, #{mem_id},(select count(*) from reservation where book_num=#{book_num})+1 );
  select * from rental,(select count(*) from test22)  ;
  select b.*,aa from book b  inner join (select count(*) over(partition by(rental.book_num)) aa,book_num from rental )rental on b.book_num=rental.book_num;
  select * from reservation where book_num=100001;
- --´ë¿©Áß or ¿¹¾àÁß  --¿¹¾àÇÑ»ç¶÷ÀÌ ÀÚ½ÅÀÌ¸é ´ëÃâ°¡´ÉÀ¸·Î Ã¼Å© 
+ --ï¿½ë¿©ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  --ï¿½ï¿½ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½â°¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å© 
  
- -- ¸¸¾à ¿¹¾àÇÏ´Â»ç¶÷ÀÌ 5¸íÀÌ ³Ñ°Å³ª ¿¹¾àÇß´Âµ¥ ¶Ç ¿¹¾àÇÒ·Á°íÇÏ¸é ÀÌ¹Ì ¿¹¾àÁßÀÔ´Ï´Ù.¶ó°í ÇÏ±â 
+ -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â»ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ 
  
- --¿¹¾àÃë¼Òµµ ³ªÁß¿¡ ±¸Çö.
+ --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
  
 
- --¿¹¾à¼ø¹ø1¹ø¿¡¼­ ºô¸±¼öÀÖ´ÂÂ÷·Ê°¡µÇ¸é rental·Î ³Ñ¾î¿È. ¿¹¾à¼ø¹ø1¹øÀº Áö¿öÁü.
+ --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ê°ï¿½ï¿½Ç¸ï¿½ rentalï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
  
  --insert into reservation values(book_num,mem_id,(select count(*) from reservation where book_num=#{book_num{);
  
@@ -1019,13 +1019,13 @@ select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from (select * fro
  select * from test22;
  select * from reservation;
  
- --selectkey¸¦ ÀÌ¿ëÇØ¼­ °ªÀÌ before·Î °ªÀ» ¾Ë¾Æ³½ÈÄ °á°ú°ªÀÌ 0 ÀÌ¸é ¾÷µ¥ÀÌÆ®¾ÈµÆ´Ù´ÂÀÇ¹Ì´Ï±î ¿¹¾àºÒ°¡.
+ --selectkeyï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ beforeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0 ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ÈµÆ´Ù´ï¿½ï¿½Ç¹Ì´Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.
  commit;
  rent_num, mem_id, rsrv_num=1
  select * from test22;
  select * from( select *  from rental r,test22);
  select * from reservation;
- insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+2, 'X', 'X', '¿¹¾àÁß');
+ insert into rental values((select nvl(max(rent_num)+1,1) from rental), 100001, 'nmj', sysdate, sysdate+2, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
  
  
  
@@ -1042,10 +1042,10 @@ select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from (select * fro
 	   
 	   BEGIN
        if :new.namename=3 then 
-       DBMS_OUTPUT.PUT_LINE('º¯°æ ÈÄ ÄÃ·³ °ª : ' || : new.namename);
+       DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ : ' || : new.namename);
        else
-        DBMS_OUTPUT.PUT_LINE('º¯°æ Àü ÄÃ·³ °ª : ' || : old.namename);
-        DBMS_OUTPUT.PUT_LINE('º¯°æ ÈÄ ÄÃ·³ °ª : ' || : new.namename);
+        DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ : ' || : old.namename);
+        DBMS_OUTPUT.PUT_LINE('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã·ï¿½ ï¿½ï¿½ : ' || : new.namename);
         end if;
      END;
      /
@@ -1063,9 +1063,9 @@ select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent from (select * fro
      update test22 set namename=1;
      
   select * from
-         (select  b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,rent_num,mem_id
+         (select  b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,rent_num,mem_id
                  from  (select * from book order by book_num desc) b
-                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and rental.mem_id ='nmj') ) r
+                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rental.mem_id ='nmj') ) r
                    on (b.book_num = r.book_num))  ;
      
      
@@ -1083,10 +1083,10 @@ select * from test22;
 commit;
 select * from reservation;
   select * from
-          ( select rownum rnum, b.*, (case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É'
-                                                     when r.rent_status is null then '´ë¿©°¡´É'
-                                                     when r.rent_status ='¿¹¾àÁß' then '¿¹¾àÁß' 
-                            else '´ë¿©Áß' end) rent, nvl(rscount,0) reservationcount
+          ( select rownum rnum, b.*, (case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                                                     when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½'
+                                                     when r.rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' 
+                            else 'ï¿½ë¿©ï¿½ï¿½' end) rent, nvl(rscount,0) reservationcount
                   from  (select * from book where book_num =100001) b
                   left outer join (select book_num, rent_status from rental
                                   where rent_startdate in (select max(rent_startdate) from rental  group by book_num) 
@@ -1096,42 +1096,42 @@ select * from reservation;
  
                   
                   select * from reservation;
---Ã¥ ¹Ý³³ ¿¹¾à1¹ø ·»Å»·Î °ª ³Ñ±è ÀÌ‹š ·»Å»¿¡ ³²°ÜµÑ°ÍÀÎ°¡? 
+--Ã¥ ï¿½Ý³ï¿½ ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ±ï¿½ ï¿½Ì‹ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ÜµÑ°ï¿½ï¿½Î°ï¿½? 
 
 select * from rental join reservation on rental.mem_id=reservation.mem_id where rental.mem_id='nmj';
 
 select a.*,count(b.book_num) over() from member a join  reservation b on a.mem_id=b.mem_id     where a.mem_id='nmj';
 select a.*,ct from member a join  (select count(*) ct,mem_id from reservation where mem_id='nmj' group by mem_id) b on a.mem_id=b.mem_id     where a.mem_id='nmj';
   select * from
-         (select  b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,rent_num,mem_id ,rscount
+         (select  b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,rent_num,mem_id ,rscount
                  from  (select * from book order by book_num desc) b
-                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and rental.mem_id ='nmj') ) r
+                join  (select book_num, rent_status ,rent_num,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rental.mem_id ='nmj') ) r
                    on (b.book_num = r.book_num) 
                    left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       
   
   
- --È¸¿ø°Ë»öÄõ¸®
+ --È¸ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
  select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, to_char(deadline_rent_stop,'yyyymmdd')  deadline_rent_stop  ,
-                                                                case when deadline_rent_stop>sysdate and book_loanable='´ëÃâ°¡´É' then 0
+                                                                case when deadline_rent_stop>sysdate and book_loanable='ï¿½ï¿½ï¿½â°¡ï¿½ï¿½' then 0
                                                                 else
-                                                                      case when mem_rank=2 then 7  -- ´ëÃâºÒ°¡ ÆÇ´Ü
+                                                                      case when mem_rank=2 then 7  -- ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ ï¿½Ç´ï¿½
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
                                                                       else 0 end
                                                                 end      TotalLoanable_Number,
-                                                                case when deadline_rent_stop>sysdate and book_loanable='´ëÃâ°¡´É' then 0
+                                                                case when deadline_rent_stop>sysdate and book_loanable='ï¿½ï¿½ï¿½â°¡ï¿½ï¿½' then 0
                                                                 else       
                                                                       case when mem_rank=2 then 7 
                                                                       when mem_rank=3 then 5
                                                                       when mem_rank=0 then 12
-                                                                      else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='´ë¿©Áß')
+                                                                      else 0 end    -(select count(*) from rental where mem_id='nmj' and rent_status='ï¿½ë¿©ï¿½ï¿½')
                                                                 end     CurrentLoanable_Number from member where mem_id like '%nmj';
                                                                
 
 
 
 select * from ( select rownum rnum, b.*, 
-(case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É' when r.rent_status is null then '´ë¿©°¡´É' when r.rent_status ='¿¹¾àÁß' then '¿¹¾àÁß' else '´ë¿©Áß' end) rent,
+(case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' when r.rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' else 'ï¿½ë¿©ï¿½ï¿½' end) rent,
 nvl(rscount,0) reservationcount from (select * from book where book_num =100001) b 
 left outer join (select book_num, rent_status from rental where rent_startdate in 
 (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on 
@@ -1142,7 +1142,7 @@ select * from rental;
 create or replace trigger test_test_test_test_test
 after update on rental
 for each row 
-when ( new.rent_status = '¹Ý³³')
+when ( new.rent_status = 'ï¿½Ý³ï¿½')
 declare
 counting number;
 
@@ -1203,19 +1203,19 @@ name222 number);
 commit;
 select * from rental;
 select * from reservation;
-insert into rental values(1,100002,'nmj',null,null,'X','X','¿¹¾àÁß');
-insert into reservation values(100002,'nmj',1,sysdate+2); --¿¹¾à¼ø¹ø1¹øÀÏ‹š reservation°ú rental µ¿½Ã¿¡ ³²±â±â 1.   rental¿¡¸¸ ³²±â±â2. ¼±ÅÃÇØ¾ßÇÒ°Í. reservation¿¡ ¾È³²±æ°Å¸é enddateÅ×ÀÌºí ÇÊ¿ä¾øÀ½
+insert into rental values(1,100002,'nmj',null,null,'X','X','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into reservation values(100002,'nmj',1,sysdate+2); --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Ï‹ï¿½ reservationï¿½ï¿½ rental ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 1.   rentalï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½2. ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ò°ï¿½. reservationï¿½ï¿½ ï¿½È³ï¿½ï¿½ï¿½Å¸ï¿½ enddateï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½
 
---°£´ÜÇÑ°ÍºÎÅÍ ³¡³»±â  ¿¬Àå  -- °ªÀÌ XÀÏ‹š O·Î ¹Ù²Ù°í sysdate + 7 ÇØÁÙ°Í.
---,¿¹¾à±â´É              --  ¿¹¾àÀÚ¼ö°¡ 5¸íÀÌ»óÀÏ½Ã ´õÀÌ»ó ¿¹¾à¸øÇÏ°ÔÇÒ°Í. 
-                       --ÇöÀç rsrvcount¶ó´Â °¡»ó ÄÃ·³À¸·Î ¿¹¾àÀÚ¼ö¸¦ »õ°íÀÖÀ½. 
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°Íºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½  -- ï¿½ï¿½ï¿½ï¿½ Xï¿½Ï‹ï¿½ Oï¿½ï¿½ ï¿½Ù²Ù°ï¿½ sysdate + 7 ï¿½ï¿½ï¿½Ù°ï¿½.
+--,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½              --  ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½Ì»ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ò°ï¿½. 
+                       --ï¿½ï¿½ï¿½ï¿½ rsrvcountï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
  select * from reservation;
- --¿¹¾àÇÒ·Á´ÂÃ¥À» ÀÌ¹Ì ¿¹¾àÇÏ°íÀÖ´Â°ÍÀº ¾Æ´ÑÁö.
+ --ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½Ö´Â°ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½.
  select count(*) from reservation where rsrv_num >0 and book_num=100001;
- --°ªÀÌ 0À» ÃÊ°úÇÏ¸é ÀÌ¹Ì ¿¹¾àÇß´Ù´Â ¶æÀÌ´Ï ¿¹¾àºÒ°¡ 
+ --ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù´ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ 
  
  
- --¹Ý³³ÇßÀ»½Ã ¿¹¾à1¹ø-> insert into ¿¹¾àÁß and update 
+ --ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½-> insert into ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ and update 
  
  --
  
@@ -1223,14 +1223,14 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --¿¹¾à¼ø¹ø1¹øÀÏ‹š rese
  
  
  select * from rental;
- --¿¹¾àÇÑÃ¥
+ --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥
  insert  into reservation(book_num,mem_id,rsrv_num) values(100001,'nmj',(select count(rsrv_num)+1 from reservation where book_num=100001));
---¹Ý³³ÇÒ‹š ¿¹¾àÇÑ»ç¶÷ insert½ÃÅ°°í ÇØ´çÃ¥ 1¹ø deleteÇÒ°Í. 
---ÇØ´çÃ¥ ¿¹¾àÀÚ¼ö±¸ÇÒ°Í.
- select count(*) from reservation where rsrv_num >0 and book_num=100001; --ÀÌ°ªÀÌ 0À» ÃÊ°úÇÏ¸é 
- --selectkey·Î rsrv_num=1°¡Á®¿À°í 
- --rsrv_num=1 reservation »èÁ¦
- --rsrv_num +2ºÎÅÍ 1·Î ‹¯±æ°Í.
+--ï¿½Ý³ï¿½ï¿½Ò‹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ insertï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ø´ï¿½Ã¥ 1ï¿½ï¿½ deleteï¿½Ò°ï¿½. 
+--ï¿½Ø´ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.
+ select count(*) from reservation where rsrv_num >0 and book_num=100001; --ï¿½Ì°ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¸ï¿½ 
+ --selectkeyï¿½ï¿½ rsrv_num=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+ --rsrv_num=1 reservation ï¿½ï¿½ï¿½ï¿½
+ --rsrv_num +2ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
  
  
  select * from reservation;
@@ -1243,7 +1243,7 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --¿¹¾à¼ø¹ø1¹øÀÏ‹š rese
  end;
  /
  set serveroutput on;
- --notnull È®ÀÎ
+ --notnull È®ï¿½ï¿½
  
  select * from reservation;
  select * from rental;
@@ -1253,12 +1253,12 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --¿¹¾à¼ø¹ø1¹øÀÏ‹š rese
  select * from rental;
  exec proc_returnbook(100001);
  
- --¹Ý³³ÇßÀ»½Ã ¿¹¾àÀÚ¸¦ rental Å×ÀÌºí¿¡ insertÇÑÈÄ¿¡ reservation»ç¶÷µéÀ» ¼ø¹øÇÏ³ª¾¿ ‹¯±â°Ô¸¸µé±â ¿¹¾àÇÑÀÚ°¡ ¾øÀ»½Ã ±×³É ¹Ý³³¸¸ µÇ°Ô ¸¸µé±â.
- --¸ÅÀÏ ÀÏÁ¤½Ã°£ ¿¹¾àÇÑÀÚ°¡ ¿¹¾à¾ÈÇßÀ»½Ã¿¡ Ä¿¼­·Î ¸ñ·Ï »Ì¾Æ³õ°í ¾Æ·¡ÀÇ procedure¸¸ ½ÇÇà½ÃÅ°¸é µÊ.
+ --ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ rental ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ insertï¿½ï¿½ï¿½Ä¿ï¿½ reservationï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½Ý³ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+ --ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¾Æ³ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ procedureï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½.
  declare
  
  begin 
-  if 5<6 and 7<8 then   DBMS_OUTPUT.PUT_LINE('ºÎ¼­¸í : ');
+  if 5<6 and 7<8 then   DBMS_OUTPUT.PUT_LINE('ï¿½Î¼ï¿½ï¿½ï¿½ : ');
   end if;
  
  end ;
@@ -1268,13 +1268,12 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --¿¹¾à¼ø¹ø1¹øÀÏ‹š rese
 select * from reservation where book_num=100002 and rsrv_num>0 order by rsrv_num;
  create or replace procedure proc_returnbook(p_book_num in number)
  is
- updatecount number;
- reservationcount number;
- reservationmem_id varchar2(50);
+ updatecount number; -- forï¿½ï¿½ countï¿½ï¿½ï¿½ï¿½ 
+ reservationcount number; --ï¿½Ý³ï¿½ï¿½Ç´ï¿½Ã¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ 
  begin
  updatecount:=0;
 
-    update rental set rent_enddate = sysdate, rent_status = '¹Ý³³' where book_num =  p_book_num;
+    update rental set rent_enddate = sysdate, rent_status = 'ï¿½Ý³ï¿½' where book_num =  p_book_num;
     
     select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
     if reservationcount>0 then 
@@ -1282,10 +1281,10 @@ select * from reservation where book_num=100002 and rsrv_num>0 order by rsrv_num
     for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0)
     loop
         if updatecount=0 then 
-        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '¿¹¾àÁß');
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
         update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
         else
-        --Ã¹¹ø¤Š´Â Ä«¿îÆ® 0ÀÌ´Ï À­Á¶°Ç ½ÇÇà ±×´ÙÀ½ 1ºÎÅÍ´Â ¹Ø Äõ¸® ½ÇÇà
+        --Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® 0ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
         end if;
     
@@ -1296,30 +1295,29 @@ select * from reservation where book_num=100002 and rsrv_num>0 order by rsrv_num
  end;
  /
  
- -- ¹Ý³³ÇÒ‹š ¾Æ·¡¸¦ ¾÷µ¥ÀÌÆ®¹®À¸·Î ¹Ù²Ù±â.
+ -- ï¿½Ý³ï¿½ï¿½Ò‹ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½.
  select * from rental where book_num=100003 and rent_num=(select max(rent_num) from rental where book_num=100003);
  
  
  select * from rental;
  desc rental;
                        
---°íÄ¥°Í rentbookcheck¿Í rentmembookcheckÀÌ ÀÖÀ½.
+--ï¿½ï¿½Ä¥ï¿½ï¿½ rentbookcheckï¿½ï¿½ rentmembookcheckï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 
 desc rental;
 select * from rental;
-  insert into rental values((select nvl(max(rent_num)+1,1) from rental),  100010, 'nmj', sysdate-4, sysdate-2, 'X', 'X', '¿¹¾àÁß');
---¸ÅÀÏ ÀÏÁ¤½Ã°£¿¡ ¿¹¾àÇß´Âµ¥ ¾Èºô·Á°£»ç¶÷µé ¹Ý³³Ã³¸®ÇÑÈÄ¿¡ ¿¹¾àÀÚÀÖÀ¸¸é ¿¹¾àÃ³¸®ÇÏ±â.
+  insert into rental values((select nvl(max(rent_num)+1,1) from rental),  100010, 'nmj', sysdate-4, sysdate-2, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Âµï¿½ ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý³ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½Ï±ï¿½.
 
 create or replace procedure proc_reservation(p_book_num in number)
  is
  updatecount number;
  reservationcount number;
- reservationmem_id varchar2(50);
  begin
  updatecount:=0;
 
-    update rental set rent_enddate = sysdate, rent_status = '¹Ý³³' where book_num =  p_book_num;
+    update rental set rent_enddate = sysdate, rent_status = 'ï¿½Ý³ï¿½' where book_num =  p_book_num;
     
     select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
     if reservationcount>0 then 
@@ -1327,27 +1325,29 @@ create or replace procedure proc_reservation(p_book_num in number)
     for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0)
     loop
         if updatecount=0 then 
-        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '¿¹¾àÁß');
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
         update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
         else
-        --Ã¹¹ø¤Š´Â Ä«¿îÆ® 0ÀÌ´Ï À­Á¶°Ç ½ÇÇà ±×´ÙÀ½ 1ºÎÅÍ´Â ¹Ø Äõ¸® ½ÇÇà
+        --Ã¹ï¿½ï¿½?ï¿½ï¿½ Ä«ï¿½ï¿½Æ® 0ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
         end if;
     
     updatecount:=updatecount+1;
     end loop;
     end if;
-    exception when others then
-    rollback;
+    commit;
+    exception when others then rollback;
+ 
  end;
  /
- 
 create or replace procedure proc_rentservation_auto_return
 is
 
 begin
-  for returnlist in (select * from rental where rent_status='¿¹¾àÁß' and rent_enddate<sysdate)
+   --ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â°£ï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+  for returnlist in (select * from rental where rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rent_enddate<sysdate)
   loop
+  
   proc_reservation(returnlist.book_num);
   
   end loop;
@@ -1356,7 +1356,7 @@ end;
 exec proc_rentservationautoreturn();
 select * from rental;
 
---´ëÃâÁ¤Áö±âÇÑ ´Ã¸®±â ,´ëÃâÁ¤Áö±âÇÑ Ç®¾îÁÖ±â Äõ¸® Â¥±â  ±×ÈÄ¿¡ ³»¿ëÃ¤¿ö³Ö±â
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ Â¥ï¿½ï¿½  ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½Ö±ï¿½
 
 select * from member;
 select * from rental;
@@ -1364,13 +1364,13 @@ create or replace procedure proc_rentstop
 is
 
 begin
- -- ¹Ý³³¾ÈÇÑ»ç¶÷ Ã¼Å©ÈÄ ´Ù½Ã ¾ÆÀÌµð·Î °Ë»öÇÒ°ÍÀÎ°¡  ¾Æ´Ï¸é ÇÁ·Î½ÃÀú µû·Î ½ÇÇà¾ÈÇÏ°í Ã³¸®ÇÒ°ÍÀÎ°¡. ±×³É ¾ÆÀÌµð »ó°ü¾ÈÇÏ°í Ãß°¡½ÃÅ°ÀÚ.
-    for temp_cursor in (select * from rental where rent_status='´ë¿©Áß' and rent_enddate<sysdate)
+ -- ï¿½Ý³ï¿½ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ò°ï¿½ï¿½Î°ï¿½  ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ Ã³ï¿½ï¿½ï¿½Ò°ï¿½ï¿½Î°ï¿½. ï¿½×³ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ß°ï¿½ï¿½ï¿½Å°ï¿½ï¿½.
+    for temp_cursor in (select * from rental where rent_status='ï¿½ë¿©ï¿½ï¿½' and rent_enddate<sysdate)
     loop
   update  member set deadline_rent_stop=case when deadline_rent_stop is null then sysdate+1 
                                 when deadline_rent_stop<sysdate then sysdate+1
                                 else deadline_rent_stop+1
-                                end,book_loanable='´ëÃâºÒ°¡',mem_rank=0 where mem_id=temp_cursor.mem_id;
+                                end,book_loanable='ï¿½ï¿½ï¿½ï¿½Ò°ï¿½',mem_rank=0 where mem_id=temp_cursor.mem_id;
  
     end loop;
 end;
@@ -1390,16 +1390,16 @@ select * from testdate;
 update testdate set testdate= sysdate-100;
 
 
---´ëÃâÁ¤Áö±âÇÑ Ç®¸°»ç¶÷µé ¸ñ·Ï 
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 
 select * from member;
 create or replace  procedure proc_rent_available
 is
 
 begin
-    for temp_cursor in (select * from member where deadline_rent_stop<sysdate and book_loanable='´ëÃâºÒ°¡')
+    for temp_cursor in (select * from member where deadline_rent_stop<sysdate and book_loanable='ï¿½ï¿½ï¿½ï¿½Ò°ï¿½')
     loop
-    update member set book_loanable='´ëÃâ°¡´É' where mem_id=temp_cursor.mem_id;
+    update member set book_loanable='ï¿½ï¿½ï¿½â°¡ï¿½ï¿½' where mem_id=temp_cursor.mem_id;
     
     end loop;
 
@@ -1412,9 +1412,9 @@ end;
 
 select rent_extension from rental;    
   select * from
-         (select  b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension
+         (select  b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension
                  from  (select * from book order by book_num desc) b
-                join  (select book_num, rent_status ,rent_num,mem_id,rent_extension from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and rental.mem_id ='nmj') ) r
+                join  (select book_num, rent_status ,rent_num,mem_id,rent_extension from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rental.mem_id ='nmj') ) r
                    on (b.book_num = r.book_num) 
                    left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )  ;
                    
@@ -1433,42 +1433,42 @@ select * from reservation;
 delete from reservation;
 commit;
 
- select count(*) from (select * from rental where rent_status='´ë¿©Áß' and mem_id='nmj' and book_num=100004) rental
+ select count(*) from (select * from rental where rent_status='ï¿½ë¿©ï¿½ï¿½' and mem_id='nmj' and book_num=100004) rental
  
  
         left outer join (select * from reservation where book_num=100004 and rsrv_num>0 and mem_id='nmj')reservation on rental.mem_id=reservation.mem_id;
    													
                                                 select * from reservation;
-select * from reservation inner join (select mem_id,book_num from rental where rent_status='´ë¿©Áß')rental on rental.mem_id=reservation.mem_id where rental.book_num=100002 and rsrv_num>0 and rental.mem_id='nmj' ;
+select * from reservation inner join (select mem_id,book_num from rental where rent_status='ï¿½ë¿©ï¿½ï¿½')rental on rental.mem_id=reservation.mem_id where rental.book_num=100002 and rsrv_num>0 and rental.mem_id='nmj' ;
 select count(*) from reservation where book_num=100002 and rsrv_num>0;
 select count(*) from reservation where book_num=100002 and rsrv_num>0;
 select * from  rental;
---¿¹¾àÇÑÃ¥À» 
-select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate 
-from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then '¿¬Àå°¡´É' else '¿¬ÀåºÒ°¡' end rent_extension ,
-case when rent_status='´ë¿©Áß' or rent_status='¿¹¾àÁß' then 
+--ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ 
+select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate 
+from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then 'ï¿½ï¿½ï¿½å°¡ï¿½ï¿½' else 'ï¿½ï¿½ï¿½ï¿½Ò°ï¿½' end rent_extension ,
+case when rent_status='ï¿½ë¿©ï¿½ï¿½' or rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 
             to_char(rent_enddate) 
      else null
 end rent_enddate 
 
 
 from rental where rent_startdate in 
-(select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num ) 
+(select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num ) 
 ;
 
-select * from ( select rownum rnum, b.*, (case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É' when r.rent_status is null then '´ë¿©°¡´É' 
-                                               when r.rent_status ='¿¹¾àÁß' then '¿¹¾àÁß' else '´ë¿©Áß' end) rent, nvl(rscount,0) reservationcount,
-                                                (case when r.rent_status='¹Ý³³' then null 
-                                               when r.rent_status='¿¹¾àÁß'or r.rent_status='´ë¿©Áß' then to_char(r.rent_enddate)
+select * from ( select rownum rnum, b.*, (case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' 
+                                               when r.rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' else 'ï¿½ë¿©ï¿½ï¿½' end) rent, nvl(rscount,0) reservationcount,
+                                                (case when r.rent_status='ï¿½Ý³ï¿½' then null 
+                                               when r.rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'or r.rent_status='ï¿½ë¿©ï¿½ï¿½' then to_char(r.rent_enddate)
                                                end) rent_enddate from 
                                                                      (select * from book where book_num =100001) b 
 left outer join (select book_num, rent_status,rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
 
 select * from member;
-select * from (select b.*, nvl(r.rent_status,'´ë¿©°¡´É') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then '¿¬Àå°¡´É' else '¿¬ÀåºÒ°¡' end rent_extension ,to_char(rent_enddate) rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = '´ë¿©Áß' or (rent_status='¿¹¾àÁß' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
+select * from (select b.*, nvl(r.rent_status,'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate from (select * from book order by book_num desc) b join (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then 'ï¿½ï¿½ï¿½å°¡ï¿½ï¿½' else 'ï¿½ï¿½ï¿½ï¿½Ò°ï¿½' end rent_extension ,to_char(rent_enddate) rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rental.mem_id ='nmj' and rent_status = 'ï¿½ë¿©ï¿½ï¿½' or (rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' and rental.mem_id ='nmj') ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
 
 
---¿¹¾àÇÒ‹š ¿¹¾àÀÚ°¡ ¾øÀ¸¸é ¹Ù·Î ¿¹¾àÁßÀ¸·Î ¹Ù²Ù°í ¾Æ´Ï¸é insert into ¿¹¾àÀ¸·Î ¹Ù²Ü°Í.
+--ï¿½ï¿½ï¿½ï¿½ï¿½Ò‹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù°ï¿½ ï¿½Æ´Ï¸ï¿½ insert into ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ü°ï¿½.
 
 select rent_status from ( select r.*
                                 from (select * from book where book_num =100001) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
@@ -1478,18 +1478,18 @@ is
 check_rentstatus varchar2(20);
 
 begin
---Ã¥ÀÇ »óÅÂ°¡ ¹Ý³³ÀÌ¸é insert into ¿¹¾àÁß~~~ 
+--Ã¥ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Ý³ï¿½ï¿½Ì¸ï¿½ insert into ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~~~ 
 select rent_status into check_rentstatus from ( select r.*
                                 from (select * from book where book_num =p_book_num) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
-                                --Ã¥À» Ã³À½ 
-    if check_rentstatus='¹Ý³³' or check_rentstatus is null then
-            insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, p_mem_id, sysdate, sysdate+2, 'X', 'X', '¿¹¾àÁß');
+                                --Ã¥ï¿½ï¿½ Ã³ï¿½ï¿½ 
+    if check_rentstatus='ï¿½Ý³ï¿½' or check_rentstatus is null then
+            insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, p_mem_id, sysdate, sysdate+2, 'X', 'X', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
    else
              insert  into reservation(book_num,mem_id,rsrv_num) values(p_book_num,p_mem_id,(select count(rsrv_num)+1 from reservation where book_num=p_mem_id));
     end if;
---¹Ý³³ÀÌ ¾Æ´Ï¸é insert into reservation+1
+--ï¿½Ý³ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ insert into reservation+1
    
-    --¿¡·¯¹ß»ý½Ã ·Ñ¹é
+    --ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
     exception when others then
     
     rollback;
@@ -1500,4 +1500,4 @@ set serveroutput on;
 
  select * from rental;  
  select * from reservation;
- select * from ( select rownum rnum, b.*, (case when r.rent_status='¹Ý³³' then '´ë¿©°¡´É' when r.rent_status is null then '´ë¿©°¡´É' when r.rent_status ='¿¹¾àÁß' then '¿¹¾àÁß' else '´ë¿©Áß' end) rent, nvl(rscount,0) reservationcount, (case when r.rent_status='¹Ý³³' then null when r.rent_status='¿¹¾àÁß'or r.rent_status='´ë¿©Áß' then to_char(r.rent_enddate) end) rent_enddate,mem_id from (select * from book where book_num =100002) b left outer join (select book_num, rent_status,rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );
+ select * from ( select rownum rnum, b.*, (case when r.rent_status='ï¿½Ý³ï¿½' then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' when r.rent_status is null then 'ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½' when r.rent_status ='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' else 'ï¿½ë¿©ï¿½ï¿½' end) rent, nvl(rscount,0) reservationcount, (case when r.rent_status='ï¿½Ý³ï¿½' then null when r.rent_status='ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'or r.rent_status='ï¿½ë¿©ï¿½ï¿½' then to_char(r.rent_enddate) end) rent_enddate,mem_id from (select * from book where book_num =100002) b left outer join (select book_num, rent_status,rent_enddate,mem_id from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num );

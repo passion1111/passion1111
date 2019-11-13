@@ -32,7 +32,6 @@ public class BoardController {
 	public String getBoardMain(HttpServletRequest request,  Model model,HttpSession session){
 		session.setAttribute("dd", 213);
 		session.removeAttribute("dd");
-		session.
 		System.out.println(session.getAttribute("dd"));
 		//�꽭�뀡�뿉�꽌 媛믪쓣 媛��졇�삩�떎.
 		String loginId = (String)request.getSession().getAttribute("loginId");

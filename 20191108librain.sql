@@ -684,7 +684,6 @@ insert into Facilities_inspection(FacIn_serialnum,FacIn_name,FacIn_address,FacIn
 
 commit;
 
-
 create or replace procedure facin_update( f_number IN Facilities_inspection.Facin_serialnum%TYPE,
                                           f_name   in facilities_inspection.facin_name%type,
                                           f_address in facilities_inspection.facin_address%type) 
@@ -842,7 +841,6 @@ select * from Facilities;
      /
      
      
-     select * from wqodqwopdkqwo;
     ALTER table member add(DEADLINE_RENT_STOP date,book_loanable varchar2(20) default '대출가능');
      select * from member;
     update member set deadline_rent_stop=deadline_rent_stop+1 where mem_id='nmj';
@@ -875,17 +873,10 @@ select * from Facilities;
     end;
     /
     
-    create or replace procedure proc_proc_proc
-    is
-    
-    begin
-    proc_proc_proc();
-    
-    end;
-    /
+  
     commit;
    exec  proc_pipa_proc();
-   exec proc_proc_proc();
+   
     set serveroutput on;
     select count(*) from test2 ;
     
@@ -1058,6 +1049,8 @@ select * from (select b.*, nvl(r.rent_status,'대여가능') rent from (select * fro
         end if;
      END;
      /
+     drop trigger TEST_TEST_TEST_TEST_TEST;
+     commit;
      select * from dept;
      select * from test22;
      
@@ -1317,6 +1310,38 @@ desc rental;
 select * from rental;
   insert into rental values((select nvl(max(rent_num)+1,1) from rental),  100010, 'nmj', sysdate-4, sysdate-2, 'X', 'X', '예약중');
 --매일 일정시간에 예약했는데 안빌려간사람들 반납처리한후에 예약자있으면 예약처리하기.
+
+create or replace procedure proc_reservation(p_book_num in number)
+ is
+ updatecount number;
+ reservationcount number;
+ reservationmem_id varchar2(50);
+ begin
+ updatecount:=0;
+
+    update rental set rent_enddate = sysdate, rent_status = '반납' where book_num =  p_book_num;
+    
+    select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
+    if reservationcount>0 then 
+    
+    for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0)
+    loop
+        if updatecount=0 then 
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
+        update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
+        else
+        --첫번쨰는 카운트 0이니 윗조건 실행 그다음 1부터는 밑 쿼리 실행
+        update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
+        end if;
+    
+    updatecount:=updatecount+1;
+    end loop;
+    end if;
+    exception when others then
+    rollback;
+ end;
+ /
+ 
 create or replace procedure proc_rentservation_auto_return
 is
 
@@ -1444,6 +1469,7 @@ select * from (select b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, n
 
 
 --예약할떄 예약자가 없으면 바로 예약중으로 바꾸고 아니면 insert into 예약으로 바꿀것.
+
 select rent_status from ( select r.*
                                 from (select * from book where book_num =100001) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
 create or replace procedure proc_reservationbook(p_mem_id in varchar2,
@@ -1455,7 +1481,8 @@ begin
 --책의 상태가 반납이면 insert into 예약중~~~ 
 select rent_status into check_rentstatus from ( select r.*
                                 from (select * from book where book_num =p_book_num) b left outer join (select * from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num))  ;
-    if check_rentstatus='반납' then
+                                --책을 처음 
+    if check_rentstatus='반납' or check_rentstatus is null then
             insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, p_mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
    else
              insert  into reservation(book_num,mem_id,rsrv_num) values(p_book_num,p_mem_id,(select count(rsrv_num)+1 from reservation where book_num=p_mem_id));

@@ -1275,9 +1275,8 @@ insert into reservation values(100002,'nmj',1,sysdate+2); --예약순번1번일떄 rese
 select * from reservation where book_num=100002 and rsrv_num>0 order by rsrv_num;
  create or replace procedure proc_returnbook(p_book_num in number)
  is
- updatecount number;
- reservationcount number;
- reservationmem_id varchar2(50);
+ updatecount number; -- for문 count변수 
+ reservationcount number; --반납되는책의 예약자수 
  begin
  updatecount:=0;
 
@@ -1317,12 +1316,46 @@ desc rental;
 select * from rental;
   insert into rental values((select nvl(max(rent_num)+1,1) from rental),  100010, 'nmj', sysdate-4, sysdate-2, 'X', 'X', '예약중');
 --매일 일정시간에 예약했는데 안빌려간사람들 반납처리한후에 예약자있으면 예약처리하기.
+
+create or replace procedure proc_reservation(p_book_num in number)
+ is
+ updatecount number;
+ reservationcount number;
+
+ begin
+ updatecount:=0;
+
+    update rental set rent_enddate = sysdate, rent_status = '반납' where book_num =  p_book_num;
+    
+    select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
+    if reservationcount>0 then 
+    
+    for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0)
+    loop
+        if updatecount=0 then 
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
+        update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
+        else
+        --첫번?는 카운트 0이니 윗조건 실행 그다음 1부터는 밑 쿼리 실행
+        update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
+        end if;
+    
+    updatecount:=updatecount+1;
+    end loop;
+    end if;
+    commit;
+    exception when others then rollback;
+ 
+ end;
+ /
 create or replace procedure proc_rentservation_auto_return
 is
 
 begin
+   --예약을했는데 유예기간동안 안빌려간사람의 정보를 묵시적커서에 담음
   for returnlist in (select * from rental where rent_status='예약중' and rent_enddate<sysdate)
   loop
+  
   proc_reservation(returnlist.book_num);
   
   end loop;

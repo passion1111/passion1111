@@ -28,8 +28,9 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpServletRequest request) {
+	public String home(Locale locale, Model model,HttpServletResponse response) {
 		Cookie cookie=new Cookie("name","name");
+		response.addCookie(cookie);
 		logger.info("Welcome home! The client locale is {}.", locale);
 		cookie.setMaxAge(10000000);
 		Date date = new Date();

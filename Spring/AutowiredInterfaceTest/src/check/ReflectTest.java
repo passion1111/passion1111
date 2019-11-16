@@ -50,11 +50,10 @@ package check;
 			try {
 				// 객체 하나 생성
 				Object obj = cls.newInstance();
-				
 				// sum 메소드를 가져와서 합 구하기 (인자 파라미터 나열)
 				Method method = cls.getMethod("sum", int.class, int.class);
 				System.out.println(method.invoke(obj, 1, 2));
-				
+
 				// sum 메소드를 가져와서 합 구하기 (클래스 배열 파라미터)
 				Class[] param = {int.class, int.class};
 				method = cls.getMethod("sum", param);

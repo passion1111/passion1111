@@ -13,7 +13,15 @@ public class ArrayBitmask {
 		}
 		
 		
+		Object abc=new Integer(3);
+		System.out.println(abc);
+		ArrayBitmask a=new ArrayBitmask();
+		a.Object(abc);
+		System.out.println(abc);
 		
 		
+	}
+	public  void Object(Object o) {
+		o=new Integer(5);
 	}
 }

@@ -1,5 +1,6 @@
 package selfcheck;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -49,7 +50,8 @@ public class Stringcheck {
 	System.out.println(a.equals(b));
 	System.out.println(a==b);
 	Set<?> set= new LinkedHashSet();
-	
+	Set<?> hashset=new HashSet();
+
 	}
 	
 	public void check(String check) {

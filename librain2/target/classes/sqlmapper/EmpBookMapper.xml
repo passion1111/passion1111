@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lib.employee.book.model.EmpBookDAO">
+   
+   
+   <update id="returnBook" parameterType="lib.employee.book.model.RentalDTO">
+   { CALL proc_returnbook( 
+  #{ book_num , mode=IN, jdbcType=INTEGER, javaType=int}) }
+   </update>
+<!-- 
+  
+ create or replace procedure proc_returnbook(p_book_num in number)
+ is
+ updatecount number;
+ reservationcount number;
+ reservationmem_id varchar2(50);
+ begin
+  // for문 돌아간 횟수 확인위한 변수
+ updatecount:=0;
+   // 대여중인 책을 반납한다. 
+    update rental set rent_enddate = sysdate, rent_status = '반납' where book_num =  p_book_num;
+    //대여중인 책의 예약한사람들을 확인한다.
+    select count(*) into reservationcount from reservation where book_num=p_book_num and rsrv_num>0;
+    //예약중인  사람이 0보다 크면 
+    if reservationcount>0 then 
+    // 임시커서에 예약중인 사람들을 담고 
+    for temp_cursor in (select * from reservation where book_num=p_book_num and rsrv_num>0 order by rsrv_num)
+    loop
+    //가장 처음 for문을돌떄는 rsrv_num이 1번이 첫번쨰로 나오니까  if문 
+        if updatecount=0 then 
+        // rental table에 예약중이라고 걸어주고
+        insert into rental values((select nvl(max(rent_num)+1,1) from rental),  p_book_num, temp_cursor.mem_id, sysdate, sysdate+2, 'X', 'X', '예약중');
+        //reservation에는 순번을 0번으로 조정 
+        update reservation set rsrv_num=0 where book_num=p_book_num and rsrv_num=temp_cursor.rsrv_num;
+        else
+       //나머지는 순번 1 2 3 4 5 이렇게 하나씩 떙겨주는 역할을 하게 됨. 
+        update reservation set rsrv_num=updatecount where rsrv_num=temp_cursor.rsrv_num and book_num=p_book_num;
+        end if;
+    
+    updatecount:=updatecount+1;
+    end loop;
+    end if;
+ 
+ end;
+ /
+ 
+  
+   -->
+
+   
+   <update id="bookRentCnt" parameterType="lib.employee.book.model.EmpBookDTO">
+      update book set book_rent_cnt = nvl(max(book_rent_cnt)+1,1) from book) where book_num = #{ book_num }
+   </update>
+   
+   <insert id="rentBook" parameterType="lib.employee.book.model.RentalDTO">
+      insert into rental values((select nvl(max(rent_num)+1,1) from rental), #{ book_num }, #{ mem_id }, sysdate,  sysdate+7, 'X', 'X', '대여중')
+   </insert>
+   
+   <select id="rentMemCheck" resultType="lib.member.model.MemberDTO" parameterType="java.lang.String">
+   <![CDATA[     select mem_id,mem_name,mem_phone,mem_address,mem_email,mem_rank,book_loanable, to_char(deadline_rent_stop,'yyyymmdd')  deadline_rent_stop  ,
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
+                                                                else
+                                                                      case when mem_rank=2 then 7  
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end
+                                                                end      TotalLoanable_Number,
+                                                                case when deadline_rent_stop>sysdate and book_loanable='대출가능' then 0
+                                                                else       
+                                                                      case when mem_rank=2 then 7 
+                                                                      when mem_rank=3 then 5
+                                                                      when mem_rank=0 then 12
+                                                                      else 0 end    -(select count(*) from rental where mem_id=#{mem_id} and rent_status='대여중')
+                                                                end     CurrentLoanable_Number from member where mem_id like '%'|| #{mem_id}||'%' ]]>
+   </select>
+   
+      
+   <select id="rentMemBookCheck" resultType="lib.employee.book.model.EmpBookDTO" parameterType="java.lang.String">
+      select * from
+         (select  b.*, nvl(r.rent_status,'대여가능') rent,rent_num,mem_id, nvl(rscount,0) reservationcount,rent_extension,rent_enddate
+                 from  (select * from book order by book_num desc) b
+                join  (select book_num, rent_status ,rent_num,mem_id ,case when rent_extension='X' then '연장가능'
+                                                                            else '연장불가' end rent_extension ,to_char(rent_enddate) rent_enddate  from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id =#{mem_id} and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id =#{mem_id}) ) r
+                   on (b.book_num = r.book_num) 
+                   left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       
+   </select>   
+   
+   <select id="rentBookCheck" resultType="lib.employee.book.model.EmpBookDTO" parameterType="int">
+      
+ 
+select * from ( select rownum rnum, b.*, (case when r.rent_status='반납' then '대여가능' when r.rent_status is null then '대여가능' 
+                                               when r.rent_status ='예약중' then '예약중' else '대여중' end) rent, nvl(rscount,0) reservationcount,
+                                                (case when r.rent_status='반납' then null 
+                                               when r.rent_status='예약중'or r.rent_status='대여중' then to_char(r.rent_enddate)
+                                               end) rent_enddate,mem_id from 
+                                                                     (select * from book where book_num =#{book_num}) b 
+left outer join (select book_num, rent_status,rent_enddate,mem_id  from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num) and rent_num in (select max(rent_num) from rental group by book_num) ) r on (b.book_num = r.book_num) left outer join (select count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn on rsvn.book_num=r.book_num )
+ 
+   </select>   
+   
+   <update id="rentBookExtension"  parameterType="int">
+   
+   update rental set rent_enddate=rent_enddate+7 ,rent_extension='O' where rent_num=(select max(rent_num) from rental where book_num=#{book_num})
+   </update>
+   
+   <insert id="rentBookReservation" parameterType="lib.employee.book.model.EmpBookDTO">
+   {CALL proc_reservationbook(
+     
+     #{mem_id,mode=IN,jdbcType=VARCHAR,javaType=String},
+     #{ book_num , mode=IN, jdbcType=INTEGER, javaType=int}
+   )}
+   </insert>
+  <!--  insert  into reservation(book_num,mem_id,rsrv_num) values(#{book_num},#{mem_id},(select count(rsrv_num)+1 from reservation where book_num=#{book_num}))
+   --> 
+   <select id="rentBookReservationcount"  parameterType="lib.employee.book.model.EmpBookDTO" resultType="int">
+   select count(*) from reservation where book_num=#{book_num} and rsrv_num>0
+   </select>
+     <select id="rentBookReservationCheckAlreadyreservation"  parameterType="lib.employee.book.model.EmpBookDTO" resultType="int">
+   select count(*) from reservation 
+   								inner join (select mem_id,book_num from rental where rent_status='대여중')rental on rental.mem_id=reservation.mem_id 
+   													where rental.book_num=#{book_num} and rsrv_num>0 and rental.mem_id=#{mem_id} 
+   </select>
+   
+   <select id="selectRowNum" resultType="int">
+      select nvl(count(*),0) from book
+   </select>   
+   
+   <select id="select" resultType="lib.employee.book.model.EmpBookDTO" parameterType="int">
+   <![CDATA[
+      select * from
+         (select rownum rnum, b.*, nvl(rent_status,'대여가능') rent
+                 from  (select * from book order by book_num desc) b
+                 left outer join  (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+                   on (b.book_num = r.book_num))
+          where rnum > #{ startRowNum } and rnum <= #{ endRowNum }
+   ]]>
+   </select>
+   
+   <select id="searchAll" parameterType="java.lang.String" resultType="lib.employee.book.model.EmpBookDTO">
+      select b.*,  nvl(rent_status, '대여가능') rent
+         from  (select * from book where book_num like #{ searchWord } or book_name like #{ searchWord } or book_author like #{ searchWord } or book_pub_house like #{ searchWord }
+                        order by book_num desc) b 
+         left outer join  (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+         on b.book_num = r.book_num
+   </select>
+   
+   <select id="searchCtgr" parameterType="java.lang.String" resultType="lib.employee.book.model.EmpBookDTO">
+      select b.*, nvl(rent_status, '대여가능') rent
+          from (select * from book where ${searchCtgr} like #{searchWord} order by book_num desc) b
+          left outer join (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+          on b.book_num = r.book_num
+   </select>
+   
+   
+   <insert id="insertBook" parameterType="lib.employee.book.model.EmpBookDTO">
+      insert into book (book_num, book_author, book_name,  book_pub_house,
+         book_pub_date, book_ISBN, book_apdx_status, book_ctgr_num, book_rsrv_status, book_rent_cnt, book_input_date, book_ctgr_num_db) 
+        VALUES ((select nvl(max(book_num)+1,100001) from book), #{ book_author }, #{ book_name }, #{ book_pub_house }, 
+         #{ book_pub_date }, #{ book_ISBN }, #{ book_apdx_status }, #{ book_ctgr_num }, #{ book_rsrv_status }, 0, sysdate, #{ book_ctgr_num_db })
+   </insert>
+   
+   <delete id="deleteBook" parameterType="lib.employee.book.model.EmpBookDTO">
+      delete from book where book_num = #{ book_num }
+   </delete>
+   
+   <update id="updateBook" parameterType="lib.employee.book.model.EmpBookDTO">
+      update book set book_author=#{ book_author }, book_name=#{ book_name }, 
+         book_pub_house=#{ book_pub_house }, book_pub_date=#{ book_pub_date }, book_ISBN=#{ book_ISBN },
+         book_apdx_status=#{ book_apdx_status }, book_ctgr_num=#{ book_ctgr_num }, book_rsrv_status=#{ book_rsrv_status },
+         book_ctgr_num_db=#{ book_ctgr_num_db }
+         where book_num = #{ book_num }
+   </update>
+   
+   <select id="hopeSelectRowNum" resultType="int">
+      select count(*) from hope_book
+   </select>   
+   
+   <update id="hopeApprove" parameterType="lib.employee.book.model.Hope_BookDTO">
+      update hope_book set hope_status='승인' where hope_book_num = #{ hope_book_num }
+   </update>
+   
+   <update id="hopeReturn" parameterType="lib.employee.book.model.Hope_BookDTO">
+      update hope_book set hope_status='반려' where hope_book_num = #{ hope_book_num }
+   </update>
+
+   <delete id="hopeDelete" parameterType="lib.employee.book.model.Hope_BookDTO">
+      <![CDATA[
+         delete from hope_book where hope_input_date < sysdate - 7
+      ]]>
+   </delete>
+   
+   <select id="hopeSelect" parameterType="int" resultType="lib.employee.book.model.Hope_BookDTO">
+      <![CDATA[
+         select * from 
+             (select  rownum r, hope_book_num, book_author, book_name, book_pub_house, book_pub_date, book_isbn, book_price, hope_status, hope_input_date
+                 from (select * from hope_book order by hope_book_num desc))
+             where r > #{ startRowNum } and r <= #{ endRowNum }
+      ]]>
+   </select>
+   
+   <select id="newSelect" resultType="lib.employee.book.model.New_BookDTO">
+      select * from new_book order by new_book_num_sub desc
+   </select>
+
+   <select id="newSelectBook" resultType="lib.employee.book.model.New_BookDTO">
+      select * from new_book where new_status = '승인'
+   </select>
+   
+   <insert id="newInsertBook" parameterType="lib.employee.book.model.New_BookDTO">
+      insert into new_book VALUES (#{ new_book_num }, (select nvl(max(new_book_num_sub)+1,1) from new_book), 
+         #{ book_author }, #{ book_name }, #{ book_pub_house }, #{ book_pub_date }, 
+         #{ book_ISBN }, #{ book_price }, '신청 완료', sysdate)
+   </insert>
+   
+   <select id="newMaxBookNum" resultType="int">
+      (select nvl(max(new_book_num)+1,1) from new_book)
+   </select>
+   
+   <delete id="newDeleteBook" parameterType="lib.employee.book.model.New_BookDTO">
+      delete from new_book where new_book_num_sub = #{ new_book_num_sub }
+   </delete>
+   
+   <update id="newUpdateBook" parameterType="lib.employee.book.model.New_BookDTO">
+      update new_book set book_author=#{ book_author }, book_name=#{ book_name }, book_pub_house=#{ book_pub_house }, 
+         book_pub_date=#{ book_pub_date }, book_ISBN=#{ book_ISBN }, book_price=#{ book_price }
+         where new_book_num_sub = #{ new_book_num_sub }
+   </update>
+   
+   <update id="addRentCnt" parameterType="int">
+      update book set book_rent_cnt = book_rent_cnt+1 where book_num = #{ book_num }
+   </update>
+   
+   <select id="disSearch" parameterType="int" resultType="lib.employee.book.model.BookRentDisDTO">
+      select t.*,  dis_book_num, dis_input_date, dis_status 
+          from (select b.*, nvl(r.rent_status, '대여가능') rent
+                   from  (select * from book where book_num = #{ book_num }) b
+                   left outer join  (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+                   on (b.book_num = r.book_num)) t
+                   left outer join discard_book d on d.book_num = t.book_num
+   </select>
+   
+   <select id="disSelect"  resultType="lib.employee.book.model.BookRentDisDTO">
+      select t.*,  dis_book_num, dis_input_date, dis_status 
+          from (select b.*, nvl(r.rent_status, '대여가능') rent
+                   from book b
+                   left outer join  (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+                   on (b.book_num = r.book_num)) t
+                   join discard_book d on d.book_num = t.book_num
+           order by dis_book_num desc
+   </select>
+   
+   <select id="disSelectBook"  resultType="lib.employee.book.model.BookRentDisDTO">
+      select t.*,  dis_book_num, dis_input_date, dis_status 
+          from (select b.*, nvl(r.rent_status, '대여가능') rent
+                   from book b
+                   left outer join  (select book_num, rent_status from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)) r
+                   on (b.book_num = r.book_num)) t
+                   join discard_book d on d.book_num = t.book_num
+           where dis_status = '승인'
+           order by dis_book_num desc
+   </select>
+   
+   <insert id="disInsertBook" parameterType="lib.employee.book.model.BookRentDisDTO">
+      insert into discard_book values((select nvl(max(dis_book_num)+1,1) from discard_book), #{ book_num }, sysdate, '신청 완료')
+   </insert>
+   
+   <delete id="disDeleteBook" parameterType="lib.employee.book.model.BookRentDisDTO">
+      delete from discard_book where dis_book_num = #{ dis_book_num }
+   </delete>
+   
+   
+	
+	
+	<select id="bookreservationcount"  parameterType="int"  resultType="lib.employee.book.model.BookRentDisDTO">
+	 select * from reservation where book_num=#{book_num}
+	</select>   
+   <insert id="bookreservation" parameterType="lib.employee.book.model.BookRentDisDTO">
+   insert into reservation values(#{book_num}, #{mem_id},(select count(*) from reservation where book_num=#{book_num})+1 )
+   	
+   </insert>
+   
+   
+</mapper>

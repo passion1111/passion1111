@@ -1,4 +1,6 @@
 ---- 혜수 20191024  수정 
+select * from member;
+
 ---- 아예 처음 디비 넣는 분들은 drop 제외하고 하면됩니다!
 drop table book_category;
 drop table book;
@@ -457,6 +459,9 @@ create table employee_management(
     CONSTRAINT emp_no_pk PRIMARY KEY(emp_no),
     constraint emp_dept_fk FOREIGN KEY(emp_dept_code) REFERENCES department(dept_code)
 );
+select * from employee_management;
+commit;
+update employee_management  set emp_name='김승수' where emp_name='강수아';
 insert into employee_management
 values(1000001,'강수아','01068618619','서울시,이문동','02451','000','9501072222222','F',sysdate-3000,null,'koongmom@librain.org','관장',10000000,'하나','111111111111','950107');
 insert into employee_management
@@ -1318,3 +1323,21 @@ select * from
                                                                             else '연장불가' end rent_extension ,rent_enddate from rental where rent_startdate in (select max(rent_startdate) from rental group by book_num)  and rental.mem_id ='nmj' and rent_status = '대여중' or (rent_status='예약중' and rental.mem_id ='nmj') ) r
                    on (b.book_num = r.book_num) 
                    left outer join (select  count(*) over(partition by(book_num) ) rscount, book_num from reservation) rsvn   on rsvn.book_num=r.book_num )       
+
+/
+drop table test22;
+create table test22(
+numnum number,
+numnum2 number,
+namename varchar2(30)
+
+);
+insert into test22 values(1,0,'d');
+insert into test22 values(2,0,'d');
+insert into test22 values(3,2,'d');
+insert into test22 values(4,1,'d');
+select * from test22;
+
+
+select Level,numnum,numnum2,namename from test22 start with numnum2=0
+ connect by prior numnum=numnum2 ;

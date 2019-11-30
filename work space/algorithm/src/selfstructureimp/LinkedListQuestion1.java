@@ -12,6 +12,9 @@ public class LinkedListQuestion1 {
 
 //버퍼라는애가없으면 포인터로 해결 비교값 n과  비교할 대상 R 
 //R은 n을 제외하고 값들을 중복값 지우기 시작
+	
+	
+	//공간은 O(1) 시간복잡도는 O(n^2) 
 	public static void main(String[] args) {
 		LinkedListQuestion1 lq=new LinkedListQuestion1();
 		LinkedListQuestion1.LinkedList ll=lq.new LinkedList();

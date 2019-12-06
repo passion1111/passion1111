@@ -35,8 +35,9 @@ function outer(){
     var b='b';
 
     function inner(){
-        var a=2;
+        var a=5;
         console.log(b);
+        return b;
     }
     return inner
 }

@@ -5,3 +5,5 @@ function outerFunction () {
   }
   return innerFunction
 }
+
+console.log(1)

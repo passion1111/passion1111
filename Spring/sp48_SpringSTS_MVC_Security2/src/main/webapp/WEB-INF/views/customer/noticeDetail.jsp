@@ -32,7 +32,7 @@
 				<a href="download.htm?p=upload&f=${notice.fileSrc}">${notice.fileSrc}</a>
 			</dd>
 		</dl>
-
+			
 		<div class="article-content">
 			<c:set var="imgData" value="${notice.fileSrc}"></c:set>
 			<c:if test="${!empty imgData}">

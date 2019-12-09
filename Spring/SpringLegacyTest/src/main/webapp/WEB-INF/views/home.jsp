@@ -8,7 +8,9 @@
 <h1>
 	Hello world!  
 </h1>
-
+	<script>
+	
+	</script>
 		<script src='<c:url value="/resources/js/test.js"/>'></script>
 		
 <P>  The time on the server is ${serverTime}. </P>

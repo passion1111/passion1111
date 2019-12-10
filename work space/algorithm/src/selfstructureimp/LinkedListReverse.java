@@ -55,6 +55,7 @@ public static void main(String[] args) {
 	LinkedListReverse list=new LinkedListReverse();
 	list.append(2);
 	list.append(5);
+	list.append(6);
 	int k=2;
 	Node kth=KthToLast(list, k);
 }

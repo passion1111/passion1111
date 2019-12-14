@@ -1,6 +1,0 @@
-ApplicationContext 또는 BeanFactory는
-빈(객체) 생성, 초기화, 제거 등을 관리
-이런 이유로 ApplicationContext를 컨테이너(Container) 라고도 부른다
-
---> ApplicationContext 또는 BeanFactory등을 다른 말로
-[스프링컨테이너]로 표현하기도 한다.

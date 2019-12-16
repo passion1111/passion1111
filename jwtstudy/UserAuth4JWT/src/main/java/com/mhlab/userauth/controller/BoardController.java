@@ -30,7 +30,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value="main", method=RequestMethod.GET)
 	public String getBoardMain(HttpServletRequest request,  Model model,HttpSession session){
-		session.setAttribute("dd", 213);
+		session.setAttribute("dd55", 213);
 		session.removeAttribute("dd");
 		System.out.println(session.getAttribute("dd"));
 		//�꽭�뀡�뿉�꽌 媛믪쓣 媛��졇�삩�떎.

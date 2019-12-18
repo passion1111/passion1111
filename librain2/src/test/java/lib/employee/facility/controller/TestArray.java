@@ -2,7 +2,6 @@ package lib.employee.facility.controller;
 
 import java.util.ArrayList;
 
-import javax.annotation.security.RunAs;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

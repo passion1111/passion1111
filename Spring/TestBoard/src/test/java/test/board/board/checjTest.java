@@ -64,10 +64,14 @@ public class checjTest {
 	        arrNode.add(57.2522);
 	        userJson.put("lonLat",arrNode);
 	        request2.setContent(mapper.writeValueAsBytes(userJson));
+//	        response2.setContentType(MediaType.APPLICATION_JSON_VALUE);
+//	        response2.setCharacterEncoding("UTF-8");
+	        response2.setContentType("application/text; charset=UTF-8");
+//	        request2.setCharacterEncoding("UTF-8");
 	        Object handler = handlerMapping.getHandler(request2).getHandler();
 	        handleAdapter.handle(request2, response2, handler); 
-
 	        String content = response2.getContentAsString();
+	        System.out.println(content);
 	        assertEquals(200, response2.getStatus());
 	    }
 	    	

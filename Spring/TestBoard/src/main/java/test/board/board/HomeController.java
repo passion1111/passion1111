@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -54,10 +56,15 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value= "/3" ,method = {RequestMethod.GET,RequestMethod.POST},produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value= "/3" ,method = {RequestMethod.GET,RequestMethod.POST} , produces = "application/text; charset=UTF-8")
 	@ResponseBody
-	public void test(@RequestBody String check1) {
+	public String test(@RequestBody String check1,HttpServletResponse response) {
+//		response.setCharacterEncoding("UTF-8");
+//		response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+//		response.encodeUrl("utf-8");
+//		response.setContentType("text/html");
 		System.out.println(check1.toString());
+		return "하하하이111";
 	}
 	
 }

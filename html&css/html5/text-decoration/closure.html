@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SmartEditor</title>
+
+<!-- SmartEditor를 사용하기 위해서 다음 js파일을 추가 (경로 확인) -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<!-- jQuery를 사용하기위해 jQuery라이브러리 추가 -->
+
+
+
+</head>
+<body>
+
+ <ul>
+                                         
+                                             
+                                                 <li class="underline">
+                                                     <a href="#">321312</a>
+                                                     <a href="#"><img src="#" class="btn_del"/></a>
+                                                 </li>
+                                                 <li class="underline">
+                                                  <a href="#">321312</a>
+                                                  <a href="#"><img src="#" class="btn_del2"/></a>
+                                              </li>
+                                     </ul>
+
+
+
+
+
+
+
+<div id="check2222"></div>
+<input type="button" value="눌러라~" onclick="delete_All()">
+<input type="button" value="노드체크" onclick="nodecheck()">
+
+<script>
+function nodecheck(){
+  console.log(document.getElementById("0")==null)
+}
+var i=0;
+var i2="";
+$(".btn_del").click(function(){
+  console.log(this.nodeType)
+  if( this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration==""){
+      $('#check2222').append("<input type=\"hidden\" value=\"1\" name=\"222\" id=\""+i+"\" />")
+      this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="line-through";
+      i++;
+  }else{
+      i2=i+"";
+     
+      var deleteelement=document.getElementById("check2222");
+      console.log(deleteelement)
+      console.log(i2)
+      console.log(document.getElementById(i2-1));
+      var childdelete=document.getElementById(i2-1);
+      document.getElementById("check2222").removeChild(childdelete);
+      this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="";
+  
+  }
+})
+var j=0;
+var j2=j+"";
+
+  $(".btn_del2").click(function(){
+  if( this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration==""){
+      $('#check2222').append("<input type=\"hidden\" value=\"1\" name=\"222\" id=\"" +j+"1\" />")
+      this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="line-through";
+      j++;
+  }else{
+    
+      j2=j+"";
+      var deleteelement=document.getElementById("check2222");
+      console.log(deleteelement)
+      console.log(j2)
+      console.log(document.getElementById("01"));
+      console.log((j2-1)+"1")
+      var childdelete=document.getElementById((j2-1)+"1");
+      document.getElementById("check2222").removeChild(childdelete);
+      this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="";
+  
+  
+  }
+})
+
+function delete_All(){
+  // document.querySelectorAll("#check2222 input").forEach(element => {
+                              //ul li a 
+        document.querySelectorAll("ul li a img").forEach(element => {
+        console.log(element)
+        $('#check2222').append("<input type=\"hidden\" value=\"1\" name=\"222\" id=\""+i+"\" />")
+        element.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="line-through";
+          i++;
+      });
+}
+
+ /*  console.log(this.parentNode)
+  console.log(this.previoussibling)
+  console.log(this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration)
+  this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="line-through";
+  this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration="";
+  console.log(this.parentNode.parentNode.firstChild.nextSibling.style.textDecoration)
+  console.log(this.parentNode.parentNode.firstChild.nextSibling) */
+
+
+function _file_list_closure(){
+  var seq=0;
+  return function(){
+      return ++seq;
+  }
+}
+var file_list_closure=_file_list_closure();
+
+  
+  $('#check').click(function(){
+      var seq=file_list_closure();
+      $('#add').append(' <input type="text" id="check'+seq+'" value="'+seq+ '"name="delete_list" onclick="delete2(this.value)">')
+  })
+
+  
+ 
+function delete2(del){
+  $('#check'+del+'').remove()
+}
+</script>
+</body>
+</html>

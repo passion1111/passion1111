@@ -10,6 +10,7 @@ public class Nullcheck {
 		if(check==null) {
 			System.out.println(String.valueOf(check));
 			check[0]=String.valueOf(check);
+			System.out.println(check[0]);
 		}
 	}
 }

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<resultMap type="java.util.HashMap" id="noticeMap">
+		<result column="CONTENT" property="CONTENT" javaType="java.lang.String" jdbcType="CLOB"/>
+	</resultMap>
+
+	<select id="noticeListCount" parameterType="hashMap" resultType="int">
+	SELECT COUNT(*) CNT
+	  FROM CD_NOTICE
+	 WHERE 1 = 1
+	<if test="SEARCHKEYWORD != null and SEARCHKEYWORD != ''">
+		<choose>
+			<when test='SEARCHTYPE == "전체"'>
+				AND (SUBJECT LIKE '%${SEARCHKEYWORD}%'
+				OR  CONTENT LIKE '%${SEARCHKEYWORD}%'
+				OR  WRITENAME LIKE '%${SEARCHKEYWORD}%')
+			</when>
+			<when test='SEARCHTYPE == "제목"'>
+				AND SUBJECT LIKE '%${SEARCHKEYWORD}%'
+			</when>
+			<when test='SEARCHTYPE == "작성자"'>
+				AND WRITENAME LIKE '%${SEARCHKEYWORD}%'
+			</when>
+			<when test='SEARCHTYPE == "내용"'>
+				AND CONTENT LIKE '%${SEARCHKEYWORD}%'
+			</when>
+		</choose>
+	</if>
+	ORDER BY IDX DESC
+	</select>
+
+	<update id="noticeListReadUpdate" parameterType="hashMap">
+		UPDATE CD_NOTICE
+			SET
+				READNO = (READNO + 1)
+		WHERE IDX = #{IDX}
+	</update>
+	
+	<select id="noticeMainList" parameterType="java.lang.Integer" resultType="hashMap">
+	 <![CDATA[
+	  SELECT * FROM 
+	  	      (SELECT   ROWNUM rnum ,SUBJECT,TO_CHAR(REGDT,'yyyy.mm.dd') REGDT,IDX  from 
+	  			    												         (select * from cd_notice order by idx desc  ) A )  
+	  where rnum<=#{page}
+	]]>
+	
+	</select>
+	<select id="noticeList" parameterType="hashMap" resultType="hashMap">
+	SELECT * FROM (
+		SELECT A.*, ROWNUM rnum
+			FROM (SELECT ROW_NUMBER () OVER (ORDER BY IDX ASC) NO,
+						 IDX,
+						 SUBJECT,
+						 CONTENT,
+						 WRITENAME,
+						 REGDT,
+						 READNO
+					FROM CD_NOTICE
+				   ORDER BY NO DESC
+					) A
+		 WHERE rownum &lt;= #{endNo}
+		<if test="SEARCHKEYWORD != null and SEARCHKEYWORD != ''">
+			<choose>
+				<when test='SEARCHTYPE == "전체"'>
+					AND (SUBJECT LIKE '%${SEARCHKEYWORD}%'
+					OR  CONTENT LIKE '%${SEARCHKEYWORD}%'
+					OR  WRITENAME LIKE '%${SEARCHKEYWORD}%')
+				</when>
+				<when test='SEARCHTYPE == "제목"'>
+					AND SUBJECT LIKE '%${SEARCHKEYWORD}%'
+				</when>
+				<when test='SEARCHTYPE == "작성자"'>
+					AND WRITENAME LIKE '%${SEARCHKEYWORD}%'
+				</when>
+				<when test='SEARCHTYPE == "내용"'>
+					AND CONTENT LIKE '%${SEARCHKEYWORD}%'
+				</when>
+			</choose>
+		</if>
+		)
+	WHERE rnum &gt; #{startNo}
+	</select>
+
+	<select id="noticeListOne" parameterType="hashMap" resultMap="noticeMap">
+	SELECT * FROM (
+		SELECT A.*,
+			   ROW_NUMBER () OVER (ORDER BY IDX ASC) NO,
+			   NVL ( (SELECT COUNT (*)
+			    FROM BRDGENERALFILE
+			   WHERE BRDGENERALFILE.IDX = A.IDX AND UPPER(BRDNAME) like UPPER('CD_NOTICE%')), 0) FILECOUNT,
+			   LEAD (IDX, 1, 0) OVER (ORDER BY IDX) NEXT_IDX,
+			   LAG (IDX, 1, 0) OVER (ORDER BY IDX) PRE_IDX
+		  FROM CD_NOTICE A)
+	 WHERE IDX = #{IDX}
+	</select>
+
+	<select id="noticeListOneNext" parameterType="hashMap" resultMap="noticeMap">
+	SELECT IDX,
+		   SUBJECT,
+		   WRITENAME
+	  FROM CD_NOTICE
+	 WHERE IDX = #{NIDX}
+	</select>
+
+	<select id="noticeListOnePrev" parameterType="hashMap" resultMap="noticeMap">
+	SELECT IDX,
+		   SUBJECT,
+		   WRITENAME
+	  FROM CD_NOTICE
+	 WHERE IDX = #{PIDX}
+	</select>
+
+	<select id="noticeFileList" parameterType="hashMap" resultType="hashMap">
+	SELECT * 
+	  FROM BRDGENERALFILE
+	 WHERE IDX=#{IDX}
+	   AND BRDNAME LIKE '${BRDNAME}%'
+	</select>
+
+	<select id="noticeReturnOne" parameterType="hashMap" resultType="int">
+	SELECT IDX FROM (
+				SELECT IDX,
+					   ROWNUM rnum 
+				  FROM (  SELECT *
+							FROM CD_NOTICE
+							ORDER BY IDX DESC) A
+				 WHERE rownum &lt;= '1'
+					)
+	 WHERE rnum &gt; '0'
+	</select>
+
+	<update id="noticeUpdate" parameterType="hashMap">
+		UPDATE CD_NOTICE
+			SET
+				SUBJECT = #{SUBJECT},
+				WRITENAME = #{WRITENAME},
+				EMAIL = #{EMAIL},
+				CONTENT = #{CONTENT},
+				UPDATEDT = SYSDATE
+		WHERE IDX = #{IDX}
+	</update>
+
+	<insert id="noticeInsert" parameterType="hashMap" flushCache="true">
+		INSERT INTO CD_NOTICE
+		(
+			IDX,
+			SUBJECT,
+			CONTENT,
+			WRITENAME,
+			EMAIL,
+			READNO,
+			REGDT
+		)
+		VALUES 
+		(
+			CD_NOTICE_SEQ.NEXTVAL,
+			#{SUBJECT},
+			#{CONTENT},
+			#{WRITENAME},
+			#{EMAIL},
+			'0',
+			SYSDATE
+		)
+	</insert>
+
+	<insert id="noticeFileInsert" parameterType="hashMap" flushCache="true">
+		INSERT INTO BRDGENERALFILE
+		(
+			IDX,
+			BRDNAME,
+			FILENAME,
+			INXNAME,
+			FILESIZE,
+			NUM,
+			FILE_PATH
+		)
+		VALUES 
+		(
+			#{IDX},
+			#{BRDNAME},
+			#{FILENAME},
+			#{INXNAME},
+			#{FILESIZE},
+			FILE_SEQ.NEXTVAL,
+			#{FILE_PATH}
+		)
+	</insert>
+
+	<delete id="noticeDelete" parameterType="hashMap">
+		DELETE FROM CD_NOTICE WHERE IDX = #{IDX}
+	</delete>
+
+	<delete id="noticeFileDelete" parameterType="hashMap">
+		DELETE FROM BRDGENERALFILE WHERE IDX = #{IDX} AND BRDNAME LIKE '${BRDNAME}%'
+	</delete>
+
+	<delete id="noticeFileOneDelete" parameterType="hashMap">
+		DELETE FROM BRDGENERALFILE WHERE NUM = #{NUM}
+	</delete>
+
+</mapper>	

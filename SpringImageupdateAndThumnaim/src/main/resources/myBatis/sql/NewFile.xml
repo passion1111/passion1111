@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.test.test.testInterface">
+	<resultMap type="java.util.HashMap" id="admissionMap">
+		<result column="CONTENT" property="CONTENT" javaType="java.lang.String" jdbcType="CLOB"/>
+	</resultMap>
+	
+	<resultMap type="HashMap" id="testresultmap">
+	<result property="IDX" column="IDX"/>
+	<result property="CONTENT" column="CONTENT" jdbcType="CLOB" javaType="java.lang.String" />
+
+	</resultMap>
+
+	<select id="test"  parameterType="int" resultType="hashMap" resultMap="testresultmap" >
+
+	  <![CDATA[
+    	select * from test1 where idx=${idx}
+    ]]>
+
+
+	</select>
+	<select id="testList"   resultType="hashMap" resultMap="testresultmap">
+
+	  <![CDATA[
+    	select * from test1
+    ]]>
+    </select>
+    <insert id="testInsert"  parameterType="HashMap" >
+	<selectKey keyProperty="IDX" order="BEFORE" resultType="int">
+	select NVL(MAX(IDX),0)+1 from test1
+	</selectKey>
+	
+	  <![CDATA[
+    	insert into test1 values(#{CONTENT},#{IDX}	)
+    ]]>
+	</insert>
+	
+	
+	 <update id="testUpdate"  parameterType="HashMap" >
+	
+	  <![CDATA[
+    	update test1 set CONTENT=#{CONTENT} where idx=#{IDX}
+    ]]>
+	</update>
+
+</mapper>

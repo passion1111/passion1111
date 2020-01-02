@@ -1,6 +1,6 @@
 #include <stdio.h>
-
-int max(int a, int b) {
+ 
+int max(int a, int b){
     return a > b ? a : b;
 }
 int main() {
@@ -23,10 +23,10 @@ int main() {
 
     for (int i = 3; i <= n; i++) {
   
-        int result = 0;
-      result = max(podo[i] + DP[i - 2], podo[i] + podo[i - 1] + DP[i - 3]);
+       int result = 0;
+      result = max(podo[i] + DP[i - 2]   , podo[i] + podo[i - 1] + DP[i - 3]);
       
-      result = max(result , DP[n - 1]);
+      result = max(result , DP[i - 1]);
       DP[i] = result;
     }
    

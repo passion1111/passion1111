@@ -12,7 +12,7 @@ int main() {
 	for (int i = 0; i < num1; i++) {
 		scanf("%d %s", &num2, s1);
 		for (int k = 0; s1[k] != NULL; k++) {
-			for(int j=0;j<num2<j++){
+			for (int j = 0; j < num2; j++) {
 		
 				printf("%c", s1[k]);
 			}

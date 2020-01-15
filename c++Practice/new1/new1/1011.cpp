@@ -1,19 +1,9 @@
 #include<cstdio>
 #include<math.h>
 
-int max(int x, int y) {
 
-
-	return x > y ? x : y;
-}
 
 int main() {
-
-
-
-	// 동적할당  1 -1 0          1 0 2      2 3 4    3 4 5   4 5 6   5 6 7   6 7 8  7 8 9
-                                          //-1 DP DP+1
-	//도착직전 이라면 max<=2 1 2 3
 	int n;
 	scanf("%d", &n);
 	for (int i = 0; i < n; i++)
@@ -21,21 +11,15 @@ int main() {
 		int x, y;
 		long long temp = 1;
 		scanf("%d %d", &x, &y);
-		while (i * i < y - x) {
+		while (temp * temp <= (y - x)) {
 
-			i++;
+			temp++;
 		}
-		i--;
-
-		long long  remain = (y - x) -(i*i);
-		remain = ceil(remain / i );
-
-		printf("%lld", 2 * i - 1 + remain);
-
-
-
+		temp--;
+		//최대거리는 n^2수대로  워프회수가 달라지고 나머지거리에서 이 최대거리를넘길수가 없어서 나눠서 떨어지면 그만큼 가고 딱 나눠서 떨어지지않으면 
+		//거리가 남았다는뜻이니 그만큼 +1더 움직이면  될것이다. 
+		long long  remain = (y - x) -(temp * temp);
+		remain = (long long)ceil((double)remain / (double)temp);
+		printf("%lld\n", 2 * temp - 1 + remain);
 	}
-
-
-
 }

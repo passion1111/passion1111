@@ -6,6 +6,7 @@ int main(void) {
 	int i = 0;
 	ArrayStack* Stack=NULL;
 	As_CreateStack(&Stack, 10);
+	printf("%d %d\n\n", sizeof(Stack),sizeof(*Stack));
 	As_Push(Stack, 1);
 	As_Push(Stack, 4);
 	As_Push(Stack, 5);

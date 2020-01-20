@@ -38,9 +38,9 @@ int main() {
 	printf("\nInserting 5252 After[2] \n\n");
 	Current = SLL_GetNodeAt(List, 2);
 	NewNode = SLL_CreateNode(5252);
-	SLL_InsertAfter(Current, NewNode);
+//	SLL_InsertAfter(Current, NewNode);
 	//다시출력
-	
+	SLL_InsertNewHead(&List, NewNode);
 	Count = SLL_GEtNodeCount(List);
 	for (int i = 0; i < Count; i++)
 	{
@@ -49,7 +49,7 @@ int main() {
 	}
 
 
-
+	
 	//메모리제거
 	printf("\n메모리제거 \n");
 	for (int i = 0; i < Count; i++) {

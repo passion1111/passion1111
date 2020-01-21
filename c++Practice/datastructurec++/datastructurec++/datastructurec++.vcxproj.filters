@@ -57,6 +57,9 @@
     <ClCompile Include="Test_ArrayStack.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="possitivegcd.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">

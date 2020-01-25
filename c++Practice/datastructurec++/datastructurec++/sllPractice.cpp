@@ -19,7 +19,8 @@ Node* sllcreatenode(int data) {
 
 
 void sllinsertnode(Node** list,Node* node) {
-	
+	*list;
+	**list;
 	if ( (*list) == NULL) {
 		(*list) = node;
 	}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <input type="text" value="" onkeyup="starttestdebounce()">
+    
+
+
+    <input type="text" value="" onkeyup="startstartthrottling()">
+</body>
+<script>
+var object={obj:"test"}
+var object2={obj:"test2"}
+var object3={obj:"tes3"}
+
+
+function test(ar){
+    console.log(this)
+    this.obj=ar;
+    
+
+
+}
+
+//편의상 settimeout은 주지않고  대략적인 사용방법을 익힌다.  call 개별 apply array
+test.call(object,"debounce1")
+console.log(object.obj)
+
+
+test.call(object2,"debounce2")
+console.log(object2.obj)
+
+
+
+
+function testdebounce(fn,d){
+    let context=this,
+        argument=arguments;
+    let timer;
+    return function(){
+
+    clearTimeout(timer);
+
+    timer=setTimeout(() => {
+    testdebounce2.apply(context,argument);
+}, d);
+    }
+
+}
+var counter=0;
+function testdebounce2(ar){
+    console.log("디바운스 시작!")
+    console.log(this)
+    console.log(ar);
+    console.log("쨰각째각 "+counter++);
+    console.log("디바운스끝입니다~~~");
+
+}
+
+var starttestdebounce=testdebounce(testdebounce2,100);
+document.getElementById
+function throttling(fn,d){
+    var isok=true,
+    executetime=0   //처음 시작했을떄 대비 
+    return function(){
+        let inthis=this,
+        argument=arguments;
+
+       
+
+        isok=( (Date.now()-executetime)>d  ||executetime==0 );
+        if(isok){
+            fn.apply(inthis,argument);
+            executetime=Date.now();
+        }
+
+        
+        function inthistest(){
+            console.log("인디스")
+        }
+       inthistest()
+        
+    }
+
+}
+var startstartthrottling=throttling(
+    function(e){
+        console.log("쓰로틀링시작")
+      
+        console.log(Date.now())
+        console.log("쓰로틀링 끝")
+    }
+     ,500)
+
+
+</script>
+
+
+
+</html>

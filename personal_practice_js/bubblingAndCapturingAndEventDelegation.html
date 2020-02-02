@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+div{
+    border: 1px black solid;
+    min-height: 100px;
+    min-width: 100px;
+    padding: 10px;
+}
+
+</style>
+<body>
+    <div id="grandparrent">
+        <div id="parrent">
+            <div id="child">
+
+            </div>
+
+        </div>
+
+    </div>
+<br><br>
+    <ul id="testdelegation">
+        <li id="book">book</li>
+        <li id="food">food</li>
+        <li id="note">note</li>
+    </ul>
+
+
+<script>
+//기본값 false 즉 버블링이 기본값  세번쨰인자 아무것도 안줄경우 false 
+//false 버블링 안에서 위로 
+//true 캡쳐링 밖에서 안으로 
+document.querySelector("#grandparrent").addEventListener("click",()=>{
+    console.log("가장 조상 클릭!")
+},false)
+document.querySelector("#parrent").addEventListener("click",(e)=>{
+    console.log("조상 클릭!")
+    e.stopPropagation();
+},false)
+
+document.querySelector("#child").addEventListener("click",()=>{
+    console.log("어린이 클릭!")
+},true)
+
+
+
+//ul에 이벤트 리스너를 등록함으로써 버블링이 발생하게된다. 왜? 세번쨰 인자값을 안줬으니까 false 
+//그래서 인자값에 e를 주게되면 click을 한 html에 접근할수있다. 
+//이 성질을 이용하여 상위 엘레먼트에 이벤트위임을 등록하면 하위 모든 요소에 
+// 이벤트를 등록하는 효과를 볼수있어서 유용하다 . 
+document.querySelector("#testdelegation").addEventListener("click",(e)=>{
+    console.log(e.target)
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

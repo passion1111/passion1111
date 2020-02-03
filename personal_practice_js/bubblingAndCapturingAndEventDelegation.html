@@ -39,8 +39,10 @@ div{
 //기본값 false 즉 버블링이 기본값  세번쨰인자 아무것도 안줄경우 false 
 //false 버블링 안에서 위로 
 //true 캡쳐링 밖에서 안으로 
-document.querySelector("#grandparrent").addEventListener("click",()=>{
+document.querySelector("#grandparrent").addEventListener("click",(e)=>{
     console.log("가장 조상 클릭!")
+    console.log(e.target)
+    
 },false)
 document.querySelector("#parrent").addEventListener("click",(e)=>{
     console.log("조상 클릭!")

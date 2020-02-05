@@ -66,6 +66,9 @@
     <ClCompile Include="sllPractice.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="testtypedef.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">

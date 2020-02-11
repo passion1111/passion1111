@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <a href="javascript:goSubmit2()"> test </a>
+</body>
+
+
+
+<script>
+function close(){
+    //window.opener.test.action="test555555555555.do";
+opener.name="isthisok";
+document.testfrm.target=window.opener.name;
+document.testfrm.submit();
+self.close();
+
+
+
+}
+
+
+function goSubmit2() {
+    window.opener.name = "parentPage"; // 부모창의 이름 설정
+ //   document.myForm.target = "parentPage"; // 타켓을 부모창으로 설정
+ console.dir(document);
+    document.myForm.action = "/what/goWhat.do";
+    document.myForm.submit();
+    self.close();
+}
+</script>
+</html> -->
+
+<!doctype html>
+
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>POPUP Window</title>
+
+</head>
+
+<script>
+
+function selfCloseSubmit()
+
+{
+
+    var f= document.forms.popupForm;
+
+    //document.domain = "127.0.0.1"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+
+    opener.name = "parentPage"; //유니크한 이름이어야 합니다.
+
+    f.target = opener.name;
+
+    f.submit();
+
+    self.close();
+
+}
+
+</script>
+
+<body>
+
+<a href="javascript:;" onclick="selfCloseSubmit();">부모창으로 서브밋하고 종료</a>
+
+<form name="popupForm" action="change.html">
+
+<input type="text" name="testValue" value="value123456789">
+
+</form>
+
+</body>
+
+</html>

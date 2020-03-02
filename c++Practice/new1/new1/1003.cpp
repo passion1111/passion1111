@@ -35,7 +35,7 @@ int main() {
 			fibonacci(temp);
 			printf("%d %d\n", DP[temp - 2], DP[temp - 1]);
 		}
-
+			
 
 	}
 

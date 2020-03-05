@@ -1,0 +1,14 @@
+﻿  Calculator.c
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(95,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(90): message : 'strcat' 선언을 참조하십시오.
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(96,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(90): message : 'strcat' 선언을 참조하십시오.
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(111,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(90): message : 'strcat' 선언을 참조하십시오.
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(124,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(90): message : 'strcat' 선언을 참조하십시오.
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(138,1): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(90): message : 'strcat' 선언을 참조하십시오.
+C:\Users\user\source\repos\StackCaluator\StackCaluator\Calculator.c(193,1): warning C4996: 'gcvt': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _gcvt. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(1316): message : 'gcvt' 선언을 참조하십시오.
+  StackCaluator.vcxproj -> C:\Users\user\source\repos\StackCaluator\Debug\StackCaluator.exe

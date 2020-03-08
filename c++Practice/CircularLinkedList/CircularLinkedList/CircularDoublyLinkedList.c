@@ -7,6 +7,7 @@ Node* CDLL_CreateNode(ElementType NewData) {
     NewNode->PrevNode = NULL;
 
 
+    
     return NewNode;
 }
 void  CDLL_DestroyNode(Node* Node) {

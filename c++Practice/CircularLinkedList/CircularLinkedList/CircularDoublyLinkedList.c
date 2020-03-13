@@ -6,7 +6,7 @@ Node* CDLL_CreateNode(ElementType NewData) {
     NewNode->NextNode = NULL;
     NewNode->PrevNode = NULL;
 
-
+     
     
     return NewNode;
 }

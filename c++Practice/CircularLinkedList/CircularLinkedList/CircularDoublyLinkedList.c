@@ -9,6 +9,7 @@ Node* CDLL_CreateNode(ElementType NewData) {
      
 
     
+
     
     return NewNode;
 }

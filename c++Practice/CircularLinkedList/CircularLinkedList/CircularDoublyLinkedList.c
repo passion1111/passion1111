@@ -14,6 +14,7 @@ Node* CDLL_CreateNode(ElementType NewData) {
     return NewNode;
 }
 void  CDLL_DestroyNode(Node* Node) {
+    
     free(Node);
 }
 void  CDLL_AppendNode(Node** Head, Node* NewNode) {

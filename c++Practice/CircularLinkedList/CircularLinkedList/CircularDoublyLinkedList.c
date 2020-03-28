@@ -110,5 +110,6 @@ void PrintNode(Node* _Node)
     if (_Node->NextNode == NULL)
         printf("Next: NULL\n");
     else
+
         printf("Next: %d\n", _Node->NextNode->Data);
 }

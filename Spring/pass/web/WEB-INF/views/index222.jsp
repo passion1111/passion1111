@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  2131231231231312
+  인텔리제이 익숙해지기
   </body>
 </html>

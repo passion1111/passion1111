@@ -112,5 +112,6 @@ void PrintNode(Node* _Node)
     else
 
 
+
         printf("Next: %d\n", _Node->NextNode->Data);
 }

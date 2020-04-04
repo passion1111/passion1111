@@ -58,7 +58,7 @@ function selfCloseSubmit()
 
     var f= document.forms.popupForm;
 
-   // document.domain = "127.0.0.1"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+    document.domain = "127.0.0.1"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
 
     opener.name = "parentPage"; //유니크한 이름이어야 합니다.
 

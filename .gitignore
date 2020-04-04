@@ -4,3 +4,4 @@
 .project
 target/
 .vs
+node_modules/

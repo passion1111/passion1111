@@ -20,7 +20,7 @@ public class testcontroller {
 
 
     @RequestMapping("/HelloWorld")
-    
+
     public ModelAndView firstPage() {
         return new ModelAndView("helloworld");
     }

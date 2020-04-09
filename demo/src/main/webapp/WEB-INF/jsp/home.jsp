@@ -7,6 +7,8 @@
     <title>Jsp page sample</title>
 </head>
 <body>
+${test}
+<br><br>
 
 jsp body sample
 etst22

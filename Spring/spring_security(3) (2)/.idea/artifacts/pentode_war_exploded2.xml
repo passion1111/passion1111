@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="pentode_war_exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/pentode_war_exploded</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="pentode:war exploded" />
+    </root>
+  </artifact>
+</component>

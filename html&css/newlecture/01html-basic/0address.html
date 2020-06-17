@@ -9,20 +9,111 @@
     <script src='main.js'></script>
     <style>
 
-a{
+/* a{
     color: black;
     text-decoration: none;
     cursor: unset;
-}
+} */
 
     </style>
 </head>
 <body>
-    <a href="test">test</a>
+
+    <a href="./다운로드 (1).jpg" download>test</a>
     <hr> <!--다른 내용이 나올것이다 -->
     <p><!--단락--></p>
     <address><!--주소--></address>
     <!--인용문-->
     <blockquote></blockquote>
+
+
+    <br>
+    책은 재미있다<hr>
+    맞아<br>
+
+    <ol start="5" type="a" reversed="reversed">
+        <li>사과</li>
+        <li>귤</li>
+        <li>포도</li>
+    </ol>
+
+    <span   ></span>
+    <br>
+    log<sub>2</sub>10<br>
+    2<sup>10</sup>
+<br>
+    <a href="http://www.naver.com" target="_blank">네이버</a>
+    <img src="./다운로드 (1).jpg" usemap="#test" width="100px" height="100px"/>
+    <map name="test">
+
+        <area shape="circle" coords="20,50,20" href="https://www.naver.com" target="_blank">
+
+    </map>
+    <a target="내이름" href="https:www.naver.com">내</a>
+    <iframe src="https://www.naver.com" srcdoc="하하하" name="내이름" width="300px"></iframe>
+    <table border="1"><caption>test</caption><tr><th>테스트</th></tr></table>
+
+    <br>
+    <table>
+        <colgroup>
+            <col style="background-color: lightgreen">
+            <col span="2" style="background-color: yellow">
+        </colgroup>
+        <tr>
+            <th>학번</th>
+            <th>이름</th>
+            <th>학과</th>
+        </tr>
+        
+    </table>
+    <button name="test" value="test22">test</button>
+    <table border="1"><tr><td colspan="2">테스트</td></tr><tr><td>test1</td><td>test2</td></tr></table>
+<br><br>
+<input type="text" name="test" list="testlist">  <datalist id="testlist"> 
+    <option value="초기값"></option> 
+  </datalist> 
+
+
+
+  <form action="/examples/media/action_target.php" method="get">
+    <fieldset form="form">
+        
+        이름 : <input type="text" name="st_name"><br>
+        학번 : <input type="text" name="st_id"><br>
+        학과 : <input type="text" name="department"><br>
+        <button type="submit">제출하기</button>
+    </fieldset>
+
+
+   <form action="/test" method="post" >
+<fieldset  disabled> <input type="text" name="formname"> </fieldset> </form> 
+</form>
+
+
+<form action="/testform" method="post"><fieldset><legend>폼이름</legend><input type="text" name="textname"> <input type="submit" value="보내기">  </fieldset> </form>
+<input type="password" name="pwd"> 
+
+
+
+
+
+<label for="test"> 테스트입력</labe> <input type="text" name="j" id="test">
+
+
+    <select> <option value="test">test"</option></select>
+
+
+
+    <select><option value="2" selected="selected">선택</option></select>
+    <select>
+        <optgroup >
+            <option value="americano">아메리카노</option>
+            <option value="caffe latte">카페라떼</option>
+            <option value="espresso">에스프레소</option>
+        </optgroup>
+        
+    </select>
+
+
 </body>
 </html>

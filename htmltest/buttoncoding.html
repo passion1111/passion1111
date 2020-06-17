@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+.btn{
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    margin: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    transition:all 0.1s;
+    text-shadow: 0px -3px rgb(0, 0, 0.4);
+}
+.btn:active{
+    transform: translateY(3px);
+}
+.btn.blue{
+    border-bottom:5px solid  rgba(2, 25, 155, 0.651);
+    background-color: rgba(0, 38, 255, 0.808);
+}
+.btn.blue:active{
+    border-bottom:2px solid rgba(2, 25, 155, 0.651);
+}
+
+.wrapper{
+text-align: center;
+}
+ul.pagination{
+ display: inline-block;
+ list-style: none;
+ text-align:center;
+}
+
+li.pagination{
+display: block;
+ float: left;
+ padding: 10px;
+ 
+}
+a.pagination{
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <a href="#blue" class="btn blue">blue</a>
+    <a href="#red" class="btn red">red</a>
+
+
+    <div class="wrapper">
+        <ul class="pagination">
+            <li class="pagination li"><a href="faprev" class="pagination alink imo"><<</a></li>
+            <li class="pagination li"><a href="prev" class="pagination alink imo"><</a></li>
+            <li class="pagination li"><a href="1" class="pagination alink">1</a></li>
+            <li class="pagination li"><a href="2" class="pagination alink">2</a></li>
+            <li class="pagination li"><a href="3" class="pagination alink ">3</a></li>
+            <li class="pagination li"><a href="4" class="pagination alink">4</a></li>
+            <li class="pagination li"><a href="5" class="pagination alink">5</a></li>
+            <li class="pagination li"><a href="6" class="pagination alink active">6</a></li>
+            <li class="pagination li"><a href="7" class="pagination alink">7</a></li>
+            <li class="pagination li"><a href="8" class="pagination alink">8</a></li>
+            <li class="pagination li"><a href="9" class="pagination alink">9</a></li>
+            <li class="pagination li"><a href="10" class="pagination alink">10</a></li>
+            <li class="pagination li"><a href="next" class="pagination alink imo">></a></li>
+            <li class="pagination li"><a href="fanext" class="pagination alink imo">>></a></li>
+        </ul>
+
+
+    </div>
+
+
+    <div class="mobile"></div>
+<script>
+let test=document.querySelector(".wrapper");
+test.addEventListener("click",function(e){
+e.preventDefault();
+console.log(e.target.tagName)
+if(e.target.tagName=="LI" || e.target.tagName=="A"){
+    var targetpage=e.target.textContent;
+    test2(targetpage)
+}
+})
+
+
+function test2(targetpage){
+   let alinkcount= document.querySelectorAll(".wrapper ul li a:not(.imo)").textContent
+   let firstalink=document.querySelector(".wrapper ul li a:not(.imo):first-child").textContent
+   let currentpage=document.querySelector(".wrapper ul li a.active").textContent
+   let ismobile=window.matchMedia("(max-width:1200px)").matches;
+    
+   mobilepagination(alinkcount,currentpage,ismobile,targetpage)
+   
+    // console.log(alinkcount)
+    // console.log(firstalink.textContent)
+    // console.log(currentpage.textContent)
+    // console.log(window.matchMedia("(max-width:1200px)").matches)
+
+}
+
+
+
+function mobilepagination(linkcounter,currentpage,ismobile,targetpage){
+
+// targetpage prop값으로 확인 prev이면 start-1  next면 last+1 faprev이면 1 fanext면 total
+
+
+//Math.floor((total-1)/3)  +1
+let startpage=1;
+let endpage=1; 
+
+let totalreply=14
+let totalpage= Math.floor((totalreply-1)/3 )+1;
+
+
+
+// 1~10  targetpage/3 startpage 
+
+
+//prev이나 next일떄 
+//방법1
+ endpage= (Math.floor( (currentpage -1)/3) +1)*3;    
+ startpage =endpage-3 +1 
+
+//방법2
+// last+1
+// startpage+3-1   
+
+
+//pprev이나 nnext일떄
+
+if(targetpage=="<<"){
+    startpage=1;
+    endpage=1*3;
+}else if(targetpage==">>"){
+    endpage=totalpage;
+  if(totalpage>=3){
+      startpage=endpage-3+1;
+  }else{
+      startpage= 1;
+  }
+
+
+}
+
+var html=""
+var lilist=""
+if(linkcounter>=3 ||ismobile){
+
+    for (let index = startpage; index <= endpage; index++) {
+    lilist+=`    
+        <li class="pagination li"><a href="${index}" class="pagination alink">${index}</a></li>
+        `
+    }
+
+
+html+=
+    `
+<ul class="pagination">
+            <li class="pagination li"><a href="faprev" class="pagination alink imo"><<</a></li>
+            <li class="pagination li"><a href="prev" class="pagination alink imo"><</a></li>
+            `+
+            lilist
+
+          +`  <li class="pagination li"><a href="next" class="pagination alink imo">></a></li>
+            <li class="pagination li"><a href="fanext" class="pagination alink imo">>></a></li>
+        </ul>
+`
+}
+console.log(html)
+}
+
+</script>
+</body>
+</html>

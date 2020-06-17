@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.todo{
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: red;
+    position: relative;
+}
+
+.text{
+    background-color: white;
+    text-align: center;
+}
+.input{
+    position: absolute;
+    bottom: 0;
+    font-size: 0px;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.main{
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+}
+.content{
+    background-color: tomato;
+    min-height: 30px;
+
+}
+.main .content span{
+    float: right;
+    margin-right: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="todo">
+        <div class="text">Todo List</div>
+        <div class="input">
+            <input type="text" name="insert" id="insert"> 
+            <input type="button" value="삽입">
+
+        </div>
+
+    </div>
+    <div class="main">
+        
+    </div>
+<script>
+
+    let insertElement= document.querySelector('#insert+input[type=button]')
+    let maincontent=document.querySelector('.main')
+    maincontent.addEventListener('click',function(e){
+        console.log(e.target)
+       if(e.target.textContent =='삭제'){
+           document.querySelector('.main').removeChild(e.target.parentNode)
+       return;
+        }
+        if(e.target.textContent=="수정"){
+            let storeparent=e.target.parentNode
+            let storetext=storeparent.firstChild.textContent
+            storeparent.firstChild.textContent=""
+            html=`<input type="text" value=${storetext}> <input type="button" value="수정완료">` 
+            console.dir(storeparent)
+            // storeparent.innerHTML(html)
+            storeparent.innerHTML=html
+            // storeparent.insertBefore(html, storeparent.firstElementChild)
+        }
+        if(e.target.value=="수정완료"){
+            console.log(e.target.previousElementSibling)
+            let storeparent=e.target.parentNode
+            storeparent.innerHTML=`${e.target.previousElementSibling.value} <span class="modify">수정</span><span class="delete">삭제</span>`
+        }
+       
+    })
+
+   insertElement.addEventListener('click',insertData)
+
+
+   function insertData(){
+    let validate=document.getElementById('insert').value
+    if(validate =="" || validate==null) return;
+    let createchild=document.createElement('div');
+    createchild.setAttribute('class','content');
+
+    let createText= document.createTextNode(validate);
+    createchild.appendChild(createText)
+
+
+
+    let createchildspanmodify=document.createElement('span')
+    createchildspanmodify.setAttribute('class','modify')
+    let createModifyText= document.createTextNode('수정');
+    createchildspanmodify.appendChild(createModifyText)
+
+
+    let createchildspandelete=document.createElement('span');
+    createchildspandelete.setAttribute('class','delete')
+    let createDeleteText=document.createTextNode('삭제')
+    createchildspandelete.appendChild(createDeleteText)
+
+    createchild.appendChild(createchildspanmodify)
+    createchild.appendChild(createchildspandelete)
+
+
+    document.querySelector('.main').appendChild(createchild)
+
+
+   }
+
+</script>
+</body>
+</html>

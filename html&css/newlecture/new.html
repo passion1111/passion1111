@@ -15,4 +15,121 @@
     <!-- 웹표준에 좋지않은 예제 -->
     <a href="#" onclick='window.open("","","")'>go naver</a>
 </body>
+
+<script>
+let array=[[1,0,0,0,0] ,
+            [0,0,0,0,0] ,
+            [0,0,1,0,0] ,
+            [0,0,0,0,0] ,
+            [0,1,0,0,0] 
+            ]
+let isVisit=[[0,0,0,0,0] ,
+            [0,0,0,0,0] ,
+            [0,0,0,0,0] ,
+            [0,0,0,0,0] ,
+            [0,0,0,0,0] 
+            ]
+
+
+function directCheck(positionX,positionY){
+
+    if(array[positionY][positionX]==1){
+        return console.log("게임 종료")
+     }
+checkzi(positionX,positionY);
+
+
+}
+
+console.log(array);
+
+
+function checkzi(positionX,positionY){
+if( isVisit[positionY][positionX]==1){
+    return;
+}
+//값
+isVisit[positionY][positionX]=1
+    if(positionY >=0 && positionY < array.length && positionX >=0 &&positionX <array.length
+    ){
+
+        if(positionY-1>=0) checkzi(positionY-1,positionX)
+        if(positionX-1>=0) checkzi(positionY,positionX-1)
+        if(positionY+1<array.length) checkzi(positionY+1,positionX)
+        if(positionX+1<array.length) checkzi(positionY,positionX+1)
+
+
+        if(positionY-1>=0){
+            if(positionX-1>=0){
+                checkzi(positionY-1,positionX);
+                checkzi(positionY,positionX-1);
+                if(positionY+1 < array.length){
+                    
+                }else{
+
+                }
+            }else{
+                checkzi(positionY-1,positionX)
+            }
+            checkzi(positionY-1,positionX)
+        }else{
+
+
+
+
+        }
+    }
+
+    return;
+
+
+
+
+
+}
+
+
+function isZerofull(positionY,positionX){
+    let counter=0;
+    let canmove=canMoveCount(positionY,positionX)
+    if(positionX-1<0 && array[positionY][positionX-1]==0) counter++;
+    if(positionY-1<0 && array[positionY-1][positionX]==0) counter++;
+    if(positionX+1<array.length && array[positionY][positionX+1]==0) counter++;
+    if(positionY+1<array.length && array[positionY+1][positionX]==0) counter++;
+    if(positionX-1<0 && positionY-1<0 && array[positionY-1][positionX-1]) counter++;
+    if(positionX+1<array.length&& positionY-1<0 && array[positionY-1][positionX+1]) counter++;
+    if(positionX-1<0 && positionY+1<array.length && array[positionY+1][positionX-1]) counter++;
+    if(positionX+1<array.length&& positionY+1<array.length && array[positionY+1][positionX+1]) counter++;
+    
+
+    if(counter==canmove) return true;
+    return false;
+    // if(positionX-1<0){
+    //     // X-1 X+1로 갈수 있을떄 
+    //   if(positionX+1<array.length){
+    //      if(positionY-1<0){
+    //          if(positionY+1<array.length){
+
+             
+    //          }
+    //      }
+    //   }
+    // }
+
+
+}
+function canMoveCount(positionY,positionX){
+    let counter=0;
+    if(positionX-1<0) counter++;
+    if(positionY-1<0 ) counter++;
+    if(positionX+1<array.length ) counter++;
+    if(positionY+1<array.length ) counter++;
+    if(positionX-1<0 && positionY-1<0 ) counter++;
+    if(positionX+1<array.length&& positionY-1<0 ) counter++;
+    if(positionX-1<0 && positionY+1<array.length) counter++;
+    if(positionX+1<array.length&& positionY+1<array.length ) counter++;
+    return counter;
+}
+
+</script>
 </html> 

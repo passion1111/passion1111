@@ -1,0 +1,72 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: green;
+}
+
+header{
+   
+    height: 100px;
+    background-color: grey;
+}
+
+.content{
+    
+   margin: 0 auto;
+   width: 500px;
+    max-width: 1800px;
+    height: 500px;
+   
+    max-width: 1200px;
+    background-color: honeydew;
+    font-size: 0px;
+  
+    
+}
+
+.content .nav{
+    font-size: 1rem;
+    background-color: hotpink;
+    
+    height: 100%;
+    width: 30%;
+    vertical-align: top;
+    float: left;
+}
+.content .nav ul{
+    background-color: red;
+    
+    height: 100%;
+ 
+}
+.content .nav li{
+    list-style: none;
+    background-color: aqua;  
+    margin-bottom: 10px;
+}
+.content .main{
+    font-size: 1rem;
+    background-color: indigo;
+  
+    height: 100%;
+
+    width: 70%;
+    float: left;
+}
+
+footer{
+    
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:900px){
+
+}

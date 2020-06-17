@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class testcontroller {
 
     @RequestMapping(value = "/")
-    public String test(Model model){
-        model.addAttribute("test","string");
+    public String test(Model model) {
+        model.addAttribute("test", "string");
         return "home";
     }
 
